@@ -1,1 +1,1 @@
-# oranjepi-zero-frontpanel-development
+# Development repositoy for lib-localconfig
