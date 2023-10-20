@@ -1,0 +1,2482 @@
+In archive lib/libdmx.a:
+
+dmxparamsconst.o:     file format elf32-littlearm
+
+
+Disassembly of section .rodata:
+
+00000000 <DmxParamsConst::SLOTS_COUNT>:
+   0:	746f6c73 	strbtvc	r6, [pc], #-3187	; 8 <DmxParamsConst::SLOTS_COUNT+0x8>
+   4:	6f635f73 	svcvs	0x00635f73
+   8:	00746e75 	rsbseq	r6, r4, r5, ror lr
+
+0000000c <DmxParamsConst::REFRESH_RATE>:
+   c:	72666572 	rsbvc	r6, r6, #478150656	; 0x1c800000
+  10:	5f687365 	svcpl	0x00687365
+  14:	65746172 	ldrbvs	r6, [r4, #-370]!	; 0xfffffe8e
+  18:	00000000 	andeq	r0, r0, r0
+
+0000001c <DmxParamsConst::MAB_TIME>:
+  1c:	5f62616d 	svcpl	0x0062616d
+  20:	656d6974 	strbvs	r6, [sp, #-2420]!	; 0xfffff68c
+  24:	00000000 	andeq	r0, r0, r0
+
+00000028 <DmxParamsConst::BREAK_TIME>:
+  28:	61657262 	cmnvs	r5, r2, ror #4
+  2c:	69745f6b 	ldmdbvs	r4!, {r0, r1, r3, r5, r6, r8, r9, sl, fp, ip, lr}^
+  30:	0000656d 	andeq	r6, r0, sp, ror #10
+
+00000034 <DmxParamsConst::FILE_NAME>:
+  34:	61726170 	cmnvs	r2, r0, ror r1
+  38:	742e736d 	strtvc	r7, [lr], #-877	; 0xfffffc93
+  3c:	Address 0x000000000000003c is out of bounds.
+
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	; 0x3700
+   4:	4728203a 			; <UNDEFINED> instruction: 0x4728203a
+   8:	2029554e 	eorcs	r5, r9, lr, asr #10
+   c:	332e3031 			; <UNDEFINED> instruction: 0x332e3031
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00003b41 	andeq	r3, r0, r1, asr #22
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000031 	andeq	r0, r0, r1, lsr r0
+  10:	4d524105 	ldfmie	f4, [r2, #-20]	; 0xffffffec
+  14:	36373131 			; <UNDEFINED> instruction: 0x36373131
+  18:	2d465a4a 	vstrcs	s11, [r6, #-296]	; 0xfffffed8
+  1c:	07060053 	smlsdeq	r6, r3, r0, r0
+  20:	01090108 	tsteq	r9, r8, lsl #2
+  24:	0412020a 	ldreq	r0, [r2], #-522	; 0xfffffdf6
+  28:	01150114 	tsteq	r5, r4, lsl r1
+  2c:	01180317 	tsteq	r8, r7, lsl r3
+  30:	011a0119 	tsteq	sl, r9, lsl r1
+  34:	021e011c 	andseq	r0, lr, #28, 2
+  38:	01440122 	cmpeq	r4, r2, lsr #2
+
+dmxparams.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]>:
+   0:	e92d4037 	push	{r0, r1, r2, r4, r5, lr}
+   4:	e1d0c0b6 	ldrh	ip, [r0, #6]
+   8:	e1d050b4 	ldrh	r5, [r0, #4]
+   c:	e15c0005 	cmp	ip, r5
+  10:	2a00001c 	bcs	88 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]+0x88>
+  14:	e1a04000 	mov	r4, r0
+  18:	e5900000 	ldr	r0, [r0]
+  1c:	e3530000 	cmp	r3, #0
+  20:	e080000c 	add	r0, r0, ip
+  24:	e045500c 	sub	r5, r5, ip
+  28:	e5d4c008 	ldrb	ip, [r4, #8]
+  2c:	1a000002 	bne	3c <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]+0x3c>
+  30:	e35c0000 	cmp	ip, #0
+  34:	1a000002 	bne	44 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]+0x44>
+  38:	ea000009 	b	64 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]+0x64>
+  3c:	e35c0000 	cmp	ip, #0
+  40:	0a000003 	beq	54 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]+0x54>
+  44:	e58d2000 	str	r2, [sp]
+  48:	e1a03001 	mov	r3, r1
+  4c:	e59f203c 	ldr	r2, [pc, #60]	; 90 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]+0x90>
+  50:	ea000006 	b	70 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]+0x70>
+  54:	e58d2000 	str	r2, [sp]
+  58:	e1a03001 	mov	r3, r1
+  5c:	e59f2030 	ldr	r2, [pc, #48]	; 94 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]+0x94>
+  60:	ea000002 	b	70 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]+0x70>
+  64:	e1a03001 	mov	r3, r1
+  68:	e58d2000 	str	r2, [sp]
+  6c:	e59f2024 	ldr	r2, [pc, #36]	; 98 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]+0x98>
+  70:	e1a01005 	mov	r1, r5
+  74:	ebfffffe 	bl	0 <snprintf>
+  78:	e1550000 	cmp	r5, r0
+  7c:	a1d430b6 	ldrhge	r3, [r4, #6]
+  80:	a0830000 	addge	r0, r3, r0
+  84:	a1c400b6 	strhge	r0, [r4, #6]
+  88:	e28dd00c 	add	sp, sp, #12
+  8c:	e8bd8030 	pop	{r4, r5, pc}
+  90:	00000000 	andeq	r0, r0, r0
+  94:	00000009 	andeq	r0, r0, r9
+  98:	00000010 	andeq	r0, r0, r0, lsl r0
+
+0000009c <DmxParams::DmxParams(DmxParamsStore*)>:
+  9c:	e5801000 	str	r1, [r0]
+  a0:	e3a01000 	mov	r1, #0
+  a4:	e59f200c 	ldr	r2, [pc, #12]	; b8 <DmxParams::DmxParams(DmxParamsStore*)+0x1c>
+  a8:	e9800006 	stmib	r0, {r1, r2}
+  ac:	e3e020d7 	mvn	r2, #215	; 0xd7
+  b0:	e1c020bc 	strh	r2, [r0, #12]
+  b4:	e12fff1e 	bx	lr
+  b8:	000c00b0 	strheq	r0, [ip], -r0	; <UNPREDICTABLE>
+
+000000bc <DmxParams::Load()>:
+  bc:	e3a03000 	mov	r3, #0
+  c0:	e92d4037 	push	{r0, r1, r2, r4, r5, lr}
+  c4:	e1a02000 	mov	r2, r0
+  c8:	e5803004 	str	r3, [r0, #4]
+  cc:	e1a04000 	mov	r4, r0
+  d0:	e59f1068 	ldr	r1, [pc, #104]	; 140 <DmxParams::Load()+0x84>
+  d4:	e1a0000d 	mov	r0, sp
+  d8:	ebfffffe 	bl	0 <ReadConfigFile::ReadConfigFile(void (*)(void*, char const*), void*)>
+  dc:	e1a0000d 	mov	r0, sp
+  e0:	e59f105c 	ldr	r1, [pc, #92]	; 144 <DmxParams::Load()+0x88>
+  e4:	ebfffffe 	bl	0 <ReadConfigFile::Read(char const*)>
+  e8:	e2505000 	subs	r5, r0, #0
+  ec:	e5940000 	ldr	r0, [r4]
+  f0:	0a000006 	beq	110 <DmxParams::Load()+0x54>
+  f4:	e3500000 	cmp	r0, #0
+  f8:	0a00000b 	beq	12c <DmxParams::Load()+0x70>
+  fc:	e5903000 	ldr	r3, [r0]
+ 100:	e2841004 	add	r1, r4, #4
+ 104:	e5933008 	ldr	r3, [r3, #8]
+ 108:	e12fff33 	blx	r3
+ 10c:	ea000006 	b	12c <DmxParams::Load()+0x70>
+ 110:	e3500000 	cmp	r0, #0
+ 114:	0a000004 	beq	12c <DmxParams::Load()+0x70>
+ 118:	e5903000 	ldr	r3, [r0]
+ 11c:	e2841004 	add	r1, r4, #4
+ 120:	e593300c 	ldr	r3, [r3, #12]
+ 124:	e12fff33 	blx	r3
+ 128:	e3a05001 	mov	r5, #1
+ 12c:	e1a0000d 	mov	r0, sp
+ 130:	ebfffffe 	bl	0 <ReadConfigFile::~ReadConfigFile()>
+ 134:	e1a00005 	mov	r0, r5
+ 138:	e28dd00c 	add	sp, sp, #12
+ 13c:	e8bd8030 	pop	{r4, r5, pc}
+	...
+
+00000148 <DmxParams::Load(char const*, unsigned long)>:
+ 148:	e3a03000 	mov	r3, #0
+ 14c:	e92d4073 	push	{r0, r1, r4, r5, r6, lr}
+ 150:	e1a05001 	mov	r5, r1
+ 154:	e1a06002 	mov	r6, r2
+ 158:	e1a04000 	mov	r4, r0
+ 15c:	e5803004 	str	r3, [r0, #4]
+ 160:	e1a02000 	mov	r2, r0
+ 164:	e59f1038 	ldr	r1, [pc, #56]	; 1a4 <DmxParams::Load(char const*, unsigned long)+0x5c>
+ 168:	e1a0000d 	mov	r0, sp
+ 16c:	ebfffffe 	bl	0 <ReadConfigFile::ReadConfigFile(void (*)(void*, char const*), void*)>
+ 170:	e1a02006 	mov	r2, r6
+ 174:	e1a01005 	mov	r1, r5
+ 178:	e1a0000d 	mov	r0, sp
+ 17c:	ebfffffe 	bl	0 <ReadConfigFile::Read(char const*, unsigned int)>
+ 180:	e1a01004 	mov	r1, r4
+ 184:	e4910004 	ldr	r0, [r1], #4
+ 188:	e5903000 	ldr	r3, [r0]
+ 18c:	e5933008 	ldr	r3, [r3, #8]
+ 190:	e12fff33 	blx	r3
+ 194:	e1a0000d 	mov	r0, sp
+ 198:	ebfffffe 	bl	0 <ReadConfigFile::~ReadConfigFile()>
+ 19c:	e28dd008 	add	sp, sp, #8
+ 1a0:	e8bd8070 	pop	{r4, r5, r6, pc}
+ 1a4:	00000000 	andeq	r0, r0, r0
+
+000001a8 <DmxParams::callbackFunction(char const*)>:
+ 1a8:	e92d4037 	push	{r0, r1, r2, r4, r5, lr}
+ 1ac:	e1a05001 	mov	r5, r1
+ 1b0:	e1a04000 	mov	r4, r0
+ 1b4:	e59f1100 	ldr	r1, [pc, #256]	; 2bc <DmxParams::callbackFunction(char const*)+0x114>
+ 1b8:	e1a00005 	mov	r0, r5
+ 1bc:	e28d2006 	add	r2, sp, #6
+ 1c0:	ebfffffe 	bl	0 <Sscan::Uint16(char const*, char const*, unsigned short&)>
+ 1c4:	e3500000 	cmp	r0, #0
+ 1c8:	1a000009 	bne	1f4 <DmxParams::callbackFunction(char const*)+0x4c>
+ 1cc:	e1dd20b6 	ldrh	r2, [sp, #6]
+ 1d0:	e5943004 	ldr	r3, [r4, #4]
+ 1d4:	e35200b0 	cmp	r2, #176	; 0xb0
+ 1d8:	1352005b 	cmpne	r2, #91	; 0x5b
+ 1dc:	93a020b0 	movls	r2, #176	; 0xb0
+ 1e0:	81c420b8 	strhhi	r2, [r4, #8]
+ 1e4:	83833001 	orrhi	r3, r3, #1
+ 1e8:	91c420b8 	strhls	r2, [r4, #8]
+ 1ec:	93c33001 	bicls	r3, r3, #1
+ 1f0:	ea00002e 	b	2b0 <DmxParams::callbackFunction(char const*)+0x108>
+ 1f4:	e1a00005 	mov	r0, r5
+ 1f8:	e59f10c0 	ldr	r1, [pc, #192]	; 2c0 <DmxParams::callbackFunction(char const*)+0x118>
+ 1fc:	e28d2006 	add	r2, sp, #6
+ 200:	ebfffffe 	bl	0 <Sscan::Uint16(char const*, char const*, unsigned short&)>
+ 204:	e3500000 	cmp	r0, #0
+ 208:	1a000008 	bne	230 <DmxParams::callbackFunction(char const*)+0x88>
+ 20c:	e1dd20b6 	ldrh	r2, [sp, #6]
+ 210:	e5943004 	ldr	r3, [r4, #4]
+ 214:	e352000c 	cmp	r2, #12
+ 218:	93a0200c 	movls	r2, #12
+ 21c:	81c420ba 	strhhi	r2, [r4, #10]
+ 220:	83833002 	orrhi	r3, r3, #2
+ 224:	91c420ba 	strhls	r2, [r4, #10]
+ 228:	93c33002 	bicls	r3, r3, #2
+ 22c:	ea00001f 	b	2b0 <DmxParams::callbackFunction(char const*)+0x108>
+ 230:	e1a00005 	mov	r0, r5
+ 234:	e59f1088 	ldr	r1, [pc, #136]	; 2c4 <DmxParams::callbackFunction(char const*)+0x11c>
+ 238:	e28d2005 	add	r2, sp, #5
+ 23c:	ebfffffe 	bl	0 <Sscan::Uint8(char const*, char const*, unsigned char&)>
+ 240:	e3500000 	cmp	r0, #0
+ 244:	1a000006 	bne	264 <DmxParams::callbackFunction(char const*)+0xbc>
+ 248:	e5dd2005 	ldrb	r2, [sp, #5]
+ 24c:	e5943004 	ldr	r3, [r4, #4]
+ 250:	e3520028 	cmp	r2, #40	; 0x28
+ 254:	e5c4200c 	strb	r2, [r4, #12]
+ 258:	13833004 	orrne	r3, r3, #4
+ 25c:	03c33004 	biceq	r3, r3, #4
+ 260:	ea000012 	b	2b0 <DmxParams::callbackFunction(char const*)+0x108>
+ 264:	e1a00005 	mov	r0, r5
+ 268:	e59f1058 	ldr	r1, [pc, #88]	; 2c8 <DmxParams::callbackFunction(char const*)+0x120>
+ 26c:	e28d2006 	add	r2, sp, #6
+ 270:	ebfffffe 	bl	0 <Sscan::Uint16(char const*, char const*, unsigned short&)>
+ 274:	e3500000 	cmp	r0, #0
+ 278:	1a00000d 	bne	2b4 <DmxParams::callbackFunction(char const*)+0x10c>
+ 27c:	e1dd20b6 	ldrh	r2, [sp, #6]
+ 280:	e59f0044 	ldr	r0, [pc, #68]	; 2cc <DmxParams::callbackFunction(char const*)+0x124>
+ 284:	e2421002 	sub	r1, r2, #2
+ 288:	e6ff1071 	uxth	r1, r1
+ 28c:	e1510000 	cmp	r1, r0
+ 290:	83e02000 	mvnhi	r2, #0
+ 294:	e5943004 	ldr	r3, [r4, #4]
+ 298:	91a020a2 	lsrls	r2, r2, #1
+ 29c:	92422001 	subls	r2, r2, #1
+ 2a0:	95c4200d 	strbls	r2, [r4, #13]
+ 2a4:	93833008 	orrls	r3, r3, #8
+ 2a8:	85c4200d 	strbhi	r2, [r4, #13]
+ 2ac:	83c33008 	bichi	r3, r3, #8
+ 2b0:	e5843004 	str	r3, [r4, #4]
+ 2b4:	e28dd00c 	add	sp, sp, #12
+ 2b8:	e8bd8030 	pop	{r4, r5, pc}
+	...
+ 2cc:	000001fd 	strdeq	r0, [r0], -sp
+
+000002d0 <DmxParams::staticCallbackFunction(void*, char const*)>:
+ 2d0:	eafffffe 	b	1a8 <DmxParams::callbackFunction(char const*)>
+
+000002d4 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)>:
+ 2d4:	e92d4030 	push	{r4, r5, lr}
+ 2d8:	e280c004 	add	ip, r0, #4
+ 2dc:	e1a04000 	mov	r4, r0
+ 2e0:	e2510000 	subs	r0, r1, #0
+ 2e4:	e24dd024 	sub	sp, sp, #36	; 0x24
+ 2e8:	0a000006 	beq	308 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x34>
+ 2ec:	e5901000 	ldr	r1, [r0]
+ 2f0:	e5841004 	str	r1, [r4, #4]
+ 2f4:	e5901004 	ldr	r1, [r0, #4]
+ 2f8:	e58c1004 	str	r1, [ip, #4]
+ 2fc:	e1d010b8 	ldrh	r1, [r0, #8]
+ 300:	e1cc10b8 	strh	r1, [ip, #8]
+ 304:	ea000006 	b	324 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x50>
+ 308:	e5940000 	ldr	r0, [r4]
+ 30c:	e1cd20f8 	strd	r2, [sp, #8]
+ 310:	e5901000 	ldr	r1, [r0]
+ 314:	e591500c 	ldr	r5, [r1, #12]
+ 318:	e1a0100c 	mov	r1, ip
+ 31c:	e12fff35 	blx	r5
+ 320:	e1cd20d8 	ldrd	r2, [sp, #8]
+ 324:	e59f1130 	ldr	r1, [pc, #304]	; 45c <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x188>
+ 328:	e28d0014 	add	r0, sp, #20
+ 32c:	ebfffffe 	bl	0 <PropertiesBuilder::PropertiesBuilder(char const*, char*, unsigned long)>
+ 330:	e5943004 	ldr	r3, [r4, #4]
+ 334:	e1d420b8 	ldrh	r2, [r4, #8]
+ 338:	e59f1120 	ldr	r1, [pc, #288]	; 460 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x18c>
+ 33c:	e2033001 	and	r3, r3, #1
+ 340:	e28d0014 	add	r0, sp, #20
+ 344:	ebffff2d 	bl	0 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]>
+ 348:	e5943004 	ldr	r3, [r4, #4]
+ 34c:	e59f1110 	ldr	r1, [pc, #272]	; 464 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x190>
+ 350:	e1a030a3 	lsr	r3, r3, #1
+ 354:	e1d420ba 	ldrh	r2, [r4, #10]
+ 358:	e2033001 	and	r3, r3, #1
+ 35c:	e28d0014 	add	r0, sp, #20
+ 360:	ebffff26 	bl	0 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]>
+ 364:	e1dd11ba 	ldrh	r1, [sp, #26]
+ 368:	e1dd51b8 	ldrh	r5, [sp, #24]
+ 36c:	e1510005 	cmp	r1, r5
+ 370:	2a00001d 	bcs	3ec <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x118>
+ 374:	e59d0014 	ldr	r0, [sp, #20]
+ 378:	e0455001 	sub	r5, r5, r1
+ 37c:	e0800001 	add	r0, r0, r1
+ 380:	e5941004 	ldr	r1, [r4, #4]
+ 384:	e5dd201c 	ldrb	r2, [sp, #28]
+ 388:	e3110004 	tst	r1, #4
+ 38c:	e5d4300c 	ldrb	r3, [r4, #12]
+ 390:	1a000002 	bne	3a0 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0xcc>
+ 394:	e3520000 	cmp	r2, #0
+ 398:	1a000002 	bne	3a8 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0xd4>
+ 39c:	ea000009 	b	3c8 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0xf4>
+ 3a0:	e3520000 	cmp	r2, #0
+ 3a4:	0a000003 	beq	3b8 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0xe4>
+ 3a8:	e58d3000 	str	r3, [sp]
+ 3ac:	e59f20b4 	ldr	r2, [pc, #180]	; 468 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x194>
+ 3b0:	e59f30b4 	ldr	r3, [pc, #180]	; 46c <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x198>
+ 3b4:	ea000006 	b	3d4 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x100>
+ 3b8:	e58d3000 	str	r3, [sp]
+ 3bc:	e59f20ac 	ldr	r2, [pc, #172]	; 470 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x19c>
+ 3c0:	e59f30a4 	ldr	r3, [pc, #164]	; 46c <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x198>
+ 3c4:	ea000002 	b	3d4 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x100>
+ 3c8:	e58d3000 	str	r3, [sp]
+ 3cc:	e59f20a0 	ldr	r2, [pc, #160]	; 474 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x1a0>
+ 3d0:	e59f3094 	ldr	r3, [pc, #148]	; 46c <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x198>
+ 3d4:	e1a01005 	mov	r1, r5
+ 3d8:	ebfffffe 	bl	0 <snprintf>
+ 3dc:	e1550000 	cmp	r5, r0
+ 3e0:	a1dd31ba 	ldrhge	r3, [sp, #26]
+ 3e4:	a0830000 	addge	r0, r3, r0
+ 3e8:	a1cd01ba 	strhge	r0, [sp, #26]
+ 3ec:	e5943004 	ldr	r3, [r4, #4]
+ 3f0:	e5d4200d 	ldrb	r2, [r4, #13]
+ 3f4:	e1a031a3 	lsr	r3, r3, #3
+ 3f8:	e2822001 	add	r2, r2, #1
+ 3fc:	e2033001 	and	r3, r3, #1
+ 400:	e59f1070 	ldr	r1, [pc, #112]	; 478 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x1a4>
+ 404:	e1a02082 	lsl	r2, r2, #1
+ 408:	e28d0014 	add	r0, sp, #20
+ 40c:	ebfffefb 	bl	0 <bool PropertiesBuilder::Add<unsigned short>(char const*, unsigned short, bool, unsigned long) [clone .isra.0]>
+ 410:	e5dd301c 	ldrb	r3, [sp, #28]
+ 414:	e3530000 	cmp	r3, #0
+ 418:	0a00000a 	beq	448 <DmxParams::Builder(TDmxParams const*, char*, unsigned long, unsigned long&)+0x174>
+ 41c:	e1dd21ba 	ldrh	r2, [sp, #26]
+ 420:	e59d3014 	ldr	r3, [sp, #20]
+ 424:	e0833002 	add	r3, r3, r2
+ 428:	e3a0207d 	mov	r2, #125	; 0x7d
+ 42c:	e5432001 	strb	r2, [r3, #-1]
+ 430:	e1dd31ba 	ldrh	r3, [sp, #26]
+ 434:	e59d1014 	ldr	r1, [sp, #20]
+ 438:	e7c12003 	strb	r2, [r1, r3]
+ 43c:	e1dd31ba 	ldrh	r3, [sp, #26]
+ 440:	e2833001 	add	r3, r3, #1
+ 444:	e1cd31ba 	strh	r3, [sp, #26]
+ 448:	e1dd21ba 	ldrh	r2, [sp, #26]
+ 44c:	e59d3030 	ldr	r3, [sp, #48]	; 0x30
+ 450:	e5832000 	str	r2, [r3]
+ 454:	e28dd024 	add	sp, sp, #36	; 0x24
+ 458:	e8bd8030 	pop	{r4, r5, pc}
+	...
+ 470:	00000009 	andeq	r0, r0, r9
+ 474:	00000010 	andeq	r0, r0, r0, lsl r0
+ 478:	00000000 	andeq	r0, r0, r0
+
+0000047c <DmxParams::Set(Dmx*)>:
+ 47c:	e5903004 	ldr	r3, [r0, #4]
+ 480:	e92d4070 	push	{r4, r5, r6, lr}
+ 484:	e3130001 	tst	r3, #1
+ 488:	e1a04000 	mov	r4, r0
+ 48c:	e1a05001 	mov	r5, r1
+ 490:	0a000002 	beq	4a0 <DmxParams::Set(Dmx*)+0x24>
+ 494:	e1d010b8 	ldrh	r1, [r0, #8]
+ 498:	e1a00005 	mov	r0, r5
+ 49c:	ebfffffe 	bl	0 <Dmx::SetDmxBreakTime(unsigned long)>
+ 4a0:	e5943004 	ldr	r3, [r4, #4]
+ 4a4:	e3130002 	tst	r3, #2
+ 4a8:	0a000002 	beq	4b8 <DmxParams::Set(Dmx*)+0x3c>
+ 4ac:	e1a00005 	mov	r0, r5
+ 4b0:	e1d410ba 	ldrh	r1, [r4, #10]
+ 4b4:	ebfffffe 	bl	0 <Dmx::SetDmxMabTime(unsigned long)>
+ 4b8:	e5943004 	ldr	r3, [r4, #4]
+ 4bc:	e3130004 	tst	r3, #4
+ 4c0:	0a000007 	beq	4e4 <DmxParams::Set(Dmx*)+0x68>
+ 4c4:	e5d4100c 	ldrb	r1, [r4, #12]
+ 4c8:	e3510000 	cmp	r1, #0
+ 4cc:	0a000002 	beq	4dc <DmxParams::Set(Dmx*)+0x60>
+ 4d0:	e59f0030 	ldr	r0, [pc, #48]	; 508 <DmxParams::Set(Dmx*)+0x8c>
+ 4d4:	ebfffffe 	bl	0 <__aeabi_uidiv>
+ 4d8:	e1a01000 	mov	r1, r0
+ 4dc:	e1a00005 	mov	r0, r5
+ 4e0:	ebfffffe 	bl	0 <Dmx::SetDmxPeriodTime(unsigned long)>
+ 4e4:	e5943004 	ldr	r3, [r4, #4]
+ 4e8:	e3130008 	tst	r3, #8
+ 4ec:	08bd8070 	popeq	{r4, r5, r6, pc}
+ 4f0:	e5d4100d 	ldrb	r1, [r4, #13]
+ 4f4:	e1a00005 	mov	r0, r5
+ 4f8:	e8bd4070 	pop	{r4, r5, r6, lr}
+ 4fc:	e2811001 	add	r1, r1, #1
+ 500:	e1a01081 	lsl	r1, r1, #1
+ 504:	eafffffe 	b	0 <Dmx::SetDmxSlots(unsigned short)>
+ 508:	000f4240 	andeq	r4, pc, r0, asr #4
+
+0000050c <DmxParams::Dump()>:
+ 50c:	e12fff1e 	bx	lr
+
+Disassembly of section .rodata.str1.1:
+
+00000000 <.rodata.str1.1>:
+   0:	22732522 	rsbscs	r2, r3, #142606336	; 0x8800000
+   4:	2c64253a 	cfstr64cs	mvdx2, [r4], #-232	; 0xffffff18
+   8:	3d732500 	cfldr64cc	mvdx2, [r3, #-0]
+   c:	000a6425 	andeq	r6, sl, r5, lsr #8
+  10:	3d732523 	cfldr64cc	mvdx2, [r3, #-140]!	; 0xffffff74
+  14:	000a6425 	andeq	r6, sl, r5, lsr #8
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	; 0x3700
+   4:	4728203a 			; <UNDEFINED> instruction: 0x4728203a
+   8:	2029554e 	eorcs	r5, r9, lr, asr #10
+   c:	332e3031 			; <UNDEFINED> instruction: 0x332e3031
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00003241 	andeq	r3, r0, r1, asr #4
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000028 	andeq	r0, r0, r8, lsr #32
+  10:	4b5a3605 	blmi	168d82c <DmxParams::Dump()+0x168d320>
+  14:	08070600 	stmdaeq	r7, {r9, sl}
+  18:	0a010901 	beq	42424 <DmxParams::Dump()+0x41f18>
+  1c:	14041202 	strne	r1, [r4], #-514	; 0xfffffdfe
+  20:	17011501 	strne	r1, [r1, -r1, lsl #10]
+  24:	19011803 	stmdbne	r1, {r0, r1, fp, ip}
+  28:	1c011a01 			; <UNDEFINED> instruction: 0x1c011a01
+  2c:	22021e01 	andcs	r1, r2, #1, 28
+  30:	Address 0x0000000000000030 is out of bounds.
+
+
+rdm.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <Rdm::Receive(unsigned long)>:
+   0:	e59f3008 	ldr	r3, [pc, #8]	; 10 <Rdm::Receive(unsigned long)+0x10>
+   4:	e1a01000 	mov	r1, r0
+   8:	e5930000 	ldr	r0, [r3]
+   c:	eafffffe 	b	0 <Dmx::RdmReceive(unsigned long)>
+  10:	00000000 	andeq	r0, r0, r0
+
+00000014 <Rdm::ReceiveTimeOut(unsigned long, unsigned short)>:
+  14:	e1a03000 	mov	r3, r0
+  18:	e1a02001 	mov	r2, r1
+  1c:	e59f1008 	ldr	r1, [pc, #8]	; 2c <Rdm::ReceiveTimeOut(unsigned long, unsigned short)+0x18>
+  20:	e5910000 	ldr	r0, [r1]
+  24:	e1a01003 	mov	r1, r3
+  28:	eafffffe 	b	0 <Dmx::RdmReceiveTimeOut(unsigned long, unsigned long)>
+  2c:	00000000 	andeq	r0, r0, r0
+
+00000030 <Rdm::SendRaw(unsigned long, unsigned char const*, unsigned long)>:
+  30:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+  34:	e3a03000 	mov	r3, #0
+  38:	e1a04000 	mov	r4, r0
+  3c:	e1a06001 	mov	r6, r1
+  40:	e1a07002 	mov	r7, r2
+  44:	e59f5040 	ldr	r5, [pc, #64]	; 8c <Rdm::SendRaw(unsigned long, unsigned char const*, unsigned long)+0x5c>
+  48:	e1a02003 	mov	r2, r3
+  4c:	e1a01004 	mov	r1, r4
+  50:	e5950000 	ldr	r0, [r5]
+  54:	ebfffffe 	bl	0 <Dmx::SetPortDirection(unsigned long, dmx::PortDirection, bool)>
+  58:	e1a03007 	mov	r3, r7
+  5c:	e1a02006 	mov	r2, r6
+  60:	e1a01004 	mov	r1, r4
+  64:	e5950000 	ldr	r0, [r5]
+  68:	ebfffffe 	bl	0 <Dmx::RdmSendRaw(unsigned long, unsigned char const*, unsigned long)>
+  6c:	e3a00004 	mov	r0, #4
+  70:	ebfffffe 	bl	0 <udelay>
+  74:	e3a03001 	mov	r3, #1
+  78:	e1a01004 	mov	r1, r4
+  7c:	e5950000 	ldr	r0, [r5]
+  80:	e1a02003 	mov	r2, r3
+  84:	e8bd41f0 	pop	{r4, r5, r6, r7, r8, lr}
+  88:	eafffffe 	b	0 <Dmx::SetPortDirection(unsigned long, dmx::PortDirection, bool)>
+  8c:	00000000 	andeq	r0, r0, r0
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	; 0x3700
+   4:	4728203a 			; <UNDEFINED> instruction: 0x4728203a
+   8:	2029554e 	eorcs	r5, r9, lr, asr #10
+   c:	332e3031 			; <UNDEFINED> instruction: 0x332e3031
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00003241 	andeq	r3, r0, r1, asr #4
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000028 	andeq	r0, r0, r8, lsr #32
+  10:	4b5a3605 	blmi	168d82c <Rdm::SendRaw(unsigned long, unsigned char const*, unsigned long)+0x168d7fc>
+  14:	08070600 	stmdaeq	r7, {r9, sl}
+  18:	0a010901 	beq	42424 <Rdm::SendRaw(unsigned long, unsigned char const*, unsigned long)+0x423f4>
+  1c:	14041202 	strne	r1, [r4], #-514	; 0xfffffdfe
+  20:	17011501 	strne	r1, [r1, -r1, lsl #10]
+  24:	19011803 	stmdbne	r1, {r0, r1, fp, ip}
+  28:	1c011a01 			; <UNDEFINED> instruction: 0x1c011a01
+  2c:	22021e01 	andcs	r1, r2, #1, 28
+  30:	Address 0x0000000000000030 is out of bounds.
+
+
+dmx.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <irq_timer3_dmx_receive(unsigned long)>:
+       0:	e59f2030 	ldr	r2, [pc, #48]	; 38 <irq_timer3_dmx_receive(unsigned long)+0x38>
+       4:	e280093d 	add	r0, r0, #999424	; 0xf4000
+       8:	e2800d09 	add	r0, r0, #576	; 0x240
+       c:	e3a03000 	mov	r3, #0
+      10:	e5820018 	str	r0, [r2, #24]
+      14:	ee073fba 	mcr	15, 0, r3, cr7, cr10, {5}
+      18:	e59f301c 	ldr	r3, [pc, #28]	; 3c <irq_timer3_dmx_receive(unsigned long)+0x3c>
+      1c:	e5932000 	ldr	r2, [r3]
+      20:	e5931008 	ldr	r1, [r3, #8]
+      24:	e0422001 	sub	r2, r2, r1
+      28:	e583200c 	str	r2, [r3, #12]
+      2c:	e5932000 	ldr	r2, [r3]
+      30:	e5832008 	str	r2, [r3, #8]
+      34:	e12fff1e 	bx	lr
+      38:	20003000 	andcs	r3, r0, r0
+      3c:	00000000 	andeq	r0, r0, r0
+
+00000040 <irq_timer1_dmx_sender(unsigned long)>:
+      40:	e59f3178 	ldr	r3, [pc, #376]	; 1c0 <irq_timer1_dmx_sender(unsigned long)+0x180>
+      44:	e5d32010 	ldrb	r2, [r3, #16]
+      48:	e352000b 	cmp	r2, #11
+      4c:	979ff102 	ldrls	pc, [pc, r2, lsl #2]
+      50:	ea00000b 	b	84 <irq_timer1_dmx_sender(unsigned long)+0x44>
+      54:	00000088 	andeq	r0, r0, r8, lsl #1
+      58:	00000084 	andeq	r0, r0, r4, lsl #1
+      5c:	00000178 	andeq	r0, r0, r8, ror r1
+      60:	000000d8 	ldrdeq	r0, [r0], -r8
+      64:	000000c4 	andeq	r0, r0, r4, asr #1
+      68:	00000084 	andeq	r0, r0, r4, lsl #1
+      6c:	00000084 	andeq	r0, r0, r4, lsl #1
+      70:	00000084 	andeq	r0, r0, r4, lsl #1
+      74:	00000084 	andeq	r0, r0, r4, lsl #1
+      78:	00000084 	andeq	r0, r0, r4, lsl #1
+      7c:	00000084 	andeq	r0, r0, r4, lsl #1
+      80:	00000088 	andeq	r0, r0, r8, lsl #1
+      84:	e12fff1e 	bx	lr
+      88:	e3a0c079 	mov	ip, #121	; 0x79
+      8c:	e59f2130 	ldr	r2, [pc, #304]	; 1c4 <irq_timer1_dmx_sender(unsigned long)+0x184>
+      90:	e59f1130 	ldr	r1, [pc, #304]	; 1c8 <irq_timer1_dmx_sender(unsigned long)+0x188>
+      94:	e5922000 	ldr	r2, [r2]
+      98:	e0802002 	add	r2, r0, r2
+      9c:	e5812010 	str	r2, [r1, #16]
+      a0:	e281197f 	add	r1, r1, #2080768	; 0x1fc000
+      a4:	e2811a02 	add	r1, r1, #8192	; 0x2000
+      a8:	e581c02c 	str	ip, [r1, #44]	; 0x2c
+      ac:	e3a02000 	mov	r2, #0
+      b0:	e5830014 	str	r0, [r3, #20]
+      b4:	ee072fba 	mcr	15, 0, r2, cr7, cr10, {5}
+      b8:	e3a02002 	mov	r2, #2
+      bc:	e5c32010 	strb	r2, [r3, #16]
+      c0:	e12fff1e 	bx	lr
+      c4:	e5932018 	ldr	r2, [r3, #24]
+      c8:	e59f30f4 	ldr	r3, [pc, #244]	; 1c4 <irq_timer1_dmx_sender(unsigned long)+0x184>
+      cc:	e59f00f8 	ldr	r0, [pc, #248]	; 1cc <irq_timer1_dmx_sender(unsigned long)+0x18c>
+      d0:	e593100c 	ldr	r1, [r3, #12]
+      d4:	eafffffe 	b	0 <printf>
+      d8:	e3a0c000 	mov	ip, #0
+      dc:	e59f10e0 	ldr	r1, [pc, #224]	; 1c4 <irq_timer1_dmx_sender(unsigned long)+0x184>
+      e0:	e5932014 	ldr	r2, [r3, #20]
+      e4:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
+      e8:	e591e008 	ldr	lr, [r1, #8]
+      ec:	e591000c 	ldr	r0, [r1, #12]
+      f0:	e59f10d0 	ldr	r1, [pc, #208]	; 1c8 <irq_timer1_dmx_sender(unsigned long)+0x188>
+      f4:	e082200e 	add	r2, r2, lr
+      f8:	e5812010 	str	r2, [r1, #16]
+      fc:	e281197f 	add	r1, r1, #2080768	; 0x1fc000
+     100:	e2811a02 	add	r1, r1, #8192	; 0x2000
+     104:	e583c018 	str	ip, [r3, #24]
+     108:	e5912018 	ldr	r2, [r1, #24]
+     10c:	e3120020 	tst	r2, #32
+     110:	0a000014 	beq	168 <irq_timer1_dmx_sender(unsigned long)+0x128>
+     114:	e5932018 	ldr	r2, [r3, #24]
+     118:	e1520000 	cmp	r2, r0
+     11c:	2a000022 	bcs	1ac <irq_timer1_dmx_sender(unsigned long)+0x16c>
+     120:	e3a02000 	mov	r2, #0
+     124:	ee072fba 	mcr	15, 0, r2, cr7, cr10, {5}
+     128:	e3a00004 	mov	r0, #4
+     12c:	e3a01020 	mov	r1, #32
+     130:	e59f2098 	ldr	r2, [pc, #152]	; 1d0 <irq_timer1_dmx_sender(unsigned long)+0x190>
+     134:	e5c30010 	strb	r0, [r3, #16]
+     138:	e5821038 	str	r1, [r2, #56]	; 0x38
+     13c:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
+     140:	e5932018 	ldr	r2, [r3, #24]
+     144:	e0832002 	add	r2, r3, r2
+     148:	e5d2201c 	ldrb	r2, [r2, #28]
+     14c:	e5812000 	str	r2, [r1]
+     150:	e5932018 	ldr	r2, [r3, #24]
+     154:	e2822001 	add	r2, r2, #1
+     158:	e5832018 	str	r2, [r3, #24]
+     15c:	e5912018 	ldr	r2, [r1, #24]
+     160:	e3120020 	tst	r2, #32
+     164:	1affffea 	bne	114 <irq_timer1_dmx_sender(unsigned long)+0xd4>
+     168:	e5932018 	ldr	r2, [r3, #24]
+     16c:	e1520000 	cmp	r2, r0
+     170:	3afffff2 	bcc	140 <irq_timer1_dmx_sender(unsigned long)+0x100>
+     174:	eaffffe6 	b	114 <irq_timer1_dmx_sender(unsigned long)+0xd4>
+     178:	e3a0c078 	mov	ip, #120	; 0x78
+     17c:	e59f1040 	ldr	r1, [pc, #64]	; 1c4 <irq_timer1_dmx_sender(unsigned long)+0x184>
+     180:	e59f2040 	ldr	r2, [pc, #64]	; 1c8 <irq_timer1_dmx_sender(unsigned long)+0x188>
+     184:	e5911004 	ldr	r1, [r1, #4]
+     188:	e0800001 	add	r0, r0, r1
+     18c:	e59f103c 	ldr	r1, [pc, #60]	; 1d0 <irq_timer1_dmx_sender(unsigned long)+0x190>
+     190:	e5820010 	str	r0, [r2, #16]
+     194:	e3a02000 	mov	r2, #0
+     198:	e581c02c 	str	ip, [r1, #44]	; 0x2c
+     19c:	ee072fba 	mcr	15, 0, r2, cr7, cr10, {5}
+     1a0:	e3a02003 	mov	r2, #3
+     1a4:	e5c32010 	strb	r2, [r3, #16]
+     1a8:	e12fff1e 	bx	lr
+     1ac:	e3a02000 	mov	r2, #0
+     1b0:	ee072fba 	mcr	15, 0, r2, cr7, cr10, {5}
+     1b4:	e3a0200b 	mov	r2, #11
+     1b8:	e5c32010 	strb	r2, [r3, #16]
+     1bc:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
+	...
+     1c8:	20003000 	andcs	r3, r0, r0
+     1cc:	00000000 	andeq	r0, r0, r0
+     1d0:	20201000 	eorcs	r1, r0, r0
+
+000001d4 <irq_timer1_dmx_receive(unsigned long)>:
+     1d4:	e3a02000 	mov	r2, #0
+     1d8:	ee072fba 	mcr	15, 0, r2, cr7, cr10, {5}
+     1dc:	e59f3078 	ldr	r3, [pc, #120]	; 25c <irq_timer1_dmx_receive(unsigned long)+0x88>
+     1e0:	e5d31444 	ldrb	r1, [r3, #1092]	; 0x444
+     1e4:	e3510004 	cmp	r1, #4
+     1e8:	112fff1e 	bxne	lr
+     1ec:	e5931448 	ldr	r1, [r3, #1096]	; 0x448
+     1f0:	e593c224 	ldr	ip, [r3, #548]	; 0x224
+     1f4:	e0401001 	sub	r1, r0, r1
+     1f8:	e151000c 	cmp	r1, ip
+     1fc:	9a00000d 	bls	238 <irq_timer1_dmx_receive(unsigned long)+0x64>
+     200:	ee072fba 	mcr	15, 0, r2, cr7, cr10, {5}
+     204:	e5c32444 	strb	r2, [r3, #1092]	; 0x444
+     208:	e593044c 	ldr	r0, [r3, #1100]	; 0x44c
+     20c:	e5932450 	ldr	r2, [r3, #1104]	; 0x450
+     210:	e5931450 	ldr	r1, [r3, #1104]	; 0x450
+     214:	e082c282 	add	ip, r2, r2, lsl #5
+     218:	e082210c 	add	r2, r2, ip, lsl #2
+     21c:	e2811001 	add	r1, r1, #1
+     220:	e0832102 	add	r2, r3, r2, lsl #2
+     224:	e2400001 	sub	r0, r0, #1
+     228:	e2011001 	and	r1, r1, #1
+     22c:	e5820220 	str	r0, [r2, #544]	; 0x220
+     230:	e5831450 	str	r1, [r3, #1104]	; 0x450
+     234:	e12fff1e 	bx	lr
+     238:	e5932450 	ldr	r2, [r3, #1104]	; 0x450
+     23c:	e59f101c 	ldr	r1, [pc, #28]	; 260 <irq_timer1_dmx_receive(unsigned long)+0x8c>
+     240:	e082c282 	add	ip, r2, r2, lsl #5
+     244:	e082210c 	add	r2, r2, ip, lsl #2
+     248:	e0833102 	add	r3, r3, r2, lsl #2
+     24c:	e5933224 	ldr	r3, [r3, #548]	; 0x224
+     250:	e0800003 	add	r0, r0, r3
+     254:	e5810010 	str	r0, [r1, #16]
+     258:	e12fff1e 	bx	lr
+     25c:	00000000 	andeq	r0, r0, r0
+     260:	20003000 	andcs	r3, r0, r0
+
+00000264 <fiq_dmx_out_handler() [clone .part.0]>:
+     264:	e59f1088 	ldr	r1, [pc, #136]	; 2f4 <fiq_dmx_out_handler() [clone .part.0]+0x90>
+     268:	e59f2088 	ldr	r2, [pc, #136]	; 2f8 <fiq_dmx_out_handler() [clone .part.0]+0x94>
+     26c:	e5913018 	ldr	r3, [r1, #24]
+     270:	e592000c 	ldr	r0, [r2, #12]
+     274:	e3130020 	tst	r3, #32
+     278:	e59f307c 	ldr	r3, [pc, #124]	; 2fc <fiq_dmx_out_handler() [clone .part.0]+0x98>
+     27c:	0a00000a 	beq	2ac <fiq_dmx_out_handler() [clone .part.0]+0x48>
+     280:	ea00000c 	b	2b8 <fiq_dmx_out_handler() [clone .part.0]+0x54>
+     284:	e5932018 	ldr	r2, [r3, #24]
+     288:	e0832002 	add	r2, r3, r2
+     28c:	e5d2201c 	ldrb	r2, [r2, #28]
+     290:	e5812000 	str	r2, [r1]
+     294:	e5932018 	ldr	r2, [r3, #24]
+     298:	e2822001 	add	r2, r2, #1
+     29c:	e5832018 	str	r2, [r3, #24]
+     2a0:	e5912018 	ldr	r2, [r1, #24]
+     2a4:	e3120020 	tst	r2, #32
+     2a8:	1a000002 	bne	2b8 <fiq_dmx_out_handler() [clone .part.0]+0x54>
+     2ac:	e5932018 	ldr	r2, [r3, #24]
+     2b0:	e1520000 	cmp	r2, r0
+     2b4:	3afffff2 	bcc	284 <fiq_dmx_out_handler() [clone .part.0]+0x20>
+     2b8:	e5932018 	ldr	r2, [r3, #24]
+     2bc:	e1520000 	cmp	r2, r0
+     2c0:	3a000007 	bcc	2e4 <fiq_dmx_out_handler() [clone .part.0]+0x80>
+     2c4:	e59f1028 	ldr	r1, [pc, #40]	; 2f4 <fiq_dmx_out_handler() [clone .part.0]+0x90>
+     2c8:	e3a00000 	mov	r0, #0
+     2cc:	e5912038 	ldr	r2, [r1, #56]	; 0x38
+     2d0:	e3c22020 	bic	r2, r2, #32
+     2d4:	e5812038 	str	r2, [r1, #56]	; 0x38
+     2d8:	ee070fba 	mcr	15, 0, r0, cr7, cr10, {5}
+     2dc:	e3a0200b 	mov	r2, #11
+     2e0:	e5c32010 	strb	r2, [r3, #16]
+     2e4:	e3a02020 	mov	r2, #32
+     2e8:	e59f3004 	ldr	r3, [pc, #4]	; 2f4 <fiq_dmx_out_handler() [clone .part.0]+0x90>
+     2ec:	e5832044 	str	r2, [r3, #68]	; 0x44
+     2f0:	e12fff1e 	bx	lr
+     2f4:	20201000 	eorcs	r1, r0, r0
+	...
+
+00000300 <fiq_dmx()>:
+     300:	e24ee004 	sub	lr, lr, #4
+     304:	e92d407f 	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+     308:	e3a03000 	mov	r3, #0
+     30c:	ee073fba 	mcr	15, 0, r3, cr7, cr10, {5}
+     310:	e59f3480 	ldr	r3, [pc, #1152]	; 798 <fiq_dmx()+0x498>
+     314:	e5933010 	ldr	r3, [r3, #16]
+     318:	e3530001 	cmp	r3, #1
+     31c:	0a000007 	beq	340 <fiq_dmx()+0x40>
+     320:	e59f3474 	ldr	r3, [pc, #1140]	; 79c <fiq_dmx()+0x49c>
+     324:	e5933040 	ldr	r3, [r3, #64]	; 0x40
+     328:	e3530020 	cmp	r3, #32
+     32c:	1a000000 	bne	334 <fiq_dmx()+0x34>
+     330:	ebffffcb 	bl	264 <fiq_dmx_out_handler() [clone .part.0]>
+     334:	e3a03000 	mov	r3, #0
+     338:	ee073fba 	mcr	15, 0, r3, cr7, cr10, {5}
+     33c:	e8fd807f 	ldm	sp!, {r0, r1, r2, r3, r4, r5, r6, pc}^
+     340:	e59f2458 	ldr	r2, [pc, #1112]	; 7a0 <fiq_dmx()+0x4a0>
+     344:	e59f3458 	ldr	r3, [pc, #1112]	; 7a4 <fiq_dmx()+0x4a4>
+     348:	e5921004 	ldr	r1, [r2, #4]
+     34c:	e282297f 	add	r2, r2, #2080768	; 0x1fc000
+     350:	e2822a02 	add	r2, r2, #8192	; 0x2000
+     354:	e5831448 	str	r1, [r3, #1096]	; 0x448
+     358:	e5922000 	ldr	r2, [r2]
+     35c:	e3120b01 	tst	r2, #1024	; 0x400
+     360:	0a000006 	beq	380 <fiq_dmx()+0x80>
+     364:	e3a02002 	mov	r2, #2
+     368:	e5c32444 	strb	r2, [r3, #1092]	; 0x444
+     36c:	e5932448 	ldr	r2, [r3, #1096]	; 0x448
+     370:	e5832454 	str	r2, [r3, #1108]	; 0x454
+     374:	e5932448 	ldr	r2, [r3, #1096]	; 0x448
+     378:	e5832468 	str	r2, [r3, #1128]	; 0x468
+     37c:	eaffffec 	b	334 <fiq_dmx()+0x34>
+     380:	e5d31444 	ldrb	r1, [r3, #1092]	; 0x444
+     384:	e6ef2072 	uxtb	r2, r2
+     388:	e351000a 	cmp	r1, #10
+     38c:	979ff101 	ldrls	pc, [pc, r1, lsl #2]
+     390:	ea00000a 	b	3c0 <fiq_dmx()+0xc0>
+     394:	000006f4 	strdeq	r0, [r0], -r4
+     398:	000003c0 	andeq	r0, r0, r0, asr #7
+     39c:	000006a4 	andeq	r0, r0, r4, lsr #13
+     3a0:	000003c0 	andeq	r0, r0, r0, asr #7
+     3a4:	000005d0 	ldrdeq	r0, [r0], -r0	; <UNPREDICTABLE>
+     3a8:	00000574 	andeq	r0, r0, r4, ror r5
+     3ac:	00000538 	andeq	r0, r0, r8, lsr r5
+     3b0:	000004b8 			; <UNDEFINED> instruction: 0x000004b8
+     3b4:	00000474 	andeq	r0, r0, r4, ror r4
+     3b8:	00000430 	andeq	r0, r0, r0, lsr r4
+     3bc:	000003d0 	ldrdeq	r0, [r0], -r0	; <UNPREDICTABLE>
+     3c0:	e3a02000 	mov	r2, #0
+     3c4:	e5c32444 	strb	r2, [r3, #1092]	; 0x444
+     3c8:	e5c3245c 	strb	r2, [r3, #1116]	; 0x45c
+     3cc:	eaffffe8 	b	374 <fiq_dmx()+0x74>
+     3d0:	e5931458 	ldr	r1, [r3, #1112]	; 0x458
+     3d4:	e593c44c 	ldr	ip, [r3, #1100]	; 0x44c
+     3d8:	e28c0001 	add	r0, ip, #1
+     3dc:	e583044c 	str	r0, [r3, #1100]	; 0x44c
+     3e0:	e59f03c0 	ldr	r0, [pc, #960]	; 7a8 <fiq_dmx()+0x4a8>
+     3e4:	e0800481 	add	r0, r0, r1, lsl #9
+     3e8:	e5931470 	ldr	r1, [r3, #1136]	; 0x470
+     3ec:	e7c0200c 	strb	r2, [r0, ip]
+     3f0:	e2812001 	add	r2, r1, #1
+     3f4:	e5832470 	str	r2, [r3, #1136]	; 0x470
+     3f8:	e5932470 	ldr	r2, [r3, #1136]	; 0x470
+     3fc:	e3520004 	cmp	r2, #4
+     400:	1affffdb 	bne	374 <fiq_dmx()+0x74>
+     404:	e3a01000 	mov	r1, #0
+     408:	e5932458 	ldr	r2, [r3, #1112]	; 0x458
+     40c:	e59f038c 	ldr	r0, [pc, #908]	; 7a0 <fiq_dmx()+0x4a0>
+     410:	e2822001 	add	r2, r2, #1
+     414:	e202200f 	and	r2, r2, #15
+     418:	e5832458 	str	r2, [r3, #1112]	; 0x458
+     41c:	e5c31444 	strb	r1, [r3, #1092]	; 0x444
+     420:	e5902004 	ldr	r2, [r0, #4]
+     424:	e583246c 	str	r2, [r3, #1132]	; 0x46c
+     428:	ee071fba 	mcr	15, 0, r1, cr7, cr10, {5}
+     42c:	eaffffd0 	b	374 <fiq_dmx()+0x74>
+     430:	e5931458 	ldr	r1, [r3, #1112]	; 0x458
+     434:	e593c44c 	ldr	ip, [r3, #1100]	; 0x44c
+     438:	e28c0001 	add	r0, ip, #1
+     43c:	e583044c 	str	r0, [r3, #1100]	; 0x44c
+     440:	e59f0360 	ldr	r0, [pc, #864]	; 7a8 <fiq_dmx()+0x4a8>
+     444:	e0800481 	add	r0, r0, r1, lsl #9
+     448:	e5931470 	ldr	r1, [r3, #1136]	; 0x470
+     44c:	e7c0200c 	strb	r2, [r0, ip]
+     450:	e2812001 	add	r2, r1, #1
+     454:	e5832470 	str	r2, [r3, #1136]	; 0x470
+     458:	e5932470 	ldr	r2, [r3, #1136]	; 0x470
+     45c:	e352000c 	cmp	r2, #12
+     460:	03a0100a 	moveq	r1, #10
+     464:	03a02000 	moveq	r2, #0
+     468:	05c31444 	strbeq	r1, [r3, #1092]	; 0x444
+     46c:	05832470 	streq	r2, [r3, #1136]	; 0x470
+     470:	eaffffbf 	b	374 <fiq_dmx()+0x74>
+     474:	e593c458 	ldr	ip, [r3, #1112]	; 0x458
+     478:	e593044c 	ldr	r0, [r3, #1100]	; 0x44c
+     47c:	e35200aa 	cmp	r2, #170	; 0xaa
+     480:	e2801001 	add	r1, r0, #1
+     484:	e583144c 	str	r1, [r3, #1100]	; 0x44c
+     488:	e59f1318 	ldr	r1, [pc, #792]	; 7a8 <fiq_dmx()+0x4a8>
+     48c:	e081148c 	add	r1, r1, ip, lsl #9
+     490:	e7c12000 	strb	r2, [r1, r0]
+     494:	0a000002 	beq	4a4 <fiq_dmx()+0x1a4>
+     498:	e593244c 	ldr	r2, [r3, #1100]	; 0x44c
+     49c:	e3520009 	cmp	r2, #9
+     4a0:	1affffb3 	bne	374 <fiq_dmx()+0x74>
+     4a4:	e3a01009 	mov	r1, #9
+     4a8:	e3a02000 	mov	r2, #0
+     4ac:	e5c31444 	strb	r1, [r3, #1092]	; 0x444
+     4b0:	e5832470 	str	r2, [r3, #1136]	; 0x470
+     4b4:	eaffffae 	b	374 <fiq_dmx()+0x74>
+     4b8:	e5931458 	ldr	r1, [r3, #1112]	; 0x458
+     4bc:	e593044c 	ldr	r0, [r3, #1100]	; 0x44c
+     4c0:	e280c001 	add	ip, r0, #1
+     4c4:	e583c44c 	str	ip, [r3, #1100]	; 0x44c
+     4c8:	e59fc2d8 	ldr	ip, [pc, #728]	; 7a8 <fiq_dmx()+0x4a8>
+     4cc:	e08c1481 	add	r1, ip, r1, lsl #9
+     4d0:	e7c12000 	strb	r2, [r1, r0]
+     4d4:	e59f02d0 	ldr	r0, [pc, #720]	; 7ac <fiq_dmx()+0x4ac>
+     4d8:	e1d010b4 	ldrh	r1, [r0, #4]
+     4dc:	e0412002 	sub	r2, r1, r2
+     4e0:	e6ff2072 	uxth	r2, r2
+     4e4:	e1c020b4 	strh	r2, [r0, #4]
+     4e8:	e5931458 	ldr	r1, [r3, #1112]	; 0x458
+     4ec:	e1d020b4 	ldrh	r2, [r0, #4]
+     4f0:	e6ff2072 	uxth	r2, r2
+     4f4:	e3520000 	cmp	r2, #0
+     4f8:	1a00000b 	bne	52c <fiq_dmx()+0x22c>
+     4fc:	e08cc481 	add	ip, ip, r1, lsl #9
+     500:	e5dc1001 	ldrb	r1, [ip, #1]
+     504:	e3510001 	cmp	r1, #1
+     508:	1a000007 	bne	52c <fiq_dmx()+0x22c>
+     50c:	e5931458 	ldr	r1, [r3, #1112]	; 0x458
+     510:	e59f0288 	ldr	r0, [pc, #648]	; 7a0 <fiq_dmx()+0x4a0>
+     514:	e2811001 	add	r1, r1, #1
+     518:	e201100f 	and	r1, r1, #15
+     51c:	e5831458 	str	r1, [r3, #1112]	; 0x458
+     520:	e5901004 	ldr	r1, [r0, #4]
+     524:	e583146c 	str	r1, [r3, #1132]	; 0x46c
+     528:	ee072fba 	mcr	15, 0, r2, cr7, cr10, {5}
+     52c:	e3a02000 	mov	r2, #0
+     530:	e5c32444 	strb	r2, [r3, #1092]	; 0x444
+     534:	eaffff8e 	b	374 <fiq_dmx()+0x74>
+     538:	e3a0e007 	mov	lr, #7
+     53c:	e5930458 	ldr	r0, [r3, #1112]	; 0x458
+     540:	e593c44c 	ldr	ip, [r3, #1100]	; 0x44c
+     544:	e28c1001 	add	r1, ip, #1
+     548:	e583144c 	str	r1, [r3, #1100]	; 0x44c
+     54c:	e59f1254 	ldr	r1, [pc, #596]	; 7a8 <fiq_dmx()+0x4a8>
+     550:	e0811480 	add	r1, r1, r0, lsl #9
+     554:	e59f0250 	ldr	r0, [pc, #592]	; 7ac <fiq_dmx()+0x4ac>
+     558:	e7c1200c 	strb	r2, [r1, ip]
+     55c:	e1d010b4 	ldrh	r1, [r0, #4]
+     560:	e0412402 	sub	r2, r1, r2, lsl #8
+     564:	e6ff2072 	uxth	r2, r2
+     568:	e1c020b4 	strh	r2, [r0, #4]
+     56c:	e5c3e444 	strb	lr, [r3, #1092]	; 0x444
+     570:	eaffff7f 	b	374 <fiq_dmx()+0x74>
+     574:	e593144c 	ldr	r1, [r3, #1100]	; 0x44c
+     578:	e3510c02 	cmp	r1, #512	; 0x200
+     57c:	8affffea 	bhi	52c <fiq_dmx()+0x22c>
+     580:	e5931458 	ldr	r1, [r3, #1112]	; 0x458
+     584:	e593c44c 	ldr	ip, [r3, #1100]	; 0x44c
+     588:	e28c0001 	add	r0, ip, #1
+     58c:	e583044c 	str	r0, [r3, #1100]	; 0x44c
+     590:	e59f0210 	ldr	r0, [pc, #528]	; 7a8 <fiq_dmx()+0x4a8>
+     594:	e0801481 	add	r1, r0, r1, lsl #9
+     598:	e7c1200c 	strb	r2, [r1, ip]
+     59c:	e59fc208 	ldr	ip, [pc, #520]	; 7ac <fiq_dmx()+0x4ac>
+     5a0:	e1dc10b4 	ldrh	r1, [ip, #4]
+     5a4:	e0812002 	add	r2, r1, r2
+     5a8:	e6ff2072 	uxth	r2, r2
+     5ac:	e1cc20b4 	strh	r2, [ip, #4]
+     5b0:	e5931458 	ldr	r1, [r3, #1112]	; 0x458
+     5b4:	e593244c 	ldr	r2, [r3, #1100]	; 0x44c
+     5b8:	e0800481 	add	r0, r0, r1, lsl #9
+     5bc:	e5d01002 	ldrb	r1, [r0, #2]
+     5c0:	e1510002 	cmp	r1, r2
+     5c4:	03a02006 	moveq	r2, #6
+     5c8:	05c32444 	strbeq	r2, [r3, #1092]	; 0x444
+     5cc:	eaffff68 	b	374 <fiq_dmx()+0x74>
+     5d0:	e593c448 	ldr	ip, [r3, #1096]	; 0x448
+     5d4:	e5931468 	ldr	r1, [r3, #1128]	; 0x468
+     5d8:	e04cc001 	sub	ip, ip, r1
+     5dc:	e5931450 	ldr	r1, [r3, #1104]	; 0x450
+     5e0:	e0810281 	add	r0, r1, r1, lsl #5
+     5e4:	e0810100 	add	r0, r1, r0, lsl #2
+     5e8:	e5931450 	ldr	r1, [r3, #1104]	; 0x450
+     5ec:	e0830100 	add	r0, r3, r0, lsl #2
+     5f0:	e580c224 	str	ip, [r0, #548]	; 0x224
+     5f4:	e0810281 	add	r0, r1, r1, lsl #5
+     5f8:	e0811100 	add	r1, r1, r0, lsl #2
+     5fc:	e0831101 	add	r1, r3, r1, lsl #2
+     600:	e5911224 	ldr	r1, [r1, #548]	; 0x224
+     604:	e351002b 	cmp	r1, #43	; 0x2b
+     608:	8a000005 	bhi	624 <fiq_dmx()+0x324>
+     60c:	e3a0002c 	mov	r0, #44	; 0x2c
+     610:	e5931450 	ldr	r1, [r3, #1104]	; 0x450
+     614:	e081c281 	add	ip, r1, r1, lsl #5
+     618:	e081110c 	add	r1, r1, ip, lsl #2
+     61c:	e0831101 	add	r1, r3, r1, lsl #2
+     620:	e5810224 	str	r0, [r1, #548]	; 0x224
+     624:	e5931450 	ldr	r1, [r3, #1104]	; 0x450
+     628:	e593c44c 	ldr	ip, [r3, #1100]	; 0x44c
+     62c:	e28c0001 	add	r0, ip, #1
+     630:	e583044c 	str	r0, [r3, #1100]	; 0x44c
+     634:	e0810281 	add	r0, r1, r1, lsl #5
+     638:	e0811100 	add	r1, r1, r0, lsl #2
+     63c:	e0831101 	add	r1, r3, r1, lsl #2
+     640:	e081100c 	add	r1, r1, ip
+     644:	e5930448 	ldr	r0, [r3, #1096]	; 0x448
+     648:	e5c1201c 	strb	r2, [r1, #28]
+     64c:	e5932224 	ldr	r2, [r3, #548]	; 0x224
+     650:	e59f1148 	ldr	r1, [pc, #328]	; 7a0 <fiq_dmx()+0x4a0>
+     654:	e0802002 	add	r2, r0, r2
+     658:	e282200c 	add	r2, r2, #12
+     65c:	e5812010 	str	r2, [r1, #16]
+     660:	e593244c 	ldr	r2, [r3, #1100]	; 0x44c
+     664:	e3520c02 	cmp	r2, #512	; 0x200
+     668:	9affff41 	bls	374 <fiq_dmx()+0x74>
+     66c:	e3a00000 	mov	r0, #0
+     670:	e3a0cc02 	mov	ip, #512	; 0x200
+     674:	e5c30444 	strb	r0, [r3, #1092]	; 0x444
+     678:	e5932450 	ldr	r2, [r3, #1104]	; 0x450
+     67c:	e0821282 	add	r1, r2, r2, lsl #5
+     680:	e0822101 	add	r2, r2, r1, lsl #2
+     684:	e5931450 	ldr	r1, [r3, #1104]	; 0x450
+     688:	e0832102 	add	r2, r3, r2, lsl #2
+     68c:	e2811001 	add	r1, r1, #1
+     690:	e2011001 	and	r1, r1, #1
+     694:	e582c220 	str	ip, [r2, #544]	; 0x220
+     698:	e5831450 	str	r1, [r3, #1104]	; 0x450
+     69c:	ee070fba 	mcr	15, 0, r0, cr7, cr10, {5}
+     6a0:	eaffff33 	b	374 <fiq_dmx()+0x74>
+     6a4:	e3520000 	cmp	r2, #0
+     6a8:	0a00001c 	beq	720 <fiq_dmx()+0x420>
+     6ac:	e35200cc 	cmp	r2, #204	; 0xcc
+     6b0:	1affff42 	bne	3c0 <fiq_dmx()+0xc0>
+     6b4:	e3a04005 	mov	r4, #5
+     6b8:	e3a00001 	mov	r0, #1
+     6bc:	e3e05033 	mvn	r5, #51	; 0x33
+     6c0:	e3a01000 	mov	r1, #0
+     6c4:	e59fc0e0 	ldr	ip, [pc, #224]	; 7ac <fiq_dmx()+0x4ac>
+     6c8:	e5c34444 	strb	r4, [r3, #1092]	; 0x444
+     6cc:	e5934458 	ldr	r4, [r3, #1112]	; 0x458
+     6d0:	e1cc20b4 	strh	r2, [ip, #4]
+     6d4:	e583044c 	str	r0, [r3, #1100]	; 0x44c
+     6d8:	e5932004 	ldr	r2, [r3, #4]
+     6dc:	e59fe0c4 	ldr	lr, [pc, #196]	; 7a8 <fiq_dmx()+0x4a8>
+     6e0:	e0822000 	add	r2, r2, r0
+     6e4:	e5832004 	str	r2, [r3, #4]
+     6e8:	e7ce5484 	strb	r5, [lr, r4, lsl #9]
+     6ec:	e5c3145c 	strb	r1, [r3, #1116]	; 0x45c
+     6f0:	eaffff1f 	b	374 <fiq_dmx()+0x74>
+     6f4:	e35200fe 	cmp	r2, #254	; 0xfe
+     6f8:	1affff1d 	bne	374 <fiq_dmx()+0x74>
+     6fc:	e3a01008 	mov	r1, #8
+     700:	e3e00001 	mvn	r0, #1
+     704:	e3a0c001 	mov	ip, #1
+     708:	e5c31444 	strb	r1, [r3, #1092]	; 0x444
+     70c:	e5931458 	ldr	r1, [r3, #1112]	; 0x458
+     710:	e59f2090 	ldr	r2, [pc, #144]	; 7a8 <fiq_dmx()+0x4a8>
+     714:	e583c44c 	str	ip, [r3, #1100]	; 0x44c
+     718:	e7c20481 	strb	r0, [r2, r1, lsl #9]
+     71c:	eaffff14 	b	374 <fiq_dmx()+0x74>
+     720:	e3a01004 	mov	r1, #4
+     724:	e3a0c001 	mov	ip, #1
+     728:	e5c31444 	strb	r1, [r3, #1092]	; 0x444
+     72c:	e5931450 	ldr	r1, [r3, #1104]	; 0x450
+     730:	e583c44c 	str	ip, [r3, #1100]	; 0x44c
+     734:	e0810281 	add	r0, r1, r1, lsl #5
+     738:	e0811100 	add	r1, r1, r0, lsl #2
+     73c:	e5930000 	ldr	r0, [r3]
+     740:	e0831101 	add	r1, r3, r1, lsl #2
+     744:	e080000c 	add	r0, r0, ip
+     748:	e5830000 	str	r0, [r3]
+     74c:	e5d3045c 	ldrb	r0, [r3, #1116]	; 0x45c
+     750:	e5c1201c 	strb	r2, [r1, #28]
+     754:	e3500000 	cmp	r0, #0
+     758:	0a00000a 	beq	788 <fiq_dmx()+0x488>
+     75c:	e5931454 	ldr	r1, [r3, #1108]	; 0x454
+     760:	e5930460 	ldr	r0, [r3, #1120]	; 0x460
+     764:	e5932450 	ldr	r2, [r3, #1104]	; 0x450
+     768:	e0411000 	sub	r1, r1, r0
+     76c:	e082c282 	add	ip, r2, r2, lsl #5
+     770:	e5930454 	ldr	r0, [r3, #1108]	; 0x454
+     774:	e082210c 	add	r2, r2, ip, lsl #2
+     778:	e0832102 	add	r2, r3, r2, lsl #2
+     77c:	e582122c 	str	r1, [r2, #556]	; 0x22c
+     780:	e5830460 	str	r0, [r3, #1120]	; 0x460
+     784:	eafffefa 	b	374 <fiq_dmx()+0x74>
+     788:	e5c3c45c 	strb	ip, [r3, #1116]	; 0x45c
+     78c:	e5932454 	ldr	r2, [r3, #1108]	; 0x454
+     790:	e5832460 	str	r2, [r3, #1120]	; 0x460
+     794:	eafffef6 	b	374 <fiq_dmx()+0x74>
+     798:	00000000 	andeq	r0, r0, r0
+     79c:	20201000 	eorcs	r1, r0, r0
+     7a0:	20003000 	andcs	r3, r0, r0
+     7a4:	00000000 	andeq	r0, r0, r0
+     7a8:	0000068c 	andeq	r0, r0, ip, lsl #13
+     7ac:	00000460 	andeq	r0, r0, r0, ror #8
+
+000007b0 <Dmx::StopData() [clone .part.0]>:
+     7b0:	e92d4010 	push	{r4, lr}
+     7b4:	e59f40ac 	ldr	r4, [pc, #172]	; 868 <Dmx::StopData() [clone .part.0]+0xb8>
+     7b8:	e5d43474 	ldrb	r3, [r4, #1140]	; 0x474
+     7bc:	e3530000 	cmp	r3, #0
+     7c0:	0a00001a 	beq	830 <Dmx::StopData() [clone .part.0]+0x80>
+     7c4:	e3a02000 	mov	r2, #0
+     7c8:	e3a0e002 	mov	lr, #2
+     7cc:	e59f1098 	ldr	r1, [pc, #152]	; 86c <Dmx::StopData() [clone .part.0]+0xbc>
+     7d0:	e59fc098 	ldr	ip, [pc, #152]	; 870 <Dmx::StopData() [clone .part.0]+0xc0>
+     7d4:	ea000003 	b	7e8 <Dmx::StopData() [clone .part.0]+0x38>
+     7d8:	ee072fba 	mcr	15, 0, r2, cr7, cr10, {5}
+     7dc:	e5d43010 	ldrb	r3, [r4, #16]
+     7e0:	e3530000 	cmp	r3, #0
+     7e4:	0a000011 	beq	830 <Dmx::StopData() [clone .part.0]+0x80>
+     7e8:	ee072fba 	mcr	15, 0, r2, cr7, cr10, {5}
+     7ec:	e5d43010 	ldrb	r3, [r4, #16]
+     7f0:	e353000b 	cmp	r3, #11
+     7f4:	1afffff7 	bne	7d8 <Dmx::StopData() [clone .part.0]+0x28>
+     7f8:	e5913018 	ldr	r3, [r1, #24]
+     7fc:	e2133008 	ands	r3, r3, #8
+     800:	1afffffc 	bne	7f8 <Dmx::StopData() [clone .part.0]+0x48>
+     804:	ee073fba 	mcr	15, 0, r3, cr7, cr10, {5}
+     808:	e59c0004 	ldr	r0, [ip, #4]
+     80c:	e2400001 	sub	r0, r0, #1
+     810:	e58c0010 	str	r0, [ip, #16]
+     814:	e58ce000 	str	lr, [ip]
+     818:	ee073fba 	mcr	15, 0, r3, cr7, cr10, {5}
+     81c:	e5c43010 	strb	r3, [r4, #16]
+     820:	ee072fba 	mcr	15, 0, r2, cr7, cr10, {5}
+     824:	e5d43010 	ldrb	r3, [r4, #16]
+     828:	e3530000 	cmp	r3, #0
+     82c:	1affffed 	bne	7e8 <Dmx::StopData() [clone .part.0]+0x38>
+     830:	e3a01000 	mov	r1, #0
+     834:	e1a00001 	mov	r0, r1
+     838:	ebfffffe 	bl	0 <irq_timer_set>
+     83c:	f10c0040 	cpsid	f
+     840:	e3a03000 	mov	r3, #0
+     844:	ee073f95 	mcr	15, 0, r3, cr7, cr5, {4}
+     848:	e3a01001 	mov	r1, #1
+     84c:	e59f2020 	ldr	r2, [pc, #32]	; 874 <Dmx::StopData() [clone .part.0]+0xc4>
+     850:	e5c43474 	strb	r3, [r4, #1140]	; 0x474
+     854:	e5843220 	str	r3, [r4, #544]	; 0x220
+     858:	e5c43444 	strb	r3, [r4, #1092]	; 0x444
+     85c:	e5843434 	str	r3, [r4, #1076]	; 0x434
+     860:	e5c21014 	strb	r1, [r2, #20]
+     864:	e8bd8010 	pop	{r4, pc}
+     868:	00000000 	andeq	r0, r0, r0
+     86c:	20201000 	eorcs	r1, r0, r0
+     870:	20003000 	andcs	r3, r0, r0
+     874:	00000000 	andeq	r0, r0, r0
+
+00000878 <fiq_dmx_out_handler()>:
+     878:	e59f300c 	ldr	r3, [pc, #12]	; 88c <fiq_dmx_out_handler()+0x14>
+     87c:	e5933040 	ldr	r3, [r3, #64]	; 0x40
+     880:	e3530020 	cmp	r3, #32
+     884:	112fff1e 	bxne	lr
+     888:	eafffe75 	b	264 <fiq_dmx_out_handler() [clone .part.0]>
+     88c:	20201000 	eorcs	r1, r0, r0
+
+00000890 <Dmx::UartInit()>:
+     890:	e92d4070 	push	{r4, r5, r6, lr}
+     894:	e3a00002 	mov	r0, #2
+     898:	ebfffffe 	bl	0 <bcm2835_vc_get_clock_rate>
+     89c:	e59f30b0 	ldr	r3, [pc, #176]	; 954 <Dmx::UartInit()+0xc4>
+     8a0:	e1500003 	cmp	r0, r3
+     8a4:	03a0600c 	moveq	r6, #12
+     8a8:	0a000003 	beq	8bc <Dmx::UartInit()+0x2c>
+     8ac:	e3a00002 	mov	r0, #2
+     8b0:	e59f10a0 	ldr	r1, [pc, #160]	; 958 <Dmx::UartInit()+0xc8>
+     8b4:	ebfffffe 	bl	0 <bcm2835_vc_set_clock_rate>
+     8b8:	e3a06001 	mov	r6, #1
+     8bc:	e3a05000 	mov	r5, #0
+     8c0:	e59f4094 	ldr	r4, [pc, #148]	; 95c <Dmx::UartInit()+0xcc>
+     8c4:	e5845030 	str	r5, [r4, #48]	; 0x30
+     8c8:	ee075fba 	mcr	15, 0, r5, cr7, cr10, {5}
+     8cc:	e3a01004 	mov	r1, #4
+     8d0:	e3a0000e 	mov	r0, #14
+     8d4:	ebfffffe 	bl	0 <bcm2835_gpio_fsel>
+     8d8:	e3a0000f 	mov	r0, #15
+     8dc:	e3a01004 	mov	r1, #4
+     8e0:	ebfffffe 	bl	0 <bcm2835_gpio_fsel>
+     8e4:	e1a01005 	mov	r1, r5
+     8e8:	e3a0000e 	mov	r0, #14
+     8ec:	ebfffffe 	bl	0 <bcm2835_gpio_set_pud>
+     8f0:	e1a01005 	mov	r1, r5
+     8f4:	e3a0000f 	mov	r0, #15
+     8f8:	ebfffffe 	bl	0 <bcm2835_gpio_set_pud>
+     8fc:	ee075fba 	mcr	15, 0, r5, cr7, cr10, {5}
+     900:	e5943018 	ldr	r3, [r4, #24]
+     904:	e2133008 	ands	r3, r3, #8
+     908:	1afffffc 	bne	900 <Dmx::UartInit()+0x70>
+     90c:	e3a0c068 	mov	ip, #104	; 0x68
+     910:	e3a00010 	mov	r0, #16
+     914:	e3a010b9 	mov	r1, #185	; 0xb9
+     918:	e594202c 	ldr	r2, [r4, #44]	; 0x2c
+     91c:	e3c22010 	bic	r2, r2, #16
+     920:	e584202c 	str	r2, [r4, #44]	; 0x2c
+     924:	e59f2034 	ldr	r2, [pc, #52]	; 960 <Dmx::UartInit()+0xd0>
+     928:	e5842044 	str	r2, [r4, #68]	; 0x44
+     92c:	e59f2030 	ldr	r2, [pc, #48]	; 964 <Dmx::UartInit()+0xd4>
+     930:	e5846024 	str	r6, [r4, #36]	; 0x24
+     934:	e5843028 	str	r3, [r4, #40]	; 0x28
+     938:	e584c02c 	str	ip, [r4, #44]	; 0x2c
+     93c:	e5842030 	str	r2, [r4, #48]	; 0x30
+     940:	e59f2020 	ldr	r2, [pc, #32]	; 968 <Dmx::UartInit()+0xd8>
+     944:	e5840038 	str	r0, [r4, #56]	; 0x38
+     948:	e582100c 	str	r1, [r2, #12]
+     94c:	ee073f95 	mcr	15, 0, r3, cr7, cr5, {4}
+     950:	e8bd8070 	pop	{r4, r5, r6, pc}
+     954:	02dc6c00 	sbcseq	r6, ip, #0, 24
+     958:	003d0900 	eorseq	r0, sp, r0, lsl #18
+     95c:	20201000 	eorcs	r1, r0, r0
+     960:	000007ff 	strdeq	r0, [r0], -pc	; <UNPREDICTABLE>
+     964:	00000301 	andeq	r0, r0, r1, lsl #6
+     968:	2000b200 	andcs	fp, r0, r0, lsl #4
+
+0000096c <Dmx::Dmx()>:
+     96c:	e92d4070 	push	{r4, r5, r6, lr}
+     970:	e3a03012 	mov	r3, #18
+     974:	e1a06000 	mov	r6, r0
+     978:	e59f223c 	ldr	r2, [pc, #572]	; bbc <Dmx::Dmx()+0x250>
+     97c:	e59f523c 	ldr	r5, [pc, #572]	; bc0 <Dmx::Dmx()+0x254>
+     980:	e1a00003 	mov	r0, r3
+     984:	e3a01001 	mov	r1, #1
+     988:	e5862000 	str	r2, [r6]
+     98c:	e5c63004 	strb	r3, [r6, #4]
+     990:	e5856478 	str	r6, [r5, #1144]	; 0x478
+     994:	ebfffffe 	bl	0 <bcm2835_gpio_fsel>
+     998:	e3a03001 	mov	r3, #1
+     99c:	e3a01000 	mov	r1, #0
+     9a0:	e5d6c004 	ldrb	ip, [r6, #4]
+     9a4:	e59f0218 	ldr	r0, [pc, #536]	; bc4 <Dmx::Dmx()+0x258>
+     9a8:	e1a03c13 	lsl	r3, r3, ip
+     9ac:	e59fe214 	ldr	lr, [pc, #532]	; bc8 <Dmx::Dmx()+0x25c>
+     9b0:	e285203c 	add	r2, r5, #60	; 0x3c
+     9b4:	e5803028 	str	r3, [r0, #40]	; 0x28
+     9b8:	e24ee020 	sub	lr, lr, #32
+     9bc:	e35e0003 	cmp	lr, #3
+     9c0:	f5d2f002 	pld	[r2, #2]
+     9c4:	e5421020 	strb	r1, [r2, #-32]	; 0xffffffe0
+     9c8:	e542101f 	strb	r1, [r2, #-31]	; 0xffffffe1
+     9cc:	e542101e 	strb	r1, [r2, #-30]	; 0xffffffe2
+     9d0:	e542101d 	strb	r1, [r2, #-29]	; 0xffffffe3
+     9d4:	e542101c 	strb	r1, [r2, #-28]	; 0xffffffe4
+     9d8:	e542101b 	strb	r1, [r2, #-27]	; 0xffffffe5
+     9dc:	e542101a 	strb	r1, [r2, #-26]	; 0xffffffe6
+     9e0:	e5421019 	strb	r1, [r2, #-25]	; 0xffffffe7
+     9e4:	e5421018 	strb	r1, [r2, #-24]	; 0xffffffe8
+     9e8:	e5421017 	strb	r1, [r2, #-23]	; 0xffffffe9
+     9ec:	e5421016 	strb	r1, [r2, #-22]	; 0xffffffea
+     9f0:	e5421015 	strb	r1, [r2, #-21]	; 0xffffffeb
+     9f4:	e5421014 	strb	r1, [r2, #-20]	; 0xffffffec
+     9f8:	e5421013 	strb	r1, [r2, #-19]	; 0xffffffed
+     9fc:	e5421012 	strb	r1, [r2, #-18]	; 0xffffffee
+     a00:	e5421011 	strb	r1, [r2, #-17]	; 0xffffffef
+     a04:	e5421010 	strb	r1, [r2, #-16]
+     a08:	e542100f 	strb	r1, [r2, #-15]
+     a0c:	e542100e 	strb	r1, [r2, #-14]
+     a10:	e542100d 	strb	r1, [r2, #-13]
+     a14:	e542100c 	strb	r1, [r2, #-12]
+     a18:	e542100b 	strb	r1, [r2, #-11]
+     a1c:	e542100a 	strb	r1, [r2, #-10]
+     a20:	e5421009 	strb	r1, [r2, #-9]
+     a24:	e5421008 	strb	r1, [r2, #-8]
+     a28:	e5421007 	strb	r1, [r2, #-7]
+     a2c:	e5421006 	strb	r1, [r2, #-6]
+     a30:	e5421005 	strb	r1, [r2, #-5]
+     a34:	e5421004 	strb	r1, [r2, #-4]
+     a38:	e5421003 	strb	r1, [r2, #-3]
+     a3c:	e5421002 	strb	r1, [r2, #-2]
+     a40:	e1a03002 	mov	r3, r2
+     a44:	e5421001 	strb	r1, [r2, #-1]
+     a48:	e2822020 	add	r2, r2, #32
+     a4c:	1affffd9 	bne	9b8 <Dmx::Dmx()+0x4c>
+     a50:	e3a01000 	mov	r1, #0
+     a54:	e2832004 	add	r2, r3, #4
+     a58:	e4c31001 	strb	r1, [r3], #1
+     a5c:	e1520003 	cmp	r2, r3
+     a60:	1afffffc 	bne	a58 <Dmx::Dmx()+0xec>
+     a64:	e3a01000 	mov	r1, #0
+     a68:	e59f315c 	ldr	r3, [pc, #348]	; bcc <Dmx::Dmx()+0x260>
+     a6c:	e2832010 	add	r2, r3, #16
+     a70:	e4c31001 	strb	r1, [r3], #1
+     a74:	e1530002 	cmp	r3, r2
+     a78:	1afffffc 	bne	a70 <Dmx::Dmx()+0x104>
+     a7c:	e3a01000 	mov	r1, #0
+     a80:	e59f0140 	ldr	r0, [pc, #320]	; bc8 <Dmx::Dmx()+0x25c>
+     a84:	e2852e25 	add	r2, r5, #592	; 0x250
+     a88:	e2400020 	sub	r0, r0, #32
+     a8c:	e3500003 	cmp	r0, #3
+     a90:	f5d2f002 	pld	[r2, #2]
+     a94:	e5421020 	strb	r1, [r2, #-32]	; 0xffffffe0
+     a98:	e542101f 	strb	r1, [r2, #-31]	; 0xffffffe1
+     a9c:	e542101e 	strb	r1, [r2, #-30]	; 0xffffffe2
+     aa0:	e542101d 	strb	r1, [r2, #-29]	; 0xffffffe3
+     aa4:	e542101c 	strb	r1, [r2, #-28]	; 0xffffffe4
+     aa8:	e542101b 	strb	r1, [r2, #-27]	; 0xffffffe5
+     aac:	e542101a 	strb	r1, [r2, #-26]	; 0xffffffe6
+     ab0:	e5421019 	strb	r1, [r2, #-25]	; 0xffffffe7
+     ab4:	e5421018 	strb	r1, [r2, #-24]	; 0xffffffe8
+     ab8:	e5421017 	strb	r1, [r2, #-23]	; 0xffffffe9
+     abc:	e5421016 	strb	r1, [r2, #-22]	; 0xffffffea
+     ac0:	e5421015 	strb	r1, [r2, #-21]	; 0xffffffeb
+     ac4:	e5421014 	strb	r1, [r2, #-20]	; 0xffffffec
+     ac8:	e5421013 	strb	r1, [r2, #-19]	; 0xffffffed
+     acc:	e5421012 	strb	r1, [r2, #-18]	; 0xffffffee
+     ad0:	e5421011 	strb	r1, [r2, #-17]	; 0xffffffef
+     ad4:	e5421010 	strb	r1, [r2, #-16]
+     ad8:	e542100f 	strb	r1, [r2, #-15]
+     adc:	e542100e 	strb	r1, [r2, #-14]
+     ae0:	e542100d 	strb	r1, [r2, #-13]
+     ae4:	e542100c 	strb	r1, [r2, #-12]
+     ae8:	e542100b 	strb	r1, [r2, #-11]
+     aec:	e542100a 	strb	r1, [r2, #-10]
+     af0:	e5421009 	strb	r1, [r2, #-9]
+     af4:	e5421008 	strb	r1, [r2, #-8]
+     af8:	e5421007 	strb	r1, [r2, #-7]
+     afc:	e5421006 	strb	r1, [r2, #-6]
+     b00:	e5421005 	strb	r1, [r2, #-5]
+     b04:	e5421004 	strb	r1, [r2, #-4]
+     b08:	e5421003 	strb	r1, [r2, #-3]
+     b0c:	e5421002 	strb	r1, [r2, #-2]
+     b10:	e1a03002 	mov	r3, r2
+     b14:	e5421001 	strb	r1, [r2, #-1]
+     b18:	e2822020 	add	r2, r2, #32
+     b1c:	1affffd9 	bne	a88 <Dmx::Dmx()+0x11c>
+     b20:	e3a01000 	mov	r1, #0
+     b24:	e2832004 	add	r2, r3, #4
+     b28:	e4c31001 	strb	r1, [r3], #1
+     b2c:	e1530002 	cmp	r3, r2
+     b30:	1afffffc 	bne	b28 <Dmx::Dmx()+0x1bc>
+     b34:	e3a04000 	mov	r4, #0
+     b38:	e59f2090 	ldr	r2, [pc, #144]	; bd0 <Dmx::Dmx()+0x264>
+     b3c:	e2823e41 	add	r3, r2, #1040	; 0x410
+     b40:	e2822e42 	add	r2, r2, #1056	; 0x420
+     b44:	e2833008 	add	r3, r3, #8
+     b48:	e2822008 	add	r2, r2, #8
+     b4c:	e4c34001 	strb	r4, [r3], #1
+     b50:	e1530002 	cmp	r3, r2
+     b54:	1afffffc 	bne	b4c <Dmx::Dmx()+0x1e0>
+     b58:	e5854450 	str	r4, [r5, #1104]	; 0x450
+     b5c:	e585447c 	str	r4, [r5, #1148]	; 0x47c
+     b60:	e5854458 	str	r4, [r5, #1112]	; 0x458
+     b64:	e5854480 	str	r4, [r5, #1152]	; 0x480
+     b68:	e5c54444 	strb	r4, [r5, #1092]	; 0x444
+     b6c:	e5c54010 	strb	r4, [r5, #16]
+     b70:	e5c54474 	strb	r4, [r5, #1140]	; 0x474
+     b74:	ebfffffe 	bl	0 <irq_timer_init>
+     b78:	e3a00001 	mov	r0, #1
+     b7c:	e59f1050 	ldr	r1, [pc, #80]	; bd4 <Dmx::Dmx()+0x268>
+     b80:	ebfffffe 	bl	0 <irq_timer_set>
+     b84:	e59f204c 	ldr	r2, [pc, #76]	; bd8 <Dmx::Dmx()+0x26c>
+     b88:	e5923004 	ldr	r3, [r2, #4]
+     b8c:	e283393d 	add	r3, r3, #999424	; 0xf4000
+     b90:	e2833d09 	add	r3, r3, #576	; 0x240
+     b94:	e5823018 	str	r3, [r2, #24]
+     b98:	ee074fba 	mcr	15, 0, r4, cr7, cr10, {5}
+     b9c:	e1a00006 	mov	r0, r6
+     ba0:	ebfffffe 	bl	890 <Dmx::UartInit()>
+     ba4:	f10c0040 	cpsid	f
+     ba8:	e3a0101c 	mov	r1, #28
+     bac:	e59f0028 	ldr	r0, [pc, #40]	; bdc <Dmx::Dmx()+0x270>
+     bb0:	ebfffffe 	bl	0 <arm_install_handler>
+     bb4:	e1a00006 	mov	r0, r6
+     bb8:	e8bd8070 	pop	{r4, r5, r6, pc}
+     bbc:	000061a8 	andeq	r6, r0, r8, lsr #3
+     bc0:	00000000 	andeq	r0, r0, r0
+     bc4:	20200000 	eorcs	r0, r0, r0
+     bc8:	00000203 	andeq	r0, r0, r3, lsl #4
+     bcc:	00000220 	andeq	r0, r0, r0, lsr #4
+     bd0:	0000001c 	andeq	r0, r0, ip, lsl r0
+     bd4:	00000000 	andeq	r0, r0, r0
+     bd8:	20003000 	andcs	r3, r0, r0
+     bdc:	00000000 	andeq	r0, r0, r0
+
+00000be0 <Dmx::UartEnableFifo()>:
+     be0:	e3a02000 	mov	r2, #0
+     be4:	e3a0c078 	mov	ip, #120	; 0x78
+     be8:	e3a00001 	mov	r0, #1
+     bec:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
+     bf0:	e59f3024 	ldr	r3, [pc, #36]	; c1c <Dmx::UartEnableFifo()+0x3c>
+     bf4:	e59fe024 	ldr	lr, [pc, #36]	; c20 <Dmx::UartEnableFifo()+0x40>
+     bf8:	e59f1024 	ldr	r1, [pc, #36]	; c24 <Dmx::UartEnableFifo()+0x44>
+     bfc:	e5832030 	str	r2, [r3, #48]	; 0x30
+     c00:	e583e044 	str	lr, [r3, #68]	; 0x44
+     c04:	e583c02c 	str	ip, [r3, #44]	; 0x2c
+     c08:	e5830034 	str	r0, [r3, #52]	; 0x34
+     c0c:	e5832038 	str	r2, [r3, #56]	; 0x38
+     c10:	e5831030 	str	r1, [r3, #48]	; 0x30
+     c14:	ee072f95 	mcr	15, 0, r2, cr7, cr5, {4}
+     c18:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
+     c1c:	20201000 	eorcs	r1, r0, r0
+     c20:	000007ff 	strdeq	r0, [r0], -pc	; <UNPREDICTABLE>
+     c24:	00000301 	andeq	r0, r0, r1, lsl #6
+
+00000c28 <Dmx::UartDisableFifo()>:
+     c28:	e3a01000 	mov	r1, #0
+     c2c:	e92d4010 	push	{r4, lr}
+     c30:	e3a0c010 	mov	ip, #16
+     c34:	e3a0e068 	mov	lr, #104	; 0x68
+     c38:	e59f302c 	ldr	r3, [pc, #44]	; c6c <Dmx::UartDisableFifo()+0x44>
+     c3c:	e59f402c 	ldr	r4, [pc, #44]	; c70 <Dmx::UartDisableFifo()+0x48>
+     c40:	e5831030 	str	r1, [r3, #48]	; 0x30
+     c44:	e593202c 	ldr	r2, [r3, #44]	; 0x2c
+     c48:	e59f0024 	ldr	r0, [pc, #36]	; c74 <Dmx::UartDisableFifo()+0x4c>
+     c4c:	e3c22010 	bic	r2, r2, #16
+     c50:	e583202c 	str	r2, [r3, #44]	; 0x2c
+     c54:	e5834044 	str	r4, [r3, #68]	; 0x44
+     c58:	e583e02c 	str	lr, [r3, #44]	; 0x2c
+     c5c:	e583c038 	str	ip, [r3, #56]	; 0x38
+     c60:	e5830030 	str	r0, [r3, #48]	; 0x30
+     c64:	ee071f95 	mcr	15, 0, r1, cr7, cr5, {4}
+     c68:	e8bd8010 	pop	{r4, pc}
+     c6c:	20201000 	eorcs	r1, r0, r0
+     c70:	000007ff 	strdeq	r0, [r0], -pc	; <UNPREDICTABLE>
+     c74:	00000301 	andeq	r0, r0, r1, lsl #6
+
+00000c78 <Dmx::StartOutput(unsigned long)>:
+     c78:	e12fff1e 	bx	lr
+
+00000c7c <Dmx::SetOutput(bool)>:
+     c7c:	e92d4010 	push	{r4, lr}
+     c80:	e59f4084 	ldr	r4, [pc, #132]	; d0c <Dmx::SetOutput(bool)+0x90>
+     c84:	e5d40010 	ldrb	r0, [r4, #16]
+     c88:	e21000ff 	ands	r0, r0, #255	; 0xff
+     c8c:	18bd8010 	popne	{r4, pc}
+     c90:	e3a0c078 	mov	ip, #120	; 0x78
+     c94:	e3a01001 	mov	r1, #1
+     c98:	e59f3070 	ldr	r3, [pc, #112]	; d10 <Dmx::SetOutput(bool)+0x94>
+     c9c:	e59f2070 	ldr	r2, [pc, #112]	; d14 <Dmx::SetOutput(bool)+0x98>
+     ca0:	e5830030 	str	r0, [r3, #48]	; 0x30
+     ca4:	e5832044 	str	r2, [r3, #68]	; 0x44
+     ca8:	e59f2068 	ldr	r2, [pc, #104]	; d18 <Dmx::SetOutput(bool)+0x9c>
+     cac:	e583c02c 	str	ip, [r3, #44]	; 0x2c
+     cb0:	e5831034 	str	r1, [r3, #52]	; 0x34
+     cb4:	e5830038 	str	r0, [r3, #56]	; 0x38
+     cb8:	e5832030 	str	r2, [r3, #48]	; 0x30
+     cbc:	ee070f95 	mcr	15, 0, r0, cr7, cr5, {4}
+     cc0:	f1080040 	cpsie	f
+     cc4:	e59f1050 	ldr	r1, [pc, #80]	; d1c <Dmx::SetOutput(bool)+0xa0>
+     cc8:	ebfffffe 	bl	0 <irq_timer_set>
+     ccc:	e59f004c 	ldr	r0, [pc, #76]	; d20 <Dmx::SetOutput(bool)+0xa4>
+     cd0:	e59f304c 	ldr	r3, [pc, #76]	; d24 <Dmx::SetOutput(bool)+0xa8>
+     cd4:	e5901004 	ldr	r1, [r0, #4]
+     cd8:	e5942014 	ldr	r2, [r4, #20]
+     cdc:	e5933008 	ldr	r3, [r3, #8]
+     ce0:	e0412002 	sub	r2, r1, r2
+     ce4:	e1520003 	cmp	r2, r3
+     ce8:	95942014 	ldrls	r2, [r4, #20]
+     cec:	82811004 	addhi	r1, r1, #4
+     cf0:	90833002 	addls	r3, r3, r2
+     cf4:	92833004 	addls	r3, r3, #4
+     cf8:	95803010 	strls	r3, [r0, #16]
+     cfc:	85801010 	strhi	r1, [r0, #16]
+     d00:	e3a03000 	mov	r3, #0
+     d04:	ee073f95 	mcr	15, 0, r3, cr7, cr5, {4}
+     d08:	e8bd8010 	pop	{r4, pc}
+     d0c:	00000000 	andeq	r0, r0, r0
+     d10:	20201000 	eorcs	r1, r0, r0
+     d14:	000007ff 	strdeq	r0, [r0], -pc	; <UNPREDICTABLE>
+     d18:	00000301 	andeq	r0, r0, r1, lsl #6
+     d1c:	00000000 	andeq	r0, r0, r0
+     d20:	20003000 	andcs	r3, r0, r0
+     d24:	00000000 	andeq	r0, r0, r0
+
+00000d28 <Dmx::StartData()>:
+     d28:	e92d4070 	push	{r4, r5, r6, lr}
+     d2c:	e59f4118 	ldr	r4, [pc, #280]	; e4c <Dmx::StartData()+0x124>
+     d30:	e5940010 	ldr	r0, [r4, #16]
+     d34:	e3500000 	cmp	r0, #0
+     d38:	0a000022 	beq	dc8 <Dmx::StartData()+0xa0>
+     d3c:	e3500001 	cmp	r0, #1
+     d40:	1a00001d 	bne	dbc <Dmx::StartData()+0x94>
+     d44:	e3a00000 	mov	r0, #0
+     d48:	e59f3100 	ldr	r3, [pc, #256]	; e50 <Dmx::StartData()+0x128>
+     d4c:	e59f1100 	ldr	r1, [pc, #256]	; e54 <Dmx::StartData()+0x12c>
+     d50:	e5c30444 	strb	r0, [r3, #1092]	; 0x444
+     d54:	ebfffffe 	bl	0 <irq_timer_set>
+     d58:	e59f30f8 	ldr	r3, [pc, #248]	; e58 <Dmx::StartData()+0x130>
+     d5c:	e5932018 	ldr	r2, [r3, #24]
+     d60:	e3120008 	tst	r2, #8
+     d64:	0a000003 	beq	d78 <Dmx::StartData()+0x50>
+     d68:	e5932000 	ldr	r2, [r3]
+     d6c:	e5932018 	ldr	r2, [r3, #24]
+     d70:	e3120008 	tst	r2, #8
+     d74:	1afffffb 	bne	d68 <Dmx::StartData()+0x40>
+     d78:	e3a02000 	mov	r2, #0
+     d7c:	e3a0e068 	mov	lr, #104	; 0x68
+     d80:	e3a0c010 	mov	ip, #16
+     d84:	e59f30cc 	ldr	r3, [pc, #204]	; e58 <Dmx::StartData()+0x130>
+     d88:	e59f50cc 	ldr	r5, [pc, #204]	; e5c <Dmx::StartData()+0x134>
+     d8c:	e5832030 	str	r2, [r3, #48]	; 0x30
+     d90:	e593102c 	ldr	r1, [r3, #44]	; 0x2c
+     d94:	e59f00c4 	ldr	r0, [pc, #196]	; e60 <Dmx::StartData()+0x138>
+     d98:	e3c11010 	bic	r1, r1, #16
+     d9c:	e583102c 	str	r1, [r3, #44]	; 0x2c
+     da0:	e5835044 	str	r5, [r3, #68]	; 0x44
+     da4:	e583e02c 	str	lr, [r3, #44]	; 0x2c
+     da8:	e583c038 	str	ip, [r3, #56]	; 0x38
+     dac:	e5830030 	str	r0, [r3, #48]	; 0x30
+     db0:	ee072f95 	mcr	15, 0, r2, cr7, cr5, {4}
+     db4:	f1080040 	cpsie	f
+     db8:	ee072f95 	mcr	15, 0, r2, cr7, cr5, {4}
+     dbc:	e3a03000 	mov	r3, #0
+     dc0:	e5c43014 	strb	r3, [r4, #20]
+     dc4:	e8bd8070 	pop	{r4, r5, r6, pc}
+     dc8:	e3a02001 	mov	r2, #1
+     dcc:	e3a0c078 	mov	ip, #120	; 0x78
+     dd0:	e59f3080 	ldr	r3, [pc, #128]	; e58 <Dmx::StartData()+0x130>
+     dd4:	e59f5074 	ldr	r5, [pc, #116]	; e50 <Dmx::StartData()+0x128>
+     dd8:	e59fe07c 	ldr	lr, [pc, #124]	; e5c <Dmx::StartData()+0x134>
+     ddc:	e59f107c 	ldr	r1, [pc, #124]	; e60 <Dmx::StartData()+0x138>
+     de0:	e5c52474 	strb	r2, [r5, #1140]	; 0x474
+     de4:	e5c50010 	strb	r0, [r5, #16]
+     de8:	e5830030 	str	r0, [r3, #48]	; 0x30
+     dec:	e583e044 	str	lr, [r3, #68]	; 0x44
+     df0:	e583c02c 	str	ip, [r3, #44]	; 0x2c
+     df4:	e5832034 	str	r2, [r3, #52]	; 0x34
+     df8:	e5830038 	str	r0, [r3, #56]	; 0x38
+     dfc:	e5831030 	str	r1, [r3, #48]	; 0x30
+     e00:	ee070f95 	mcr	15, 0, r0, cr7, cr5, {4}
+     e04:	f1080040 	cpsie	f
+     e08:	e59f1054 	ldr	r1, [pc, #84]	; e64 <Dmx::StartData()+0x13c>
+     e0c:	ebfffffe 	bl	0 <irq_timer_set>
+     e10:	e59f0050 	ldr	r0, [pc, #80]	; e68 <Dmx::StartData()+0x140>
+     e14:	e5943008 	ldr	r3, [r4, #8]
+     e18:	e5901004 	ldr	r1, [r0, #4]
+     e1c:	e5952014 	ldr	r2, [r5, #20]
+     e20:	e0412002 	sub	r2, r1, r2
+     e24:	e1520003 	cmp	r2, r3
+     e28:	95952014 	ldrls	r2, [r5, #20]
+     e2c:	82811004 	addhi	r1, r1, #4
+     e30:	90833002 	addls	r3, r3, r2
+     e34:	92833004 	addls	r3, r3, #4
+     e38:	95803010 	strls	r3, [r0, #16]
+     e3c:	85801010 	strhi	r1, [r0, #16]
+     e40:	e3a03000 	mov	r3, #0
+     e44:	ee073f95 	mcr	15, 0, r3, cr7, cr5, {4}
+     e48:	eaffffdb 	b	dbc <Dmx::StartData()+0x94>
+	...
+     e58:	20201000 	eorcs	r1, r0, r0
+     e5c:	000007ff 	strdeq	r0, [r0], -pc	; <UNPREDICTABLE>
+     e60:	00000301 	andeq	r0, r0, r1, lsl #6
+     e64:	00000000 	andeq	r0, r0, r0
+     e68:	20003000 	andcs	r3, r0, r0
+
+00000e6c <Dmx::StopData()>:
+     e6c:	e59f300c 	ldr	r3, [pc, #12]	; e80 <Dmx::StopData()+0x14>
+     e70:	e5d33014 	ldrb	r3, [r3, #20]
+     e74:	e3530000 	cmp	r3, #0
+     e78:	112fff1e 	bxne	lr
+     e7c:	eafffe4b 	b	7b0 <Dmx::StopData() [clone .part.0]>
+     e80:	00000000 	andeq	r0, r0, r0
+
+00000e84 <Dmx::SetPortDirection(unsigned long, dmx::PortDirection, bool)>:
+     e84:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+     e88:	e59f707c 	ldr	r7, [pc, #124]	; f0c <Dmx::SetPortDirection(unsigned long, dmx::PortDirection, bool)+0x88>
+     e8c:	e1a06000 	mov	r6, r0
+     e90:	e5971010 	ldr	r1, [r7, #16]
+     e94:	e1a05003 	mov	r5, r3
+     e98:	e1510002 	cmp	r1, r2
+     e9c:	0a000013 	beq	ef0 <Dmx::SetPortDirection(unsigned long, dmx::PortDirection, bool)+0x6c>
+     ea0:	e5d73014 	ldrb	r3, [r7, #20]
+     ea4:	e1a04002 	mov	r4, r2
+     ea8:	e3530000 	cmp	r3, #0
+     eac:	1a000000 	bne	eb4 <Dmx::SetPortDirection(unsigned long, dmx::PortDirection, bool)+0x30>
+     eb0:	ebfffe3e 	bl	7b0 <Dmx::StopData() [clone .part.0]>
+     eb4:	e3a02001 	mov	r2, #1
+     eb8:	e5d63004 	ldrb	r3, [r6, #4]
+     ebc:	e3540000 	cmp	r4, #0
+     ec0:	e1a03312 	lsl	r3, r2, r3
+     ec4:	15872010 	strne	r2, [r7, #16]
+     ec8:	059f2040 	ldreq	r2, [pc, #64]	; f10 <Dmx::SetPortDirection(unsigned long, dmx::PortDirection, bool)+0x8c>
+     ecc:	159f203c 	ldrne	r2, [pc, #60]	; f10 <Dmx::SetPortDirection(unsigned long, dmx::PortDirection, bool)+0x8c>
+     ed0:	05874010 	streq	r4, [r7, #16]
+     ed4:	15823028 	strne	r3, [r2, #40]	; 0x28
+     ed8:	0582301c 	streq	r3, [r2, #28]
+     edc:	e3550000 	cmp	r5, #0
+     ee0:	08bd81f0 	popeq	{r4, r5, r6, r7, r8, pc}
+     ee4:	e1a00006 	mov	r0, r6
+     ee8:	e8bd41f0 	pop	{r4, r5, r6, r7, r8, lr}
+     eec:	eafffffe 	b	d28 <Dmx::StartData()>
+     ef0:	e3530000 	cmp	r3, #0
+     ef4:	1afffffa 	bne	ee4 <Dmx::SetPortDirection(unsigned long, dmx::PortDirection, bool)+0x60>
+     ef8:	e5d73014 	ldrb	r3, [r7, #20]
+     efc:	e3530000 	cmp	r3, #0
+     f00:	18bd81f0 	popne	{r4, r5, r6, r7, r8, pc}
+     f04:	e8bd41f0 	pop	{r4, r5, r6, r7, r8, lr}
+     f08:	eafffe28 	b	7b0 <Dmx::StopData() [clone .part.0]>
+     f0c:	00000000 	andeq	r0, r0, r0
+     f10:	20200000 	eorcs	r0, r0, r0
+
+00000f14 <Dmx::GetPortDirection(unsigned long)>:
+     f14:	e59f3004 	ldr	r3, [pc, #4]	; f20 <Dmx::GetPortDirection(unsigned long)+0xc>
+     f18:	e5930010 	ldr	r0, [r3, #16]
+     f1c:	e12fff1e 	bx	lr
+     f20:	00000000 	andeq	r0, r0, r0
+
+00000f24 <Dmx::SetDmxBreakTime(unsigned long)>:
+     f24:	e351005c 	cmp	r1, #92	; 0x5c
+     f28:	33a0105c 	movcc	r1, #92	; 0x5c
+     f2c:	e59fc04c 	ldr	ip, [pc, #76]	; f80 <Dmx::SetDmxBreakTime(unsigned long)+0x5c>
+     f30:	e59c300c 	ldr	r3, [ip, #12]
+     f34:	e58c1000 	str	r1, [ip]
+     f38:	e0832103 	add	r2, r3, r3, lsl #2
+     f3c:	e0832082 	add	r2, r3, r2, lsl #1
+     f40:	e59c3004 	ldr	r3, [ip, #4]
+     f44:	e0833102 	add	r3, r3, r2, lsl #2
+     f48:	e5902000 	ldr	r2, [r0]
+     f4c:	e0831001 	add	r1, r3, r1
+     f50:	e3520000 	cmp	r2, #0
+     f54:	0a000001 	beq	f60 <Dmx::SetDmxBreakTime(unsigned long)+0x3c>
+     f58:	e1520001 	cmp	r2, r1
+     f5c:	2a000005 	bcs	f78 <Dmx::SetDmxBreakTime(unsigned long)+0x54>
+     f60:	e59f301c 	ldr	r3, [pc, #28]	; f84 <Dmx::SetDmxBreakTime(unsigned long)+0x60>
+     f64:	e281102c 	add	r1, r1, #44	; 0x2c
+     f68:	e1510003 	cmp	r1, r3
+     f6c:	31a01003 	movcc	r1, r3
+     f70:	e58c1008 	str	r1, [ip, #8]
+     f74:	e12fff1e 	bx	lr
+     f78:	e58c2008 	str	r2, [ip, #8]
+     f7c:	e12fff1e 	bx	lr
+     f80:	00000000 	andeq	r0, r0, r0
+     f84:	000004b4 			; <UNDEFINED> instruction: 0x000004b4
+
+00000f88 <Dmx::GetDmxBreakTime()>:
+     f88:	e59f3004 	ldr	r3, [pc, #4]	; f94 <Dmx::GetDmxBreakTime()+0xc>
+     f8c:	e5930000 	ldr	r0, [r3]
+     f90:	e12fff1e 	bx	lr
+     f94:	00000000 	andeq	r0, r0, r0
+
+00000f98 <Dmx::SetDmxMabTime(unsigned long)>:
+     f98:	e351000c 	cmp	r1, #12
+     f9c:	33a0100c 	movcc	r1, #12
+     fa0:	e59fc04c 	ldr	ip, [pc, #76]	; ff4 <Dmx::SetDmxMabTime(unsigned long)+0x5c>
+     fa4:	e59c300c 	ldr	r3, [ip, #12]
+     fa8:	e58c1004 	str	r1, [ip, #4]
+     fac:	e0832103 	add	r2, r3, r3, lsl #2
+     fb0:	e0832082 	add	r2, r3, r2, lsl #1
+     fb4:	e59c3000 	ldr	r3, [ip]
+     fb8:	e0833102 	add	r3, r3, r2, lsl #2
+     fbc:	e5902000 	ldr	r2, [r0]
+     fc0:	e0831001 	add	r1, r3, r1
+     fc4:	e3520000 	cmp	r2, #0
+     fc8:	0a000001 	beq	fd4 <Dmx::SetDmxMabTime(unsigned long)+0x3c>
+     fcc:	e1520001 	cmp	r2, r1
+     fd0:	2a000005 	bcs	fec <Dmx::SetDmxMabTime(unsigned long)+0x54>
+     fd4:	e59f301c 	ldr	r3, [pc, #28]	; ff8 <Dmx::SetDmxMabTime(unsigned long)+0x60>
+     fd8:	e281102c 	add	r1, r1, #44	; 0x2c
+     fdc:	e1510003 	cmp	r1, r3
+     fe0:	31a01003 	movcc	r1, r3
+     fe4:	e58c1008 	str	r1, [ip, #8]
+     fe8:	e12fff1e 	bx	lr
+     fec:	e58c2008 	str	r2, [ip, #8]
+     ff0:	e12fff1e 	bx	lr
+     ff4:	00000000 	andeq	r0, r0, r0
+     ff8:	000004b4 			; <UNDEFINED> instruction: 0x000004b4
+
+00000ffc <Dmx::GetDmxMabTime()>:
+     ffc:	e59f3004 	ldr	r3, [pc, #4]	; 1008 <Dmx::GetDmxMabTime()+0xc>
+    1000:	e5930004 	ldr	r0, [r3, #4]
+    1004:	e12fff1e 	bx	lr
+    1008:	00000000 	andeq	r0, r0, r0
+
+0000100c <Dmx::SetDmxPeriodTime(unsigned long)>:
+    100c:	e59fc04c 	ldr	ip, [pc, #76]	; 1060 <Dmx::SetDmxPeriodTime(unsigned long)+0x54>
+    1010:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
+    1014:	e1cc20d0 	ldrd	r2, [ip]
+    1018:	e0833002 	add	r3, r3, r2
+    101c:	e59c200c 	ldr	r2, [ip, #12]
+    1020:	e3510000 	cmp	r1, #0
+    1024:	e082e102 	add	lr, r2, r2, lsl #2
+    1028:	e082208e 	add	r2, r2, lr, lsl #1
+    102c:	e0833102 	add	r3, r3, r2, lsl #2
+    1030:	e5801000 	str	r1, [r0]
+    1034:	0a000001 	beq	1040 <Dmx::SetDmxPeriodTime(unsigned long)+0x34>
+    1038:	e1530001 	cmp	r3, r1
+    103c:	9a000005 	bls	1058 <Dmx::SetDmxPeriodTime(unsigned long)+0x4c>
+    1040:	e59f201c 	ldr	r2, [pc, #28]	; 1064 <Dmx::SetDmxPeriodTime(unsigned long)+0x58>
+    1044:	e283302c 	add	r3, r3, #44	; 0x2c
+    1048:	e1530002 	cmp	r3, r2
+    104c:	31a03002 	movcc	r3, r2
+    1050:	e58c3008 	str	r3, [ip, #8]
+    1054:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
+    1058:	e58c1008 	str	r1, [ip, #8]
+    105c:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)
+    1060:	00000000 	andeq	r0, r0, r0
+    1064:	000004b4 			; <UNDEFINED> instruction: 0x000004b4
+
+00001068 <Dmx::GetDmxPeriodTime()>:
+    1068:	e59f3004 	ldr	r3, [pc, #4]	; 1074 <Dmx::GetDmxPeriodTime()+0xc>
+    106c:	e5930008 	ldr	r0, [r3, #8]
+    1070:	e12fff1e 	bx	lr
+    1074:	00000000 	andeq	r0, r0, r0
+
+00001078 <Dmx::GetSendDataLength()>:
+    1078:	e59f3004 	ldr	r3, [pc, #4]	; 1084 <Dmx::GetSendDataLength()+0xc>
+    107c:	e593000c 	ldr	r0, [r3, #12]
+    1080:	e12fff1e 	bx	lr
+    1084:	00000000 	andeq	r0, r0, r0
+
+00001088 <Dmx::GetTotalStatistics()>:
+    1088:	e59f0000 	ldr	r0, [pc]	; 1090 <Dmx::GetTotalStatistics()+0x8>
+    108c:	e12fff1e 	bx	lr
+    1090:	00000000 	andeq	r0, r0, r0
+
+00001094 <Dmx::GetDmxCurrentData(unsigned long)>:
+    1094:	e59f0014 	ldr	r0, [pc, #20]	; 10b0 <Dmx::GetDmxCurrentData(unsigned long)+0x1c>
+    1098:	e590347c 	ldr	r3, [r0, #1148]	; 0x47c
+    109c:	e280001c 	add	r0, r0, #28
+    10a0:	e0832283 	add	r2, r3, r3, lsl #5
+    10a4:	e0833102 	add	r3, r3, r2, lsl #2
+    10a8:	e0800103 	add	r0, r0, r3, lsl #2
+    10ac:	e12fff1e 	bx	lr
+    10b0:	00000000 	andeq	r0, r0, r0
+
+000010b4 <Dmx::GetDmxAvailable(unsigned long)>:
+    10b4:	e3a00000 	mov	r0, #0
+    10b8:	ee070fba 	mcr	15, 0, r0, cr7, cr10, {5}
+    10bc:	e59f3034 	ldr	r3, [pc, #52]	; 10f8 <Dmx::GetDmxAvailable(unsigned long)+0x44>
+    10c0:	e5931450 	ldr	r1, [r3, #1104]	; 0x450
+    10c4:	e593247c 	ldr	r2, [r3, #1148]	; 0x47c
+    10c8:	e1510002 	cmp	r1, r2
+    10cc:	012fff1e 	bxeq	lr
+    10d0:	e593147c 	ldr	r1, [r3, #1148]	; 0x47c
+    10d4:	e593247c 	ldr	r2, [r3, #1148]	; 0x47c
+    10d8:	e081c281 	add	ip, r1, r1, lsl #5
+    10dc:	e2822001 	add	r2, r2, #1
+    10e0:	e283001c 	add	r0, r3, #28
+    10e4:	e081110c 	add	r1, r1, ip, lsl #2
+    10e8:	e2022001 	and	r2, r2, #1
+    10ec:	e0800101 	add	r0, r0, r1, lsl #2
+    10f0:	e583247c 	str	r2, [r3, #1148]	; 0x47c
+    10f4:	e12fff1e 	bx	lr
+    10f8:	00000000 	andeq	r0, r0, r0
+
+000010fc <Dmx::GetDmxChanged(unsigned long)>:
+    10fc:	e92d4010 	push	{r4, lr}
+    1100:	e3a04000 	mov	r4, #0
+    1104:	ee074fba 	mcr	15, 0, r4, cr7, cr10, {5}
+    1108:	e59fe118 	ldr	lr, [pc, #280]	; 1228 <Dmx::GetDmxChanged(unsigned long)+0x12c>
+    110c:	e59e2450 	ldr	r2, [lr, #1104]	; 0x450
+    1110:	e59e347c 	ldr	r3, [lr, #1148]	; 0x47c
+    1114:	e1520003 	cmp	r2, r3
+    1118:	0a000040 	beq	1220 <Dmx::GetDmxChanged(unsigned long)+0x124>
+    111c:	e59e347c 	ldr	r3, [lr, #1148]	; 0x47c
+    1120:	e28e201c 	add	r2, lr, #28
+    1124:	e0830283 	add	r0, r3, r3, lsl #5
+    1128:	e0830100 	add	r0, r3, r0, lsl #2
+    112c:	e59e347c 	ldr	r3, [lr, #1148]	; 0x47c
+    1130:	e0820100 	add	r0, r2, r0, lsl #2
+    1134:	e2833001 	add	r3, r3, #1
+    1138:	e2033001 	and	r3, r3, #1
+    113c:	e58e347c 	str	r3, [lr, #1148]	; 0x47c
+    1140:	e59e2484 	ldr	r2, [lr, #1156]	; 0x484
+    1144:	e5903204 	ldr	r3, [r0, #516]	; 0x204
+    1148:	e1530002 	cmp	r3, r2
+    114c:	0a000025 	beq	11e8 <Dmx::GetDmxChanged(unsigned long)+0xec>
+    1150:	e28ece4a 	add	ip, lr, #1184	; 0x4a0
+    1154:	e58e3484 	str	r3, [lr, #1156]	; 0x484
+    1158:	e28cc008 	add	ip, ip, #8
+    115c:	e2803020 	add	r3, r0, #32
+    1160:	e1a0200c 	mov	r2, ip
+    1164:	e513c020 	ldr	ip, [r3, #-32]	; 0xffffffe0
+    1168:	f5d3f044 	pld	[r3, #68]	; 0x44
+    116c:	e502c020 	str	ip, [r2, #-32]	; 0xffffffe0
+    1170:	e513c01c 	ldr	ip, [r3, #-28]	; 0xffffffe4
+    1174:	e2844008 	add	r4, r4, #8
+    1178:	e502c01c 	str	ip, [r2, #-28]	; 0xffffffe4
+    117c:	e513c018 	ldr	ip, [r3, #-24]	; 0xffffffe8
+    1180:	e3540080 	cmp	r4, #128	; 0x80
+    1184:	e502c018 	str	ip, [r2, #-24]	; 0xffffffe8
+    1188:	e513c014 	ldr	ip, [r3, #-20]	; 0xffffffec
+    118c:	e1a01003 	mov	r1, r3
+    1190:	e502c014 	str	ip, [r2, #-20]	; 0xffffffec
+    1194:	e513c010 	ldr	ip, [r3, #-16]
+    1198:	e2833020 	add	r3, r3, #32
+    119c:	e502c010 	str	ip, [r2, #-16]
+    11a0:	e513c02c 	ldr	ip, [r3, #-44]	; 0xffffffd4
+    11a4:	e502c00c 	str	ip, [r2, #-12]
+    11a8:	e513c028 	ldr	ip, [r3, #-40]	; 0xffffffd8
+    11ac:	e502c008 	str	ip, [r2, #-8]
+    11b0:	e513c024 	ldr	ip, [r3, #-36]	; 0xffffffdc
+    11b4:	e502c004 	str	ip, [r2, #-4]
+    11b8:	e282c020 	add	ip, r2, #32
+    11bc:	1affffe7 	bne	1160 <Dmx::GetDmxChanged(unsigned long)+0x64>
+    11c0:	e2823004 	add	r3, r2, #4
+    11c4:	e1a0e003 	mov	lr, r3
+    11c8:	e2411004 	sub	r1, r1, #4
+    11cc:	e5b1c004 	ldr	ip, [r1, #4]!
+    11d0:	e153000e 	cmp	r3, lr
+    11d4:	e582c000 	str	ip, [r2]
+    11d8:	e1a02003 	mov	r2, r3
+    11dc:	08bd8010 	popeq	{r4, pc}
+    11e0:	e2833004 	add	r3, r3, #4
+    11e4:	eafffff8 	b	11cc <Dmx::GetDmxChanged(unsigned long)+0xd0>
+    11e8:	e28e3d12 	add	r3, lr, #1152	; 0x480
+    11ec:	e28eed1a 	add	lr, lr, #1664	; 0x680
+    11f0:	e2833004 	add	r3, r3, #4
+    11f4:	e2401004 	sub	r1, r0, #4
+    11f8:	e28ee008 	add	lr, lr, #8
+    11fc:	e5b3c004 	ldr	ip, [r3, #4]!
+    1200:	e5b12004 	ldr	r2, [r1, #4]!
+    1204:	e15c0002 	cmp	ip, r2
+    1208:	13a04001 	movne	r4, #1
+    120c:	15832000 	strne	r2, [r3]
+    1210:	e153000e 	cmp	r3, lr
+    1214:	1afffff8 	bne	11fc <Dmx::GetDmxChanged(unsigned long)+0x100>
+    1218:	e3540000 	cmp	r4, #0
+    121c:	18bd8010 	popne	{r4, pc}
+    1220:	e3a00000 	mov	r0, #0
+    1224:	e8bd8010 	pop	{r4, pc}
+    1228:	00000000 	andeq	r0, r0, r0
+
+0000122c <Dmx::SetSendDataLength(unsigned long)>:
+    122c:	e59f2048 	ldr	r2, [pc, #72]	; 127c <Dmx::SetSendDataLength(unsigned long)+0x50>
+    1230:	e8921008 	ldm	r2, {r3, ip}
+    1234:	e083300c 	add	r3, r3, ip
+    1238:	e590c000 	ldr	ip, [r0]
+    123c:	e0810101 	add	r0, r1, r1, lsl #2
+    1240:	e0810080 	add	r0, r1, r0, lsl #1
+    1244:	e35c0000 	cmp	ip, #0
+    1248:	e582100c 	str	r1, [r2, #12]
+    124c:	e0833100 	add	r3, r3, r0, lsl #2
+    1250:	0a000001 	beq	125c <Dmx::SetSendDataLength(unsigned long)+0x30>
+    1254:	e15c0003 	cmp	ip, r3
+    1258:	2a000005 	bcs	1274 <Dmx::SetSendDataLength(unsigned long)+0x48>
+    125c:	e59f101c 	ldr	r1, [pc, #28]	; 1280 <Dmx::SetSendDataLength(unsigned long)+0x54>
+    1260:	e283302c 	add	r3, r3, #44	; 0x2c
+    1264:	e1530001 	cmp	r3, r1
+    1268:	31a03001 	movcc	r3, r1
+    126c:	e5823008 	str	r3, [r2, #8]
+    1270:	e12fff1e 	bx	lr
+    1274:	e582c008 	str	ip, [r2, #8]
+    1278:	e12fff1e 	bx	lr
+    127c:	00000000 	andeq	r0, r0, r0
+    1280:	000004b4 			; <UNDEFINED> instruction: 0x000004b4
+
+00001284 <Dmx::SetDmxSlots(unsigned short)>:
+    1284:	e59f204c 	ldr	r2, [pc, #76]	; 12d8 <Dmx::SetDmxSlots(unsigned short)+0x54>
+    1288:	e2811001 	add	r1, r1, #1
+    128c:	e8921008 	ldm	r2, {r3, ip}
+    1290:	e083300c 	add	r3, r3, ip
+    1294:	e590c000 	ldr	ip, [r0]
+    1298:	e0810101 	add	r0, r1, r1, lsl #2
+    129c:	e0810080 	add	r0, r1, r0, lsl #1
+    12a0:	e35c0000 	cmp	ip, #0
+    12a4:	e582100c 	str	r1, [r2, #12]
+    12a8:	e0833100 	add	r3, r3, r0, lsl #2
+    12ac:	0a000001 	beq	12b8 <Dmx::SetDmxSlots(unsigned short)+0x34>
+    12b0:	e15c0003 	cmp	ip, r3
+    12b4:	2a000005 	bcs	12d0 <Dmx::SetDmxSlots(unsigned short)+0x4c>
+    12b8:	e59f101c 	ldr	r1, [pc, #28]	; 12dc <Dmx::SetDmxSlots(unsigned short)+0x58>
+    12bc:	e283302c 	add	r3, r3, #44	; 0x2c
+    12c0:	e1530001 	cmp	r3, r1
+    12c4:	31a03001 	movcc	r3, r1
+    12c8:	e5823008 	str	r3, [r2, #8]
+    12cc:	e12fff1e 	bx	lr
+    12d0:	e582c008 	str	ip, [r2, #8]
+    12d4:	e12fff1e 	bx	lr
+    12d8:	00000000 	andeq	r0, r0, r0
+    12dc:	000004b4 			; <UNDEFINED> instruction: 0x000004b4
+
+000012e0 <Dmx::GetDmxSlots()>:
+    12e0:	e59f300c 	ldr	r3, [pc, #12]	; 12f4 <Dmx::GetDmxSlots()+0x14>
+    12e4:	e593000c 	ldr	r0, [r3, #12]
+    12e8:	e2400001 	sub	r0, r0, #1
+    12ec:	e6ff0070 	uxth	r0, r0
+    12f0:	e12fff1e 	bx	lr
+    12f4:	00000000 	andeq	r0, r0, r0
+
+000012f8 <Dmx::SetSendData(unsigned long, unsigned char const*, unsigned long)>:
+    12f8:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
+    12fc:	e59f1058 	ldr	r1, [pc, #88]	; 135c <Dmx::SetSendData(unsigned long, unsigned char const*, unsigned long)+0x64>
+    1300:	e3a0e000 	mov	lr, #0
+    1304:	ea000002 	b	1314 <Dmx::SetSendData(unsigned long, unsigned char const*, unsigned long)+0x1c>
+    1308:	e5d1c010 	ldrb	ip, [r1, #16]
+    130c:	e35c000b 	cmp	ip, #11
+    1310:	0a000003 	beq	1324 <Dmx::SetSendData(unsigned long, unsigned char const*, unsigned long)+0x2c>
+    1314:	ee07efba 	mcr	15, 0, lr, cr7, cr10, {5}
+    1318:	e5d1c010 	ldrb	ip, [r1, #16]
+    131c:	e35c0000 	cmp	ip, #0
+    1320:	1afffff8 	bne	1308 <Dmx::SetSendData(unsigned long, unsigned char const*, unsigned long)+0x10>
+    1324:	e3530000 	cmp	r3, #0
+    1328:	f5d2f000 	pld	[r2]
+    132c:	0a000005 	beq	1348 <Dmx::SetSendData(unsigned long, unsigned char const*, unsigned long)+0x50>
+    1330:	e59f1028 	ldr	r1, [pc, #40]	; 1360 <Dmx::SetSendData(unsigned long, unsigned char const*, unsigned long)+0x68>
+    1334:	e082e003 	add	lr, r2, r3
+    1338:	e4d2c001 	ldrb	ip, [r2], #1
+    133c:	e152000e 	cmp	r2, lr
+    1340:	e5e1c001 	strb	ip, [r1, #1]!
+    1344:	1afffffb 	bne	1338 <Dmx::SetSendData(unsigned long, unsigned char const*, unsigned long)+0x40>
+    1348:	e59f2014 	ldr	r2, [pc, #20]	; 1364 <Dmx::SetSendData(unsigned long, unsigned char const*, unsigned long)+0x6c>
+    134c:	e5901000 	ldr	r1, [r0]
+    1350:	e49de004 	pop	{lr}		; (ldr lr, [sp], #4)
+    1354:	e582300c 	str	r3, [r2, #12]
+    1358:	eafffffe 	b	100c <Dmx::SetDmxPeriodTime(unsigned long)>
+    135c:	00000000 	andeq	r0, r0, r0
+    1360:	0000001b 	andeq	r0, r0, fp, lsl r0
+    1364:	00000000 	andeq	r0, r0, r0
+
+00001368 <Dmx::SetSendDataWithoutSC(unsigned long, unsigned char const*, unsigned long)>:
+    1368:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
+    136c:	e59f1064 	ldr	r1, [pc, #100]	; 13d8 <Dmx::SetSendDataWithoutSC(unsigned long, unsigned char const*, unsigned long)+0x70>
+    1370:	e3a0e000 	mov	lr, #0
+    1374:	ea000002 	b	1384 <Dmx::SetSendDataWithoutSC(unsigned long, unsigned char const*, unsigned long)+0x1c>
+    1378:	e5d1c010 	ldrb	ip, [r1, #16]
+    137c:	e35c000b 	cmp	ip, #11
+    1380:	0a000003 	beq	1394 <Dmx::SetSendDataWithoutSC(unsigned long, unsigned char const*, unsigned long)+0x2c>
+    1384:	ee07efba 	mcr	15, 0, lr, cr7, cr10, {5}
+    1388:	e5d1c010 	ldrb	ip, [r1, #16]
+    138c:	e35c0000 	cmp	ip, #0
+    1390:	1afffff8 	bne	1378 <Dmx::SetSendDataWithoutSC(unsigned long, unsigned char const*, unsigned long)+0x10>
+    1394:	e3a0c000 	mov	ip, #0
+    1398:	e153000c 	cmp	r3, ip
+    139c:	f5d2f000 	pld	[r2]
+    13a0:	e5c1c01c 	strb	ip, [r1, #28]
+    13a4:	0a000005 	beq	13c0 <Dmx::SetSendDataWithoutSC(unsigned long, unsigned char const*, unsigned long)+0x58>
+    13a8:	e59f102c 	ldr	r1, [pc, #44]	; 13dc <Dmx::SetSendDataWithoutSC(unsigned long, unsigned char const*, unsigned long)+0x74>
+    13ac:	e082e003 	add	lr, r2, r3
+    13b0:	e4d2c001 	ldrb	ip, [r2], #1
+    13b4:	e152000e 	cmp	r2, lr
+    13b8:	e4c1c001 	strb	ip, [r1], #1
+    13bc:	1afffffb 	bne	13b0 <Dmx::SetSendDataWithoutSC(unsigned long, unsigned char const*, unsigned long)+0x48>
+    13c0:	e59f2018 	ldr	r2, [pc, #24]	; 13e0 <Dmx::SetSendDataWithoutSC(unsigned long, unsigned char const*, unsigned long)+0x78>
+    13c4:	e2833001 	add	r3, r3, #1
+    13c8:	e5901000 	ldr	r1, [r0]
+    13cc:	e49de004 	pop	{lr}		; (ldr lr, [sp], #4)
+    13d0:	e582300c 	str	r3, [r2, #12]
+    13d4:	eafffffe 	b	100c <Dmx::SetDmxPeriodTime(unsigned long)>
+    13d8:	00000000 	andeq	r0, r0, r0
+    13dc:	0000001d 	andeq	r0, r0, sp, lsl r0
+    13e0:	00000000 	andeq	r0, r0, r0
+
+000013e4 <Dmx::GetUpdatesPerSecond(unsigned long)>:
+    13e4:	e3a03000 	mov	r3, #0
+    13e8:	ee073fba 	mcr	15, 0, r3, cr7, cr10, {5}
+    13ec:	e59f3004 	ldr	r3, [pc, #4]	; 13f8 <Dmx::GetUpdatesPerSecond(unsigned long)+0x14>
+    13f0:	e593000c 	ldr	r0, [r3, #12]
+    13f4:	e12fff1e 	bx	lr
+    13f8:	00000000 	andeq	r0, r0, r0
+
+000013fc <Dmx::ClearData(unsigned long)>:
+    13fc:	e3a02000 	mov	r2, #0
+    1400:	e59f01a8 	ldr	r0, [pc, #424]	; 15b0 <Dmx::ClearData(unsigned long)+0x1b4>
+    1404:	e59f11a8 	ldr	r1, [pc, #424]	; 15b4 <Dmx::ClearData(unsigned long)+0x1b8>
+    1408:	e2411020 	sub	r1, r1, #32
+    140c:	e3510003 	cmp	r1, #3
+    1410:	f5d0f002 	pld	[r0, #2]
+    1414:	e5402020 	strb	r2, [r0, #-32]	; 0xffffffe0
+    1418:	e540201f 	strb	r2, [r0, #-31]	; 0xffffffe1
+    141c:	e540201e 	strb	r2, [r0, #-30]	; 0xffffffe2
+    1420:	e540201d 	strb	r2, [r0, #-29]	; 0xffffffe3
+    1424:	e540201c 	strb	r2, [r0, #-28]	; 0xffffffe4
+    1428:	e540201b 	strb	r2, [r0, #-27]	; 0xffffffe5
+    142c:	e540201a 	strb	r2, [r0, #-26]	; 0xffffffe6
+    1430:	e5402019 	strb	r2, [r0, #-25]	; 0xffffffe7
+    1434:	e5402018 	strb	r2, [r0, #-24]	; 0xffffffe8
+    1438:	e5402017 	strb	r2, [r0, #-23]	; 0xffffffe9
+    143c:	e5402016 	strb	r2, [r0, #-22]	; 0xffffffea
+    1440:	e5402015 	strb	r2, [r0, #-21]	; 0xffffffeb
+    1444:	e5402014 	strb	r2, [r0, #-20]	; 0xffffffec
+    1448:	e5402013 	strb	r2, [r0, #-19]	; 0xffffffed
+    144c:	e5402012 	strb	r2, [r0, #-18]	; 0xffffffee
+    1450:	e5402011 	strb	r2, [r0, #-17]	; 0xffffffef
+    1454:	e5402010 	strb	r2, [r0, #-16]
+    1458:	e540200f 	strb	r2, [r0, #-15]
+    145c:	e540200e 	strb	r2, [r0, #-14]
+    1460:	e540200d 	strb	r2, [r0, #-13]
+    1464:	e540200c 	strb	r2, [r0, #-12]
+    1468:	e540200b 	strb	r2, [r0, #-11]
+    146c:	e540200a 	strb	r2, [r0, #-10]
+    1470:	e5402009 	strb	r2, [r0, #-9]
+    1474:	e5402008 	strb	r2, [r0, #-8]
+    1478:	e5402007 	strb	r2, [r0, #-7]
+    147c:	e5402006 	strb	r2, [r0, #-6]
+    1480:	e5402005 	strb	r2, [r0, #-5]
+    1484:	e5402004 	strb	r2, [r0, #-4]
+    1488:	e5402003 	strb	r2, [r0, #-3]
+    148c:	e5402002 	strb	r2, [r0, #-2]
+    1490:	e1a03000 	mov	r3, r0
+    1494:	e5402001 	strb	r2, [r0, #-1]
+    1498:	e2800020 	add	r0, r0, #32
+    149c:	1affffd9 	bne	1408 <Dmx::ClearData(unsigned long)+0xc>
+    14a0:	e3a01000 	mov	r1, #0
+    14a4:	e2832004 	add	r2, r3, #4
+    14a8:	e4c31001 	strb	r1, [r3], #1
+    14ac:	e1520003 	cmp	r2, r3
+    14b0:	1afffffc 	bne	14a8 <Dmx::ClearData(unsigned long)+0xac>
+    14b4:	e3a01000 	mov	r1, #0
+    14b8:	e59f30f8 	ldr	r3, [pc, #248]	; 15b8 <Dmx::ClearData(unsigned long)+0x1bc>
+    14bc:	e2430e22 	sub	r0, r3, #544	; 0x220
+    14c0:	e2832010 	add	r2, r3, #16
+    14c4:	e4c31001 	strb	r1, [r3], #1
+    14c8:	e1530002 	cmp	r3, r2
+    14cc:	1afffffc 	bne	14c4 <Dmx::ClearData(unsigned long)+0xc8>
+    14d0:	e3a02000 	mov	r2, #0
+    14d4:	e59f10d8 	ldr	r1, [pc, #216]	; 15b4 <Dmx::ClearData(unsigned long)+0x1b8>
+    14d8:	e2800e25 	add	r0, r0, #592	; 0x250
+    14dc:	e2411020 	sub	r1, r1, #32
+    14e0:	e3510003 	cmp	r1, #3
+    14e4:	f5d0f002 	pld	[r0, #2]
+    14e8:	e5402020 	strb	r2, [r0, #-32]	; 0xffffffe0
+    14ec:	e540201f 	strb	r2, [r0, #-31]	; 0xffffffe1
+    14f0:	e540201e 	strb	r2, [r0, #-30]	; 0xffffffe2
+    14f4:	e540201d 	strb	r2, [r0, #-29]	; 0xffffffe3
+    14f8:	e540201c 	strb	r2, [r0, #-28]	; 0xffffffe4
+    14fc:	e540201b 	strb	r2, [r0, #-27]	; 0xffffffe5
+    1500:	e540201a 	strb	r2, [r0, #-26]	; 0xffffffe6
+    1504:	e5402019 	strb	r2, [r0, #-25]	; 0xffffffe7
+    1508:	e5402018 	strb	r2, [r0, #-24]	; 0xffffffe8
+    150c:	e5402017 	strb	r2, [r0, #-23]	; 0xffffffe9
+    1510:	e5402016 	strb	r2, [r0, #-22]	; 0xffffffea
+    1514:	e5402015 	strb	r2, [r0, #-21]	; 0xffffffeb
+    1518:	e5402014 	strb	r2, [r0, #-20]	; 0xffffffec
+    151c:	e5402013 	strb	r2, [r0, #-19]	; 0xffffffed
+    1520:	e5402012 	strb	r2, [r0, #-18]	; 0xffffffee
+    1524:	e5402011 	strb	r2, [r0, #-17]	; 0xffffffef
+    1528:	e5402010 	strb	r2, [r0, #-16]
+    152c:	e540200f 	strb	r2, [r0, #-15]
+    1530:	e540200e 	strb	r2, [r0, #-14]
+    1534:	e540200d 	strb	r2, [r0, #-13]
+    1538:	e540200c 	strb	r2, [r0, #-12]
+    153c:	e540200b 	strb	r2, [r0, #-11]
+    1540:	e540200a 	strb	r2, [r0, #-10]
+    1544:	e5402009 	strb	r2, [r0, #-9]
+    1548:	e5402008 	strb	r2, [r0, #-8]
+    154c:	e5402007 	strb	r2, [r0, #-7]
+    1550:	e5402006 	strb	r2, [r0, #-6]
+    1554:	e5402005 	strb	r2, [r0, #-5]
+    1558:	e5402004 	strb	r2, [r0, #-4]
+    155c:	e5402003 	strb	r2, [r0, #-3]
+    1560:	e5402002 	strb	r2, [r0, #-2]
+    1564:	e1a03000 	mov	r3, r0
+    1568:	e5402001 	strb	r2, [r0, #-1]
+    156c:	e2800020 	add	r0, r0, #32
+    1570:	1affffd9 	bne	14dc <Dmx::ClearData(unsigned long)+0xe0>
+    1574:	e3a01000 	mov	r1, #0
+    1578:	e2832004 	add	r2, r3, #4
+    157c:	e4c31001 	strb	r1, [r3], #1
+    1580:	e1530002 	cmp	r3, r2
+    1584:	1afffffc 	bne	157c <Dmx::ClearData(unsigned long)+0x180>
+    1588:	e3a01000 	mov	r1, #0
+    158c:	e59f2028 	ldr	r2, [pc, #40]	; 15bc <Dmx::ClearData(unsigned long)+0x1c0>
+    1590:	e2823e41 	add	r3, r2, #1040	; 0x410
+    1594:	e2822e42 	add	r2, r2, #1056	; 0x420
+    1598:	e2833008 	add	r3, r3, #8
+    159c:	e2822008 	add	r2, r2, #8
+    15a0:	e4c31001 	strb	r1, [r3], #1
+    15a4:	e1530002 	cmp	r3, r2
+    15a8:	1afffffc 	bne	15a0 <Dmx::ClearData(unsigned long)+0x1a4>
+    15ac:	e12fff1e 	bx	lr
+    15b0:	0000003c 	andeq	r0, r0, ip, lsr r0
+    15b4:	00000203 	andeq	r0, r0, r3, lsl #4
+    15b8:	00000220 	andeq	r0, r0, r0, lsr #4
+    15bc:	0000001c 	andeq	r0, r0, ip, lsl r0
+
+000015c0 <Dmx::RdmGetDateReceivedEnd()>:
+    15c0:	e59f3004 	ldr	r3, [pc, #4]	; 15cc <Dmx::RdmGetDateReceivedEnd()+0xc>
+    15c4:	e593046c 	ldr	r0, [r3, #1132]	; 0x46c
+    15c8:	e12fff1e 	bx	lr
+    15cc:	00000000 	andeq	r0, r0, r0
+
+000015d0 <Dmx::RdmReceive(unsigned long)>:
+    15d0:	e3a00000 	mov	r0, #0
+    15d4:	ee070fba 	mcr	15, 0, r0, cr7, cr10, {5}
+    15d8:	e59f302c 	ldr	r3, [pc, #44]	; 160c <Dmx::RdmReceive(unsigned long)+0x3c>
+    15dc:	e5931458 	ldr	r1, [r3, #1112]	; 0x458
+    15e0:	e5932480 	ldr	r2, [r3, #1152]	; 0x480
+    15e4:	e1510002 	cmp	r1, r2
+    15e8:	012fff1e 	bxeq	lr
+    15ec:	e5931480 	ldr	r1, [r3, #1152]	; 0x480
+    15f0:	e5932480 	ldr	r2, [r3, #1152]	; 0x480
+    15f4:	e59f0014 	ldr	r0, [pc, #20]	; 1610 <Dmx::RdmReceive(unsigned long)+0x40>
+    15f8:	e2822001 	add	r2, r2, #1
+    15fc:	e202200f 	and	r2, r2, #15
+    1600:	e0800481 	add	r0, r0, r1, lsl #9
+    1604:	e5832480 	str	r2, [r3, #1152]	; 0x480
+    1608:	e12fff1e 	bx	lr
+    160c:	00000000 	andeq	r0, r0, r0
+    1610:	0000068c 	andeq	r0, r0, ip, lsl #13
+
+00001614 <Dmx::RdmReceiveTimeOut(unsigned long, unsigned long)>:
+    1614:	e92d4010 	push	{r4, lr}
+    1618:	e3a0e000 	mov	lr, #0
+    161c:	e59fc050 	ldr	ip, [pc, #80]	; 1674 <Dmx::RdmReceiveTimeOut(unsigned long, unsigned long)+0x60>
+    1620:	e59f3050 	ldr	r3, [pc, #80]	; 1678 <Dmx::RdmReceiveTimeOut(unsigned long, unsigned long)+0x64>
+    1624:	e59c4004 	ldr	r4, [ip, #4]
+    1628:	ee07efba 	mcr	15, 0, lr, cr7, cr10, {5}
+    162c:	e5930458 	ldr	r0, [r3, #1112]	; 0x458
+    1630:	e5931480 	ldr	r1, [r3, #1152]	; 0x480
+    1634:	e1500001 	cmp	r0, r1
+    1638:	0a000007 	beq	165c <Dmx::RdmReceiveTimeOut(unsigned long, unsigned long)+0x48>
+    163c:	e5931480 	ldr	r1, [r3, #1152]	; 0x480
+    1640:	e5932480 	ldr	r2, [r3, #1152]	; 0x480
+    1644:	e59f0030 	ldr	r0, [pc, #48]	; 167c <Dmx::RdmReceiveTimeOut(unsigned long, unsigned long)+0x68>
+    1648:	e2822001 	add	r2, r2, #1
+    164c:	e202200f 	and	r2, r2, #15
+    1650:	e0800481 	add	r0, r0, r1, lsl #9
+    1654:	e5832480 	str	r2, [r3, #1152]	; 0x480
+    1658:	e8bd8010 	pop	{r4, pc}
+    165c:	e59c1004 	ldr	r1, [ip, #4]
+    1660:	e0411004 	sub	r1, r1, r4
+    1664:	e1510002 	cmp	r1, r2
+    1668:	3affffee 	bcc	1628 <Dmx::RdmReceiveTimeOut(unsigned long, unsigned long)+0x14>
+    166c:	e3a00000 	mov	r0, #0
+    1670:	e8bd8010 	pop	{r4, pc}
+    1674:	20003000 	andcs	r3, r0, r0
+    1678:	00000000 	andeq	r0, r0, r0
+    167c:	0000068c 	andeq	r0, r0, ip, lsl #13
+
+00001680 <Dmx::RdmSendRaw(unsigned long, unsigned char const*, unsigned long)>:
+    1680:	e3a0c069 	mov	ip, #105	; 0x69
+    1684:	e92d4070 	push	{r4, r5, r6, lr}
+    1688:	e59f4070 	ldr	r4, [pc, #112]	; 1700 <Dmx::RdmSendRaw(unsigned long, unsigned char const*, unsigned long)+0x80>
+    168c:	e3a000b0 	mov	r0, #176	; 0xb0
+    1690:	e594102c 	ldr	r1, [r4, #44]	; 0x2c
+    1694:	e1a06003 	mov	r6, r3
+    1698:	e3c11010 	bic	r1, r1, #16
+    169c:	e584102c 	str	r1, [r4, #44]	; 0x2c
+    16a0:	e584c02c 	str	ip, [r4, #44]	; 0x2c
+    16a4:	e1a05002 	mov	r5, r2
+    16a8:	ebfffffe 	bl	0 <udelay>
+    16ac:	e3a03068 	mov	r3, #104	; 0x68
+    16b0:	e3a0000c 	mov	r0, #12
+    16b4:	e584302c 	str	r3, [r4, #44]	; 0x2c
+    16b8:	ebfffffe 	bl	0 <udelay>
+    16bc:	e3560000 	cmp	r6, #0
+    16c0:	0a000009 	beq	16ec <Dmx::RdmSendRaw(unsigned long, unsigned char const*, unsigned long)+0x6c>
+    16c4:	e0851006 	add	r1, r5, r6
+    16c8:	e2452001 	sub	r2, r5, #1
+    16cc:	e2411001 	sub	r1, r1, #1
+    16d0:	e5943018 	ldr	r3, [r4, #24]
+    16d4:	e3130020 	tst	r3, #32
+    16d8:	1afffffc 	bne	16d0 <Dmx::RdmSendRaw(unsigned long, unsigned char const*, unsigned long)+0x50>
+    16dc:	e5f23001 	ldrb	r3, [r2, #1]!
+    16e0:	e1520001 	cmp	r2, r1
+    16e4:	e5843000 	str	r3, [r4]
+    16e8:	1afffff8 	bne	16d0 <Dmx::RdmSendRaw(unsigned long, unsigned char const*, unsigned long)+0x50>
+    16ec:	e59f200c 	ldr	r2, [pc, #12]	; 1700 <Dmx::RdmSendRaw(unsigned long, unsigned char const*, unsigned long)+0x80>
+    16f0:	e5923018 	ldr	r3, [r2, #24]
+    16f4:	e3130008 	tst	r3, #8
+    16f8:	1afffffc 	bne	16f0 <Dmx::RdmSendRaw(unsigned long, unsigned char const*, unsigned long)+0x70>
+    16fc:	e8bd8070 	pop	{r4, r5, r6, pc}
+    1700:	20201000 	eorcs	r1, r0, r0
+
+Disassembly of section .data:
+
+00000000 <s_nDmxTransmitBreakTime>:
+   0:	0000005c 	andeq	r0, r0, ip, asr r0
+
+00000004 <s_nDmxTransmitMabTime>:
+   4:	0000000c 	andeq	r0, r0, ip
+
+00000008 <s_nDmxTransmitPeriod>:
+   8:	000061a8 	andeq	r6, r0, r8, lsr #3
+
+0000000c <s_nDmxSendDataLength>:
+   c:	00000201 	andeq	r0, r0, r1, lsl #4
+
+00000010 <s_nPortDirection>:
+  10:	00000001 	andeq	r0, r0, r1
+
+00000014 <s_IsStopped>:
+  14:	Address 0x0000000000000014 is out of bounds.
+
+
+Disassembly of section .bss:
+
+00000000 <sv_TotalStatistics>:
+	...
+
+00000008 <sv_nDmxPacketsPrevious>:
+       8:	00000000 	andeq	r0, r0, r0
+
+0000000c <sv_nDmxUpdatesPerSecond>:
+       c:	00000000 	andeq	r0, r0, r0
+
+00000010 <sv_DmxTransmitState>:
+      10:	00000000 	andeq	r0, r0, r0
+
+00000014 <sv_DmxTransmitBreakMicros>:
+      14:	00000000 	andeq	r0, r0, r0
+
+00000018 <sv_DmxTransmitCurrentSlot>:
+      18:	00000000 	andeq	r0, r0, r0
+
+0000001c <s_DmxData>:
+	...
+
+00000444 <sv_DmxReceiveState>:
+     444:	00000000 	andeq	r0, r0, r0
+
+00000448 <sv_nFiqMicrosCurrent>:
+     448:	00000000 	andeq	r0, r0, r0
+
+0000044c <sv_nDmxDataIndex>:
+     44c:	00000000 	andeq	r0, r0, r0
+
+00000450 <sv_nDmxDataBufferIndexHead>:
+     450:	00000000 	andeq	r0, r0, r0
+
+00000454 <sv_DmxBreakToBreakLatest>:
+     454:	00000000 	andeq	r0, r0, r0
+
+00000458 <sv_nRdmDataBufferIndexHead>:
+     458:	00000000 	andeq	r0, r0, r0
+
+0000045c <sv_isDmxPreviousBreak>:
+     45c:	00000000 	andeq	r0, r0, r0
+
+00000460 <sv_DmxBreakToBreakPrevious>:
+     460:	00000000 	andeq	r0, r0, r0
+
+00000464 <sv_nRdmChecksum>:
+     464:	00000000 	andeq	r0, r0, r0
+
+00000468 <sv_nFiqMicrosPrevious>:
+     468:	00000000 	andeq	r0, r0, r0
+
+0000046c <sv_RdmDataReceiveEnd>:
+     46c:	00000000 	andeq	r0, r0, r0
+
+00000470 <sv_RdmDiscIndex>:
+     470:	00000000 	andeq	r0, r0, r0
+
+00000474 <sv_doDmxTransmitAlways>:
+     474:	00000000 	andeq	r0, r0, r0
+
+00000478 <Dmx::s_pThis>:
+     478:	00000000 	andeq	r0, r0, r0
+
+0000047c <sv_nDmxDataBufferIndexTail>:
+     47c:	00000000 	andeq	r0, r0, r0
+
+00000480 <sv_nRdmDataBufferIndexTail>:
+     480:	00000000 	andeq	r0, r0, r0
+
+00000484 <sv_DmxSlotsInPacketPrevious>:
+     484:	00000000 	andeq	r0, r0, r0
+
+00000488 <s_DmxDataPrevious>:
+	...
+
+0000068c <s_RdmData>:
+	...
+
+Disassembly of section .rodata.str1.4:
+
+00000000 <.rodata.str1.4>:
+   0:	7074754f 	rsbsvc	r7, r4, pc, asr #10
+   4:	70207475 	eorvc	r7, r0, r5, ror r4
+   8:	6f697265 	svcvs	0x00697265
+   c:	6f742064 	svcvs	0x00742064
+  10:	6873206f 	ldmdavs	r3!, {r0, r1, r2, r3, r5, r6, sp}^
+  14:	2074726f 	rsbscs	r7, r4, pc, ror #4
+  18:	656c6428 	strbvs	r6, [ip, #-1064]!	; 0xfffffbd8
+  1c:	6425206e 	strtvs	r2, [r5], #-110	; 0xffffff92
+  20:	6c73202c 	ldclvs	0, cr2, [r3], #-176	; 0xffffff50
+  24:	2520746f 	strcs	r7, [r0, #-1135]!	; 0xfffffb91
+  28:	000a2964 	andeq	r2, sl, r4, ror #18
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	; 0x3700
+   4:	4728203a 			; <UNDEFINED> instruction: 0x4728203a
+   8:	2029554e 	eorcs	r5, r9, lr, asr #10
+   c:	332e3031 			; <UNDEFINED> instruction: 0x332e3031
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00003241 	andeq	r3, r0, r1, asr #4
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000028 	andeq	r0, r0, r8, lsr #32
+  10:	4b5a3605 	blmi	168d82c <Dmx::RdmSendRaw(unsigned long, unsigned char const*, unsigned long)+0x168c1ac>
+  14:	08070600 	stmdaeq	r7, {r9, sl}
+  18:	0a010901 	beq	42424 <Dmx::RdmSendRaw(unsigned long, unsigned char const*, unsigned long)+0x40da4>
+  1c:	14041202 	strne	r1, [r4], #-514	; 0xfffffdfe
+  20:	17011501 	strne	r1, [r1, -r1, lsl #10]
+  24:	19011803 	stmdbne	r1, {r0, r1, fp, ip}
+  28:	1c011a01 			; <UNDEFINED> instruction: 0x1c011a01
+  2c:	22021e01 	andcs	r1, r2, #1, 28
+  30:	Address 0x0000000000000030 is out of bounds.
+
+
+rdm.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)>:
+   0:	e3520000 	cmp	r2, #0
+   4:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+   8:	1a000070 	bne	1d0 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x1d0>
+   c:	e59f4214 	ldr	r4, [pc, #532]	; 228 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x228>
+  10:	e59f3214 	ldr	r3, [pc, #532]	; 22c <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x22c>
+  14:	e5d42004 	ldrb	r2, [r4, #4]
+  18:	e5933004 	ldr	r3, [r3, #4]
+  1c:	e5c1200f 	strb	r2, [r1, #15]
+  20:	e5843000 	str	r3, [r4]
+  24:	e5d1e002 	ldrb	lr, [r1, #2]
+  28:	e35e0000 	cmp	lr, #0
+  2c:	0a000075 	beq	208 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x208>
+  30:	e35e0020 	cmp	lr, #32
+  34:	e24e601f 	sub	r6, lr, #31
+  38:	9a000077 	bls	21c <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x21c>
+  3c:	e3e05001 	mvn	r5, #1
+  40:	e3e02020 	mvn	r2, #32
+  44:	e3a0c000 	mov	ip, #0
+  48:	e2810022 	add	r0, r1, #34	; 0x22
+  4c:	e0455001 	sub	r5, r5, r1
+  50:	e0422001 	sub	r2, r2, r1
+  54:	e5503021 	ldrb	r3, [r0, #-33]	; 0xffffffdf
+  58:	e5507022 	ldrb	r7, [r0, #-34]	; 0xffffffde
+  5c:	f5d0f000 	pld	[r0]
+  60:	e0877003 	add	r7, r7, r3
+  64:	e5503020 	ldrb	r3, [r0, #-32]	; 0xffffffe0
+  68:	e0837007 	add	r7, r3, r7
+  6c:	e550301f 	ldrb	r3, [r0, #-31]	; 0xffffffe1
+  70:	e0833007 	add	r3, r3, r7
+  74:	e550701e 	ldrb	r7, [r0, #-30]	; 0xffffffe2
+  78:	e0873003 	add	r3, r7, r3
+  7c:	e550701d 	ldrb	r7, [r0, #-29]	; 0xffffffe3
+  80:	e0877003 	add	r7, r7, r3
+  84:	e550301c 	ldrb	r3, [r0, #-28]	; 0xffffffe4
+  88:	e0837007 	add	r7, r3, r7
+  8c:	e550301b 	ldrb	r3, [r0, #-27]	; 0xffffffe5
+  90:	e0833007 	add	r3, r3, r7
+  94:	e550701a 	ldrb	r7, [r0, #-26]	; 0xffffffe6
+  98:	e0873003 	add	r3, r7, r3
+  9c:	e5507019 	ldrb	r7, [r0, #-25]	; 0xffffffe7
+  a0:	e0877003 	add	r7, r7, r3
+  a4:	e5503018 	ldrb	r3, [r0, #-24]	; 0xffffffe8
+  a8:	e0837007 	add	r7, r3, r7
+  ac:	e5503017 	ldrb	r3, [r0, #-23]	; 0xffffffe9
+  b0:	e0833007 	add	r3, r3, r7
+  b4:	e5507016 	ldrb	r7, [r0, #-22]	; 0xffffffea
+  b8:	e0873003 	add	r3, r7, r3
+  bc:	e5507015 	ldrb	r7, [r0, #-21]	; 0xffffffeb
+  c0:	e0877003 	add	r7, r7, r3
+  c4:	e5503014 	ldrb	r3, [r0, #-20]	; 0xffffffec
+  c8:	e0837007 	add	r7, r3, r7
+  cc:	e5503013 	ldrb	r3, [r0, #-19]	; 0xffffffed
+  d0:	e0833007 	add	r3, r3, r7
+  d4:	e5507012 	ldrb	r7, [r0, #-18]	; 0xffffffee
+  d8:	e0873003 	add	r3, r7, r3
+  dc:	e5507011 	ldrb	r7, [r0, #-17]	; 0xffffffef
+  e0:	e0877003 	add	r7, r7, r3
+  e4:	e5503010 	ldrb	r3, [r0, #-16]
+  e8:	e0837007 	add	r7, r3, r7
+  ec:	e550300f 	ldrb	r3, [r0, #-15]
+  f0:	e0833007 	add	r3, r3, r7
+  f4:	e550700e 	ldrb	r7, [r0, #-14]
+  f8:	e0873003 	add	r3, r7, r3
+  fc:	e550700d 	ldrb	r7, [r0, #-13]
+ 100:	e0877003 	add	r7, r7, r3
+ 104:	e550300c 	ldrb	r3, [r0, #-12]
+ 108:	e0837007 	add	r7, r3, r7
+ 10c:	e550300b 	ldrb	r3, [r0, #-11]
+ 110:	e0833007 	add	r3, r3, r7
+ 114:	e550700a 	ldrb	r7, [r0, #-10]
+ 118:	e0873003 	add	r3, r7, r3
+ 11c:	e5507009 	ldrb	r7, [r0, #-9]
+ 120:	e0877003 	add	r7, r7, r3
+ 124:	e5503008 	ldrb	r3, [r0, #-8]
+ 128:	e0837007 	add	r7, r3, r7
+ 12c:	e5503007 	ldrb	r3, [r0, #-7]
+ 130:	e0833007 	add	r3, r3, r7
+ 134:	e5507006 	ldrb	r7, [r0, #-6]
+ 138:	e0873003 	add	r3, r7, r3
+ 13c:	e5507005 	ldrb	r7, [r0, #-5]
+ 140:	e0877003 	add	r7, r7, r3
+ 144:	e5503004 	ldrb	r3, [r0, #-4]
+ 148:	e0837007 	add	r7, r3, r7
+ 14c:	e5503003 	ldrb	r3, [r0, #-3]
+ 150:	e0833007 	add	r3, r3, r7
+ 154:	e08cc003 	add	ip, ip, r3
+ 158:	e0853000 	add	r3, r5, r0
+ 15c:	e2800020 	add	r0, r0, #32
+ 160:	e0827000 	add	r7, r2, r0
+ 164:	e1560007 	cmp	r6, r7
+ 168:	e6ffc07c 	uxth	ip, ip
+ 16c:	8affffb8 	bhi	54 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x54>
+ 170:	e2433001 	sub	r3, r3, #1
+ 174:	e0810003 	add	r0, r1, r3
+ 178:	e1a03000 	mov	r3, r0
+ 17c:	e5f02001 	ldrb	r2, [r0, #1]!
+ 180:	e2833002 	add	r3, r3, #2
+ 184:	e0433001 	sub	r3, r3, r1
+ 188:	e08c2002 	add	r2, ip, r2
+ 18c:	e15e0003 	cmp	lr, r3
+ 190:	e6ffc072 	uxth	ip, r2
+ 194:	8afffff7 	bhi	178 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x178>
+ 198:	e081300e 	add	r3, r1, lr
+ 19c:	e1a0042c 	lsr	r0, ip, #8
+ 1a0:	e28ee001 	add	lr, lr, #1
+ 1a4:	e6ef207c 	uxtb	r2, ip
+ 1a8:	e5c30000 	strb	r0, [r3]
+ 1ac:	e7c1200e 	strb	r2, [r1, lr]
+ 1b0:	e5d12002 	ldrb	r2, [r1, #2]
+ 1b4:	e3a00000 	mov	r0, #0
+ 1b8:	e2822002 	add	r2, r2, #2
+ 1bc:	ebfffffe 	bl	0 <Rdm::SendRaw(unsigned long, unsigned char const*, unsigned long)>
+ 1c0:	e5d43004 	ldrb	r3, [r4, #4]
+ 1c4:	e2833001 	add	r3, r3, #1
+ 1c8:	e5c43004 	strb	r3, [r4, #4]
+ 1cc:	e8bd81f0 	pop	{r4, r5, r6, r7, r8, pc}
+ 1d0:	e59fc054 	ldr	ip, [pc, #84]	; 22c <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x22c>
+ 1d4:	e59f404c 	ldr	r4, [pc, #76]	; 228 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x228>
+ 1d8:	e59c0004 	ldr	r0, [ip, #4]
+ 1dc:	e5943000 	ldr	r3, [r4]
+ 1e0:	e040e003 	sub	lr, r0, r3
+ 1e4:	e152000e 	cmp	r2, lr
+ 1e8:	9affff88 	bls	10 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x10>
+ 1ec:	e0433000 	sub	r3, r3, r0
+ 1f0:	e0832002 	add	r2, r3, r2
+ 1f4:	e59c3004 	ldr	r3, [ip, #4]
+ 1f8:	e0433000 	sub	r3, r3, r0
+ 1fc:	e1530002 	cmp	r3, r2
+ 200:	3afffffb 	bcc	1f4 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x1f4>
+ 204:	eaffff81 	b	10 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x10>
+ 208:	e1a0200e 	mov	r2, lr
+ 20c:	e1a03001 	mov	r3, r1
+ 210:	e3a0e001 	mov	lr, #1
+ 214:	e1a00002 	mov	r0, r2
+ 218:	eaffffe2 	b	1a8 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x1a8>
+ 21c:	e3a0c000 	mov	ip, #0
+ 220:	e1a0300c 	mov	r3, ip
+ 224:	eaffffd1 	b	170 <Rdm::Send(unsigned long, TRdmMessage*, unsigned long)+0x170>
+ 228:	00000000 	andeq	r0, r0, r0
+ 22c:	20003000 	andcs	r3, r0, r0
+
+00000230 <Rdm::SendRawRespondMessage(unsigned long, unsigned char const*, unsigned long)>:
+ 230:	e92d4030 	push	{r4, r5, lr}
+ 234:	e1a04000 	mov	r4, r0
+ 238:	e59f0064 	ldr	r0, [pc, #100]	; 2a4 <Rdm::SendRawRespondMessage(unsigned long, unsigned char const*, unsigned long)+0x74>
+ 23c:	e59f3064 	ldr	r3, [pc, #100]	; 2a8 <Rdm::SendRawRespondMessage(unsigned long, unsigned char const*, unsigned long)+0x78>
+ 240:	e24dd00c 	sub	sp, sp, #12
+ 244:	e5900000 	ldr	r0, [r0]
+ 248:	e5935004 	ldr	r5, [r3, #4]
+ 24c:	e58d1004 	str	r1, [sp, #4]
+ 250:	e58d2000 	str	r2, [sp]
+ 254:	ebfffffe 	bl	0 <Dmx::RdmGetDateReceivedEnd()>
+ 258:	e1a03000 	mov	r3, r0
+ 25c:	e0450000 	sub	r0, r5, r0
+ 260:	e35000c7 	cmp	r0, #199	; 0xc7
+ 264:	e59d2000 	ldr	r2, [sp]
+ 268:	e59d1004 	ldr	r1, [sp, #4]
+ 26c:	9a000003 	bls	280 <Rdm::SendRawRespondMessage(unsigned long, unsigned char const*, unsigned long)+0x50>
+ 270:	e1a00004 	mov	r0, r4
+ 274:	e28dd00c 	add	sp, sp, #12
+ 278:	e8bd4030 	pop	{r4, r5, lr}
+ 27c:	eafffffe 	b	0 <Rdm::SendRaw(unsigned long, unsigned char const*, unsigned long)>
+ 280:	e26500c8 	rsb	r0, r5, #200	; 0xc8
+ 284:	e0800003 	add	r0, r0, r3
+ 288:	e88d0006 	stm	sp, {r1, r2}
+ 28c:	ebfffffe 	bl	0 <udelay>
+ 290:	e89d0006 	ldm	sp, {r1, r2}
+ 294:	e1a00004 	mov	r0, r4
+ 298:	e28dd00c 	add	sp, sp, #12
+ 29c:	e8bd4030 	pop	{r4, r5, lr}
+ 2a0:	eafffffe 	b	0 <Rdm::SendRaw(unsigned long, unsigned char const*, unsigned long)>
+ 2a4:	00000000 	andeq	r0, r0, r0
+ 2a8:	20003000 	andcs	r3, r0, r0
+
+000002ac <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)>:
+ 2ac:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+ 2b0:	e59f50c0 	ldr	r5, [pc, #192]	; 378 <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0xcc>
+ 2b4:	e59f30c0 	ldr	r3, [pc, #192]	; 37c <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0xd0>
+ 2b8:	e1a06000 	mov	r6, r0
+ 2bc:	e5950000 	ldr	r0, [r5]
+ 2c0:	e5938004 	ldr	r8, [r3, #4]
+ 2c4:	e1a04001 	mov	r4, r1
+ 2c8:	e1a07002 	mov	r7, r2
+ 2cc:	ebfffffe 	bl	0 <Dmx::RdmGetDateReceivedEnd()>
+ 2d0:	e0483000 	sub	r3, r8, r0
+ 2d4:	e35300c7 	cmp	r3, #199	; 0xc7
+ 2d8:	9a000022 	bls	368 <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0xbc>
+ 2dc:	e3a03000 	mov	r3, #0
+ 2e0:	e1a01006 	mov	r1, r6
+ 2e4:	e1a02003 	mov	r2, r3
+ 2e8:	e5950000 	ldr	r0, [r5]
+ 2ec:	ebfffffe 	bl	0 <Dmx::SetPortDirection(unsigned long, dmx::PortDirection, bool)>
+ 2f0:	e3a02068 	mov	r2, #104	; 0x68
+ 2f4:	e59fc084 	ldr	ip, [pc, #132]	; 380 <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0xd4>
+ 2f8:	e3570000 	cmp	r7, #0
+ 2fc:	e59c302c 	ldr	r3, [ip, #44]	; 0x2c
+ 300:	e3c33010 	bic	r3, r3, #16
+ 304:	e58c302c 	str	r3, [ip, #44]	; 0x2c
+ 308:	e58c202c 	str	r2, [ip, #44]	; 0x2c
+ 30c:	0a000009 	beq	338 <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0x8c>
+ 310:	e084e007 	add	lr, r4, r7
+ 314:	e2442001 	sub	r2, r4, #1
+ 318:	e24ee001 	sub	lr, lr, #1
+ 31c:	e59c3018 	ldr	r3, [ip, #24]
+ 320:	e3130020 	tst	r3, #32
+ 324:	1afffffc 	bne	31c <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0x70>
+ 328:	e5f23001 	ldrb	r3, [r2, #1]!
+ 32c:	e152000e 	cmp	r2, lr
+ 330:	e58c3000 	str	r3, [ip]
+ 334:	1afffff8 	bne	31c <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0x70>
+ 338:	e59f2040 	ldr	r2, [pc, #64]	; 380 <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0xd4>
+ 33c:	e5923018 	ldr	r3, [r2, #24]
+ 340:	e3130008 	tst	r3, #8
+ 344:	1afffffc 	bne	33c <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0x90>
+ 348:	e3a00004 	mov	r0, #4
+ 34c:	ebfffffe 	bl	0 <udelay>
+ 350:	e3a03001 	mov	r3, #1
+ 354:	e1a01006 	mov	r1, r6
+ 358:	e5950000 	ldr	r0, [r5]
+ 35c:	e1a02003 	mov	r2, r3
+ 360:	e8bd41f0 	pop	{r4, r5, r6, r7, r8, lr}
+ 364:	eafffffe 	b	0 <Dmx::SetPortDirection(unsigned long, dmx::PortDirection, bool)>
+ 368:	e26880c8 	rsb	r8, r8, #200	; 0xc8
+ 36c:	e0880000 	add	r0, r8, r0
+ 370:	ebfffffe 	bl	0 <udelay>
+ 374:	eaffffd8 	b	2dc <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0x30>
+ 378:	00000000 	andeq	r0, r0, r0
+ 37c:	20003000 	andcs	r3, r0, r0
+ 380:	20201000 	eorcs	r1, r0, r0
+
+Disassembly of section .bss:
+
+00000000 <m_nLastSendMicros>:
+   0:	00000000 	andeq	r0, r0, r0
+
+00000004 <m_TransactionNumber>:
+	...
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	; 0x3700
+   4:	4728203a 			; <UNDEFINED> instruction: 0x4728203a
+   8:	2029554e 	eorcs	r5, r9, lr, asr #10
+   c:	332e3031 			; <UNDEFINED> instruction: 0x332e3031
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00003241 	andeq	r3, r0, r1, asr #4
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000028 	andeq	r0, r0, r8, lsr #32
+  10:	4b5a3605 	blmi	168d82c <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0x168d580>
+  14:	08070600 	stmdaeq	r7, {r9, sl}
+  18:	0a010901 	beq	42424 <Rdm::SendDiscoveryRespondMessage(unsigned long, unsigned char const*, unsigned long)+0x42178>
+  1c:	14041202 	strne	r1, [r4], #-514	; 0xfffffdfe
+  20:	17011501 	strne	r1, [r1, -r1, lsl #10]
+  24:	19011803 	stmdbne	r1, {r0, r1, fp, ip}
+  28:	1c011a01 			; <UNDEFINED> instruction: 0x1c011a01
+  2c:	22021e01 	andcs	r1, r2, #1, 28
+  30:	Address 0x0000000000000030 is out of bounds.
+

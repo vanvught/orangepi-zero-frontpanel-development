@@ -1,0 +1,2042 @@
+In archive lib_linux/liblightset.a:
+
+dmxslotinfo.o:     file format elf64-x86-64
+
+
+Disassembly of section .text._ZN11DmxSlotInfoC2EPN8lightset8SlotInfoEj:
+
+0000000000000000 <DmxSlotInfo::DmxSlotInfo(lightset::SlotInfo*, unsigned int)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 30          	sub    $0x30,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+  14:	89 55 dc             	mov    %edx,-0x24(%rbp)
+  17:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1e:	00 00 
+  20:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  24:	31 c0                	xor    %eax,%eax
+  26:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2a:	48 8b 55 e0          	mov    -0x20(%rbp),%rdx
+  2e:	48 89 10             	mov    %rdx,(%rax)
+  31:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  35:	8b 55 dc             	mov    -0x24(%rbp),%edx
+  38:	89 50 08             	mov    %edx,0x8(%rax)
+  3b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  3f:	48 c7 40 10 00 00 00 	movq   $0x0,0x10(%rax)
+  46:	00 
+  47:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  4e:	eb 2f                	jmp    7f <DmxSlotInfo::DmxSlotInfo(lightset::SlotInfo*, unsigned int)+0x7f>
+  50:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  54:	48 8b 10             	mov    (%rax),%rdx
+  57:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  5a:	48 c1 e0 02          	shl    $0x2,%rax
+  5e:	48 01 d0             	add    %rdx,%rax
+  61:	c6 40 02 00          	movb   $0x0,0x2(%rax)
+  65:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  69:	48 8b 10             	mov    (%rax),%rdx
+  6c:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  6f:	48 c1 e0 02          	shl    $0x2,%rax
+  73:	48 01 d0             	add    %rdx,%rax
+  76:	66 c7 00 ff ff       	movw   $0xffff,(%rax)
+  7b:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  7f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  83:	8b 40 08             	mov    0x8(%rax),%eax
+  86:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  89:	72 c5                	jb     50 <DmxSlotInfo::DmxSlotInfo(lightset::SlotInfo*, unsigned int)+0x50>
+  8b:	90                   	nop
+  8c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  90:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  97:	00 00 
+  99:	74 05                	je     a0 <DmxSlotInfo::DmxSlotInfo(lightset::SlotInfo*, unsigned int)+0xa0>
+  9b:	e8 00 00 00 00       	call   a0 <DmxSlotInfo::DmxSlotInfo(lightset::SlotInfo*, unsigned int)+0xa0>
+  a0:	c9                   	leave  
+  a1:	c3                   	ret    
+
+Disassembly of section .text._ZN11DmxSlotInfoD2Ev:
+
+0000000000000000 <DmxSlotInfo::~DmxSlotInfo()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	48 8b 00             	mov    (%rax),%rax
+  26:	48 85 c0             	test   %rax,%rax
+  29:	74 26                	je     51 <DmxSlotInfo::~DmxSlotInfo()+0x51>
+  2b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2f:	48 8b 00             	mov    (%rax),%rax
+  32:	48 85 c0             	test   %rax,%rax
+  35:	74 0f                	je     46 <DmxSlotInfo::~DmxSlotInfo()+0x46>
+  37:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  3b:	48 8b 00             	mov    (%rax),%rax
+  3e:	48 89 c7             	mov    %rax,%rdi
+  41:	e8 00 00 00 00       	call   46 <DmxSlotInfo::~DmxSlotInfo()+0x46>
+  46:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  4a:	48 c7 00 00 00 00 00 	movq   $0x0,(%rax)
+  51:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  55:	48 8b 40 10          	mov    0x10(%rax),%rax
+  59:	48 85 c0             	test   %rax,%rax
+  5c:	74 29                	je     87 <DmxSlotInfo::~DmxSlotInfo()+0x87>
+  5e:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  62:	48 8b 40 10          	mov    0x10(%rax),%rax
+  66:	48 85 c0             	test   %rax,%rax
+  69:	74 10                	je     7b <DmxSlotInfo::~DmxSlotInfo()+0x7b>
+  6b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  6f:	48 8b 40 10          	mov    0x10(%rax),%rax
+  73:	48 89 c7             	mov    %rax,%rdi
+  76:	e8 00 00 00 00       	call   7b <DmxSlotInfo::~DmxSlotInfo()+0x7b>
+  7b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  7f:	48 c7 40 10 00 00 00 	movq   $0x0,0x10(%rax)
+  86:	00 
+  87:	90                   	nop
+  88:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  8c:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  93:	00 00 
+  95:	74 05                	je     9c <DmxSlotInfo::~DmxSlotInfo()+0x9c>
+  97:	e8 00 00 00 00       	call   9c <DmxSlotInfo::~DmxSlotInfo()+0x9c>
+  9c:	c9                   	leave  
+  9d:	c3                   	ret    
+
+Disassembly of section .text._ZN11DmxSlotInfo10FromStringEPKcRj:
+
+0000000000000000 <DmxSlotInfo::FromString(char const*, unsigned int&)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 40          	sub    $0x40,%rsp
+   c:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+  10:	48 89 75 d0          	mov    %rsi,-0x30(%rbp)
+  14:	48 89 55 c8          	mov    %rdx,-0x38(%rbp)
+  18:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1f:	00 00 
+  21:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  25:	31 c0                	xor    %eax,%eax
+  27:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+  2b:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+  2f:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  33:	c7 00 00 00 00 00    	movl   $0x0,(%rax)
+  39:	c7 45 e8 00 00 00 00 	movl   $0x0,-0x18(%rbp)
+  40:	e9 85 00 00 00       	jmp    ca <DmxSlotInfo::FromString(char const*, unsigned int&)+0xca>
+  45:	c6 45 e7 00          	movb   $0x0,-0x19(%rbp)
+  49:	48 83 7d f0 00       	cmpq   $0x0,-0x10(%rbp)
+  4e:	75 06                	jne    56 <DmxSlotInfo::FromString(char const*, unsigned int&)+0x56>
+  50:	90                   	nop
+  51:	e9 84 00 00 00       	jmp    da <DmxSlotInfo::FromString(char const*, unsigned int&)+0xda>
+  56:	48 8d 4d ec          	lea    -0x14(%rbp),%rcx
+  5a:	48 8d 55 e7          	lea    -0x19(%rbp),%rdx
+  5e:	48 8b 75 f0          	mov    -0x10(%rbp),%rsi
+  62:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  66:	48 89 c7             	mov    %rax,%rdi
+  69:	e8 00 00 00 00       	call   6e <DmxSlotInfo::FromString(char const*, unsigned int&)+0x6e>
+  6e:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+  72:	0f b6 45 e7          	movzbl -0x19(%rbp),%eax
+  76:	84 c0                	test   %al,%al
+  78:	74 4c                	je     c6 <DmxSlotInfo::FromString(char const*, unsigned int&)+0xc6>
+  7a:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  7e:	48 8b 10             	mov    (%rax),%rdx
+  81:	8b 45 e8             	mov    -0x18(%rbp),%eax
+  84:	48 c1 e0 02          	shl    $0x2,%rax
+  88:	48 01 c2             	add    %rax,%rdx
+  8b:	0f b6 45 ee          	movzbl -0x12(%rbp),%eax
+  8f:	88 42 02             	mov    %al,0x2(%rdx)
+  92:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  96:	48 8b 10             	mov    (%rax),%rdx
+  99:	8b 45 e8             	mov    -0x18(%rbp),%eax
+  9c:	48 c1 e0 02          	shl    $0x2,%rax
+  a0:	48 01 c2             	add    %rax,%rdx
+  a3:	0f b7 45 ec          	movzwl -0x14(%rbp),%eax
+  a7:	66 89 02             	mov    %ax,(%rdx)
+  aa:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  ae:	8b 10                	mov    (%rax),%edx
+  b0:	8b 45 e8             	mov    -0x18(%rbp),%eax
+  b3:	be 01 00 00 00       	mov    $0x1,%esi
+  b8:	89 c1                	mov    %eax,%ecx
+  ba:	d3 e6                	shl    %cl,%esi
+  bc:	89 f0                	mov    %esi,%eax
+  be:	09 c2                	or     %eax,%edx
+  c0:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  c4:	89 10                	mov    %edx,(%rax)
+  c6:	83 45 e8 01          	addl   $0x1,-0x18(%rbp)
+  ca:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  ce:	8b 40 08             	mov    0x8(%rax),%eax
+  d1:	39 45 e8             	cmp    %eax,-0x18(%rbp)
+  d4:	0f 82 6b ff ff ff    	jb     45 <DmxSlotInfo::FromString(char const*, unsigned int&)+0x45>
+  da:	90                   	nop
+  db:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  df:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  e6:	00 00 
+  e8:	74 05                	je     ef <DmxSlotInfo::FromString(char const*, unsigned int&)+0xef>
+  ea:	e8 00 00 00 00       	call   ef <DmxSlotInfo::FromString(char const*, unsigned int&)+0xef>
+  ef:	c9                   	leave  
+  f0:	c3                   	ret    
+
+Disassembly of section .text._ZN11DmxSlotInfo8ToStringEj:
+
+0000000000000000 <DmxSlotInfo::ToString(unsigned int)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 30          	sub    $0x30,%rsp
+   c:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+  10:	89 75 d4             	mov    %esi,-0x2c(%rbp)
+  13:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1a:	00 00 
+  1c:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  20:	31 c0                	xor    %eax,%eax
+  22:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  26:	48 8b 40 10          	mov    0x10(%rax),%rax
+  2a:	48 85 c0             	test   %rax,%rax
+  2d:	75 2e                	jne    5d <DmxSlotInfo::ToString(unsigned int)+0x5d>
+  2f:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  33:	8b 50 08             	mov    0x8(%rax),%edx
+  36:	89 d0                	mov    %edx,%eax
+  38:	c1 e0 03             	shl    $0x3,%eax
+  3b:	29 d0                	sub    %edx,%eax
+  3d:	89 c0                	mov    %eax,%eax
+  3f:	48 89 c7             	mov    %rax,%rdi
+  42:	e8 00 00 00 00       	call   47 <DmxSlotInfo::ToString(unsigned int)+0x47>
+  47:	48 89 c2             	mov    %rax,%rdx
+  4a:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  4e:	48 89 50 10          	mov    %rdx,0x10(%rax)
+  52:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  56:	48 8b 40 10          	mov    0x10(%rax),%rax
+  5a:	c6 00 00             	movb   $0x0,(%rax)
+  5d:	83 7d d4 00          	cmpl   $0x0,-0x2c(%rbp)
+  61:	75 18                	jne    7b <DmxSlotInfo::ToString(unsigned int)+0x7b>
+  63:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  67:	48 8b 40 10          	mov    0x10(%rax),%rax
+  6b:	c6 00 00             	movb   $0x0,(%rax)
+  6e:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  72:	48 8b 40 10          	mov    0x10(%rax),%rax
+  76:	e9 f8 01 00 00       	jmp    273 <DmxSlotInfo::ToString(unsigned int)+0x273>
+  7b:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  7f:	48 8b 40 10          	mov    0x10(%rax),%rax
+  83:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+  87:	c7 45 ec 00 00 00 00 	movl   $0x0,-0x14(%rbp)
+  8e:	e9 bc 01 00 00       	jmp    24f <DmxSlotInfo::ToString(unsigned int)+0x24f>
+  93:	8b 45 d4             	mov    -0x2c(%rbp),%eax
+  96:	83 e0 01             	and    $0x1,%eax
+  99:	85 c0                	test   %eax,%eax
+  9b:	0f 84 a7 01 00 00    	je     248 <DmxSlotInfo::ToString(unsigned int)+0x248>
+  a1:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  a5:	48 8b 10             	mov    (%rax),%rdx
+  a8:	8b 45 ec             	mov    -0x14(%rbp),%eax
+  ab:	48 c1 e0 02          	shl    $0x2,%rax
+  af:	48 01 d0             	add    %rdx,%rax
+  b2:	0f b6 40 02          	movzbl 0x2(%rax),%eax
+  b6:	88 45 e9             	mov    %al,-0x17(%rbp)
+  b9:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  bd:	48 8b 10             	mov    (%rax),%rdx
+  c0:	8b 45 ec             	mov    -0x14(%rbp),%eax
+  c3:	48 c1 e0 02          	shl    $0x2,%rax
+  c7:	48 01 d0             	add    %rdx,%rax
+  ca:	0f b7 00             	movzwl (%rax),%eax
+  cd:	66 89 45 ea          	mov    %ax,-0x16(%rbp)
+  d1:	0f b6 45 e9          	movzbl -0x17(%rbp),%eax
+  d5:	c0 e8 04             	shr    $0x4,%al
+  d8:	3c 09                	cmp    $0x9,%al
+  da:	77 0e                	ja     ea <DmxSlotInfo::ToString(unsigned int)+0xea>
+  dc:	0f b6 45 e9          	movzbl -0x17(%rbp),%eax
+  e0:	c0 e8 04             	shr    $0x4,%al
+  e3:	83 c0 30             	add    $0x30,%eax
+  e6:	89 c1                	mov    %eax,%ecx
+  e8:	eb 0c                	jmp    f6 <DmxSlotInfo::ToString(unsigned int)+0xf6>
+  ea:	0f b6 45 e9          	movzbl -0x17(%rbp),%eax
+  ee:	c0 e8 04             	shr    $0x4,%al
+  f1:	83 c0 37             	add    $0x37,%eax
+  f4:	89 c1                	mov    %eax,%ecx
+  f6:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  fa:	48 8d 50 01          	lea    0x1(%rax),%rdx
+  fe:	48 89 55 f0          	mov    %rdx,-0x10(%rbp)
+ 102:	88 08                	mov    %cl,(%rax)
+ 104:	0f b6 45 e9          	movzbl -0x17(%rbp),%eax
+ 108:	83 e0 0f             	and    $0xf,%eax
+ 10b:	83 f8 09             	cmp    $0x9,%eax
+ 10e:	7f 0e                	jg     11e <DmxSlotInfo::ToString(unsigned int)+0x11e>
+ 110:	0f b6 45 e9          	movzbl -0x17(%rbp),%eax
+ 114:	83 e0 0f             	and    $0xf,%eax
+ 117:	83 c0 30             	add    $0x30,%eax
+ 11a:	89 c1                	mov    %eax,%ecx
+ 11c:	eb 0c                	jmp    12a <DmxSlotInfo::ToString(unsigned int)+0x12a>
+ 11e:	0f b6 45 e9          	movzbl -0x17(%rbp),%eax
+ 122:	83 e0 0f             	and    $0xf,%eax
+ 125:	83 c0 37             	add    $0x37,%eax
+ 128:	89 c1                	mov    %eax,%ecx
+ 12a:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 12e:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ 132:	48 89 55 f0          	mov    %rdx,-0x10(%rbp)
+ 136:	88 08                	mov    %cl,(%rax)
+ 138:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 13c:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ 140:	48 89 55 f0          	mov    %rdx,-0x10(%rbp)
+ 144:	c6 00 3a             	movb   $0x3a,(%rax)
+ 147:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 14b:	66 c1 e8 0c          	shr    $0xc,%ax
+ 14f:	66 83 f8 09          	cmp    $0x9,%ax
+ 153:	77 0f                	ja     164 <DmxSlotInfo::ToString(unsigned int)+0x164>
+ 155:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 159:	66 c1 e8 0c          	shr    $0xc,%ax
+ 15d:	83 c0 30             	add    $0x30,%eax
+ 160:	89 c1                	mov    %eax,%ecx
+ 162:	eb 0d                	jmp    171 <DmxSlotInfo::ToString(unsigned int)+0x171>
+ 164:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 168:	66 c1 e8 0c          	shr    $0xc,%ax
+ 16c:	83 c0 37             	add    $0x37,%eax
+ 16f:	89 c1                	mov    %eax,%ecx
+ 171:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 175:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ 179:	48 89 55 f0          	mov    %rdx,-0x10(%rbp)
+ 17d:	88 08                	mov    %cl,(%rax)
+ 17f:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 183:	66 c1 e8 08          	shr    $0x8,%ax
+ 187:	0f b7 c0             	movzwl %ax,%eax
+ 18a:	83 e0 0f             	and    $0xf,%eax
+ 18d:	83 f8 09             	cmp    $0x9,%eax
+ 190:	7f 12                	jg     1a4 <DmxSlotInfo::ToString(unsigned int)+0x1a4>
+ 192:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 196:	66 c1 e8 08          	shr    $0x8,%ax
+ 19a:	83 e0 0f             	and    $0xf,%eax
+ 19d:	83 c0 30             	add    $0x30,%eax
+ 1a0:	89 c1                	mov    %eax,%ecx
+ 1a2:	eb 10                	jmp    1b4 <DmxSlotInfo::ToString(unsigned int)+0x1b4>
+ 1a4:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 1a8:	66 c1 e8 08          	shr    $0x8,%ax
+ 1ac:	83 e0 0f             	and    $0xf,%eax
+ 1af:	83 c0 37             	add    $0x37,%eax
+ 1b2:	89 c1                	mov    %eax,%ecx
+ 1b4:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 1b8:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ 1bc:	48 89 55 f0          	mov    %rdx,-0x10(%rbp)
+ 1c0:	88 08                	mov    %cl,(%rax)
+ 1c2:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 1c6:	66 c1 e8 04          	shr    $0x4,%ax
+ 1ca:	0f b7 c0             	movzwl %ax,%eax
+ 1cd:	83 e0 0f             	and    $0xf,%eax
+ 1d0:	83 f8 09             	cmp    $0x9,%eax
+ 1d3:	7f 12                	jg     1e7 <DmxSlotInfo::ToString(unsigned int)+0x1e7>
+ 1d5:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 1d9:	66 c1 e8 04          	shr    $0x4,%ax
+ 1dd:	83 e0 0f             	and    $0xf,%eax
+ 1e0:	83 c0 30             	add    $0x30,%eax
+ 1e3:	89 c1                	mov    %eax,%ecx
+ 1e5:	eb 10                	jmp    1f7 <DmxSlotInfo::ToString(unsigned int)+0x1f7>
+ 1e7:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 1eb:	66 c1 e8 04          	shr    $0x4,%ax
+ 1ef:	83 e0 0f             	and    $0xf,%eax
+ 1f2:	83 c0 37             	add    $0x37,%eax
+ 1f5:	89 c1                	mov    %eax,%ecx
+ 1f7:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 1fb:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ 1ff:	48 89 55 f0          	mov    %rdx,-0x10(%rbp)
+ 203:	88 08                	mov    %cl,(%rax)
+ 205:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 209:	83 e0 0f             	and    $0xf,%eax
+ 20c:	83 f8 09             	cmp    $0x9,%eax
+ 20f:	7f 0e                	jg     21f <DmxSlotInfo::ToString(unsigned int)+0x21f>
+ 211:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 215:	83 e0 0f             	and    $0xf,%eax
+ 218:	83 c0 30             	add    $0x30,%eax
+ 21b:	89 c1                	mov    %eax,%ecx
+ 21d:	eb 0c                	jmp    22b <DmxSlotInfo::ToString(unsigned int)+0x22b>
+ 21f:	0f b7 45 ea          	movzwl -0x16(%rbp),%eax
+ 223:	83 e0 0f             	and    $0xf,%eax
+ 226:	83 c0 37             	add    $0x37,%eax
+ 229:	89 c1                	mov    %eax,%ecx
+ 22b:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 22f:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ 233:	48 89 55 f0          	mov    %rdx,-0x10(%rbp)
+ 237:	88 08                	mov    %cl,(%rax)
+ 239:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 23d:	48 8d 50 01          	lea    0x1(%rax),%rdx
+ 241:	48 89 55 f0          	mov    %rdx,-0x10(%rbp)
+ 245:	c6 00 2c             	movb   $0x2c,(%rax)
+ 248:	d1 6d d4             	shrl   -0x2c(%rbp)
+ 24b:	83 45 ec 01          	addl   $0x1,-0x14(%rbp)
+ 24f:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 253:	8b 40 08             	mov    0x8(%rax),%eax
+ 256:	39 45 ec             	cmp    %eax,-0x14(%rbp)
+ 259:	0f 82 34 fe ff ff    	jb     93 <DmxSlotInfo::ToString(unsigned int)+0x93>
+ 25f:	48 83 6d f0 01       	subq   $0x1,-0x10(%rbp)
+ 264:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 268:	c6 00 00             	movb   $0x0,(%rax)
+ 26b:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 26f:	48 8b 40 10          	mov    0x10(%rax),%rax
+ 273:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+ 277:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+ 27e:	00 00 
+ 280:	74 05                	je     287 <DmxSlotInfo::ToString(unsigned int)+0x287>
+ 282:	e8 00 00 00 00       	call   287 <DmxSlotInfo::ToString(unsigned int)+0x287>
+ 287:	c9                   	leave  
+ 288:	c3                   	ret    
+
+Disassembly of section .text._ZN11DmxSlotInfo4DumpEv:
+
+0000000000000000 <DmxSlotInfo::Dump()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  26:	eb 4c                	jmp    74 <DmxSlotInfo::Dump()+0x74>
+  28:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2c:	48 8b 10             	mov    (%rax),%rdx
+  2f:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  32:	48 c1 e0 02          	shl    $0x2,%rax
+  36:	48 01 d0             	add    %rdx,%rax
+  39:	0f b7 00             	movzwl (%rax),%eax
+  3c:	0f b7 c8             	movzwl %ax,%ecx
+  3f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  43:	48 8b 10             	mov    (%rax),%rdx
+  46:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  49:	48 c1 e0 02          	shl    $0x2,%rax
+  4d:	48 01 d0             	add    %rdx,%rax
+  50:	0f b6 40 02          	movzbl 0x2(%rax),%eax
+  54:	0f b6 d0             	movzbl %al,%edx
+  57:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  5a:	89 c6                	mov    %eax,%esi
+  5c:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # 63 <DmxSlotInfo::Dump()+0x63>
+  63:	48 89 c7             	mov    %rax,%rdi
+  66:	b8 00 00 00 00       	mov    $0x0,%eax
+  6b:	e8 00 00 00 00       	call   70 <DmxSlotInfo::Dump()+0x70>
+  70:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  74:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  78:	8b 40 08             	mov    0x8(%rax),%eax
+  7b:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  7e:	72 a8                	jb     28 <DmxSlotInfo::Dump()+0x28>
+  80:	90                   	nop
+  81:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  85:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  8c:	00 00 
+  8e:	74 05                	je     95 <DmxSlotInfo::Dump()+0x95>
+  90:	e8 00 00 00 00       	call   95 <DmxSlotInfo::Dump()+0x95>
+  95:	c9                   	leave  
+  96:	c3                   	ret    
+
+Disassembly of section .text._ZN11DmxSlotInfo5ParseEPcRbRN8lightset8SlotInfoE:
+
+0000000000000000 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 40          	sub    $0x40,%rsp
+   c:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+  10:	48 89 75 d0          	mov    %rsi,-0x30(%rbp)
+  14:	48 89 55 c8          	mov    %rdx,-0x38(%rbp)
+  18:	48 89 4d c0          	mov    %rcx,-0x40(%rbp)
+  1c:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  23:	00 00 
+  25:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  29:	31 c0                	xor    %eax,%eax
+  2b:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+  2f:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+  33:	c6 45 eb 00          	movb   $0x0,-0x15(%rbp)
+  37:	66 c7 45 ee 00 00    	movw   $0x0,-0x12(%rbp)
+  3d:	eb 6f                	jmp    ae <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0xae>
+  3f:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  43:	0f b6 00             	movzbl (%rax),%eax
+  46:	0f be c0             	movsbl %al,%eax
+  49:	89 c7                	mov    %eax,%edi
+  4b:	e8 00 00 00 00       	call   50 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x50>
+  50:	85 c0                	test   %eax,%eax
+  52:	75 11                	jne    65 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x65>
+  54:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  58:	c6 00 00             	movb   $0x0,(%rax)
+  5b:	b8 00 00 00 00       	mov    $0x0,%eax
+  60:	e9 99 01 00 00       	jmp    1fe <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x1fe>
+  65:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  69:	0f b6 00             	movzbl (%rax),%eax
+  6c:	3c 39                	cmp    $0x39,%al
+  6e:	7e 0f                	jle    7f <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x7f>
+  70:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  74:	0f b6 00             	movzbl (%rax),%eax
+  77:	83 c8 20             	or     $0x20,%eax
+  7a:	83 e8 57             	sub    $0x57,%eax
+  7d:	eb 0a                	jmp    89 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x89>
+  7f:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  83:	0f b6 00             	movzbl (%rax),%eax
+  86:	83 e8 30             	sub    $0x30,%eax
+  89:	88 45 ec             	mov    %al,-0x14(%rbp)
+  8c:	0f b7 45 ee          	movzwl -0x12(%rbp),%eax
+  90:	c1 e0 04             	shl    $0x4,%eax
+  93:	89 c2                	mov    %eax,%edx
+  95:	0f b6 45 ec          	movzbl -0x14(%rbp),%eax
+  99:	09 d0                	or     %edx,%eax
+  9b:	66 89 45 ee          	mov    %ax,-0x12(%rbp)
+  9f:	48 83 45 f0 01       	addq   $0x1,-0x10(%rbp)
+  a4:	0f b6 45 eb          	movzbl -0x15(%rbp),%eax
+  a8:	83 c0 01             	add    $0x1,%eax
+  ab:	88 45 eb             	mov    %al,-0x15(%rbp)
+  ae:	80 7d eb 01          	cmpb   $0x1,-0x15(%rbp)
+  b2:	77 0b                	ja     bf <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0xbf>
+  b4:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  b8:	0f b6 00             	movzbl (%rax),%eax
+  bb:	3c 3a                	cmp    $0x3a,%al
+  bd:	75 80                	jne    3f <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x3f>
+  bf:	80 7d eb 02          	cmpb   $0x2,-0x15(%rbp)
+  c3:	74 1c                	je     e1 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0xe1>
+  c5:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  c9:	0f b6 00             	movzbl (%rax),%eax
+  cc:	3c 3a                	cmp    $0x3a,%al
+  ce:	74 11                	je     e1 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0xe1>
+  d0:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  d4:	c6 00 00             	movb   $0x0,(%rax)
+  d7:	b8 00 00 00 00       	mov    $0x0,%eax
+  dc:	e9 1d 01 00 00       	jmp    1fe <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x1fe>
+  e1:	0f b7 45 ee          	movzwl -0x12(%rbp),%eax
+  e5:	89 c2                	mov    %eax,%edx
+  e7:	48 8b 45 c0          	mov    -0x40(%rbp),%rax
+  eb:	88 50 02             	mov    %dl,0x2(%rax)
+  ee:	c6 45 eb 00          	movb   $0x0,-0x15(%rbp)
+  f2:	66 c7 45 ee 00 00    	movw   $0x0,-0x12(%rbp)
+  f8:	48 83 45 f0 01       	addq   $0x1,-0x10(%rbp)
+  fd:	eb 6f                	jmp    16e <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x16e>
+  ff:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 103:	0f b6 00             	movzbl (%rax),%eax
+ 106:	0f be c0             	movsbl %al,%eax
+ 109:	89 c7                	mov    %eax,%edi
+ 10b:	e8 00 00 00 00       	call   110 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x110>
+ 110:	85 c0                	test   %eax,%eax
+ 112:	75 11                	jne    125 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x125>
+ 114:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+ 118:	c6 00 00             	movb   $0x0,(%rax)
+ 11b:	b8 00 00 00 00       	mov    $0x0,%eax
+ 120:	e9 d9 00 00 00       	jmp    1fe <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x1fe>
+ 125:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 129:	0f b6 00             	movzbl (%rax),%eax
+ 12c:	3c 39                	cmp    $0x39,%al
+ 12e:	7e 0f                	jle    13f <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x13f>
+ 130:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 134:	0f b6 00             	movzbl (%rax),%eax
+ 137:	83 c8 20             	or     $0x20,%eax
+ 13a:	83 e8 57             	sub    $0x57,%eax
+ 13d:	eb 0a                	jmp    149 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x149>
+ 13f:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 143:	0f b6 00             	movzbl (%rax),%eax
+ 146:	83 e8 30             	sub    $0x30,%eax
+ 149:	88 45 ed             	mov    %al,-0x13(%rbp)
+ 14c:	0f b7 45 ee          	movzwl -0x12(%rbp),%eax
+ 150:	c1 e0 04             	shl    $0x4,%eax
+ 153:	89 c2                	mov    %eax,%edx
+ 155:	0f b6 45 ed          	movzbl -0x13(%rbp),%eax
+ 159:	09 d0                	or     %edx,%eax
+ 15b:	66 89 45 ee          	mov    %ax,-0x12(%rbp)
+ 15f:	48 83 45 f0 01       	addq   $0x1,-0x10(%rbp)
+ 164:	0f b6 45 eb          	movzbl -0x15(%rbp),%eax
+ 168:	83 c0 01             	add    $0x1,%eax
+ 16b:	88 45 eb             	mov    %al,-0x15(%rbp)
+ 16e:	80 7d eb 03          	cmpb   $0x3,-0x15(%rbp)
+ 172:	77 1a                	ja     18e <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x18e>
+ 174:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 178:	0f b6 00             	movzbl (%rax),%eax
+ 17b:	3c 2c                	cmp    $0x2c,%al
+ 17d:	74 0f                	je     18e <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x18e>
+ 17f:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 183:	0f b6 00             	movzbl (%rax),%eax
+ 186:	84 c0                	test   %al,%al
+ 188:	0f 85 71 ff ff ff    	jne    ff <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0xff>
+ 18e:	80 7d eb 04          	cmpb   $0x4,-0x15(%rbp)
+ 192:	74 0e                	je     1a2 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x1a2>
+ 194:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+ 198:	c6 00 00             	movb   $0x0,(%rax)
+ 19b:	b8 00 00 00 00       	mov    $0x0,%eax
+ 1a0:	eb 5c                	jmp    1fe <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x1fe>
+ 1a2:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 1a6:	0f b6 00             	movzbl (%rax),%eax
+ 1a9:	3c 2c                	cmp    $0x2c,%al
+ 1ab:	74 24                	je     1d1 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x1d1>
+ 1ad:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 1b1:	0f b6 00             	movzbl (%rax),%eax
+ 1b4:	3c 20                	cmp    $0x20,%al
+ 1b6:	74 19                	je     1d1 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x1d1>
+ 1b8:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 1bc:	0f b6 00             	movzbl (%rax),%eax
+ 1bf:	84 c0                	test   %al,%al
+ 1c1:	74 0e                	je     1d1 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x1d1>
+ 1c3:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+ 1c7:	c6 00 00             	movb   $0x0,(%rax)
+ 1ca:	b8 00 00 00 00       	mov    $0x0,%eax
+ 1cf:	eb 2d                	jmp    1fe <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x1fe>
+ 1d1:	48 8b 45 c0          	mov    -0x40(%rbp),%rax
+ 1d5:	0f b7 55 ee          	movzwl -0x12(%rbp),%edx
+ 1d9:	66 89 10             	mov    %dx,(%rax)
+ 1dc:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+ 1e0:	c6 00 01             	movb   $0x1,(%rax)
+ 1e3:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 1e7:	0f b6 00             	movzbl (%rax),%eax
+ 1ea:	84 c0                	test   %al,%al
+ 1ec:	75 07                	jne    1f5 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x1f5>
+ 1ee:	b8 00 00 00 00       	mov    $0x0,%eax
+ 1f3:	eb 09                	jmp    1fe <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x1fe>
+ 1f5:	48 83 45 f0 01       	addq   $0x1,-0x10(%rbp)
+ 1fa:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+ 1fe:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+ 202:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+ 209:	00 00 
+ 20b:	74 05                	je     212 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x212>
+ 20d:	e8 00 00 00 00       	call   212 <DmxSlotInfo::Parse(char*, bool&, lightset::SlotInfo&)+0x212>
+ 212:	c9                   	leave  
+ 213:	c3                   	ret    
+
+lightsetchain.o:     file format elf64-x86-64
+
+
+Disassembly of section .text._ZN8LightSetC2Ev:
+
+0000000000000000 <LightSet::LightSet()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8d 15 00 00 00 00 	lea    0x0(%rip),%rdx        # 26 <LightSet::LightSet()+0x26>
+  26:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2a:	48 89 10             	mov    %rdx,(%rax)
+  2d:	90                   	nop
+  2e:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  32:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  39:	00 00 
+  3b:	74 05                	je     42 <LightSet::LightSet()+0x42>
+  3d:	e8 00 00 00 00       	call   42 <LightSet::LightSet()+0x42>
+  42:	c9                   	leave  
+  43:	c3                   	ret    
+
+Disassembly of section .text._ZN8LightSetD2Ev:
+
+0000000000000000 <LightSet::~LightSet()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8d 15 00 00 00 00 	lea    0x0(%rip),%rdx        # 26 <LightSet::~LightSet()+0x26>
+  26:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2a:	48 89 10             	mov    %rdx,(%rax)
+  2d:	90                   	nop
+  2e:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  32:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  39:	00 00 
+  3b:	74 05                	je     42 <LightSet::~LightSet()+0x42>
+  3d:	e8 00 00 00 00       	call   42 <LightSet::~LightSet()+0x42>
+  42:	c9                   	leave  
+  43:	c3                   	ret    
+
+Disassembly of section .text._ZN8LightSetD0Ev:
+
+0000000000000000 <LightSet::~LightSet()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	48 89 c7             	mov    %rax,%rdi
+  26:	e8 00 00 00 00       	call   2b <LightSet::~LightSet()+0x2b>
+  2b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2f:	48 89 c7             	mov    %rax,%rdi
+  32:	e8 00 00 00 00       	call   37 <LightSet::~LightSet()+0x37>
+  37:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  3b:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  42:	00 00 
+  44:	74 05                	je     4b <LightSet::~LightSet()+0x4b>
+  46:	e8 00 00 00 00       	call   4b <LightSet::~LightSet()+0x4b>
+  4b:	c9                   	leave  
+  4c:	c3                   	ret    
+
+Disassembly of section .text._ZN8LightSet8BlackoutEb:
+
+0000000000000000 <LightSet::Blackout(bool)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	88 45 e4             	mov    %al,-0x1c(%rbp)
+  15:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1c:	00 00 
+  1e:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  22:	31 c0                	xor    %eax,%eax
+  24:	90                   	nop
+  25:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  29:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  30:	00 00 
+  32:	74 05                	je     39 <LightSet::Blackout(bool)+0x39>
+  34:	e8 00 00 00 00       	call   39 <LightSet::Blackout(bool)+0x39>
+  39:	c9                   	leave  
+  3a:	c3                   	ret    
+
+Disassembly of section .text._ZN8LightSet6FullOnEv:
+
+0000000000000000 <LightSet::FullOn()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	90                   	nop
+  20:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  24:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  2b:	00 00 
+  2d:	74 05                	je     34 <LightSet::FullOn()+0x34>
+  2f:	e8 00 00 00 00       	call   34 <LightSet::FullOn()+0x34>
+  34:	c9                   	leave  
+  35:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain18GetDmxStartAddressEv:
+
+0000000000000000 <LightSetChain::GetDmxStartAddress()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	0f b7 40 18          	movzwl 0x18(%rax),%eax
+  27:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  2b:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  32:	00 00 
+  34:	74 05                	je     3b <LightSetChain::GetDmxStartAddress()+0x3b>
+  36:	e8 00 00 00 00       	call   3b <LightSetChain::GetDmxStartAddress()+0x3b>
+  3b:	c9                   	leave  
+  3c:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain15GetDmxFootprintEv:
+
+0000000000000000 <LightSetChain::GetDmxFootprint()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	0f b7 40 1a          	movzwl 0x1a(%rax),%eax
+  27:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  2b:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  32:	00 00 
+  34:	74 05                	je     3b <LightSetChain::GetDmxFootprint()+0x3b>
+  36:	e8 00 00 00 00       	call   3b <LightSetChain::GetDmxFootprint()+0x3b>
+  3b:	c9                   	leave  
+  3c:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChainC2Ev:
+
+0000000000000000 <LightSetChain::LightSetChain()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	48 89 c7             	mov    %rax,%rdi
+  26:	e8 00 00 00 00       	call   2b <LightSetChain::LightSetChain()+0x2b>
+  2b:	48 8d 15 00 00 00 00 	lea    0x0(%rip),%rdx        # 32 <LightSetChain::LightSetChain()+0x32>
+  32:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  36:	48 89 10             	mov    %rdx,(%rax)
+  39:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  3d:	c6 40 08 00          	movb   $0x0,0x8(%rax)
+  41:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  45:	66 c7 40 18 ff ff    	movw   $0xffff,0x18(%rax)
+  4b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  4f:	66 c7 40 1a 00 00    	movw   $0x0,0x1a(%rax)
+  55:	bf 00 01 00 00       	mov    $0x100,%edi
+  5a:	e8 00 00 00 00       	call   5f <LightSetChain::LightSetChain()+0x5f>
+  5f:	48 89 c2             	mov    %rax,%rdx
+  62:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  66:	48 89 50 10          	mov    %rdx,0x10(%rax)
+  6a:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  71:	eb 36                	jmp    a9 <LightSetChain::LightSetChain()+0xa9>
+  73:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  77:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  7b:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  7e:	48 c1 e0 04          	shl    $0x4,%rax
+  82:	48 01 d0             	add    %rdx,%rax
+  85:	48 c7 00 00 00 00 00 	movq   $0x0,(%rax)
+  8c:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  90:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  94:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  97:	48 c1 e0 04          	shl    $0x4,%rax
+  9b:	48 01 d0             	add    %rdx,%rax
+  9e:	c7 40 08 ff ff ff ff 	movl   $0xffffffff,0x8(%rax)
+  a5:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  a9:	83 7d f4 0f          	cmpl   $0xf,-0xc(%rbp)
+  ad:	76 c4                	jbe    73 <LightSetChain::LightSetChain()+0x73>
+  af:	90                   	nop
+  b0:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  b4:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  bb:	00 00 
+  bd:	74 05                	je     c4 <LightSetChain::LightSetChain()+0xc4>
+  bf:	e8 00 00 00 00       	call   c4 <LightSetChain::LightSetChain()+0xc4>
+  c4:	c9                   	leave  
+  c5:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChainD2Ev:
+
+0000000000000000 <LightSetChain::~LightSetChain()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8d 15 00 00 00 00 	lea    0x0(%rip),%rdx        # 26 <LightSetChain::~LightSetChain()+0x26>
+  26:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2a:	48 89 10             	mov    %rdx,(%rax)
+  2d:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  31:	48 8b 40 10          	mov    0x10(%rax),%rax
+  35:	48 85 c0             	test   %rax,%rax
+  38:	74 10                	je     4a <LightSetChain::~LightSetChain()+0x4a>
+  3a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  3e:	48 8b 40 10          	mov    0x10(%rax),%rax
+  42:	48 89 c7             	mov    %rax,%rdi
+  45:	e8 00 00 00 00       	call   4a <LightSetChain::~LightSetChain()+0x4a>
+  4a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  4e:	48 c7 40 10 00 00 00 	movq   $0x0,0x10(%rax)
+  55:	00 
+  56:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  5a:	c6 40 08 00          	movb   $0x0,0x8(%rax)
+  5e:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  62:	48 89 c7             	mov    %rax,%rdi
+  65:	e8 00 00 00 00       	call   6a <LightSetChain::~LightSetChain()+0x6a>
+  6a:	90                   	nop
+  6b:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  6f:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  76:	00 00 
+  78:	74 05                	je     7f <LightSetChain::~LightSetChain()+0x7f>
+  7a:	e8 00 00 00 00       	call   7f <LightSetChain::~LightSetChain()+0x7f>
+  7f:	c9                   	leave  
+  80:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChainD0Ev:
+
+0000000000000000 <LightSetChain::~LightSetChain()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	48 89 c7             	mov    %rax,%rdi
+  26:	e8 00 00 00 00       	call   2b <LightSetChain::~LightSetChain()+0x2b>
+  2b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2f:	48 89 c7             	mov    %rax,%rdi
+  32:	e8 00 00 00 00       	call   37 <LightSetChain::~LightSetChain()+0x37>
+  37:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  3b:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  42:	00 00 
+  44:	74 05                	je     4b <LightSetChain::~LightSetChain()+0x4b>
+  46:	e8 00 00 00 00       	call   4b <LightSetChain::~LightSetChain()+0x4b>
+  4b:	c9                   	leave  
+  4c:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain5StartEj:
+
+0000000000000000 <LightSetChain::Start(unsigned int)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 75 e4             	mov    %esi,-0x1c(%rbp)
+  13:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1a:	00 00 
+  1c:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  20:	31 c0                	xor    %eax,%eax
+  22:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  29:	eb 42                	jmp    6d <LightSetChain::Start(unsigned int)+0x6d>
+  2b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2f:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  33:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  36:	48 c1 e0 04          	shl    $0x4,%rax
+  3a:	48 01 d0             	add    %rdx,%rax
+  3d:	48 8b 00             	mov    (%rax),%rax
+  40:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  44:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+  48:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  4b:	48 c1 e2 04          	shl    $0x4,%rdx
+  4f:	48 01 ca             	add    %rcx,%rdx
+  52:	48 8b 12             	mov    (%rdx),%rdx
+  55:	48 8b 12             	mov    (%rdx),%rdx
+  58:	48 83 c2 10          	add    $0x10,%rdx
+  5c:	48 8b 0a             	mov    (%rdx),%rcx
+  5f:	8b 55 e4             	mov    -0x1c(%rbp),%edx
+  62:	89 d6                	mov    %edx,%esi
+  64:	48 89 c7             	mov    %rax,%rdi
+  67:	ff d1                	call   *%rcx
+  69:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  6d:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  71:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  75:	0f b6 c0             	movzbl %al,%eax
+  78:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  7b:	72 ae                	jb     2b <LightSetChain::Start(unsigned int)+0x2b>
+  7d:	90                   	nop
+  7e:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  82:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  89:	00 00 
+  8b:	74 05                	je     92 <LightSetChain::Start(unsigned int)+0x92>
+  8d:	e8 00 00 00 00       	call   92 <LightSetChain::Start(unsigned int)+0x92>
+  92:	c9                   	leave  
+  93:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain4StopEj:
+
+0000000000000000 <LightSetChain::Stop(unsigned int)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 75 e4             	mov    %esi,-0x1c(%rbp)
+  13:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1a:	00 00 
+  1c:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  20:	31 c0                	xor    %eax,%eax
+  22:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  29:	eb 42                	jmp    6d <LightSetChain::Stop(unsigned int)+0x6d>
+  2b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2f:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  33:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  36:	48 c1 e0 04          	shl    $0x4,%rax
+  3a:	48 01 d0             	add    %rdx,%rax
+  3d:	48 8b 00             	mov    (%rax),%rax
+  40:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  44:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+  48:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  4b:	48 c1 e2 04          	shl    $0x4,%rdx
+  4f:	48 01 ca             	add    %rcx,%rdx
+  52:	48 8b 12             	mov    (%rdx),%rdx
+  55:	48 8b 12             	mov    (%rdx),%rdx
+  58:	48 83 c2 18          	add    $0x18,%rdx
+  5c:	48 8b 0a             	mov    (%rdx),%rcx
+  5f:	8b 55 e4             	mov    -0x1c(%rbp),%edx
+  62:	89 d6                	mov    %edx,%esi
+  64:	48 89 c7             	mov    %rax,%rdi
+  67:	ff d1                	call   *%rcx
+  69:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  6d:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  71:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  75:	0f b6 c0             	movzbl %al,%eax
+  78:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  7b:	72 ae                	jb     2b <LightSetChain::Stop(unsigned int)+0x2b>
+  7d:	90                   	nop
+  7e:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  82:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  89:	00 00 
+  8b:	74 05                	je     92 <LightSetChain::Stop(unsigned int)+0x92>
+  8d:	e8 00 00 00 00       	call   92 <LightSetChain::Stop(unsigned int)+0x92>
+  92:	c9                   	leave  
+  93:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain7SetDataEjPKhjb:
+
+0000000000000000 <LightSetChain::SetData(unsigned int, unsigned char const*, unsigned int, bool)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 30          	sub    $0x30,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 75 e4             	mov    %esi,-0x1c(%rbp)
+  13:	48 89 55 d8          	mov    %rdx,-0x28(%rbp)
+  17:	89 4d e0             	mov    %ecx,-0x20(%rbp)
+  1a:	44 89 c0             	mov    %r8d,%eax
+  1d:	88 45 d4             	mov    %al,-0x2c(%rbp)
+  20:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  27:	00 00 
+  29:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  2d:	31 c0                	xor    %eax,%eax
+  2f:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  36:	eb 4f                	jmp    87 <LightSetChain::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x87>
+  38:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  3c:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  40:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  43:	48 c1 e0 04          	shl    $0x4,%rax
+  47:	48 01 d0             	add    %rdx,%rax
+  4a:	48 8b 00             	mov    (%rax),%rax
+  4d:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  51:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+  55:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  58:	48 c1 e2 04          	shl    $0x4,%rdx
+  5c:	48 01 ca             	add    %rcx,%rdx
+  5f:	48 8b 12             	mov    (%rdx),%rdx
+  62:	48 8b 12             	mov    (%rdx),%rdx
+  65:	48 83 c2 20          	add    $0x20,%rdx
+  69:	4c 8b 0a             	mov    (%rdx),%r9
+  6c:	0f b6 7d d4          	movzbl -0x2c(%rbp),%edi
+  70:	8b 4d e0             	mov    -0x20(%rbp),%ecx
+  73:	48 8b 55 d8          	mov    -0x28(%rbp),%rdx
+  77:	8b 75 e4             	mov    -0x1c(%rbp),%esi
+  7a:	41 89 f8             	mov    %edi,%r8d
+  7d:	48 89 c7             	mov    %rax,%rdi
+  80:	41 ff d1             	call   *%r9
+  83:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  87:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  8b:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  8f:	0f b6 c0             	movzbl %al,%eax
+  92:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  95:	72 a1                	jb     38 <LightSetChain::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x38>
+  97:	90                   	nop
+  98:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  9c:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  a3:	00 00 
+  a5:	74 05                	je     ac <LightSetChain::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xac>
+  a7:	e8 00 00 00 00       	call   ac <LightSetChain::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xac>
+  ac:	c9                   	leave  
+  ad:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain4SyncEj:
+
+0000000000000000 <LightSetChain::Sync(unsigned int)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 75 e4             	mov    %esi,-0x1c(%rbp)
+  13:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1a:	00 00 
+  1c:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  20:	31 c0                	xor    %eax,%eax
+  22:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  29:	eb 42                	jmp    6d <LightSetChain::Sync(unsigned int)+0x6d>
+  2b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2f:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  33:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  36:	48 c1 e0 04          	shl    $0x4,%rax
+  3a:	48 01 d0             	add    %rdx,%rax
+  3d:	48 8b 00             	mov    (%rax),%rax
+  40:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  44:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+  48:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  4b:	48 c1 e2 04          	shl    $0x4,%rdx
+  4f:	48 01 ca             	add    %rcx,%rdx
+  52:	48 8b 12             	mov    (%rdx),%rdx
+  55:	48 8b 12             	mov    (%rdx),%rdx
+  58:	48 83 c2 28          	add    $0x28,%rdx
+  5c:	48 8b 0a             	mov    (%rdx),%rcx
+  5f:	8b 55 e4             	mov    -0x1c(%rbp),%edx
+  62:	89 d6                	mov    %edx,%esi
+  64:	48 89 c7             	mov    %rax,%rdi
+  67:	ff d1                	call   *%rcx
+  69:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  6d:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  71:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  75:	0f b6 c0             	movzbl %al,%eax
+  78:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  7b:	72 ae                	jb     2b <LightSetChain::Sync(unsigned int)+0x2b>
+  7d:	90                   	nop
+  7e:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  82:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  89:	00 00 
+  8b:	74 05                	je     92 <LightSetChain::Sync(unsigned int)+0x92>
+  8d:	e8 00 00 00 00       	call   92 <LightSetChain::Sync(unsigned int)+0x92>
+  92:	c9                   	leave  
+  93:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain4SyncEb:
+
+0000000000000000 <LightSetChain::Sync(bool)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	88 45 e4             	mov    %al,-0x1c(%rbp)
+  15:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1c:	00 00 
+  1e:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  22:	31 c0                	xor    %eax,%eax
+  24:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  2b:	eb 43                	jmp    70 <LightSetChain::Sync(bool)+0x70>
+  2d:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  31:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  35:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  38:	48 c1 e0 04          	shl    $0x4,%rax
+  3c:	48 01 d0             	add    %rdx,%rax
+  3f:	48 8b 00             	mov    (%rax),%rax
+  42:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  46:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+  4a:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  4d:	48 c1 e2 04          	shl    $0x4,%rdx
+  51:	48 01 ca             	add    %rcx,%rdx
+  54:	48 8b 12             	mov    (%rdx),%rdx
+  57:	48 8b 12             	mov    (%rdx),%rdx
+  5a:	48 83 c2 30          	add    $0x30,%rdx
+  5e:	48 8b 0a             	mov    (%rdx),%rcx
+  61:	0f b6 55 e4          	movzbl -0x1c(%rbp),%edx
+  65:	89 d6                	mov    %edx,%esi
+  67:	48 89 c7             	mov    %rax,%rdi
+  6a:	ff d1                	call   *%rcx
+  6c:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  70:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  74:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  78:	0f b6 c0             	movzbl %al,%eax
+  7b:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  7e:	72 ad                	jb     2d <LightSetChain::Sync(bool)+0x2d>
+  80:	90                   	nop
+  81:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  85:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  8c:	00 00 
+  8e:	74 05                	je     95 <LightSetChain::Sync(bool)+0x95>
+  90:	e8 00 00 00 00       	call   95 <LightSetChain::Sync(bool)+0x95>
+  95:	c9                   	leave  
+  96:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain5PrintEv:
+
+0000000000000000 <LightSetChain::Print()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  26:	eb 3d                	jmp    65 <LightSetChain::Print()+0x65>
+  28:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2c:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  30:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  33:	48 c1 e0 04          	shl    $0x4,%rax
+  37:	48 01 d0             	add    %rdx,%rax
+  3a:	48 8b 00             	mov    (%rax),%rax
+  3d:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  41:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+  45:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  48:	48 c1 e2 04          	shl    $0x4,%rdx
+  4c:	48 01 ca             	add    %rcx,%rdx
+  4f:	48 8b 12             	mov    (%rdx),%rdx
+  52:	48 8b 12             	mov    (%rdx),%rdx
+  55:	48 83 c2 48          	add    $0x48,%rdx
+  59:	48 8b 12             	mov    (%rdx),%rdx
+  5c:	48 89 c7             	mov    %rax,%rdi
+  5f:	ff d2                	call   *%rdx
+  61:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  65:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  69:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  6d:	0f b6 c0             	movzbl %al,%eax
+  70:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  73:	72 b3                	jb     28 <LightSetChain::Print()+0x28>
+  75:	90                   	nop
+  76:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  7a:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  81:	00 00 
+  83:	74 05                	je     8a <LightSetChain::Print()+0x8a>
+  85:	e8 00 00 00 00       	call   8a <LightSetChain::Print()+0x8a>
+  8a:	c9                   	leave  
+  8b:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain18SetDmxStartAddressEt:
+
+0000000000000000 <LightSetChain::SetDmxStartAddress(unsigned short)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  16:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1d:	00 00 
+  1f:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  23:	31 c0                	xor    %eax,%eax
+  25:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  29:	0f b7 40 18          	movzwl 0x18(%rax),%eax
+  2d:	66 39 45 e4          	cmp    %ax,-0x1c(%rbp)
+  31:	75 0a                	jne    3d <LightSetChain::SetDmxStartAddress(unsigned short)+0x3d>
+  33:	b8 01 00 00 00       	mov    $0x1,%eax
+  38:	e9 cb 00 00 00       	jmp    108 <LightSetChain::SetDmxStartAddress(unsigned short)+0x108>
+  3d:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  44:	e9 9a 00 00 00       	jmp    e3 <LightSetChain::SetDmxStartAddress(unsigned short)+0xe3>
+  49:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  4d:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  51:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  54:	48 c1 e0 04          	shl    $0x4,%rax
+  58:	48 01 d0             	add    %rdx,%rax
+  5b:	48 8b 00             	mov    (%rax),%rax
+  5e:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  62:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+  66:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  69:	48 c1 e2 04          	shl    $0x4,%rdx
+  6d:	48 01 ca             	add    %rcx,%rdx
+  70:	48 8b 12             	mov    (%rdx),%rdx
+  73:	48 8b 12             	mov    (%rdx),%rdx
+  76:	48 83 c2 58          	add    $0x58,%rdx
+  7a:	48 8b 12             	mov    (%rdx),%rdx
+  7d:	48 89 c7             	mov    %rax,%rdi
+  80:	ff d2                	call   *%rdx
+  82:	66 89 45 f0          	mov    %ax,-0x10(%rbp)
+  86:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  8a:	0f b7 50 18          	movzwl 0x18(%rax),%edx
+  8e:	0f b7 45 f0          	movzwl -0x10(%rbp),%eax
+  92:	29 d0                	sub    %edx,%eax
+  94:	89 c1                	mov    %eax,%ecx
+  96:	0f b7 45 e4          	movzwl -0x1c(%rbp),%eax
+  9a:	01 c8                	add    %ecx,%eax
+  9c:	66 89 45 f2          	mov    %ax,-0xe(%rbp)
+  a0:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  a4:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  a8:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  ab:	48 c1 e0 04          	shl    $0x4,%rax
+  af:	48 01 d0             	add    %rdx,%rax
+  b2:	48 8b 00             	mov    (%rax),%rax
+  b5:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  b9:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+  bd:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  c0:	48 c1 e2 04          	shl    $0x4,%rdx
+  c4:	48 01 ca             	add    %rcx,%rdx
+  c7:	48 8b 12             	mov    (%rdx),%rdx
+  ca:	48 8b 12             	mov    (%rdx),%rdx
+  cd:	48 83 c2 50          	add    $0x50,%rdx
+  d1:	48 8b 0a             	mov    (%rdx),%rcx
+  d4:	0f b7 55 f2          	movzwl -0xe(%rbp),%edx
+  d8:	89 d6                	mov    %edx,%esi
+  da:	48 89 c7             	mov    %rax,%rdi
+  dd:	ff d1                	call   *%rcx
+  df:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  e3:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  e7:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  eb:	0f b6 c0             	movzbl %al,%eax
+  ee:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  f1:	0f 82 52 ff ff ff    	jb     49 <LightSetChain::SetDmxStartAddress(unsigned short)+0x49>
+  f7:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  fb:	0f b7 55 e4          	movzwl -0x1c(%rbp),%edx
+  ff:	66 89 50 18          	mov    %dx,0x18(%rax)
+ 103:	b8 01 00 00 00       	mov    $0x1,%eax
+ 108:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+ 10c:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+ 113:	00 00 
+ 115:	74 05                	je     11c <LightSetChain::SetDmxStartAddress(unsigned short)+0x11c>
+ 117:	e8 00 00 00 00       	call   11c <LightSetChain::SetDmxStartAddress(unsigned short)+0x11c>
+ 11c:	c9                   	leave  
+ 11d:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain11GetSlotInfoEtRN8lightset8SlotInfoE:
+
+0000000000000000 <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	53                   	push   %rbx
+   9:	48 83 ec 48          	sub    $0x48,%rsp
+   d:	48 89 7d c8          	mov    %rdi,-0x38(%rbp)
+  11:	89 f0                	mov    %esi,%eax
+  13:	48 89 55 b8          	mov    %rdx,-0x48(%rbp)
+  17:	66 89 45 c4          	mov    %ax,-0x3c(%rbp)
+  1b:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  22:	00 00 
+  24:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+  28:	31 c0                	xor    %eax,%eax
+  2a:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  2e:	0f b7 40 1a          	movzwl 0x1a(%rax),%eax
+  32:	66 39 45 c4          	cmp    %ax,-0x3c(%rbp)
+  36:	76 0a                	jbe    42 <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x42>
+  38:	b8 00 00 00 00       	mov    $0x0,%eax
+  3d:	e9 6e 01 00 00       	jmp    1b0 <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x1b0>
+  42:	c7 45 e0 00 00 00 00 	movl   $0x0,-0x20(%rbp)
+  49:	e9 49 01 00 00       	jmp    197 <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x197>
+  4e:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  52:	0f b7 40 18          	movzwl 0x18(%rax),%eax
+  56:	0f b7 d0             	movzwl %ax,%edx
+  59:	0f b7 45 c4          	movzwl -0x3c(%rbp),%eax
+  5d:	01 d0                	add    %edx,%eax
+  5f:	89 45 e4             	mov    %eax,-0x1c(%rbp)
+  62:	8b 45 e4             	mov    -0x1c(%rbp),%eax
+  65:	89 c3                	mov    %eax,%ebx
+  67:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  6b:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  6f:	8b 45 e0             	mov    -0x20(%rbp),%eax
+  72:	48 c1 e0 04          	shl    $0x4,%rax
+  76:	48 01 d0             	add    %rdx,%rax
+  79:	48 8b 00             	mov    (%rax),%rax
+  7c:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+  80:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+  84:	8b 55 e0             	mov    -0x20(%rbp),%edx
+  87:	48 c1 e2 04          	shl    $0x4,%rdx
+  8b:	48 01 ca             	add    %rcx,%rdx
+  8e:	48 8b 12             	mov    (%rdx),%rdx
+  91:	48 8b 12             	mov    (%rdx),%rdx
+  94:	48 83 c2 58          	add    $0x58,%rdx
+  98:	48 8b 12             	mov    (%rdx),%rdx
+  9b:	48 89 c7             	mov    %rax,%rdi
+  9e:	ff d2                	call   *%rdx
+  a0:	89 c2                	mov    %eax,%edx
+  a2:	89 d8                	mov    %ebx,%eax
+  a4:	29 d0                	sub    %edx,%eax
+  a6:	66 89 45 de          	mov    %ax,-0x22(%rbp)
+  aa:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  ae:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  b2:	8b 45 e0             	mov    -0x20(%rbp),%eax
+  b5:	48 c1 e0 04          	shl    $0x4,%rax
+  b9:	48 01 d0             	add    %rdx,%rax
+  bc:	48 8b 00             	mov    (%rax),%rax
+  bf:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+  c3:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+  c7:	8b 55 e0             	mov    -0x20(%rbp),%edx
+  ca:	48 c1 e2 04          	shl    $0x4,%rdx
+  ce:	48 01 ca             	add    %rcx,%rdx
+  d1:	48 8b 12             	mov    (%rdx),%rdx
+  d4:	48 8b 12             	mov    (%rdx),%rdx
+  d7:	48 83 c2 58          	add    $0x58,%rdx
+  db:	48 8b 12             	mov    (%rdx),%rdx
+  de:	48 89 c7             	mov    %rax,%rdi
+  e1:	ff d2                	call   *%rdx
+  e3:	0f b7 d8             	movzwl %ax,%ebx
+  e6:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+  ea:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  ee:	8b 45 e0             	mov    -0x20(%rbp),%eax
+  f1:	48 c1 e0 04          	shl    $0x4,%rax
+  f5:	48 01 d0             	add    %rdx,%rax
+  f8:	48 8b 00             	mov    (%rax),%rax
+  fb:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+  ff:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+ 103:	8b 55 e0             	mov    -0x20(%rbp),%edx
+ 106:	48 c1 e2 04          	shl    $0x4,%rdx
+ 10a:	48 01 ca             	add    %rcx,%rdx
+ 10d:	48 8b 12             	mov    (%rdx),%rdx
+ 110:	48 8b 12             	mov    (%rdx),%rdx
+ 113:	48 83 c2 60          	add    $0x60,%rdx
+ 117:	48 8b 12             	mov    (%rdx),%rdx
+ 11a:	48 89 c7             	mov    %rax,%rdi
+ 11d:	ff d2                	call   *%rdx
+ 11f:	0f b7 c0             	movzwl %ax,%eax
+ 122:	01 d8                	add    %ebx,%eax
+ 124:	39 45 e4             	cmp    %eax,-0x1c(%rbp)
+ 127:	7d 07                	jge    130 <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x130>
+ 129:	66 83 7d de 00       	cmpw   $0x0,-0x22(%rbp)
+ 12e:	79 07                	jns    137 <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x137>
+ 130:	b8 01 00 00 00       	mov    $0x1,%eax
+ 135:	eb 05                	jmp    13c <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x13c>
+ 137:	b8 00 00 00 00       	mov    $0x0,%eax
+ 13c:	84 c0                	test   %al,%al
+ 13e:	75 52                	jne    192 <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x192>
+ 140:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+ 144:	48 8b 50 10          	mov    0x10(%rax),%rdx
+ 148:	8b 45 e0             	mov    -0x20(%rbp),%eax
+ 14b:	48 c1 e0 04          	shl    $0x4,%rax
+ 14f:	48 01 d0             	add    %rdx,%rax
+ 152:	48 8b 00             	mov    (%rax),%rax
+ 155:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+ 159:	48 8b 4a 10          	mov    0x10(%rdx),%rcx
+ 15d:	8b 55 e0             	mov    -0x20(%rbp),%edx
+ 160:	48 c1 e2 04          	shl    $0x4,%rdx
+ 164:	48 01 ca             	add    %rcx,%rdx
+ 167:	48 8b 12             	mov    (%rdx),%rdx
+ 16a:	48 8b 12             	mov    (%rdx),%rdx
+ 16d:	48 83 c2 68          	add    $0x68,%rdx
+ 171:	4c 8b 02             	mov    (%rdx),%r8
+ 174:	0f b7 55 de          	movzwl -0x22(%rbp),%edx
+ 178:	0f b7 ca             	movzwl %dx,%ecx
+ 17b:	48 8b 55 b8          	mov    -0x48(%rbp),%rdx
+ 17f:	89 ce                	mov    %ecx,%esi
+ 181:	48 89 c7             	mov    %rax,%rdi
+ 184:	41 ff d0             	call   *%r8
+ 187:	84 c0                	test   %al,%al
+ 189:	74 08                	je     193 <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x193>
+ 18b:	b8 01 00 00 00       	mov    $0x1,%eax
+ 190:	eb 1e                	jmp    1b0 <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x1b0>
+ 192:	90                   	nop
+ 193:	83 45 e0 01          	addl   $0x1,-0x20(%rbp)
+ 197:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+ 19b:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+ 19f:	0f b6 c0             	movzbl %al,%eax
+ 1a2:	39 45 e0             	cmp    %eax,-0x20(%rbp)
+ 1a5:	0f 82 a3 fe ff ff    	jb     4e <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x4e>
+ 1ab:	b8 00 00 00 00       	mov    $0x0,%eax
+ 1b0:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+ 1b4:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+ 1bb:	00 00 
+ 1bd:	74 05                	je     1c4 <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x1c4>
+ 1bf:	e8 00 00 00 00       	call   1c4 <LightSetChain::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x1c4>
+ 1c4:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
+ 1c8:	c9                   	leave  
+ 1c9:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain3AddEP8LightSeti:
+
+0000000000000000 <LightSetChain::Add(LightSet*, int)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	53                   	push   %rbx
+   9:	48 83 ec 38          	sub    $0x38,%rsp
+   d:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+  11:	48 89 75 d0          	mov    %rsi,-0x30(%rbp)
+  15:	89 55 cc             	mov    %edx,-0x34(%rbp)
+  18:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1f:	00 00 
+  21:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+  25:	31 c0                	xor    %eax,%eax
+  27:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  2b:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  2f:	3c 10                	cmp    $0x10,%al
+  31:	75 0a                	jne    3d <LightSetChain::Add(LightSet*, int)+0x3d>
+  33:	b8 00 00 00 00       	mov    $0x0,%eax
+  38:	e9 11 02 00 00       	jmp    24e <LightSetChain::Add(LightSet*, int)+0x24e>
+  3d:	48 83 7d d0 00       	cmpq   $0x0,-0x30(%rbp)
+  42:	0f 84 01 02 00 00    	je     249 <LightSetChain::Add(LightSet*, int)+0x249>
+  48:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+  4c:	48 8b 00             	mov    (%rax),%rax
+  4f:	48 83 c0 58          	add    $0x58,%rax
+  53:	48 8b 10             	mov    (%rax),%rdx
+  56:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+  5a:	48 89 c7             	mov    %rax,%rdi
+  5d:	ff d2                	call   *%rdx
+  5f:	66 85 c0             	test   %ax,%ax
+  62:	74 46                	je     aa <LightSetChain::Add(LightSet*, int)+0xaa>
+  64:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+  68:	48 8b 00             	mov    (%rax),%rax
+  6b:	48 83 c0 60          	add    $0x60,%rax
+  6f:	48 8b 10             	mov    (%rax),%rdx
+  72:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+  76:	48 89 c7             	mov    %rax,%rdi
+  79:	ff d2                	call   *%rdx
+  7b:	0f b7 d8             	movzwl %ax,%ebx
+  7e:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+  82:	48 8b 00             	mov    (%rax),%rax
+  85:	48 83 c0 58          	add    $0x58,%rax
+  89:	48 8b 10             	mov    (%rax),%rdx
+  8c:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+  90:	48 89 c7             	mov    %rax,%rdi
+  93:	ff d2                	call   *%rdx
+  95:	0f b7 d0             	movzwl %ax,%edx
+  98:	89 d8                	mov    %ebx,%eax
+  9a:	29 d0                	sub    %edx,%eax
+  9c:	3d ff 01 00 00       	cmp    $0x1ff,%eax
+  a1:	7f 07                	jg     aa <LightSetChain::Add(LightSet*, int)+0xaa>
+  a3:	b8 01 00 00 00       	mov    $0x1,%eax
+  a8:	eb 05                	jmp    af <LightSetChain::Add(LightSet*, int)+0xaf>
+  aa:	b8 00 00 00 00       	mov    $0x0,%eax
+  af:	88 45 e3             	mov    %al,-0x1d(%rbp)
+  b2:	80 7d e3 00          	cmpb   $0x0,-0x1d(%rbp)
+  b6:	0f 84 86 01 00 00    	je     242 <LightSetChain::Add(LightSet*, int)+0x242>
+  bc:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  c0:	0f b7 40 18          	movzwl 0x18(%rax),%eax
+  c4:	66 83 f8 ff          	cmp    $0xffff,%ax
+  c8:	75 6d                	jne    137 <LightSetChain::Add(LightSet*, int)+0x137>
+  ca:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  ce:	48 8b 40 10          	mov    0x10(%rax),%rax
+  d2:	48 8b 55 d0          	mov    -0x30(%rbp),%rdx
+  d6:	48 89 10             	mov    %rdx,(%rax)
+  d9:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  dd:	48 8b 40 10          	mov    0x10(%rax),%rax
+  e1:	8b 55 cc             	mov    -0x34(%rbp),%edx
+  e4:	89 50 08             	mov    %edx,0x8(%rax)
+  e7:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  eb:	c6 40 08 01          	movb   $0x1,0x8(%rax)
+  ef:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+  f3:	48 8b 00             	mov    (%rax),%rax
+  f6:	48 83 c0 58          	add    $0x58,%rax
+  fa:	48 8b 10             	mov    (%rax),%rdx
+  fd:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ 101:	48 89 c7             	mov    %rax,%rdi
+ 104:	ff d2                	call   *%rdx
+ 106:	48 8b 55 d8          	mov    -0x28(%rbp),%rdx
+ 10a:	66 89 42 18          	mov    %ax,0x18(%rdx)
+ 10e:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ 112:	48 8b 00             	mov    (%rax),%rax
+ 115:	48 83 c0 60          	add    $0x60,%rax
+ 119:	48 8b 10             	mov    (%rax),%rdx
+ 11c:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ 120:	48 89 c7             	mov    %rax,%rdi
+ 123:	ff d2                	call   *%rdx
+ 125:	48 8b 55 d8          	mov    -0x28(%rbp),%rdx
+ 129:	66 89 42 1a          	mov    %ax,0x1a(%rdx)
+ 12d:	b8 01 00 00 00       	mov    $0x1,%eax
+ 132:	e9 17 01 00 00       	jmp    24e <LightSetChain::Add(LightSet*, int)+0x24e>
+ 137:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 13b:	48 8b 50 10          	mov    0x10(%rax),%rdx
+ 13f:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 143:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+ 147:	0f b6 c0             	movzbl %al,%eax
+ 14a:	48 c1 e0 04          	shl    $0x4,%rax
+ 14e:	48 01 c2             	add    %rax,%rdx
+ 151:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ 155:	48 89 02             	mov    %rax,(%rdx)
+ 158:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 15c:	48 8b 50 10          	mov    0x10(%rax),%rdx
+ 160:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 164:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+ 168:	0f b6 c0             	movzbl %al,%eax
+ 16b:	48 c1 e0 04          	shl    $0x4,%rax
+ 16f:	48 01 c2             	add    %rax,%rdx
+ 172:	8b 45 cc             	mov    -0x34(%rbp),%eax
+ 175:	89 42 08             	mov    %eax,0x8(%rdx)
+ 178:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 17c:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+ 180:	8d 50 01             	lea    0x1(%rax),%edx
+ 183:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 187:	88 50 08             	mov    %dl,0x8(%rax)
+ 18a:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 18e:	0f b7 50 18          	movzwl 0x18(%rax),%edx
+ 192:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 196:	0f b7 40 1a          	movzwl 0x1a(%rax),%eax
+ 19a:	01 d0                	add    %edx,%eax
+ 19c:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+ 1a0:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ 1a4:	48 8b 00             	mov    (%rax),%rax
+ 1a7:	48 83 c0 58          	add    $0x58,%rax
+ 1ab:	48 8b 10             	mov    (%rax),%rdx
+ 1ae:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ 1b2:	48 89 c7             	mov    %rax,%rdi
+ 1b5:	ff d2                	call   *%rdx
+ 1b7:	66 89 45 e6          	mov    %ax,-0x1a(%rbp)
+ 1bb:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 1bf:	48 8d 50 18          	lea    0x18(%rax),%rdx
+ 1c3:	48 8d 45 e6          	lea    -0x1a(%rbp),%rax
+ 1c7:	48 89 c6             	mov    %rax,%rsi
+ 1ca:	48 89 d7             	mov    %rdx,%rdi
+ 1cd:	e8 00 00 00 00       	call   1d2 <LightSetChain::Add(LightSet*, int)+0x1d2>
+ 1d2:	0f b7 10             	movzwl (%rax),%edx
+ 1d5:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 1d9:	66 89 50 18          	mov    %dx,0x18(%rax)
+ 1dd:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ 1e1:	48 8b 00             	mov    (%rax),%rax
+ 1e4:	48 83 c0 58          	add    $0x58,%rax
+ 1e8:	48 8b 10             	mov    (%rax),%rdx
+ 1eb:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ 1ef:	48 89 c7             	mov    %rax,%rdi
+ 1f2:	ff d2                	call   *%rdx
+ 1f4:	89 c3                	mov    %eax,%ebx
+ 1f6:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ 1fa:	48 8b 00             	mov    (%rax),%rax
+ 1fd:	48 83 c0 60          	add    $0x60,%rax
+ 201:	48 8b 10             	mov    (%rax),%rdx
+ 204:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+ 208:	48 89 c7             	mov    %rax,%rdi
+ 20b:	ff d2                	call   *%rdx
+ 20d:	01 d8                	add    %ebx,%eax
+ 20f:	66 89 45 e6          	mov    %ax,-0x1a(%rbp)
+ 213:	48 8d 55 e6          	lea    -0x1a(%rbp),%rdx
+ 217:	48 8d 45 e4          	lea    -0x1c(%rbp),%rax
+ 21b:	48 89 d6             	mov    %rdx,%rsi
+ 21e:	48 89 c7             	mov    %rax,%rdi
+ 221:	e8 00 00 00 00       	call   226 <LightSetChain::Add(LightSet*, int)+0x226>
+ 226:	0f b7 10             	movzwl (%rax),%edx
+ 229:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 22d:	0f b7 40 18          	movzwl 0x18(%rax),%eax
+ 231:	29 c2                	sub    %eax,%edx
+ 233:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+ 237:	66 89 50 1a          	mov    %dx,0x1a(%rax)
+ 23b:	b8 01 00 00 00       	mov    $0x1,%eax
+ 240:	eb 0c                	jmp    24e <LightSetChain::Add(LightSet*, int)+0x24e>
+ 242:	b8 00 00 00 00       	mov    $0x0,%eax
+ 247:	eb 05                	jmp    24e <LightSetChain::Add(LightSet*, int)+0x24e>
+ 249:	b8 00 00 00 00       	mov    $0x0,%eax
+ 24e:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+ 252:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+ 259:	00 00 
+ 25b:	74 05                	je     262 <LightSetChain::Add(LightSet*, int)+0x262>
+ 25d:	e8 00 00 00 00       	call   262 <LightSetChain::Add(LightSet*, int)+0x262>
+ 262:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
+ 266:	c9                   	leave  
+ 267:	c3                   	ret    
+
+Disassembly of section .text._ZNK13LightSetChain7GetSizeEv:
+
+0000000000000000 <LightSetChain::GetSize() const>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  27:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  2b:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  32:	00 00 
+  34:	74 05                	je     3b <LightSetChain::GetSize() const+0x3b>
+  36:	e8 00 00 00 00       	call   3b <LightSetChain::GetSize() const+0x3b>
+  3b:	c9                   	leave  
+  3c:	c3                   	ret    
+
+Disassembly of section .text._ZNK13LightSetChain7GetTypeEh:
+
+0000000000000000 <LightSetChain::GetType(unsigned char) const>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	88 45 e4             	mov    %al,-0x1c(%rbp)
+  15:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1c:	00 00 
+  1e:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  22:	31 c0                	xor    %eax,%eax
+  24:	80 7d e4 10          	cmpb   $0x10,-0x1c(%rbp)
+  28:	76 07                	jbe    31 <LightSetChain::GetType(unsigned char) const+0x31>
+  2a:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+  2f:	eb 16                	jmp    47 <LightSetChain::GetType(unsigned char) const+0x47>
+  31:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  35:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  39:	0f b6 45 e4          	movzbl -0x1c(%rbp),%eax
+  3d:	48 c1 e0 04          	shl    $0x4,%rax
+  41:	48 01 d0             	add    %rdx,%rax
+  44:	8b 40 08             	mov    0x8(%rax),%eax
+  47:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  4b:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  52:	00 00 
+  54:	74 05                	je     5b <LightSetChain::GetType(unsigned char) const+0x5b>
+  56:	e8 00 00 00 00       	call   5b <LightSetChain::GetType(unsigned char) const+0x5b>
+  5b:	c9                   	leave  
+  5c:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain11GetLightSetEh:
+
+0000000000000000 <LightSetChain::GetLightSet(unsigned char)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	88 45 e4             	mov    %al,-0x1c(%rbp)
+  15:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1c:	00 00 
+  1e:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  22:	31 c0                	xor    %eax,%eax
+  24:	80 7d e4 10          	cmpb   $0x10,-0x1c(%rbp)
+  28:	76 07                	jbe    31 <LightSetChain::GetLightSet(unsigned char)+0x31>
+  2a:	b8 00 00 00 00       	mov    $0x0,%eax
+  2f:	eb 16                	jmp    47 <LightSetChain::GetLightSet(unsigned char)+0x47>
+  31:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  35:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  39:	0f b6 45 e4          	movzbl -0x1c(%rbp),%eax
+  3d:	48 c1 e0 04          	shl    $0x4,%rax
+  41:	48 01 d0             	add    %rdx,%rax
+  44:	48 8b 00             	mov    (%rax),%rax
+  47:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  4b:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  52:	00 00 
+  54:	74 05                	je     5b <LightSetChain::GetLightSet(unsigned char)+0x5b>
+  56:	e8 00 00 00 00       	call   5b <LightSetChain::GetLightSet(unsigned char)+0x5b>
+  5b:	c9                   	leave  
+  5c:	c3                   	ret    
+
+Disassembly of section .text._ZNK13LightSetChain7IsEmptyEv:
+
+0000000000000000 <LightSetChain::IsEmpty() const>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  27:	84 c0                	test   %al,%al
+  29:	0f 94 c0             	sete   %al
+  2c:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  30:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  37:	00 00 
+  39:	74 05                	je     40 <LightSetChain::IsEmpty() const+0x40>
+  3b:	e8 00 00 00 00       	call   40 <LightSetChain::IsEmpty() const+0x40>
+  40:	c9                   	leave  
+  41:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain5ExistEP8LightSet:
+
+0000000000000000 <LightSetChain::Exist(LightSet*)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+  14:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1b:	00 00 
+  1d:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  21:	31 c0                	xor    %eax,%eax
+  23:	48 8b 75 e0          	mov    -0x20(%rbp),%rsi
+  27:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2b:	b9 01 00 00 00       	mov    $0x1,%ecx
+  30:	ba ff ff ff ff       	mov    $0xffffffff,%edx
+  35:	48 89 c7             	mov    %rax,%rdi
+  38:	e8 00 00 00 00       	call   3d <LightSetChain::Exist(LightSet*)+0x3d>
+  3d:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  41:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  48:	00 00 
+  4a:	74 05                	je     51 <LightSetChain::Exist(LightSet*)+0x51>
+  4c:	e8 00 00 00 00       	call   51 <LightSetChain::Exist(LightSet*)+0x51>
+  51:	c9                   	leave  
+  52:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain5ExistEP8LightSetib:
+
+0000000000000000 <LightSetChain::Exist(LightSet*, int, bool)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 30          	sub    $0x30,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+  14:	89 55 dc             	mov    %edx,-0x24(%rbp)
+  17:	89 c8                	mov    %ecx,%eax
+  19:	88 45 d8             	mov    %al,-0x28(%rbp)
+  1c:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  23:	00 00 
+  25:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  29:	31 c0                	xor    %eax,%eax
+  2b:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  32:	eb 46                	jmp    7a <LightSetChain::Exist(LightSet*, int, bool)+0x7a>
+  34:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  38:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  3c:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  3f:	48 c1 e0 04          	shl    $0x4,%rax
+  43:	48 01 d0             	add    %rdx,%rax
+  46:	48 8b 00             	mov    (%rax),%rax
+  49:	48 39 45 e0          	cmp    %rax,-0x20(%rbp)
+  4d:	75 27                	jne    76 <LightSetChain::Exist(LightSet*, int, bool)+0x76>
+  4f:	80 7d d8 00          	cmpb   $0x0,-0x28(%rbp)
+  53:	75 1a                	jne    6f <LightSetChain::Exist(LightSet*, int, bool)+0x6f>
+  55:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  59:	48 8b 50 10          	mov    0x10(%rax),%rdx
+  5d:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  60:	48 c1 e0 04          	shl    $0x4,%rax
+  64:	48 01 d0             	add    %rdx,%rax
+  67:	8b 40 08             	mov    0x8(%rax),%eax
+  6a:	39 45 dc             	cmp    %eax,-0x24(%rbp)
+  6d:	75 07                	jne    76 <LightSetChain::Exist(LightSet*, int, bool)+0x76>
+  6f:	b8 01 00 00 00       	mov    $0x1,%eax
+  74:	eb 19                	jmp    8f <LightSetChain::Exist(LightSet*, int, bool)+0x8f>
+  76:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  7a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  7e:	0f b6 40 08          	movzbl 0x8(%rax),%eax
+  82:	0f b6 c0             	movzbl %al,%eax
+  85:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  88:	72 aa                	jb     34 <LightSetChain::Exist(LightSet*, int, bool)+0x34>
+  8a:	b8 00 00 00 00       	mov    $0x0,%eax
+  8f:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  93:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  9a:	00 00 
+  9c:	74 05                	je     a3 <LightSetChain::Exist(LightSet*, int, bool)+0xa3>
+  9e:	e8 00 00 00 00       	call   a3 <LightSetChain::Exist(LightSet*, int, bool)+0xa3>
+  a3:	c9                   	leave  
+  a4:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain4DumpEh:
+
+0000000000000000 <LightSetChain::Dump(unsigned char)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	88 45 e4             	mov    %al,-0x1c(%rbp)
+  15:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1c:	00 00 
+  1e:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  22:	31 c0                	xor    %eax,%eax
+  24:	90                   	nop
+  25:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  29:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  30:	00 00 
+  32:	74 05                	je     39 <LightSetChain::Dump(unsigned char)+0x39>
+  34:	e8 00 00 00 00       	call   39 <LightSetChain::Dump(unsigned char)+0x39>
+  39:	c9                   	leave  
+  3a:	c3                   	ret    
+
+Disassembly of section .text._ZN13LightSetChain4DumpEv:
+
+0000000000000000 <LightSetChain::Dump()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	90                   	nop
+  20:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  24:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  2b:	00 00 
+  2d:	74 05                	je     34 <LightSetChain::Dump()+0x34>
+  2f:	e8 00 00 00 00       	call   34 <LightSetChain::Dump()+0x34>
+  34:	c9                   	leave  
+  35:	c3                   	ret    
+
+Disassembly of section .text._ZSt3minItERKT_S2_S2_:
+
+0000000000000000 <unsigned short const& std::min<unsigned short>(unsigned short const&, unsigned short const&)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+  14:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1b:	00 00 
+  1d:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  21:	31 c0                	xor    %eax,%eax
+  23:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  27:	0f b7 10             	movzwl (%rax),%edx
+  2a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2e:	0f b7 00             	movzwl (%rax),%eax
+  31:	66 39 c2             	cmp    %ax,%dx
+  34:	73 06                	jae    3c <unsigned short const& std::min<unsigned short>(unsigned short const&, unsigned short const&)+0x3c>
+  36:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  3a:	eb 04                	jmp    40 <unsigned short const& std::min<unsigned short>(unsigned short const&, unsigned short const&)+0x40>
+  3c:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  40:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  44:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  4b:	00 00 
+  4d:	74 05                	je     54 <unsigned short const& std::min<unsigned short>(unsigned short const&, unsigned short const&)+0x54>
+  4f:	e8 00 00 00 00       	call   54 <unsigned short const& std::min<unsigned short>(unsigned short const&, unsigned short const&)+0x54>
+  54:	c9                   	leave  
+  55:	c3                   	ret    
+
+Disassembly of section .text._ZSt3maxItERKT_S2_S2_:
+
+0000000000000000 <unsigned short const& std::max<unsigned short>(unsigned short const&, unsigned short const&)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+  14:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1b:	00 00 
+  1d:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  21:	31 c0                	xor    %eax,%eax
+  23:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  27:	0f b7 10             	movzwl (%rax),%edx
+  2a:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  2e:	0f b7 00             	movzwl (%rax),%eax
+  31:	66 39 c2             	cmp    %ax,%dx
+  34:	73 06                	jae    3c <unsigned short const& std::max<unsigned short>(unsigned short const&, unsigned short const&)+0x3c>
+  36:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  3a:	eb 04                	jmp    40 <unsigned short const& std::max<unsigned short>(unsigned short const&, unsigned short const&)+0x40>
+  3c:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  40:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  44:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  4b:	00 00 
+  4d:	74 05                	je     54 <unsigned short const& std::max<unsigned short>(unsigned short const&, unsigned short const&)+0x54>
+  4f:	e8 00 00 00 00       	call   54 <unsigned short const& std::max<unsigned short>(unsigned short const&, unsigned short const&)+0x54>
+  54:	c9                   	leave  
+  55:	c3                   	ret    
+
+lightsetdmx.o:     file format elf64-x86-64
+
+
+Disassembly of section .text._ZN8LightSet8BlackoutEb:
+
+0000000000000000 <LightSet::Blackout(bool)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	88 45 e4             	mov    %al,-0x1c(%rbp)
+  15:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1c:	00 00 
+  1e:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  22:	31 c0                	xor    %eax,%eax
+  24:	90                   	nop
+  25:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  29:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  30:	00 00 
+  32:	74 05                	je     39 <LightSet::Blackout(bool)+0x39>
+  34:	e8 00 00 00 00       	call   39 <LightSet::Blackout(bool)+0x39>
+  39:	c9                   	leave  
+  3a:	c3                   	ret    
+
+Disassembly of section .text._ZN8LightSet6FullOnEv:
+
+0000000000000000 <LightSet::FullOn()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	90                   	nop
+  20:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  24:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  2b:	00 00 
+  2d:	74 05                	je     34 <LightSet::FullOn()+0x34>
+  2f:	e8 00 00 00 00       	call   34 <LightSet::FullOn()+0x34>
+  34:	c9                   	leave  
+  35:	c3                   	ret    
+
+Disassembly of section .text._ZN8LightSet5PrintEv:
+
+0000000000000000 <LightSet::Print()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	90                   	nop
+  20:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  24:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  2b:	00 00 
+  2d:	74 05                	je     34 <LightSet::Print()+0x34>
+  2f:	e8 00 00 00 00       	call   34 <LightSet::Print()+0x34>
+  34:	c9                   	leave  
+  35:	c3                   	ret    
+
+Disassembly of section .text._ZN8LightSet18GetDmxStartAddressEv:
+
+0000000000000000 <LightSet::GetDmxStartAddress()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	b8 01 00 00 00       	mov    $0x1,%eax
+  24:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  28:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  2f:	00 00 
+  31:	74 05                	je     38 <LightSet::GetDmxStartAddress()+0x38>
+  33:	e8 00 00 00 00       	call   38 <LightSet::GetDmxStartAddress()+0x38>
+  38:	c9                   	leave  
+  39:	c3                   	ret    
+
+Disassembly of section .text._ZN8LightSet15GetDmxFootprintEv:
+
+0000000000000000 <LightSet::GetDmxFootprint()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	b8 00 02 00 00       	mov    $0x200,%eax
+  24:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  28:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  2f:	00 00 
+  31:	74 05                	je     38 <LightSet::GetDmxFootprint()+0x38>
+  33:	e8 00 00 00 00       	call   38 <LightSet::GetDmxFootprint()+0x38>
+  38:	c9                   	leave  
+  39:	c3                   	ret    
+
+Disassembly of section .text._ZN8LightSet18SetDmxStartAddressEt:
+
+0000000000000000 <LightSet::SetDmxStartAddress(unsigned short)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  16:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1d:	00 00 
+  1f:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  23:	31 c0                	xor    %eax,%eax
+  25:	b8 00 00 00 00       	mov    $0x0,%eax
+  2a:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  2e:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  35:	00 00 
+  37:	74 05                	je     3e <LightSet::SetDmxStartAddress(unsigned short)+0x3e>
+  39:	e8 00 00 00 00       	call   3e <LightSet::SetDmxStartAddress(unsigned short)+0x3e>
+  3e:	c9                   	leave  
+  3f:	c3                   	ret    
+
+lightsetgetslotinfo.o:     file format elf64-x86-64
+
+
+Disassembly of section .text._ZN8LightSet11GetSlotInfoEtRN8lightset8SlotInfoE:
+
+0000000000000000 <LightSet::GetSlotInfo(unsigned short, lightset::SlotInfo&)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 30          	sub    $0x30,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	48 89 55 d8          	mov    %rdx,-0x28(%rbp)
+  16:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  1a:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  21:	00 00 
+  23:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  27:	31 c0                	xor    %eax,%eax
+  29:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  2d:	c6 40 02 00          	movb   $0x0,0x2(%rax)
+  31:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  35:	66 c7 00 01 00       	movw   $0x1,(%rax)
+  3a:	b8 01 00 00 00       	mov    $0x1,%eax
+  3f:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  43:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  4a:	00 00 
+  4c:	74 05                	je     53 <LightSet::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x53>
+  4e:	e8 00 00 00 00       	call   53 <LightSet::GetSlotInfo(unsigned short, lightset::SlotInfo&)+0x53>
+  53:	c9                   	leave  
+  54:	c3                   	ret    
+
+lightsetparamsconst.o:     file format elf64-x86-64
+

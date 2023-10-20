@@ -1,0 +1,7 @@
+DEFINES =NDEBUG
+#DEFINES+=MEM_DEBUG
+
+EXTRA_INCLUDES=
+EXTRA_SRCDIR=
+
+include ../firmware-template-h3/lib/Rules.mk

@@ -1,0 +1,5 @@
+DEFINES=NDEBUG
+EXTRA_INCLUDES=../lib-hal/include
+EXTRA_SRCDIR=jbi_22/code
+
+include ../firmware-template-h3/lib/Rules.mk

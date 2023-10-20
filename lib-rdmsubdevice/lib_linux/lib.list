@@ -1,0 +1,1891 @@
+In archive lib_linux/librdmsubdevice.a:
+
+rdmsubdevice.o:     file format elf64-x86-64
+
+
+Disassembly of section .text._ZN12RDMSubDeviceC2EPKcth:
+
+0000000000000000 <RDMSubDevice::RDMSubDevice(char const*, unsigned short, unsigned char)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 30          	sub    $0x30,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+  14:	89 d0                	mov    %edx,%eax
+  16:	89 ca                	mov    %ecx,%edx
+  18:	66 89 45 dc          	mov    %ax,-0x24(%rbp)
+  1c:	89 d0                	mov    %edx,%eax
+  1e:	88 45 d8             	mov    %al,-0x28(%rbp)
+  21:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  28:	00 00 
+  2a:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  2e:	31 c0                	xor    %eax,%eax
+  30:	48 8d 15 00 00 00 00 	lea    0x0(%rip),%rdx        # 37 <RDMSubDevice::RDMSubDevice(char const*, unsigned short, unsigned char)+0x37>
+  37:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  3b:	48 89 10             	mov    %rdx,(%rax)
+  3e:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  42:	48 c7 40 08 00 00 00 	movq   $0x0,0x8(%rax)
+  49:	00 
+  4a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  4e:	c6 40 10 01          	movb   $0x1,0x10(%rax)
+  52:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  56:	66 c7 40 12 00 00    	movw   $0x0,0x12(%rax)
+  5c:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  60:	0f b7 55 dc          	movzwl -0x24(%rbp),%edx
+  64:	66 89 50 14          	mov    %dx,0x14(%rax)
+  68:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  6c:	0f b6 55 d8          	movzbl -0x28(%rbp),%edx
+  70:	88 50 16             	mov    %dl,0x16(%rax)
+  73:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  7a:	eb 1c                	jmp    98 <RDMSubDevice::RDMSubDevice(char const*, unsigned short, unsigned char)+0x98>
+  7c:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  7f:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  83:	48 01 d0             	add    %rdx,%rax
+  86:	0f b6 08             	movzbl (%rax),%ecx
+  89:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  8d:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  90:	88 4c 02 40          	mov    %cl,0x40(%rdx,%rax,1)
+  94:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  98:	83 7d f4 1f          	cmpl   $0x1f,-0xc(%rbp)
+  9c:	77 11                	ja     af <RDMSubDevice::RDMSubDevice(char const*, unsigned short, unsigned char)+0xaf>
+  9e:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  a1:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  a5:	48 01 d0             	add    %rdx,%rax
+  a8:	0f b6 00             	movzbl (%rax),%eax
+  ab:	84 c0                	test   %al,%al
+  ad:	75 cd                	jne    7c <RDMSubDevice::RDMSubDevice(char const*, unsigned short, unsigned char)+0x7c>
+  af:	48 8b 55 e0          	mov    -0x20(%rbp),%rdx
+  b3:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  b7:	48 89 d6             	mov    %rdx,%rsi
+  ba:	48 89 c7             	mov    %rax,%rdi
+  bd:	e8 00 00 00 00       	call   c2 <RDMSubDevice::RDMSubDevice(char const*, unsigned short, unsigned char)+0xc2>
+  c2:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  c6:	0f b7 55 dc          	movzwl -0x24(%rbp),%edx
+  ca:	66 89 50 1a          	mov    %dx,0x1a(%rax)
+  ce:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  d2:	0f b6 55 d8          	movzbl -0x28(%rbp),%edx
+  d6:	88 50 1c             	mov    %dl,0x1c(%rax)
+  d9:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  dd:	c6 40 3f 00          	movb   $0x0,0x3f(%rax)
+  e1:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  e5:	c6 40 1d 00          	movb   $0x0,0x1d(%rax)
+  e9:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  ed:	48 89 c7             	mov    %rax,%rdi
+  f0:	e8 00 00 00 00       	call   f5 <RDMSubDevice::RDMSubDevice(char const*, unsigned short, unsigned char)+0xf5>
+  f5:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  f9:	66 89 42 12          	mov    %ax,0x12(%rdx)
+  fd:	90                   	nop
+  fe:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+ 102:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+ 109:	00 00 
+ 10b:	74 05                	je     112 <RDMSubDevice::RDMSubDevice(char const*, unsigned short, unsigned char)+0x112>
+ 10d:	e8 00 00 00 00       	call   112 <RDMSubDevice::RDMSubDevice(char const*, unsigned short, unsigned char)+0x112>
+ 112:	c9                   	leave  
+ 113:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDeviceD2Ev:
+
+0000000000000000 <RDMSubDevice::~RDMSubDevice()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8d 15 00 00 00 00 	lea    0x0(%rip),%rdx        # 26 <RDMSubDevice::~RDMSubDevice()+0x26>
+  26:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2a:	48 89 10             	mov    %rdx,(%rax)
+  2d:	90                   	nop
+  2e:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  32:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  39:	00 00 
+  3b:	74 05                	je     42 <RDMSubDevice::~RDMSubDevice()+0x42>
+  3d:	e8 00 00 00 00       	call   42 <RDMSubDevice::~RDMSubDevice()+0x42>
+  42:	c9                   	leave  
+  43:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDeviceD0Ev:
+
+0000000000000000 <RDMSubDevice::~RDMSubDevice()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	48 89 c7             	mov    %rax,%rdi
+  26:	e8 00 00 00 00       	call   2b <RDMSubDevice::~RDMSubDevice()+0x2b>
+  2b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2f:	48 89 c7             	mov    %rax,%rdi
+  32:	e8 00 00 00 00       	call   37 <RDMSubDevice::~RDMSubDevice()+0x37>
+  37:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  3b:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  42:	00 00 
+  44:	74 05                	je     4b <RDMSubDevice::~RDMSubDevice()+0x4b>
+  46:	e8 00 00 00 00       	call   4b <RDMSubDevice::~RDMSubDevice()+0x4b>
+  4b:	c9                   	leave  
+  4c:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice18SetDmxStartAddressEt:
+
+0000000000000000 <RDMSubDevice::SetDmxStartAddress(unsigned short)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  16:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1d:	00 00 
+  1f:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  23:	31 c0                	xor    %eax,%eax
+  25:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  29:	0f b7 55 e4          	movzwl -0x1c(%rbp),%edx
+  2d:	66 89 50 1a          	mov    %dx,0x1a(%rax)
+  31:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  35:	48 8b 00             	mov    (%rax),%rax
+  38:	48 83 c0 30          	add    $0x30,%rax
+  3c:	48 8b 10             	mov    (%rax),%rdx
+  3f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  43:	be 00 00 00 00       	mov    $0x0,%esi
+  48:	48 89 c7             	mov    %rax,%rdi
+  4b:	ff d2                	call   *%rdx
+  4d:	90                   	nop
+  4e:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  52:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  59:	00 00 
+  5b:	74 05                	je     62 <RDMSubDevice::SetDmxStartAddress(unsigned short)+0x62>
+  5d:	e8 00 00 00 00       	call   62 <RDMSubDevice::SetDmxStartAddress(unsigned short)+0x62>
+  62:	c9                   	leave  
+  63:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice15SetDmxFootprintEt:
+
+0000000000000000 <RDMSubDevice::SetDmxFootprint(unsigned short)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  16:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1d:	00 00 
+  1f:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  23:	31 c0                	xor    %eax,%eax
+  25:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  29:	0f b7 55 e4          	movzwl -0x1c(%rbp),%edx
+  2d:	66 89 50 18          	mov    %dx,0x18(%rax)
+  31:	90                   	nop
+  32:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  36:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  3d:	00 00 
+  3f:	74 05                	je     46 <RDMSubDevice::SetDmxFootprint(unsigned short)+0x46>
+  41:	e8 00 00 00 00       	call   46 <RDMSubDevice::SetDmxFootprint(unsigned short)+0x46>
+  46:	c9                   	leave  
+  47:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice16SetPersonalitiesEPP14RDMPersonalityh:
+
+0000000000000000 <RDMSubDevice::SetPersonalities(RDMPersonality**, unsigned char)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 30          	sub    $0x30,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+  14:	89 d0                	mov    %edx,%eax
+  16:	88 45 dc             	mov    %al,-0x24(%rbp)
+  19:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  20:	00 00 
+  22:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  26:	31 c0                	xor    %eax,%eax
+  28:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2c:	0f b6 55 dc          	movzbl -0x24(%rbp),%edx
+  30:	88 50 1d             	mov    %dl,0x1d(%rax)
+  33:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  37:	48 8b 55 e0          	mov    -0x20(%rbp),%rdx
+  3b:	48 89 50 08          	mov    %rdx,0x8(%rax)
+  3f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  43:	48 8b 00             	mov    (%rax),%rax
+  46:	48 83 c0 30          	add    $0x30,%rax
+  4a:	48 8b 10             	mov    (%rax),%rdx
+  4d:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  51:	be 01 00 00 00       	mov    $0x1,%esi
+  56:	48 89 c7             	mov    %rax,%rdi
+  59:	ff d2                	call   *%rdx
+  5b:	90                   	nop
+  5c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  60:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  67:	00 00 
+  69:	74 05                	je     70 <RDMSubDevice::SetPersonalities(RDMPersonality**, unsigned char)+0x70>
+  6b:	e8 00 00 00 00       	call   70 <RDMSubDevice::SetPersonalities(RDMPersonality**, unsigned char)+0x70>
+  70:	c9                   	leave  
+  71:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice14GetPersonalityEh:
+
+0000000000000000 <RDMSubDevice::GetPersonality(unsigned char)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	88 45 e4             	mov    %al,-0x1c(%rbp)
+  15:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1c:	00 00 
+  1e:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  22:	31 c0                	xor    %eax,%eax
+  24:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  28:	48 8b 50 08          	mov    0x8(%rax),%rdx
+  2c:	0f b6 45 e4          	movzbl -0x1c(%rbp),%eax
+  30:	48 c1 e0 03          	shl    $0x3,%rax
+  34:	48 83 e8 08          	sub    $0x8,%rax
+  38:	48 01 d0             	add    %rdx,%rax
+  3b:	48 8b 00             	mov    (%rax),%rax
+  3e:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  42:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  49:	00 00 
+  4b:	74 05                	je     52 <RDMSubDevice::GetPersonality(unsigned char)+0x52>
+  4d:	e8 00 00 00 00       	call   52 <RDMSubDevice::GetPersonality(unsigned char)+0x52>
+  52:	c9                   	leave  
+  53:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice8GetLabelEP18TRDMDeviceInfoData:
+
+0000000000000000 <RDMSubDevice::GetLabel(TRDMDeviceInfoData*)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+  14:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1b:	00 00 
+  1d:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  21:	31 c0                	xor    %eax,%eax
+  23:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  27:	48 8d 50 1e          	lea    0x1e(%rax),%rdx
+  2b:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  2f:	48 89 10             	mov    %rdx,(%rax)
+  32:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  36:	0f b6 50 3e          	movzbl 0x3e(%rax),%edx
+  3a:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  3e:	88 50 08             	mov    %dl,0x8(%rax)
+  41:	90                   	nop
+  42:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  46:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  4d:	00 00 
+  4f:	74 05                	je     56 <RDMSubDevice::GetLabel(TRDMDeviceInfoData*)+0x56>
+  51:	e8 00 00 00 00       	call   56 <RDMSubDevice::GetLabel(TRDMDeviceInfoData*)+0x56>
+  56:	c9                   	leave  
+  57:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice8SetLabelEPKc:
+
+0000000000000000 <RDMSubDevice::SetLabel(char const*)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+  14:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1b:	00 00 
+  1d:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  21:	31 c0                	xor    %eax,%eax
+  23:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  2a:	eb 1c                	jmp    48 <RDMSubDevice::SetLabel(char const*)+0x48>
+  2c:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  2f:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  33:	48 01 d0             	add    %rdx,%rax
+  36:	0f b6 08             	movzbl (%rax),%ecx
+  39:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  3d:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  40:	88 4c 02 1e          	mov    %cl,0x1e(%rdx,%rax,1)
+  44:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  48:	83 7d f4 1f          	cmpl   $0x1f,-0xc(%rbp)
+  4c:	77 11                	ja     5f <RDMSubDevice::SetLabel(char const*)+0x5f>
+  4e:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  51:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  55:	48 01 d0             	add    %rdx,%rax
+  58:	0f b6 00             	movzbl (%rax),%eax
+  5b:	84 c0                	test   %al,%al
+  5d:	75 cd                	jne    2c <RDMSubDevice::SetLabel(char const*)+0x2c>
+  5f:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  62:	89 c2                	mov    %eax,%edx
+  64:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  68:	88 50 3e             	mov    %dl,0x3e(%rax)
+  6b:	90                   	nop
+  6c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  70:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  77:	00 00 
+  79:	74 05                	je     80 <RDMSubDevice::SetLabel(char const*)+0x80>
+  7b:	e8 00 00 00 00       	call   80 <RDMSubDevice::SetLabel(char const*)+0x80>
+  80:	c9                   	leave  
+  81:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice8SetLabelEPKch:
+
+0000000000000000 <RDMSubDevice::SetLabel(char const*, unsigned char)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 30          	sub    $0x30,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+  14:	89 d0                	mov    %edx,%eax
+  16:	88 45 dc             	mov    %al,-0x24(%rbp)
+  19:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  20:	00 00 
+  22:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  26:	31 c0                	xor    %eax,%eax
+  28:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  2f:	eb 1c                	jmp    4d <RDMSubDevice::SetLabel(char const*, unsigned char)+0x4d>
+  31:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  34:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  38:	48 01 d0             	add    %rdx,%rax
+  3b:	0f b6 08             	movzbl (%rax),%ecx
+  3e:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  42:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  45:	88 4c 02 1e          	mov    %cl,0x1e(%rdx,%rax,1)
+  49:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  4d:	83 7d f4 1f          	cmpl   $0x1f,-0xc(%rbp)
+  51:	77 09                	ja     5c <RDMSubDevice::SetLabel(char const*, unsigned char)+0x5c>
+  53:	0f b6 45 dc          	movzbl -0x24(%rbp),%eax
+  57:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  5a:	72 d5                	jb     31 <RDMSubDevice::SetLabel(char const*, unsigned char)+0x31>
+  5c:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  5f:	89 c2                	mov    %eax,%edx
+  61:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  65:	88 50 3e             	mov    %dl,0x3e(%rax)
+  68:	90                   	nop
+  69:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  6d:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  74:	00 00 
+  76:	74 05                	je     7d <RDMSubDevice::SetLabel(char const*, unsigned char)+0x7d>
+  78:	e8 00 00 00 00       	call   7d <RDMSubDevice::SetLabel(char const*, unsigned char)+0x7d>
+  7d:	c9                   	leave  
+  7e:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice21SetPersonalityCurrentEh:
+
+0000000000000000 <RDMSubDevice::SetPersonalityCurrent(unsigned char)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	88 45 e4             	mov    %al,-0x1c(%rbp)
+  15:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1c:	00 00 
+  1e:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  22:	31 c0                	xor    %eax,%eax
+  24:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  28:	0f b6 55 e4          	movzbl -0x1c(%rbp),%edx
+  2c:	88 50 1c             	mov    %dl,0x1c(%rax)
+  2f:	90                   	nop
+  30:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  34:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  3b:	00 00 
+  3d:	74 05                	je     44 <RDMSubDevice::SetPersonalityCurrent(unsigned char)+0x44>
+  3f:	e8 00 00 00 00       	call   44 <RDMSubDevice::SetPersonalityCurrent(unsigned char)+0x44>
+  44:	c9                   	leave  
+  45:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice18GetFactoryDefaultsEv:
+
+0000000000000000 <RDMSubDevice::GetFactoryDefaults()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	53                   	push   %rbx
+   9:	48 83 ec 28          	sub    $0x28,%rsp
+   d:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+  11:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  18:	00 00 
+  1a:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+  1e:	31 c0                	xor    %eax,%eax
+  20:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  24:	0f b6 40 10          	movzbl 0x10(%rax),%eax
+  28:	84 c0                	test   %al,%al
+  2a:	74 26                	je     52 <RDMSubDevice::GetFactoryDefaults()+0x52>
+  2c:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  30:	0f b7 58 12          	movzwl 0x12(%rax),%ebx
+  34:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  38:	48 89 c7             	mov    %rax,%rdi
+  3b:	e8 00 00 00 00       	call   40 <RDMSubDevice::GetFactoryDefaults()+0x40>
+  40:	66 39 c3             	cmp    %ax,%bx
+  43:	0f 95 c0             	setne  %al
+  46:	84 c0                	test   %al,%al
+  48:	74 08                	je     52 <RDMSubDevice::GetFactoryDefaults()+0x52>
+  4a:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  4e:	c6 40 10 00          	movb   $0x0,0x10(%rax)
+  52:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  56:	0f b6 40 10          	movzbl 0x10(%rax),%eax
+  5a:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  5e:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  65:	00 00 
+  67:	74 05                	je     6e <RDMSubDevice::GetFactoryDefaults()+0x6e>
+  69:	e8 00 00 00 00       	call   6e <RDMSubDevice::GetFactoryDefaults()+0x6e>
+  6e:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
+  72:	c9                   	leave  
+  73:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice18SetFactoryDefaultsEv:
+
+0000000000000000 <RDMSubDevice::SetFactoryDefaults()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	0f b6 40 10          	movzbl 0x10(%rax),%eax
+  27:	84 c0                	test   %al,%al
+  29:	75 40                	jne    6b <RDMSubDevice::SetFactoryDefaults()+0x6b>
+  2b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2f:	48 8d 50 40          	lea    0x40(%rax),%rdx
+  33:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  37:	48 89 d6             	mov    %rdx,%rsi
+  3a:	48 89 c7             	mov    %rax,%rdi
+  3d:	e8 00 00 00 00       	call   42 <RDMSubDevice::SetFactoryDefaults()+0x42>
+  42:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  46:	0f b7 50 14          	movzwl 0x14(%rax),%edx
+  4a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  4e:	66 89 50 1a          	mov    %dx,0x1a(%rax)
+  52:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  56:	0f b6 50 16          	movzbl 0x16(%rax),%edx
+  5a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  5e:	88 50 1c             	mov    %dl,0x1c(%rax)
+  61:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  65:	c6 40 10 01          	movb   $0x1,0x10(%rax)
+  69:	eb 01                	jmp    6c <RDMSubDevice::SetFactoryDefaults()+0x6c>
+  6b:	90                   	nop
+  6c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  70:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  77:	00 00 
+  79:	74 05                	je     80 <RDMSubDevice::SetFactoryDefaults()+0x80>
+  7b:	e8 00 00 00 00       	call   80 <RDMSubDevice::SetFactoryDefaults()+0x80>
+  80:	c9                   	leave  
+  81:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice17CalculateChecksumEv:
+
+0000000000000000 <RDMSubDevice::CalculateChecksum()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	0f b7 40 1a          	movzwl 0x1a(%rax),%eax
+  27:	66 89 45 f2          	mov    %ax,-0xe(%rbp)
+  2b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2f:	0f b6 40 1c          	movzbl 0x1c(%rax),%eax
+  33:	0f b6 c0             	movzbl %al,%eax
+  36:	66 01 45 f2          	add    %ax,-0xe(%rbp)
+  3a:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  41:	eb 16                	jmp    59 <RDMSubDevice::CalculateChecksum()+0x59>
+  43:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  47:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  4a:	0f b6 44 02 1e       	movzbl 0x1e(%rdx,%rax,1),%eax
+  4f:	66 98                	cbtw   
+  51:	66 01 45 f2          	add    %ax,-0xe(%rbp)
+  55:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  59:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  5d:	0f b6 40 3e          	movzbl 0x3e(%rax),%eax
+  61:	0f b6 c0             	movzbl %al,%eax
+  64:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  67:	72 da                	jb     43 <RDMSubDevice::CalculateChecksum()+0x43>
+  69:	0f b7 45 f2          	movzwl -0xe(%rbp),%eax
+  6d:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  71:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  78:	00 00 
+  7a:	74 05                	je     81 <RDMSubDevice::CalculateChecksum()+0x81>
+  7c:	e8 00 00 00 00       	call   81 <RDMSubDevice::CalculateChecksum()+0x81>
+  81:	c9                   	leave  
+  82:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice11UpdateEventE24TRDMSubDeviceUpdateEvent:
+
+0000000000000000 <RDMSubDevice::UpdateEvent(TRDMSubDeviceUpdateEvent)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 75 e4             	mov    %esi,-0x1c(%rbp)
+  13:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1a:	00 00 
+  1c:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  20:	31 c0                	xor    %eax,%eax
+  22:	90                   	nop
+  23:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  27:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  2e:	00 00 
+  30:	74 05                	je     37 <RDMSubDevice::UpdateEvent(TRDMSubDeviceUpdateEvent)+0x37>
+  32:	e8 00 00 00 00       	call   37 <RDMSubDevice::UpdateEvent(TRDMSubDeviceUpdateEvent)+0x37>
+  37:	c9                   	leave  
+  38:	c3                   	ret    
+
+rdmsubdevicesadd.o:     file format elf64-x86-64
+
+
+Disassembly of section .text._ZN13RDMSubDevices3AddEP12RDMSubDevice:
+
+0000000000000000 <RDMSubDevices::Add(RDMSubDevice*)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+  14:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1b:	00 00 
+  1d:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  21:	31 c0                	xor    %eax,%eax
+  23:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  27:	48 8b 00             	mov    (%rax),%rax
+  2a:	48 85 c0             	test   %rax,%rax
+  2d:	75 07                	jne    36 <RDMSubDevices::Add(RDMSubDevice*)+0x36>
+  2f:	b8 00 00 00 00       	mov    $0x0,%eax
+  34:	eb 46                	jmp    7c <RDMSubDevices::Add(RDMSubDevice*)+0x7c>
+  36:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  3a:	0f b7 40 08          	movzwl 0x8(%rax),%eax
+  3e:	66 83 f8 08          	cmp    $0x8,%ax
+  42:	75 07                	jne    4b <RDMSubDevices::Add(RDMSubDevice*)+0x4b>
+  44:	b8 00 00 00 00       	mov    $0x0,%eax
+  49:	eb 31                	jmp    7c <RDMSubDevices::Add(RDMSubDevice*)+0x7c>
+  4b:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  4f:	48 8b 30             	mov    (%rax),%rsi
+  52:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  56:	0f b7 40 08          	movzwl 0x8(%rax),%eax
+  5a:	8d 48 01             	lea    0x1(%rax),%ecx
+  5d:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  61:	66 89 4a 08          	mov    %cx,0x8(%rdx)
+  65:	0f b7 c0             	movzwl %ax,%eax
+  68:	48 c1 e0 03          	shl    $0x3,%rax
+  6c:	48 8d 14 06          	lea    (%rsi,%rax,1),%rdx
+  70:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+  74:	48 89 02             	mov    %rax,(%rdx)
+  77:	b8 01 00 00 00       	mov    $0x1,%eax
+  7c:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  80:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  87:	00 00 
+  89:	74 05                	je     90 <RDMSubDevices::Add(RDMSubDevice*)+0x90>
+  8b:	e8 00 00 00 00       	call   90 <RDMSubDevices::Add(RDMSubDevice*)+0x90>
+  90:	c9                   	leave  
+  91:	c3                   	ret    
+
+rdmsubdevicesconst.o:     file format elf64-x86-64
+
+
+rdmsubdevices.o:     file format elf64-x86-64
+
+
+Disassembly of section .text._ZNK12RDMSubDevice18GetDmxStartAddressEv:
+
+0000000000000000 <RDMSubDevice::GetDmxStartAddress() const>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	0f b7 40 1a          	movzwl 0x1a(%rax),%eax
+  27:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  2b:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  32:	00 00 
+  34:	74 05                	je     3b <RDMSubDevice::GetDmxStartAddress() const+0x3b>
+  36:	e8 00 00 00 00       	call   3b <RDMSubDevice::GetDmxStartAddress() const+0x3b>
+  3b:	c9                   	leave  
+  3c:	c3                   	ret    
+
+Disassembly of section .text._ZNK12RDMSubDevice21GetPersonalityCurrentEv:
+
+0000000000000000 <RDMSubDevice::GetPersonalityCurrent() const>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	0f b6 40 1c          	movzbl 0x1c(%rax),%eax
+  27:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  2b:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  32:	00 00 
+  34:	74 05                	je     3b <RDMSubDevice::GetPersonalityCurrent() const+0x3b>
+  36:	e8 00 00 00 00       	call   3b <RDMSubDevice::GetPersonalityCurrent() const+0x3b>
+  3b:	c9                   	leave  
+  3c:	c3                   	ret    
+
+Disassembly of section .text._ZN12RDMSubDevice7GetInfoEv:
+
+0000000000000000 <RDMSubDevice::GetInfo()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	48 83 c0 18          	add    $0x18,%rax
+  27:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  2b:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  32:	00 00 
+  34:	74 05                	je     3b <RDMSubDevice::GetInfo()+0x3b>
+  36:	e8 00 00 00 00       	call   3b <RDMSubDevice::GetInfo()+0x3b>
+  3b:	c9                   	leave  
+  3c:	c3                   	ret    
+
+Disassembly of section .text._ZNK12RDMSubDevice19GetPersonalityCountEv:
+
+0000000000000000 <RDMSubDevice::GetPersonalityCount() const>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	0f b6 40 1d          	movzbl 0x1d(%rax),%eax
+  27:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  2b:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  32:	00 00 
+  34:	74 05                	je     3b <RDMSubDevice::GetPersonalityCount() const+0x3b>
+  36:	e8 00 00 00 00       	call   3b <RDMSubDevice::GetPersonalityCount() const+0x3b>
+  3b:	c9                   	leave  
+  3c:	c3                   	ret    
+
+Disassembly of section .text._ZNK12RDMSubDevice15GetDmxFootPrintEv:
+
+0000000000000000 <RDMSubDevice::GetDmxFootPrint() const>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	0f b7 40 18          	movzwl 0x18(%rax),%eax
+  27:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  2b:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  32:	00 00 
+  34:	74 05                	je     3b <RDMSubDevice::GetDmxFootPrint() const+0x3b>
+  36:	e8 00 00 00 00       	call   3b <RDMSubDevice::GetDmxFootPrint() const+0x3b>
+  3b:	c9                   	leave  
+  3c:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevicesC2Ev:
+
+0000000000000000 <RDMSubDevices::RDMSubDevices()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  23:	48 c7 00 00 00 00 00 	movq   $0x0,(%rax)
+  2a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2e:	66 c7 40 08 00 00    	movw   $0x0,0x8(%rax)
+  34:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  38:	48 89 05 00 00 00 00 	mov    %rax,0x0(%rip)        # 3f <RDMSubDevices::RDMSubDevices()+0x3f>
+  3f:	90                   	nop
+  40:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  44:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  4b:	00 00 
+  4d:	74 05                	je     54 <RDMSubDevices::RDMSubDevices()+0x54>
+  4f:	e8 00 00 00 00       	call   54 <RDMSubDevices::RDMSubDevices()+0x54>
+  54:	c9                   	leave  
+  55:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevicesD2Ev:
+
+0000000000000000 <RDMSubDevices::~RDMSubDevices()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  26:	eb 44                	jmp    6c <RDMSubDevices::~RDMSubDevices()+0x6c>
+  28:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2c:	48 8b 10             	mov    (%rax),%rdx
+  2f:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  32:	48 c1 e0 03          	shl    $0x3,%rax
+  36:	48 01 d0             	add    %rdx,%rax
+  39:	48 8b 00             	mov    (%rax),%rax
+  3c:	48 85 c0             	test   %rax,%rax
+  3f:	74 0f                	je     50 <RDMSubDevices::~RDMSubDevices()+0x50>
+  41:	48 8b 10             	mov    (%rax),%rdx
+  44:	48 83 c2 08          	add    $0x8,%rdx
+  48:	48 8b 12             	mov    (%rdx),%rdx
+  4b:	48 89 c7             	mov    %rax,%rdi
+  4e:	ff d2                	call   *%rdx
+  50:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  54:	48 8b 10             	mov    (%rax),%rdx
+  57:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  5a:	48 c1 e0 03          	shl    $0x3,%rax
+  5e:	48 01 d0             	add    %rdx,%rax
+  61:	48 c7 00 00 00 00 00 	movq   $0x0,(%rax)
+  68:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  6c:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  70:	0f b7 40 08          	movzwl 0x8(%rax),%eax
+  74:	0f b7 c0             	movzwl %ax,%eax
+  77:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  7a:	72 ac                	jb     28 <RDMSubDevices::~RDMSubDevices()+0x28>
+  7c:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  80:	48 8b 00             	mov    (%rax),%rax
+  83:	48 85 c0             	test   %rax,%rax
+  86:	74 0f                	je     97 <RDMSubDevices::~RDMSubDevices()+0x97>
+  88:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  8c:	48 8b 00             	mov    (%rax),%rax
+  8f:	48 89 c7             	mov    %rax,%rdi
+  92:	e8 00 00 00 00       	call   97 <RDMSubDevices::~RDMSubDevices()+0x97>
+  97:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  9b:	66 c7 40 08 00 00    	movw   $0x0,0x8(%rax)
+  a1:	90                   	nop
+  a2:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  a6:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  ad:	00 00 
+  af:	74 05                	je     b6 <RDMSubDevices::~RDMSubDevices()+0xb6>
+  b1:	e8 00 00 00 00       	call   b6 <RDMSubDevices::~RDMSubDevices()+0xb6>
+  b6:	c9                   	leave  
+  b7:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices7GetInfoEt:
+
+0000000000000000 <RDMSubDevices::GetInfo(unsigned short)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  16:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1d:	00 00 
+  1f:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  23:	31 c0                	xor    %eax,%eax
+  25:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  29:	48 8b 10             	mov    (%rax),%rdx
+  2c:	0f b7 45 e4          	movzwl -0x1c(%rbp),%eax
+  30:	48 c1 e0 03          	shl    $0x3,%rax
+  34:	48 83 e8 08          	sub    $0x8,%rax
+  38:	48 01 d0             	add    %rdx,%rax
+  3b:	48 8b 00             	mov    (%rax),%rax
+  3e:	48 89 c7             	mov    %rax,%rdi
+  41:	e8 00 00 00 00       	call   46 <RDMSubDevices::GetInfo(unsigned short)+0x46>
+  46:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  4a:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  51:	00 00 
+  53:	74 05                	je     5a <RDMSubDevices::GetInfo(unsigned short)+0x5a>
+  55:	e8 00 00 00 00       	call   5a <RDMSubDevices::GetInfo(unsigned short)+0x5a>
+  5a:	c9                   	leave  
+  5b:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices8GetLabelEtP18TRDMDeviceInfoData:
+
+0000000000000000 <RDMSubDevices::GetLabel(unsigned short, TRDMDeviceInfoData*)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 30          	sub    $0x30,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	48 89 55 d8          	mov    %rdx,-0x28(%rbp)
+  16:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  1a:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  21:	00 00 
+  23:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  27:	31 c0                	xor    %eax,%eax
+  29:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2d:	48 8b 10             	mov    (%rax),%rdx
+  30:	0f b7 45 e4          	movzwl -0x1c(%rbp),%eax
+  34:	48 c1 e0 03          	shl    $0x3,%rax
+  38:	48 83 e8 08          	sub    $0x8,%rax
+  3c:	48 01 d0             	add    %rdx,%rax
+  3f:	48 8b 00             	mov    (%rax),%rax
+  42:	48 8b 55 d8          	mov    -0x28(%rbp),%rdx
+  46:	48 89 d6             	mov    %rdx,%rsi
+  49:	48 89 c7             	mov    %rax,%rdi
+  4c:	e8 00 00 00 00       	call   51 <RDMSubDevices::GetLabel(unsigned short, TRDMDeviceInfoData*)+0x51>
+  51:	90                   	nop
+  52:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  56:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  5d:	00 00 
+  5f:	74 05                	je     66 <RDMSubDevices::GetLabel(unsigned short, TRDMDeviceInfoData*)+0x66>
+  61:	e8 00 00 00 00       	call   66 <RDMSubDevices::GetLabel(unsigned short, TRDMDeviceInfoData*)+0x66>
+  66:	c9                   	leave  
+  67:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices8SetLabelEtPKch:
+
+0000000000000000 <RDMSubDevices::SetLabel(unsigned short, char const*, unsigned char)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 30          	sub    $0x30,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	48 89 55 d8          	mov    %rdx,-0x28(%rbp)
+  16:	89 ca                	mov    %ecx,%edx
+  18:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  1c:	89 d0                	mov    %edx,%eax
+  1e:	88 45 e0             	mov    %al,-0x20(%rbp)
+  21:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  28:	00 00 
+  2a:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  2e:	31 c0                	xor    %eax,%eax
+  30:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  34:	48 8b 10             	mov    (%rax),%rdx
+  37:	0f b7 45 e4          	movzwl -0x1c(%rbp),%eax
+  3b:	48 c1 e0 03          	shl    $0x3,%rax
+  3f:	48 83 e8 08          	sub    $0x8,%rax
+  43:	48 01 d0             	add    %rdx,%rax
+  46:	48 8b 00             	mov    (%rax),%rax
+  49:	0f b6 55 e0          	movzbl -0x20(%rbp),%edx
+  4d:	48 8b 4d d8          	mov    -0x28(%rbp),%rcx
+  51:	48 89 ce             	mov    %rcx,%rsi
+  54:	48 89 c7             	mov    %rax,%rdi
+  57:	e8 00 00 00 00       	call   5c <RDMSubDevices::SetLabel(unsigned short, char const*, unsigned char)+0x5c>
+  5c:	90                   	nop
+  5d:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  61:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  68:	00 00 
+  6a:	74 05                	je     71 <RDMSubDevices::SetLabel(unsigned short, char const*, unsigned char)+0x71>
+  6c:	e8 00 00 00 00       	call   71 <RDMSubDevices::SetLabel(unsigned short, char const*, unsigned char)+0x71>
+  71:	c9                   	leave  
+  72:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices18GetDmxStartAddressEt:
+
+0000000000000000 <RDMSubDevices::GetDmxStartAddress(unsigned short)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  16:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1d:	00 00 
+  1f:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  23:	31 c0                	xor    %eax,%eax
+  25:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  29:	48 8b 10             	mov    (%rax),%rdx
+  2c:	0f b7 45 e4          	movzwl -0x1c(%rbp),%eax
+  30:	48 c1 e0 03          	shl    $0x3,%rax
+  34:	48 83 e8 08          	sub    $0x8,%rax
+  38:	48 01 d0             	add    %rdx,%rax
+  3b:	48 8b 00             	mov    (%rax),%rax
+  3e:	48 89 c7             	mov    %rax,%rdi
+  41:	e8 00 00 00 00       	call   46 <RDMSubDevices::GetDmxStartAddress(unsigned short)+0x46>
+  46:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  4a:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  51:	00 00 
+  53:	74 05                	je     5a <RDMSubDevices::GetDmxStartAddress(unsigned short)+0x5a>
+  55:	e8 00 00 00 00       	call   5a <RDMSubDevices::GetDmxStartAddress(unsigned short)+0x5a>
+  5a:	c9                   	leave  
+  5b:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices18SetDmxStartAddressEtt:
+
+0000000000000000 <RDMSubDevices::SetDmxStartAddress(unsigned short, unsigned short)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f1                	mov    %esi,%ecx
+  12:	89 d0                	mov    %edx,%eax
+  14:	89 ca                	mov    %ecx,%edx
+  16:	66 89 55 e4          	mov    %dx,-0x1c(%rbp)
+  1a:	66 89 45 e0          	mov    %ax,-0x20(%rbp)
+  1e:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  25:	00 00 
+  27:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  2b:	31 c0                	xor    %eax,%eax
+  2d:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  31:	48 8b 10             	mov    (%rax),%rdx
+  34:	0f b7 45 e4          	movzwl -0x1c(%rbp),%eax
+  38:	48 c1 e0 03          	shl    $0x3,%rax
+  3c:	48 83 e8 08          	sub    $0x8,%rax
+  40:	48 01 d0             	add    %rdx,%rax
+  43:	48 8b 00             	mov    (%rax),%rax
+  46:	0f b7 55 e0          	movzwl -0x20(%rbp),%edx
+  4a:	89 d6                	mov    %edx,%esi
+  4c:	48 89 c7             	mov    %rax,%rdi
+  4f:	e8 00 00 00 00       	call   54 <RDMSubDevices::SetDmxStartAddress(unsigned short, unsigned short)+0x54>
+  54:	90                   	nop
+  55:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  59:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  60:	00 00 
+  62:	74 05                	je     69 <RDMSubDevices::SetDmxStartAddress(unsigned short, unsigned short)+0x69>
+  64:	e8 00 00 00 00       	call   69 <RDMSubDevices::SetDmxStartAddress(unsigned short, unsigned short)+0x69>
+  69:	c9                   	leave  
+  6a:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices15GetDmxFootPrintEt:
+
+0000000000000000 <RDMSubDevices::GetDmxFootPrint(unsigned short)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  16:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1d:	00 00 
+  1f:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  23:	31 c0                	xor    %eax,%eax
+  25:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  29:	48 8b 10             	mov    (%rax),%rdx
+  2c:	0f b7 45 e4          	movzwl -0x1c(%rbp),%eax
+  30:	48 c1 e0 03          	shl    $0x3,%rax
+  34:	48 83 e8 08          	sub    $0x8,%rax
+  38:	48 01 d0             	add    %rdx,%rax
+  3b:	48 8b 00             	mov    (%rax),%rax
+  3e:	48 89 c7             	mov    %rax,%rdi
+  41:	e8 00 00 00 00       	call   46 <RDMSubDevices::GetDmxFootPrint(unsigned short)+0x46>
+  46:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  4a:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  51:	00 00 
+  53:	74 05                	je     5a <RDMSubDevices::GetDmxFootPrint(unsigned short)+0x5a>
+  55:	e8 00 00 00 00       	call   5a <RDMSubDevices::GetDmxFootPrint(unsigned short)+0x5a>
+  5a:	c9                   	leave  
+  5b:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices21GetPersonalityCurrentEt:
+
+0000000000000000 <RDMSubDevices::GetPersonalityCurrent(unsigned short)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  16:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1d:	00 00 
+  1f:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  23:	31 c0                	xor    %eax,%eax
+  25:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  29:	48 8b 10             	mov    (%rax),%rdx
+  2c:	0f b7 45 e4          	movzwl -0x1c(%rbp),%eax
+  30:	48 c1 e0 03          	shl    $0x3,%rax
+  34:	48 83 e8 08          	sub    $0x8,%rax
+  38:	48 01 d0             	add    %rdx,%rax
+  3b:	48 8b 00             	mov    (%rax),%rax
+  3e:	48 89 c7             	mov    %rax,%rdi
+  41:	e8 00 00 00 00       	call   46 <RDMSubDevices::GetPersonalityCurrent(unsigned short)+0x46>
+  46:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  4a:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  51:	00 00 
+  53:	74 05                	je     5a <RDMSubDevices::GetPersonalityCurrent(unsigned short)+0x5a>
+  55:	e8 00 00 00 00       	call   5a <RDMSubDevices::GetPersonalityCurrent(unsigned short)+0x5a>
+  5a:	c9                   	leave  
+  5b:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices21SetPersonalityCurrentEth:
+
+0000000000000000 <RDMSubDevices::SetPersonalityCurrent(unsigned short, unsigned char)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  16:	89 d0                	mov    %edx,%eax
+  18:	88 45 e0             	mov    %al,-0x20(%rbp)
+  1b:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  22:	00 00 
+  24:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  28:	31 c0                	xor    %eax,%eax
+  2a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2e:	48 8b 10             	mov    (%rax),%rdx
+  31:	0f b7 45 e4          	movzwl -0x1c(%rbp),%eax
+  35:	48 c1 e0 03          	shl    $0x3,%rax
+  39:	48 83 e8 08          	sub    $0x8,%rax
+  3d:	48 01 d0             	add    %rdx,%rax
+  40:	48 8b 00             	mov    (%rax),%rax
+  43:	0f b6 55 e0          	movzbl -0x20(%rbp),%edx
+  47:	89 d6                	mov    %edx,%esi
+  49:	48 89 c7             	mov    %rax,%rdi
+  4c:	e8 00 00 00 00       	call   51 <RDMSubDevices::SetPersonalityCurrent(unsigned short, unsigned char)+0x51>
+  51:	90                   	nop
+  52:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  56:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  5d:	00 00 
+  5f:	74 05                	je     66 <RDMSubDevices::SetPersonalityCurrent(unsigned short, unsigned char)+0x66>
+  61:	e8 00 00 00 00       	call   66 <RDMSubDevices::SetPersonalityCurrent(unsigned short, unsigned char)+0x66>
+  66:	c9                   	leave  
+  67:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices19GetPersonalityCountEt:
+
+0000000000000000 <RDMSubDevices::GetPersonalityCount(unsigned short)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  16:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1d:	00 00 
+  1f:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  23:	31 c0                	xor    %eax,%eax
+  25:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  29:	48 8b 10             	mov    (%rax),%rdx
+  2c:	0f b7 45 e4          	movzwl -0x1c(%rbp),%eax
+  30:	48 c1 e0 03          	shl    $0x3,%rax
+  34:	48 83 e8 08          	sub    $0x8,%rax
+  38:	48 01 d0             	add    %rdx,%rax
+  3b:	48 8b 00             	mov    (%rax),%rax
+  3e:	48 89 c7             	mov    %rax,%rdi
+  41:	e8 00 00 00 00       	call   46 <RDMSubDevices::GetPersonalityCount(unsigned short)+0x46>
+  46:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  4a:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  51:	00 00 
+  53:	74 05                	je     5a <RDMSubDevices::GetPersonalityCount(unsigned short)+0x5a>
+  55:	e8 00 00 00 00       	call   5a <RDMSubDevices::GetPersonalityCount(unsigned short)+0x5a>
+  5a:	c9                   	leave  
+  5b:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices14GetPersonalityEth:
+
+0000000000000000 <RDMSubDevices::GetPersonality(unsigned short, unsigned char)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	89 f0                	mov    %esi,%eax
+  12:	66 89 45 e4          	mov    %ax,-0x1c(%rbp)
+  16:	89 d0                	mov    %edx,%eax
+  18:	88 45 e0             	mov    %al,-0x20(%rbp)
+  1b:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  22:	00 00 
+  24:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  28:	31 c0                	xor    %eax,%eax
+  2a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2e:	48 8b 10             	mov    (%rax),%rdx
+  31:	0f b7 45 e4          	movzwl -0x1c(%rbp),%eax
+  35:	48 c1 e0 03          	shl    $0x3,%rax
+  39:	48 83 e8 08          	sub    $0x8,%rax
+  3d:	48 01 d0             	add    %rdx,%rax
+  40:	48 8b 00             	mov    (%rax),%rax
+  43:	0f b6 55 e0          	movzbl -0x20(%rbp),%edx
+  47:	89 d6                	mov    %edx,%esi
+  49:	48 89 c7             	mov    %rax,%rdi
+  4c:	e8 00 00 00 00       	call   51 <RDMSubDevices::GetPersonality(unsigned short, unsigned char)+0x51>
+  51:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  55:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  5c:	00 00 
+  5e:	74 05                	je     65 <RDMSubDevices::GetPersonality(unsigned short, unsigned char)+0x65>
+  60:	e8 00 00 00 00       	call   65 <RDMSubDevices::GetPersonality(unsigned short, unsigned char)+0x65>
+  65:	c9                   	leave  
+  66:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices5StartEv:
+
+0000000000000000 <RDMSubDevices::Start()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  26:	eb 54                	jmp    7c <RDMSubDevices::Start()+0x7c>
+  28:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2c:	48 8b 10             	mov    (%rax),%rdx
+  2f:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  32:	48 c1 e0 03          	shl    $0x3,%rax
+  36:	48 01 d0             	add    %rdx,%rax
+  39:	48 8b 00             	mov    (%rax),%rax
+  3c:	48 85 c0             	test   %rax,%rax
+  3f:	74 37                	je     78 <RDMSubDevices::Start()+0x78>
+  41:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  45:	48 8b 10             	mov    (%rax),%rdx
+  48:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  4b:	48 c1 e0 03          	shl    $0x3,%rax
+  4f:	48 01 d0             	add    %rdx,%rax
+  52:	48 8b 00             	mov    (%rax),%rax
+  55:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  59:	48 8b 0a             	mov    (%rdx),%rcx
+  5c:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  5f:	48 c1 e2 03          	shl    $0x3,%rdx
+  63:	48 01 ca             	add    %rcx,%rdx
+  66:	48 8b 12             	mov    (%rdx),%rdx
+  69:	48 8b 12             	mov    (%rdx),%rdx
+  6c:	48 83 c2 18          	add    $0x18,%rdx
+  70:	48 8b 12             	mov    (%rdx),%rdx
+  73:	48 89 c7             	mov    %rax,%rdi
+  76:	ff d2                	call   *%rdx
+  78:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  7c:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  80:	0f b7 40 08          	movzwl 0x8(%rax),%eax
+  84:	0f b7 c0             	movzwl %ax,%eax
+  87:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  8a:	72 9c                	jb     28 <RDMSubDevices::Start()+0x28>
+  8c:	90                   	nop
+  8d:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  91:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  98:	00 00 
+  9a:	74 05                	je     a1 <RDMSubDevices::Start()+0xa1>
+  9c:	e8 00 00 00 00       	call   a1 <RDMSubDevices::Start()+0xa1>
+  a1:	c9                   	leave  
+  a2:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices4StopEv:
+
+0000000000000000 <RDMSubDevices::Stop()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  26:	eb 54                	jmp    7c <RDMSubDevices::Stop()+0x7c>
+  28:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2c:	48 8b 10             	mov    (%rax),%rdx
+  2f:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  32:	48 c1 e0 03          	shl    $0x3,%rax
+  36:	48 01 d0             	add    %rdx,%rax
+  39:	48 8b 00             	mov    (%rax),%rax
+  3c:	48 85 c0             	test   %rax,%rax
+  3f:	74 37                	je     78 <RDMSubDevices::Stop()+0x78>
+  41:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  45:	48 8b 10             	mov    (%rax),%rdx
+  48:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  4b:	48 c1 e0 03          	shl    $0x3,%rax
+  4f:	48 01 d0             	add    %rdx,%rax
+  52:	48 8b 00             	mov    (%rax),%rax
+  55:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+  59:	48 8b 0a             	mov    (%rdx),%rcx
+  5c:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  5f:	48 c1 e2 03          	shl    $0x3,%rdx
+  63:	48 01 ca             	add    %rcx,%rdx
+  66:	48 8b 12             	mov    (%rdx),%rdx
+  69:	48 8b 12             	mov    (%rdx),%rdx
+  6c:	48 83 c2 20          	add    $0x20,%rdx
+  70:	48 8b 12             	mov    (%rdx),%rdx
+  73:	48 89 c7             	mov    %rax,%rdi
+  76:	ff d2                	call   *%rdx
+  78:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  7c:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  80:	0f b7 40 08          	movzwl 0x8(%rax),%eax
+  84:	0f b7 c0             	movzwl %ax,%eax
+  87:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  8a:	72 9c                	jb     28 <RDMSubDevices::Stop()+0x28>
+  8c:	90                   	nop
+  8d:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  91:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  98:	00 00 
+  9a:	74 05                	je     a1 <RDMSubDevices::Stop()+0xa1>
+  9c:	e8 00 00 00 00       	call   a1 <RDMSubDevices::Stop()+0xa1>
+  a1:	c9                   	leave  
+  a2:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices7SetDataEPKhj:
+
+0000000000000000 <RDMSubDevices::SetData(unsigned char const*, unsigned int)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	53                   	push   %rbx
+   9:	48 83 ec 38          	sub    $0x38,%rsp
+   d:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+  11:	48 89 75 d0          	mov    %rsi,-0x30(%rbp)
+  15:	89 55 cc             	mov    %edx,-0x34(%rbp)
+  18:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1f:	00 00 
+  21:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+  25:	31 c0                	xor    %eax,%eax
+  27:	c7 45 e4 00 00 00 00 	movl   $0x0,-0x1c(%rbp)
+  2e:	e9 af 00 00 00       	jmp    e2 <RDMSubDevices::SetData(unsigned char const*, unsigned int)+0xe2>
+  33:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  37:	48 8b 10             	mov    (%rax),%rdx
+  3a:	8b 45 e4             	mov    -0x1c(%rbp),%eax
+  3d:	48 c1 e0 03          	shl    $0x3,%rax
+  41:	48 01 d0             	add    %rdx,%rax
+  44:	48 8b 00             	mov    (%rax),%rax
+  47:	48 85 c0             	test   %rax,%rax
+  4a:	0f 84 8e 00 00 00    	je     de <RDMSubDevices::SetData(unsigned char const*, unsigned int)+0xde>
+  50:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  54:	48 8b 10             	mov    (%rax),%rdx
+  57:	8b 45 e4             	mov    -0x1c(%rbp),%eax
+  5a:	48 c1 e0 03          	shl    $0x3,%rax
+  5e:	48 01 d0             	add    %rdx,%rax
+  61:	48 8b 00             	mov    (%rax),%rax
+  64:	48 89 c7             	mov    %rax,%rdi
+  67:	e8 00 00 00 00       	call   6c <RDMSubDevices::SetData(unsigned char const*, unsigned int)+0x6c>
+  6c:	89 c3                	mov    %eax,%ebx
+  6e:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  72:	48 8b 10             	mov    (%rax),%rdx
+  75:	8b 45 e4             	mov    -0x1c(%rbp),%eax
+  78:	48 c1 e0 03          	shl    $0x3,%rax
+  7c:	48 01 d0             	add    %rdx,%rax
+  7f:	48 8b 00             	mov    (%rax),%rax
+  82:	48 89 c7             	mov    %rax,%rdi
+  85:	e8 00 00 00 00       	call   8a <RDMSubDevices::SetData(unsigned char const*, unsigned int)+0x8a>
+  8a:	01 d8                	add    %ebx,%eax
+  8c:	0f b7 c0             	movzwl %ax,%eax
+  8f:	83 e8 01             	sub    $0x1,%eax
+  92:	39 45 cc             	cmp    %eax,-0x34(%rbp)
+  95:	0f 93 c0             	setae  %al
+  98:	84 c0                	test   %al,%al
+  9a:	74 42                	je     de <RDMSubDevices::SetData(unsigned char const*, unsigned int)+0xde>
+  9c:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  a0:	48 8b 10             	mov    (%rax),%rdx
+  a3:	8b 45 e4             	mov    -0x1c(%rbp),%eax
+  a6:	48 c1 e0 03          	shl    $0x3,%rax
+  aa:	48 01 d0             	add    %rdx,%rax
+  ad:	48 8b 00             	mov    (%rax),%rax
+  b0:	48 8b 55 d8          	mov    -0x28(%rbp),%rdx
+  b4:	48 8b 0a             	mov    (%rdx),%rcx
+  b7:	8b 55 e4             	mov    -0x1c(%rbp),%edx
+  ba:	48 c1 e2 03          	shl    $0x3,%rdx
+  be:	48 01 ca             	add    %rcx,%rdx
+  c1:	48 8b 12             	mov    (%rdx),%rdx
+  c4:	48 8b 12             	mov    (%rdx),%rdx
+  c7:	48 83 c2 28          	add    $0x28,%rdx
+  cb:	4c 8b 02             	mov    (%rdx),%r8
+  ce:	8b 55 cc             	mov    -0x34(%rbp),%edx
+  d1:	48 8b 4d d0          	mov    -0x30(%rbp),%rcx
+  d5:	48 89 ce             	mov    %rcx,%rsi
+  d8:	48 89 c7             	mov    %rax,%rdi
+  db:	41 ff d0             	call   *%r8
+  de:	83 45 e4 01          	addl   $0x1,-0x1c(%rbp)
+  e2:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  e6:	0f b7 40 08          	movzwl 0x8(%rax),%eax
+  ea:	0f b7 c0             	movzwl %ax,%eax
+  ed:	39 45 e4             	cmp    %eax,-0x1c(%rbp)
+  f0:	0f 82 3d ff ff ff    	jb     33 <RDMSubDevices::SetData(unsigned char const*, unsigned int)+0x33>
+  f6:	90                   	nop
+  f7:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  fb:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+ 102:	00 00 
+ 104:	74 05                	je     10b <RDMSubDevices::SetData(unsigned char const*, unsigned int)+0x10b>
+ 106:	e8 00 00 00 00       	call   10b <RDMSubDevices::SetData(unsigned char const*, unsigned int)+0x10b>
+ 10b:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
+ 10f:	c9                   	leave  
+ 110:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices18GetFactoryDefaultsEv:
+
+0000000000000000 <RDMSubDevices::GetFactoryDefaults()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  26:	eb 47                	jmp    6f <RDMSubDevices::GetFactoryDefaults()+0x6f>
+  28:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2c:	48 8b 10             	mov    (%rax),%rdx
+  2f:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  32:	48 c1 e0 03          	shl    $0x3,%rax
+  36:	48 01 d0             	add    %rdx,%rax
+  39:	48 8b 00             	mov    (%rax),%rax
+  3c:	48 85 c0             	test   %rax,%rax
+  3f:	74 2a                	je     6b <RDMSubDevices::GetFactoryDefaults()+0x6b>
+  41:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  45:	48 8b 10             	mov    (%rax),%rdx
+  48:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  4b:	48 c1 e0 03          	shl    $0x3,%rax
+  4f:	48 01 d0             	add    %rdx,%rax
+  52:	48 8b 00             	mov    (%rax),%rax
+  55:	48 89 c7             	mov    %rax,%rdi
+  58:	e8 00 00 00 00       	call   5d <RDMSubDevices::GetFactoryDefaults()+0x5d>
+  5d:	83 f0 01             	xor    $0x1,%eax
+  60:	84 c0                	test   %al,%al
+  62:	74 07                	je     6b <RDMSubDevices::GetFactoryDefaults()+0x6b>
+  64:	b8 00 00 00 00       	mov    $0x0,%eax
+  69:	eb 19                	jmp    84 <RDMSubDevices::GetFactoryDefaults()+0x84>
+  6b:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  6f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  73:	0f b7 40 08          	movzwl 0x8(%rax),%eax
+  77:	0f b7 c0             	movzwl %ax,%eax
+  7a:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  7d:	72 a9                	jb     28 <RDMSubDevices::GetFactoryDefaults()+0x28>
+  7f:	b8 01 00 00 00       	mov    $0x1,%eax
+  84:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  88:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  8f:	00 00 
+  91:	74 05                	je     98 <RDMSubDevices::GetFactoryDefaults()+0x98>
+  93:	e8 00 00 00 00       	call   98 <RDMSubDevices::GetFactoryDefaults()+0x98>
+  98:	c9                   	leave  
+  99:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices18SetFactoryDefaultsEv:
+
+0000000000000000 <RDMSubDevices::SetFactoryDefaults()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  26:	eb 39                	jmp    61 <RDMSubDevices::SetFactoryDefaults()+0x61>
+  28:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  2c:	48 8b 10             	mov    (%rax),%rdx
+  2f:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  32:	48 c1 e0 03          	shl    $0x3,%rax
+  36:	48 01 d0             	add    %rdx,%rax
+  39:	48 8b 00             	mov    (%rax),%rax
+  3c:	48 85 c0             	test   %rax,%rax
+  3f:	74 1c                	je     5d <RDMSubDevices::SetFactoryDefaults()+0x5d>
+  41:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  45:	48 8b 10             	mov    (%rax),%rdx
+  48:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  4b:	48 c1 e0 03          	shl    $0x3,%rax
+  4f:	48 01 d0             	add    %rdx,%rax
+  52:	48 8b 00             	mov    (%rax),%rax
+  55:	48 89 c7             	mov    %rax,%rdi
+  58:	e8 00 00 00 00       	call   5d <RDMSubDevices::SetFactoryDefaults()+0x5d>
+  5d:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  61:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  65:	0f b7 40 08          	movzwl 0x8(%rax),%eax
+  69:	0f b7 c0             	movzwl %ax,%eax
+  6c:	39 45 f4             	cmp    %eax,-0xc(%rbp)
+  6f:	72 b7                	jb     28 <RDMSubDevices::SetFactoryDefaults()+0x28>
+  71:	90                   	nop
+  72:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  76:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  7d:	00 00 
+  7f:	74 05                	je     86 <RDMSubDevices::SetFactoryDefaults()+0x86>
+  81:	e8 00 00 00 00       	call   86 <RDMSubDevices::SetFactoryDefaults()+0x86>
+  86:	c9                   	leave  
+  87:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices13GetTypeStringEN3rdm10subdevices5TypesE:
+
+0000000000000000 <RDMSubDevices::GetTypeString(rdm::subdevices::Types)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	89 7d ec             	mov    %edi,-0x14(%rbp)
+   f:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  16:	00 00 
+  18:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1c:	31 c0                	xor    %eax,%eax
+  1e:	83 7d ec 08          	cmpl   $0x8,-0x14(%rbp)
+  22:	7f 1f                	jg     43 <RDMSubDevices::GetTypeString(rdm::subdevices::Types)+0x43>
+  24:	8b 45 ec             	mov    -0x14(%rbp),%eax
+  27:	0f b6 c0             	movzbl %al,%eax
+  2a:	48 63 d0             	movslq %eax,%rdx
+  2d:	48 89 d0             	mov    %rdx,%rax
+  30:	48 c1 e0 03          	shl    $0x3,%rax
+  34:	48 01 d0             	add    %rdx,%rax
+  37:	48 8d 15 00 00 00 00 	lea    0x0(%rip),%rdx        # 3e <RDMSubDevices::GetTypeString(rdm::subdevices::Types)+0x3e>
+  3e:	48 01 d0             	add    %rdx,%rax
+  41:	eb 07                	jmp    4a <RDMSubDevices::GetTypeString(rdm::subdevices::Types)+0x4a>
+  43:	48 8d 05 00 00 00 00 	lea    0x0(%rip),%rax        # 4a <RDMSubDevices::GetTypeString(rdm::subdevices::Types)+0x4a>
+  4a:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  4e:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  55:	00 00 
+  57:	74 05                	je     5e <RDMSubDevices::GetTypeString(rdm::subdevices::Types)+0x5e>
+  59:	e8 00 00 00 00       	call   5e <RDMSubDevices::GetTypeString(rdm::subdevices::Types)+0x5e>
+  5e:	c9                   	leave  
+  5f:	c3                   	ret    
+
+Disassembly of section .text._ZN13RDMSubDevices13GetTypeStringEPKc:
+
+0000000000000000 <RDMSubDevices::GetTypeString(char const*)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	48 83 ec 20          	sub    $0x20,%rsp
+   c:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  10:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  17:	00 00 
+  19:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  1d:	31 c0                	xor    %eax,%eax
+  1f:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  26:	eb 33                	jmp    5b <RDMSubDevices::GetTypeString(char const*)+0x5b>
+  28:	8b 55 f4             	mov    -0xc(%rbp),%edx
+  2b:	48 89 d0             	mov    %rdx,%rax
+  2e:	48 c1 e0 03          	shl    $0x3,%rax
+  32:	48 01 d0             	add    %rdx,%rax
+  35:	48 8d 15 00 00 00 00 	lea    0x0(%rip),%rdx        # 3c <RDMSubDevices::GetTypeString(char const*)+0x3c>
+  3c:	48 01 c2             	add    %rax,%rdx
+  3f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  43:	48 89 d6             	mov    %rdx,%rsi
+  46:	48 89 c7             	mov    %rax,%rdi
+  49:	e8 00 00 00 00       	call   4e <RDMSubDevices::GetTypeString(char const*)+0x4e>
+  4e:	85 c0                	test   %eax,%eax
+  50:	75 05                	jne    57 <RDMSubDevices::GetTypeString(char const*)+0x57>
+  52:	8b 45 f4             	mov    -0xc(%rbp),%eax
+  55:	eb 0f                	jmp    66 <RDMSubDevices::GetTypeString(char const*)+0x66>
+  57:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+  5b:	83 7d f4 08          	cmpl   $0x8,-0xc(%rbp)
+  5f:	76 c7                	jbe    28 <RDMSubDevices::GetTypeString(char const*)+0x28>
+  61:	b8 09 00 00 00       	mov    $0x9,%eax
+  66:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+  6a:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  71:	00 00 
+  73:	74 05                	je     7a <RDMSubDevices::GetTypeString(char const*)+0x7a>
+  75:	e8 00 00 00 00       	call   7a <RDMSubDevices::GetTypeString(char const*)+0x7a>
+  7a:	c9                   	leave  
+  7b:	c3                   	ret    
+
+rdmsubdevicesparams.o:     file format elf64-x86-64
+
+
+Disassembly of section .text._ZN13RDMSubDevices3GetEv:
+
+0000000000000000 <RDMSubDevices::Get()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	48 83 ec 18          	sub    $0x18,%rsp
+   8:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   f:	00 00 
+  11:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  16:	48 8b 05 00 00 00 00 	mov    0x0(%rip),%rax        # 1d <RDMSubDevices::Get()+0x1d>
+  1d:	48 8b 54 24 08       	mov    0x8(%rsp),%rdx
+  22:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  29:	00 00 
+  2b:	74 05                	je     32 <RDMSubDevices::Get()+0x32>
+  2d:	e8 00 00 00 00       	call   32 <RDMSubDevices::Get()+0x32>
+  32:	48 83 c4 18          	add    $0x18,%rsp
+  36:	c3                   	ret    
+
+Disassembly of section .text._ZN17PropertiesBuilder7GetSizeEv:
+
+0000000000000000 <PropertiesBuilder::GetSize()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	48 83 ec 18          	sub    $0x18,%rsp
+   8:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   f:	00 00 
+  11:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  16:	31 c0                	xor    %eax,%eax
+  18:	80 7f 0c 00          	cmpb   $0x0,0xc(%rdi)
+  1c:	74 1b                	je     39 <PropertiesBuilder::GetSize()+0x39>
+  1e:	0f b7 47 0a          	movzwl 0xa(%rdi),%eax
+  22:	48 8b 17             	mov    (%rdi),%rdx
+  25:	c6 44 02 ff 7d       	movb   $0x7d,-0x1(%rdx,%rax,1)
+  2a:	0f b7 47 0a          	movzwl 0xa(%rdi),%eax
+  2e:	48 8b 17             	mov    (%rdi),%rdx
+  31:	c6 04 02 7d          	movb   $0x7d,(%rdx,%rax,1)
+  35:	66 ff 47 0a          	incw   0xa(%rdi)
+  39:	66 8b 47 0a          	mov    0xa(%rdi),%ax
+  3d:	48 8b 54 24 08       	mov    0x8(%rsp),%rdx
+  42:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+  49:	00 00 
+  4b:	74 05                	je     52 <PropertiesBuilder::GetSize()+0x52>
+  4d:	e8 00 00 00 00       	call   52 <PropertiesBuilder::GetSize()+0x52>
+  52:	48 83 c4 18          	add    $0x18,%rsp
+  56:	c3                   	ret    
+
+Disassembly of section .text._ZN19RDMSubDevicesParamsC2EP24RDMSubDevicesParamsStore:
+
+0000000000000000 <RDMSubDevicesParams::RDMSubDevicesParams(RDMSubDevicesParamsStore*)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	48 83 ec 18          	sub    $0x18,%rsp
+   8:	48 8d 57 08          	lea    0x8(%rdi),%rdx
+   c:	b9 13 00 00 00       	mov    $0x13,%ecx
+  11:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  18:	00 00 
+  1a:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  1f:	31 c0                	xor    %eax,%eax
+  21:	48 89 37             	mov    %rsi,(%rdi)
+  24:	48 89 d7             	mov    %rdx,%rdi
+  27:	f3 ab                	rep stos %eax,%es:(%rdi)
+  29:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  2e:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  35:	00 00 
+  37:	74 05                	je     3e <RDMSubDevicesParams::RDMSubDevicesParams(RDMSubDevicesParamsStore*)+0x3e>
+  39:	e8 00 00 00 00       	call   3e <RDMSubDevicesParams::RDMSubDevicesParams(RDMSubDevicesParamsStore*)+0x3e>
+  3e:	48 83 c4 18          	add    $0x18,%rsp
+  42:	c3                   	ret    
+
+Disassembly of section .text._ZN19RDMSubDevicesParams4LoadEv:
+
+0000000000000000 <RDMSubDevicesParams::Load()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	41 54                	push   %r12
+   6:	48 89 fa             	mov    %rdi,%rdx
+   9:	48 8d 35 00 00 00 00 	lea    0x0(%rip),%rsi        # 10 <RDMSubDevicesParams::Load()+0x10>
+  10:	55                   	push   %rbp
+  11:	53                   	push   %rbx
+  12:	48 89 fb             	mov    %rdi,%rbx
+  15:	48 83 ec 20          	sub    $0x20,%rsp
+  19:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  20:	00 00 
+  22:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
+  27:	31 c0                	xor    %eax,%eax
+  29:	c7 47 08 00 00 00 00 	movl   $0x0,0x8(%rdi)
+  30:	48 8d 6c 24 08       	lea    0x8(%rsp),%rbp
+  35:	48 89 ef             	mov    %rbp,%rdi
+  38:	e8 00 00 00 00       	call   3d <RDMSubDevicesParams::Load()+0x3d>
+  3d:	48 89 ef             	mov    %rbp,%rdi
+  40:	48 8d 35 00 00 00 00 	lea    0x0(%rip),%rsi        # 47 <RDMSubDevicesParams::Load()+0x47>
+  47:	e8 00 00 00 00       	call   4c <RDMSubDevicesParams::Load()+0x4c>
+  4c:	48 8b 3b             	mov    (%rbx),%rdi
+  4f:	84 c0                	test   %al,%al
+  51:	41 89 c4             	mov    %eax,%r12d
+  54:	74 11                	je     67 <RDMSubDevicesParams::Load()+0x67>
+  56:	48 85 ff             	test   %rdi,%rdi
+  59:	74 30                	je     8b <RDMSubDevicesParams::Load()+0x8b>
+  5b:	48 8b 07             	mov    (%rdi),%rax
+  5e:	48 8d 73 08          	lea    0x8(%rbx),%rsi
+  62:	ff 50 10             	call   *0x10(%rax)
+  65:	eb 27                	jmp    8e <RDMSubDevicesParams::Load()+0x8e>
+  67:	48 85 ff             	test   %rdi,%rdi
+  6a:	74 22                	je     8e <RDMSubDevicesParams::Load()+0x8e>
+  6c:	48 8b 07             	mov    (%rdi),%rax
+  6f:	4c 8d 63 08          	lea    0x8(%rbx),%r12
+  73:	4c 89 e6             	mov    %r12,%rsi
+  76:	ff 50 18             	call   *0x18(%rax)
+  79:	83 7b 08 07          	cmpl   $0x7,0x8(%rbx)
+  7d:	76 0c                	jbe    8b <RDMSubDevicesParams::Load()+0x8b>
+  7f:	b9 13 00 00 00       	mov    $0x13,%ecx
+  84:	31 c0                	xor    %eax,%eax
+  86:	4c 89 e7             	mov    %r12,%rdi
+  89:	f3 ab                	rep stos %eax,%es:(%rdi)
+  8b:	41 b4 01             	mov    $0x1,%r12b
+  8e:	48 89 ef             	mov    %rbp,%rdi
+  91:	e8 00 00 00 00       	call   96 <RDMSubDevicesParams::Load()+0x96>
+  96:	48 8b 44 24 18       	mov    0x18(%rsp),%rax
+  9b:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  a2:	00 00 
+  a4:	74 05                	je     ab <RDMSubDevicesParams::Load()+0xab>
+  a6:	e8 00 00 00 00       	call   ab <RDMSubDevicesParams::Load()+0xab>
+  ab:	48 83 c4 20          	add    $0x20,%rsp
+  af:	44 89 e0             	mov    %r12d,%eax
+  b2:	5b                   	pop    %rbx
+  b3:	5d                   	pop    %rbp
+  b4:	41 5c                	pop    %r12
+  b6:	c3                   	ret    
+
+Disassembly of section .text._ZN19RDMSubDevicesParams4LoadEPKcj:
+
+0000000000000000 <RDMSubDevicesParams::Load(char const*, unsigned int)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	41 55                	push   %r13
+   6:	41 54                	push   %r12
+   8:	55                   	push   %rbp
+   9:	53                   	push   %rbx
+   a:	48 83 ec 28          	sub    $0x28,%rsp
+   e:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  15:	00 00 
+  17:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
+  1c:	31 c0                	xor    %eax,%eax
+  1e:	48 83 3f 00          	cmpq   $0x0,(%rdi)
+  22:	74 4a                	je     6e <RDMSubDevicesParams::Load(char const*, unsigned int)+0x6e>
+  24:	c7 47 08 00 00 00 00 	movl   $0x0,0x8(%rdi)
+  2b:	48 89 fb             	mov    %rdi,%rbx
+  2e:	49 89 f4             	mov    %rsi,%r12
+  31:	41 89 d5             	mov    %edx,%r13d
+  34:	48 8d 6c 24 08       	lea    0x8(%rsp),%rbp
+  39:	48 89 fa             	mov    %rdi,%rdx
+  3c:	48 8d 35 00 00 00 00 	lea    0x0(%rip),%rsi        # 43 <RDMSubDevicesParams::Load(char const*, unsigned int)+0x43>
+  43:	48 89 ef             	mov    %rbp,%rdi
+  46:	e8 00 00 00 00       	call   4b <RDMSubDevicesParams::Load(char const*, unsigned int)+0x4b>
+  4b:	44 89 ea             	mov    %r13d,%edx
+  4e:	4c 89 e6             	mov    %r12,%rsi
+  51:	48 89 ef             	mov    %rbp,%rdi
+  54:	e8 00 00 00 00       	call   59 <RDMSubDevicesParams::Load(char const*, unsigned int)+0x59>
+  59:	48 8b 3b             	mov    (%rbx),%rdi
+  5c:	48 8d 73 08          	lea    0x8(%rbx),%rsi
+  60:	48 8b 07             	mov    (%rdi),%rax
+  63:	ff 50 10             	call   *0x10(%rax)
+  66:	48 89 ef             	mov    %rbp,%rdi
+  69:	e8 00 00 00 00       	call   6e <RDMSubDevicesParams::Load(char const*, unsigned int)+0x6e>
+  6e:	48 8b 44 24 18       	mov    0x18(%rsp),%rax
+  73:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  7a:	00 00 
+  7c:	74 05                	je     83 <RDMSubDevicesParams::Load(char const*, unsigned int)+0x83>
+  7e:	e8 00 00 00 00       	call   83 <RDMSubDevicesParams::Load(char const*, unsigned int)+0x83>
+  83:	48 83 c4 28          	add    $0x28,%rsp
+  87:	5b                   	pop    %rbx
+  88:	5d                   	pop    %rbp
+  89:	41 5c                	pop    %r12
+  8b:	41 5d                	pop    %r13
+  8d:	c3                   	ret    
+
+Disassembly of section .text._ZN19RDMSubDevicesParams7BuilderEPKN3rdm16subdevicesparams6ParamsEPcjRj:
+
+0000000000000000 <RDMSubDevicesParams::Builder(rdm::subdevicesparams::Params const*, char*, unsigned int, unsigned int&)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	41 55                	push   %r13
+   6:	41 89 cd             	mov    %ecx,%r13d
+   9:	41 54                	push   %r12
+   b:	49 89 d4             	mov    %rdx,%r12
+   e:	55                   	push   %rbp
+   f:	53                   	push   %rbx
+  10:	4c 89 c3             	mov    %r8,%rbx
+  13:	4c 8d 47 08          	lea    0x8(%rdi),%r8
+  17:	48 83 ec 28          	sub    $0x28,%rsp
+  1b:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  22:	00 00 
+  24:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
+  29:	31 c0                	xor    %eax,%eax
+  2b:	48 85 f6             	test   %rsi,%rsi
+  2e:	74 0c                	je     3c <RDMSubDevicesParams::Builder(rdm::subdevicesparams::Params const*, char*, unsigned int, unsigned int&)+0x3c>
+  30:	b9 13 00 00 00       	mov    $0x13,%ecx
+  35:	4c 89 c7             	mov    %r8,%rdi
+  38:	f3 a5                	rep movsl %ds:(%rsi),%es:(%rdi)
+  3a:	eb 0c                	jmp    48 <RDMSubDevicesParams::Builder(rdm::subdevicesparams::Params const*, char*, unsigned int, unsigned int&)+0x48>
+  3c:	48 8b 3f             	mov    (%rdi),%rdi
+  3f:	4c 89 c6             	mov    %r8,%rsi
+  42:	48 8b 07             	mov    (%rdi),%rax
+  45:	ff 50 18             	call   *0x18(%rax)
+  48:	48 8d 6c 24 08       	lea    0x8(%rsp),%rbp
+  4d:	44 89 e9             	mov    %r13d,%ecx
+  50:	4c 89 e2             	mov    %r12,%rdx
+  53:	48 8d 35 00 00 00 00 	lea    0x0(%rip),%rsi        # 5a <RDMSubDevicesParams::Builder(rdm::subdevicesparams::Params const*, char*, unsigned int, unsigned int&)+0x5a>
+  5a:	48 89 ef             	mov    %rbp,%rdi
+  5d:	e8 00 00 00 00       	call   62 <RDMSubDevicesParams::Builder(rdm::subdevicesparams::Params const*, char*, unsigned int, unsigned int&)+0x62>
+  62:	48 89 ef             	mov    %rbp,%rdi
+  65:	e8 00 00 00 00       	call   6a <RDMSubDevicesParams::Builder(rdm::subdevicesparams::Params const*, char*, unsigned int, unsigned int&)+0x6a>
+  6a:	0f b7 c0             	movzwl %ax,%eax
+  6d:	89 03                	mov    %eax,(%rbx)
+  6f:	48 8b 44 24 18       	mov    0x18(%rsp),%rax
+  74:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  7b:	00 00 
+  7d:	74 05                	je     84 <RDMSubDevicesParams::Builder(rdm::subdevicesparams::Params const*, char*, unsigned int, unsigned int&)+0x84>
+  7f:	e8 00 00 00 00       	call   84 <RDMSubDevicesParams::Builder(rdm::subdevicesparams::Params const*, char*, unsigned int, unsigned int&)+0x84>
+  84:	48 83 c4 28          	add    $0x28,%rsp
+  88:	5b                   	pop    %rbx
+  89:	5d                   	pop    %rbp
+  8a:	41 5c                	pop    %r12
+  8c:	41 5d                	pop    %r13
+  8e:	c3                   	ret    
+
+Disassembly of section .text._ZN19RDMSubDevicesParams4DumpEv:
+
+0000000000000000 <RDMSubDevicesParams::Dump()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	48 83 ec 18          	sub    $0x18,%rsp
+   8:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   f:	00 00 
+  11:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  16:	31 c0                	xor    %eax,%eax
+  18:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  1d:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  24:	00 00 
+  26:	74 05                	je     2d <RDMSubDevicesParams::Dump()+0x2d>
+  28:	e8 00 00 00 00       	call   2d <RDMSubDevicesParams::Dump()+0x2d>
+  2d:	48 83 c4 18          	add    $0x18,%rsp
+  31:	c3                   	ret    
+
+Disassembly of section .text._ZN19RDMSubDevicesParams3AddEP12RDMSubDevice:
+
+0000000000000000 <RDMSubDevicesParams::Add(RDMSubDevice*)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	41 54                	push   %r12
+   6:	48 89 f7             	mov    %rsi,%rdi
+   9:	55                   	push   %rbp
+   a:	48 89 f5             	mov    %rsi,%rbp
+   d:	48 83 ec 18          	sub    $0x18,%rsp
+  11:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  18:	00 00 
+  1a:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  1f:	48 8b 06             	mov    (%rsi),%rax
+  22:	ff 50 10             	call   *0x10(%rax)
+  25:	41 89 c4             	mov    %eax,%r12d
+  28:	84 c0                	test   %al,%al
+  2a:	74 12                	je     3e <RDMSubDevicesParams::Add(RDMSubDevice*)+0x3e>
+  2c:	e8 00 00 00 00       	call   31 <RDMSubDevicesParams::Add(RDMSubDevice*)+0x31>
+  31:	48 89 ee             	mov    %rbp,%rsi
+  34:	48 89 c7             	mov    %rax,%rdi
+  37:	e8 00 00 00 00       	call   3c <RDMSubDevicesParams::Add(RDMSubDevice*)+0x3c>
+  3c:	eb 0a                	jmp    48 <RDMSubDevicesParams::Add(RDMSubDevice*)+0x48>
+  3e:	48 8b 45 00          	mov    0x0(%rbp),%rax
+  42:	48 89 ef             	mov    %rbp,%rdi
+  45:	ff 50 08             	call   *0x8(%rax)
+  48:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  4d:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  54:	00 00 
+  56:	74 05                	je     5d <RDMSubDevicesParams::Add(RDMSubDevice*)+0x5d>
+  58:	e8 00 00 00 00       	call   5d <RDMSubDevicesParams::Add(RDMSubDevice*)+0x5d>
+  5d:	48 83 c4 18          	add    $0x18,%rsp
+  61:	44 89 e0             	mov    %r12d,%eax
+  64:	5d                   	pop    %rbp
+  65:	41 5c                	pop    %r12
+  67:	c3                   	ret    
+
+Disassembly of section .text._ZN19RDMSubDevicesParams3SetEv:
+
+0000000000000000 <RDMSubDevicesParams::Set()>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	48 83 ec 18          	sub    $0x18,%rsp
+   8:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   f:	00 00 
+  11:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  16:	31 c0                	xor    %eax,%eax
+  18:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  1d:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  24:	00 00 
+  26:	74 05                	je     2d <RDMSubDevicesParams::Set()+0x2d>
+  28:	e8 00 00 00 00       	call   2d <RDMSubDevicesParams::Set()+0x2d>
+  2d:	48 83 c4 18          	add    $0x18,%rsp
+  31:	c3                   	ret    
+
+Disassembly of section .text._ZN19RDMSubDevicesParams16callbackFunctionEPKc:
+
+0000000000000000 <RDMSubDevicesParams::callbackFunction(char const*)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	41 54                	push   %r12
+   6:	b9 08 00 00 00       	mov    $0x8,%ecx
+   b:	49 89 f2             	mov    %rsi,%r10
+   e:	55                   	push   %rbp
+   f:	53                   	push   %rbx
+  10:	48 89 fb             	mov    %rdi,%rbx
+  13:	48 83 ec 40          	sub    $0x40,%rsp
+  17:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  1e:	00 00 
+  20:	48 89 44 24 38       	mov    %rax,0x38(%rsp)
+  25:	31 c0                	xor    %eax,%eax
+  27:	4c 8d 64 24 18       	lea    0x18(%rsp),%r12
+  2c:	c6 44 24 0f 00       	movb   $0x0,0xf(%rsp)
+  31:	48 8d 74 24 0f       	lea    0xf(%rsp),%rsi
+  36:	4c 89 e7             	mov    %r12,%rdi
+  39:	c6 44 24 10 1f       	movb   $0x1f,0x10(%rsp)
+  3e:	4c 89 e2             	mov    %r12,%rdx
+  41:	c6 44 24 11 00       	movb   $0x0,0x11(%rsp)
+  46:	c7 44 24 14 00 00 00 	movl   $0x0,0x14(%rsp)
+  4d:	00 
+  4e:	f3 ab                	rep stos %eax,%es:(%rdi)
+  50:	48 8d 4c 24 10       	lea    0x10(%rsp),%rcx
+  55:	50                   	push   %rax
+  56:	4c 89 d7             	mov    %r10,%rdi
+  59:	48 8d 44 24 1c       	lea    0x1c(%rsp),%rax
+  5e:	50                   	push   %rax
+  5f:	4c 8d 4c 24 22       	lea    0x22(%rsp),%r9
+  64:	4c 8d 44 24 21       	lea    0x21(%rsp),%r8
+  69:	e8 00 00 00 00       	call   6e <RDMSubDevicesParams::callbackFunction(char const*)+0x6e>
+  6e:	5a                   	pop    %rdx
+  6f:	59                   	pop    %rcx
+  70:	85 c0                	test   %eax,%eax
+  72:	75 77                	jne    eb <RDMSubDevicesParams::callbackFunction(char const*)+0xeb>
+  74:	80 7c 24 18 00       	cmpb   $0x0,0x18(%rsp)
+  79:	74 70                	je     eb <RDMSubDevicesParams::callbackFunction(char const*)+0xeb>
+  7b:	80 7c 24 10 00       	cmpb   $0x0,0x10(%rsp)
+  80:	74 69                	je     eb <RDMSubDevicesParams::callbackFunction(char const*)+0xeb>
+  82:	4c 89 e7             	mov    %r12,%rdi
+  85:	89 c5                	mov    %eax,%ebp
+  87:	e8 00 00 00 00       	call   8c <RDMSubDevicesParams::callbackFunction(char const*)+0x8c>
+  8c:	83 f8 09             	cmp    $0x9,%eax
+  8f:	74 5a                	je     eb <RDMSubDevicesParams::callbackFunction(char const*)+0xeb>
+  91:	8b 53 08             	mov    0x8(%rbx),%edx
+  94:	40 8a 7c 24 0f       	mov    0xf(%rsp),%dil
+  99:	48 8d 4b 0c          	lea    0xc(%rbx),%rcx
+  9d:	40 8a 74 24 11       	mov    0x11(%rsp),%sil
+  a2:	39 ea                	cmp    %ebp,%edx
+  a4:	74 18                	je     be <RDMSubDevicesParams::callbackFunction(char const*)+0xbe>
+  a6:	40 38 79 01          	cmp    %dil,0x1(%rcx)
+  aa:	75 0a                	jne    b6 <RDMSubDevicesParams::callbackFunction(char const*)+0xb6>
+  ac:	38 01                	cmp    %al,(%rcx)
+  ae:	75 06                	jne    b6 <RDMSubDevicesParams::callbackFunction(char const*)+0xb6>
+  b0:	40 38 71 02          	cmp    %sil,0x2(%rcx)
+  b4:	74 35                	je     eb <RDMSubDevicesParams::callbackFunction(char const*)+0xeb>
+  b6:	ff c5                	inc    %ebp
+  b8:	48 83 c1 09          	add    $0x9,%rcx
+  bc:	eb e4                	jmp    a2 <RDMSubDevicesParams::callbackFunction(char const*)+0xa2>
+  be:	83 fa 08             	cmp    $0x8,%edx
+  c1:	74 28                	je     eb <RDMSubDevicesParams::callbackFunction(char const*)+0xeb>
+  c3:	8d 4a 01             	lea    0x1(%rdx),%ecx
+  c6:	48 8d 14 d2          	lea    (%rdx,%rdx,8),%rdx
+  ca:	48 01 da             	add    %rbx,%rdx
+  cd:	89 4b 08             	mov    %ecx,0x8(%rbx)
+  d0:	88 42 0c             	mov    %al,0xc(%rdx)
+  d3:	66 8b 44 24 12       	mov    0x12(%rsp),%ax
+  d8:	40 88 7a 0d          	mov    %dil,0xd(%rdx)
+  dc:	66 89 42 0f          	mov    %ax,0xf(%rdx)
+  e0:	8b 44 24 14          	mov    0x14(%rsp),%eax
+  e4:	40 88 72 0e          	mov    %sil,0xe(%rdx)
+  e8:	89 42 11             	mov    %eax,0x11(%rdx)
+  eb:	48 8b 44 24 38       	mov    0x38(%rsp),%rax
+  f0:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  f7:	00 00 
+  f9:	74 05                	je     100 <RDMSubDevicesParams::callbackFunction(char const*)+0x100>
+  fb:	e8 00 00 00 00       	call   100 <RDMSubDevicesParams::callbackFunction(char const*)+0x100>
+ 100:	48 83 c4 40          	add    $0x40,%rsp
+ 104:	5b                   	pop    %rbx
+ 105:	5d                   	pop    %rbp
+ 106:	41 5c                	pop    %r12
+ 108:	c3                   	ret    
+
+Disassembly of section .text._ZN19RDMSubDevicesParams22staticCallbackFunctionEPvPKc:
+
+0000000000000000 <RDMSubDevicesParams::staticCallbackFunction(void*, char const*)>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	48 83 ec 18          	sub    $0x18,%rsp
+   8:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   f:	00 00 
+  11:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  16:	31 c0                	xor    %eax,%eax
+  18:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  1d:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+  24:	00 00 
+  26:	74 05                	je     2d <RDMSubDevicesParams::staticCallbackFunction(void*, char const*)+0x2d>
+  28:	e8 00 00 00 00       	call   2d <RDMSubDevicesParams::staticCallbackFunction(void*, char const*)+0x2d>
+  2d:	48 83 c4 18          	add    $0x18,%rsp
+  31:	e9 00 00 00 00       	jmp    36 <RDMSubDevicesParams::staticCallbackFunction(void*, char const*)+0x36>

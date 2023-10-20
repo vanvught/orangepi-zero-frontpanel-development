@@ -1,0 +1,179 @@
+In archive lib/libc++.a:
+
+delete.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <operator delete(void*)>:
+   0:	eafffffe 	b	0 <free>
+
+00000004 <operator delete[](void*)>:
+   4:	eafffffe 	b	0 <free>
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	; 0x3700
+   4:	4728203a 			; <UNDEFINED> instruction: 0x4728203a
+   8:	2029554e 	eorcs	r5, r9, lr, asr #10
+   c:	332e3031 			; <UNDEFINED> instruction: 0x332e3031
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00003241 	andeq	r3, r0, r1, asr #4
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000028 	andeq	r0, r0, r8, lsr #32
+  10:	4b5a3605 	blmi	168d82c <operator delete[](void*)+0x168d828>
+  14:	08070600 	stmdaeq	r7, {r9, sl}
+  18:	0a010901 	beq	42424 <operator delete[](void*)+0x42420>
+  1c:	14041202 	strne	r1, [r4], #-514	; 0xfffffdfe
+  20:	17011501 	strne	r1, [r1, -r1, lsl #10]
+  24:	19011803 	stmdbne	r1, {r0, r1, fp, ip}
+  28:	1c011a01 			; <UNDEFINED> instruction: 0x1c011a01
+  2c:	22021e01 	andcs	r1, r2, #1, 28
+  30:	Address 0x0000000000000030 is out of bounds.
+
+
+dso_handle.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <__aeabi_atexit>:
+   0:	e3a00000 	mov	r0, #0
+   4:	e12fff1e 	bx	lr
+
+Disassembly of section .bss:
+
+00000000 <__dso_handle>:
+   0:	00000000 	andeq	r0, r0, r0
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	; 0x3700
+   4:	4728203a 			; <UNDEFINED> instruction: 0x4728203a
+   8:	2029554e 	eorcs	r5, r9, lr, asr #10
+   c:	332e3031 			; <UNDEFINED> instruction: 0x332e3031
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00003241 	andeq	r3, r0, r1, asr #4
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000028 	andeq	r0, r0, r8, lsr #32
+  10:	4b5a3605 	blmi	168d82c <__aeabi_atexit+0x168d82c>
+  14:	08070600 	stmdaeq	r7, {r9, sl}
+  18:	0a010901 	beq	42424 <__aeabi_atexit+0x42424>
+  1c:	14041202 	strne	r1, [r4], #-514	; 0xfffffdfe
+  20:	17011501 	strne	r1, [r1, -r1, lsl #10]
+  24:	19011803 	stmdbne	r1, {r0, r1, fp, ip}
+  28:	1c011a01 			; <UNDEFINED> instruction: 0x1c011a01
+  2c:	22021e01 	andcs	r1, r2, #1, 28
+  30:	Address 0x0000000000000030 is out of bounds.
+
+
+new.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <operator new(unsigned int)>:
+   0:	eafffffe 	b	0 <malloc>
+
+00000004 <operator new[](unsigned int)>:
+   4:	eafffffe 	b	0 <malloc>
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	; 0x3700
+   4:	4728203a 			; <UNDEFINED> instruction: 0x4728203a
+   8:	2029554e 	eorcs	r5, r9, lr, asr #10
+   c:	332e3031 			; <UNDEFINED> instruction: 0x332e3031
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00003241 	andeq	r3, r0, r1, asr #4
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000028 	andeq	r0, r0, r8, lsr #32
+  10:	4b5a3605 	blmi	168d82c <operator new[](unsigned int)+0x168d828>
+  14:	08070600 	stmdaeq	r7, {r9, sl}
+  18:	0a010901 	beq	42424 <operator new[](unsigned int)+0x42420>
+  1c:	14041202 	strne	r1, [r4], #-514	; 0xfffffdfe
+  20:	17011501 	strne	r1, [r1, -r1, lsl #10]
+  24:	19011803 	stmdbne	r1, {r0, r1, fp, ip}
+  28:	1c011a01 			; <UNDEFINED> instruction: 0x1c011a01
+  2c:	22021e01 	andcs	r1, r2, #1, 28
+  30:	Address 0x0000000000000030 is out of bounds.
+
+
+purecall.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <__cxa_pure_virtual>:
+   0:	e3a01021 	mov	r1, #33	; 0x21
+   4:	e59f3008 	ldr	r3, [pc, #8]	; 14 <__cxa_pure_virtual+0x14>
+   8:	e59f2008 	ldr	r2, [pc, #8]	; 18 <__cxa_pure_virtual+0x18>
+   c:	e59f0008 	ldr	r0, [pc, #8]	; 1c <__cxa_pure_virtual+0x1c>
+  10:	eafffffe 	b	0 <__assert_func>
+  14:	00000000 	andeq	r0, r0, r0
+  18:	00000004 	andeq	r0, r0, r4
+  1c:	00000018 	andeq	r0, r0, r8, lsl r0
+
+Disassembly of section .rodata.str1.4:
+
+00000000 <.rodata.str1.4>:
+   0:	00000030 	andeq	r0, r0, r0, lsr r0
+   4:	78635f5f 	stmdavc	r3!, {r0, r1, r2, r3, r4, r6, r8, r9, sl, fp, ip, lr}^
+   8:	75705f61 	ldrbvc	r5, [r0, #-3937]!	; 0xfffff09f
+   c:	765f6572 			; <UNDEFINED> instruction: 0x765f6572
+  10:	75747269 	ldrbvc	r7, [r4, #-617]!	; 0xfffffd97
+  14:	00006c61 	andeq	r6, r0, r1, ror #24
+  18:	2f637273 	svccs	0x00637273
+  1c:	65727570 	ldrbvs	r7, [r2, #-1392]!	; 0xfffffa90
+  20:	6c6c6163 	stfvse	f6, [ip], #-396	; 0xfffffe74
+  24:	7070632e 	rsbsvc	r6, r0, lr, lsr #6
+	...
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	; 0x3700
+   4:	4728203a 			; <UNDEFINED> instruction: 0x4728203a
+   8:	2029554e 	eorcs	r5, r9, lr, asr #10
+   c:	332e3031 			; <UNDEFINED> instruction: 0x332e3031
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00003241 	andeq	r3, r0, r1, asr #4
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000028 	andeq	r0, r0, r8, lsr #32
+  10:	4b5a3605 	blmi	168d82c <__cxa_pure_virtual+0x168d82c>
+  14:	08070600 	stmdaeq	r7, {r9, sl}
+  18:	0a010901 	beq	42424 <__cxa_pure_virtual+0x42424>
+  1c:	14041202 	strne	r1, [r4], #-514	; 0xfffffdfe
+  20:	17011501 	strne	r1, [r1, -r1, lsl #10]
+  24:	19011803 	stmdbne	r1, {r0, r1, fp, ip}
+  28:	1c011a01 			; <UNDEFINED> instruction: 0x1c011a01
+  2c:	22021e01 	andcs	r1, r2, #1, 28
+  30:	Address 0x0000000000000030 is out of bounds.
+

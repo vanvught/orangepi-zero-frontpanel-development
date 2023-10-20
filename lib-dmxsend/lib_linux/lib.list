@@ -1,0 +1,925 @@
+
+lib_linux/libdmxsend.a(dmxsend.o):	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+0000000000000000 <ltmp0>:
+       0: d10183ff     	sub	sp, sp, #96
+       4: a9057bfd     	stp	x29, x30, [sp, #80]
+       8: 910143fd     	add	x29, sp, #80
+       c: 90000008     	adrp	x8, 0x0 <ltmp0+0xc>
+      10: f9400108     	ldr	x8, [x8]
+      14: f9400108     	ldr	x8, [x8]
+      18: f81f83a8     	stur	x8, [x29, #-8]
+      1c: f81f03a0     	stur	x0, [x29, #-16]
+      20: b81ec3a1     	stur	w1, [x29, #-20]
+      24: 910003e9     	mov	x9, sp
+      28: 90000008     	adrp	x8, 0x0 <ltmp0+0x28>
+      2c: 91000108     	add	x8, x8, #0
+      30: f81e03a8     	stur	x8, [x29, #-32]
+      34: f9000128     	str	x8, [x9]
+      38: 90000008     	adrp	x8, 0x0 <ltmp0+0x38>
+      3c: 91000108     	add	x8, x8, #0
+      40: f90017e8     	str	x8, [sp, #40]
+      44: f9000528     	str	x8, [x9, #8]
+      48: d28005e8     	mov	x8, #47
+      4c: f9000928     	str	x8, [x9, #16]
+      50: 90000000     	adrp	x0, 0x0 <ltmp0+0x50>
+      54: 91000000     	add	x0, x0, #0
+      58: 94000000     	bl	0x58 <ltmp0+0x58>
+      5c: f94017eb     	ldr	x11, [sp, #40]
+      60: f85e03aa     	ldur	x10, [x29, #-32]
+      64: b85ec3a9     	ldur	w9, [x29, #-20]
+      68: aa0903e8     	mov	x8, x9
+      6c: 910003e9     	mov	x9, sp
+      70: f900012b     	str	x11, [x9]
+      74: f900052a     	str	x10, [x9, #8]
+      78: d280060a     	mov	x10, #48
+      7c: f900092a     	str	x10, [x9, #16]
+      80: f9000d28     	str	x8, [x9, #24]
+      84: 90000000     	adrp	x0, 0x0 <ltmp0+0x84>
+      88: 91000000     	add	x0, x0, #0
+      8c: 94000000     	bl	0x8c <ltmp0+0x8c>
+      90: b85ec3a8     	ldur	w8, [x29, #-20]
+      94: 71002108     	subs	w8, w8, #8
+      98: 1a9f27e8     	cset	w8, lo
+      9c: 37000148     	tbnz	w8, #0, 0xc4 <ltmp0+0xc4>
+      a0: 14000001     	b	0xa4 <ltmp0+0xa4>
+      a4: 90000000     	adrp	x0, 0x0 <ltmp0+0xa4>
+      a8: 91000000     	add	x0, x0, #0
+      ac: 90000001     	adrp	x1, 0x0 <ltmp0+0xac>
+      b0: 91000021     	add	x1, x1, #0
+      b4: 52800642     	mov	w2, #50
+      b8: 90000003     	adrp	x3, 0x0 <ltmp0+0xb8>
+      bc: 91000063     	add	x3, x3, #0
+      c0: 94000000     	bl	0xc0 <ltmp0+0xc0>
+      c4: 14000001     	b	0xc8 <ltmp0+0xc8>
+      c8: 90000008     	adrp	x8, 0x0 <ltmp0+0xc8>
+      cc: 39400100     	ldrb	w0, [x8]
+      d0: b85ec3a1     	ldur	w1, [x29, #-20]
+      d4: 94000000     	bl	0xd4 <ltmp0+0xd4>
+      d8: 360001e0     	tbz	w0, #0, 0x114 <ltmp0+0x114>
+      dc: 14000001     	b	0xe0 <ltmp0+0xe0>
+      e0: 910003e9     	mov	x9, sp
+      e4: 90000008     	adrp	x8, 0x0 <ltmp0+0xe4>
+      e8: 91000108     	add	x8, x8, #0
+      ec: f9000128     	str	x8, [x9]
+      f0: 90000008     	adrp	x8, 0x0 <ltmp0+0xf0>
+      f4: 91000108     	add	x8, x8, #0
+      f8: f9000528     	str	x8, [x9, #8]
+      fc: d28006a8     	mov	x8, #53
+     100: f9000928     	str	x8, [x9, #16]
+     104: 90000000     	adrp	x0, 0x0 <ltmp0+0x104>
+     108: 91000000     	add	x0, x0, #0
+     10c: 94000000     	bl	0x10c <ltmp0+0x10c>
+     110: 14000027     	b	0x1ac <ltmp0+0x1ac>
+     114: 90000009     	adrp	x9, 0x0 <ltmp0+0x114>
+     118: 39400128     	ldrb	w8, [x9]
+     11c: b85ec3ab     	ldur	w11, [x29, #-20]
+     120: 5280002a     	mov	w10, #1
+     124: 1acb214a     	lsl	w10, w10, w11
+     128: 2a0a0108     	orr	w8, w8, w10
+     12c: 39000128     	strb	w8, [x9]
+     130: 94000000     	bl	0x130 <ltmp0+0x130>
+     134: b85ec3a1     	ldur	w1, [x29, #-20]
+     138: 52800002     	mov	w2, #0
+     13c: 52800028     	mov	w8, #1
+     140: 12000103     	and	w3, w8, #0x1
+     144: 94000000     	bl	0x144 <ltmp0+0x144>
+     148: 94000000     	bl	0x148 <ltmp0+0x148>
+     14c: b85ec3a1     	ldur	w1, [x29, #-20]
+     150: 94000000     	bl	0x150 <ltmp0+0x150>
+     154: 71000408     	subs	w8, w0, #1
+     158: 1a9f07e8     	cset	w8, ne
+     15c: 370000e8     	tbnz	w8, #0, 0x178 <ltmp0+0x178>
+     160: 14000001     	b	0x164 <ltmp0+0x164>
+     164: b85ec3a9     	ldur	w9, [x29, #-20]
+     168: 52800008     	mov	w8, #0
+     16c: 1ac92100     	lsl	w0, w8, w9
+     170: 94000000     	bl	0x170 <ltmp0+0x170>
+     174: 14000001     	b	0x178 <ltmp0+0x178>
+     178: 910003e9     	mov	x9, sp
+     17c: 90000008     	adrp	x8, 0x0 <ltmp0+0x17c>
+     180: 91000108     	add	x8, x8, #0
+     184: f9000128     	str	x8, [x9]
+     188: 90000008     	adrp	x8, 0x0 <ltmp0+0x188>
+     18c: 91000108     	add	x8, x8, #0
+     190: f9000528     	str	x8, [x9, #8]
+     194: d2800828     	mov	x8, #65
+     198: f9000928     	str	x8, [x9, #16]
+     19c: 90000000     	adrp	x0, 0x0 <ltmp0+0x19c>
+     1a0: 91000000     	add	x0, x0, #0
+     1a4: 94000000     	bl	0x1a4 <ltmp0+0x1a4>
+     1a8: 14000001     	b	0x1ac <ltmp0+0x1ac>
+     1ac: f85f83a9     	ldur	x9, [x29, #-8]
+     1b0: 90000008     	adrp	x8, 0x0 <ltmp0+0x1b0>
+     1b4: f9400108     	ldr	x8, [x8]
+     1b8: f9400108     	ldr	x8, [x8]
+     1bc: eb090108     	subs	x8, x8, x9
+     1c0: 1a9f17e8     	cset	w8, eq
+     1c4: 37000068     	tbnz	w8, #0, 0x1d0 <ltmp0+0x1d0>
+     1c8: 14000001     	b	0x1cc <ltmp0+0x1cc>
+     1cc: 94000000     	bl	0x1cc <ltmp0+0x1cc>
+     1d0: a9457bfd     	ldp	x29, x30, [sp, #80]
+     1d4: 910183ff     	add	sp, sp, #96
+     1d8: d65f03c0     	ret
+
+00000000000001dc <is_started(unsigned char, unsigned int)>:
+     1dc: d100c3ff     	sub	sp, sp, #48
+     1e0: a9027bfd     	stp	x29, x30, [sp, #32]
+     1e4: 910083fd     	add	x29, sp, #32
+     1e8: 90000008     	adrp	x8, 0x0 <is_started(unsigned char, unsigned int)+0xc>
+     1ec: f9400108     	ldr	x8, [x8]
+     1f0: f9400108     	ldr	x8, [x8]
+     1f4: f81f83a8     	stur	x8, [x29, #-8]
+     1f8: 381f73a0     	sturb	w0, [x29, #-9]
+     1fc: b90013e1     	str	w1, [sp, #16]
+     200: 385f73a8     	ldurb	w8, [x29, #-9]
+     204: b94013ea     	ldr	w10, [sp, #16]
+     208: 52800029     	mov	w9, #1
+     20c: 1aca212a     	lsl	w10, w9, w10
+     210: 0a0a0108     	and	w8, w8, w10
+     214: b94013ea     	ldr	w10, [sp, #16]
+     218: 1aca2129     	lsl	w9, w9, w10
+     21c: 6b090108     	subs	w8, w8, w9
+     220: 1a9f17e8     	cset	w8, eq
+     224: b9000fe8     	str	w8, [sp, #12]
+     228: f85f83a9     	ldur	x9, [x29, #-8]
+     22c: 90000008     	adrp	x8, 0x0 <is_started(unsigned char, unsigned int)+0x50>
+     230: f9400108     	ldr	x8, [x8]
+     234: f9400108     	ldr	x8, [x8]
+     238: eb090108     	subs	x8, x8, x9
+     23c: 1a9f17e8     	cset	w8, eq
+     240: 37000068     	tbnz	w8, #0, 0x24c <is_started(unsigned char, unsigned int)+0x70>
+     244: 14000001     	b	0x248 <is_started(unsigned char, unsigned int)+0x6c>
+     248: 94000000     	bl	0x248 <is_started(unsigned char, unsigned int)+0x6c>
+     24c: b9400fe8     	ldr	w8, [sp, #12]
+     250: 12000100     	and	w0, w8, #0x1
+     254: a9427bfd     	ldp	x29, x30, [sp, #32]
+     258: 9100c3ff     	add	sp, sp, #48
+     25c: d65f03c0     	ret
+
+0000000000000260 <Dmx::Get()>:
+     260: d10083ff     	sub	sp, sp, #32
+     264: a9017bfd     	stp	x29, x30, [sp, #16]
+     268: 910043fd     	add	x29, sp, #16
+     26c: 90000008     	adrp	x8, 0x0 <Dmx::Get()+0xc>
+     270: f9400108     	ldr	x8, [x8]
+     274: f9400108     	ldr	x8, [x8]
+     278: f90007e8     	str	x8, [sp, #8]
+     27c: 90000008     	adrp	x8, 0x0 <Dmx::Get()+0x1c>
+     280: f9400108     	ldr	x8, [x8]
+     284: f9400108     	ldr	x8, [x8]
+     288: f90003e8     	str	x8, [sp]
+     28c: f94007e9     	ldr	x9, [sp, #8]
+     290: 90000008     	adrp	x8, 0x0 <Dmx::Get()+0x30>
+     294: f9400108     	ldr	x8, [x8]
+     298: f9400108     	ldr	x8, [x8]
+     29c: eb090108     	subs	x8, x8, x9
+     2a0: 1a9f17e8     	cset	w8, eq
+     2a4: 37000068     	tbnz	w8, #0, 0x2b0 <Dmx::Get()+0x50>
+     2a8: 14000001     	b	0x2ac <Dmx::Get()+0x4c>
+     2ac: 94000000     	bl	0x2ac <Dmx::Get()+0x4c>
+     2b0: f94003e0     	ldr	x0, [sp]
+     2b4: a9417bfd     	ldp	x29, x30, [sp, #16]
+     2b8: 910083ff     	add	sp, sp, #32
+     2bc: d65f03c0     	ret
+
+00000000000002c0 <Dmx::GetOutputStyle(unsigned int) const>:
+     2c0: d100c3ff     	sub	sp, sp, #48
+     2c4: a9027bfd     	stp	x29, x30, [sp, #32]
+     2c8: 910083fd     	add	x29, sp, #32
+     2cc: 90000008     	adrp	x8, 0x0 <Dmx::GetOutputStyle(unsigned int) const+0xc>
+     2d0: f9400108     	ldr	x8, [x8]
+     2d4: f9400108     	ldr	x8, [x8]
+     2d8: f81f83a8     	stur	x8, [x29, #-8]
+     2dc: f9000be0     	str	x0, [sp, #16]
+     2e0: b9000fe1     	str	w1, [sp, #12]
+     2e4: f85f83a9     	ldur	x9, [x29, #-8]
+     2e8: 90000008     	adrp	x8, 0x0 <Dmx::GetOutputStyle(unsigned int) const+0x28>
+     2ec: f9400108     	ldr	x8, [x8]
+     2f0: f9400108     	ldr	x8, [x8]
+     2f4: eb090108     	subs	x8, x8, x9
+     2f8: 1a9f17e8     	cset	w8, eq
+     2fc: 37000068     	tbnz	w8, #0, 0x308 <Dmx::GetOutputStyle(unsigned int) const+0x48>
+     300: 14000001     	b	0x304 <Dmx::GetOutputStyle(unsigned int) const+0x44>
+     304: 94000000     	bl	0x304 <Dmx::GetOutputStyle(unsigned int) const+0x44>
+     308: 52800000     	mov	w0, #0
+     30c: a9427bfd     	ldp	x29, x30, [sp, #32]
+     310: 9100c3ff     	add	sp, sp, #48
+     314: d65f03c0     	ret
+
+0000000000000318 <hal::panel_led_on(unsigned int)>:
+     318: d10083ff     	sub	sp, sp, #32
+     31c: a9017bfd     	stp	x29, x30, [sp, #16]
+     320: 910043fd     	add	x29, sp, #16
+     324: 90000008     	adrp	x8, 0x0 <hal::panel_led_on(unsigned int)+0xc>
+     328: f9400108     	ldr	x8, [x8]
+     32c: f9400108     	ldr	x8, [x8]
+     330: f90007e8     	str	x8, [sp, #8]
+     334: b90007e0     	str	w0, [sp, #4]
+     338: f94007e9     	ldr	x9, [sp, #8]
+     33c: 90000008     	adrp	x8, 0x0 <hal::panel_led_on(unsigned int)+0x24>
+     340: f9400108     	ldr	x8, [x8]
+     344: f9400108     	ldr	x8, [x8]
+     348: eb090108     	subs	x8, x8, x9
+     34c: 1a9f17e8     	cset	w8, eq
+     350: 37000068     	tbnz	w8, #0, 0x35c <hal::panel_led_on(unsigned int)+0x44>
+     354: 14000001     	b	0x358 <hal::panel_led_on(unsigned int)+0x40>
+     358: 94000000     	bl	0x358 <hal::panel_led_on(unsigned int)+0x40>
+     35c: a9417bfd     	ldp	x29, x30, [sp, #16]
+     360: 910083ff     	add	sp, sp, #32
+     364: d65f03c0     	ret
+
+0000000000000368 <DmxSend::Stop(unsigned int)>:
+     368: d101c3ff     	sub	sp, sp, #112
+     36c: a9067bfd     	stp	x29, x30, [sp, #96]
+     370: 910183fd     	add	x29, sp, #96
+     374: 90000008     	adrp	x8, 0x0 <DmxSend::Stop(unsigned int)+0xc>
+     378: f9400108     	ldr	x8, [x8]
+     37c: f9400108     	ldr	x8, [x8]
+     380: f81f83a8     	stur	x8, [x29, #-8]
+     384: f81f03a0     	stur	x0, [x29, #-16]
+     388: b81ec3a1     	stur	w1, [x29, #-20]
+     38c: 910003e9     	mov	x9, sp
+     390: 90000008     	adrp	x8, 0x0 <DmxSend::Stop(unsigned int)+0x28>
+     394: 91000108     	add	x8, x8, #0
+     398: f81d83a8     	stur	x8, [x29, #-40]
+     39c: f9000128     	str	x8, [x9]
+     3a0: 90000008     	adrp	x8, 0x0 <DmxSend::Stop(unsigned int)+0x38>
+     3a4: 91000108     	add	x8, x8, #0
+     3a8: f9001be8     	str	x8, [sp, #48]
+     3ac: f9000528     	str	x8, [x9, #8]
+     3b0: d28008a8     	mov	x8, #69
+     3b4: f9000928     	str	x8, [x9, #16]
+     3b8: 90000000     	adrp	x0, 0x0 <DmxSend::Stop(unsigned int)+0x50>
+     3bc: 91000000     	add	x0, x0, #0
+     3c0: 94000000     	bl	0x3c0 <DmxSend::Stop(unsigned int)+0x58>
+     3c4: b85ec3a9     	ldur	w9, [x29, #-20]
+     3c8: aa0903e8     	mov	x8, x9
+     3cc: f81e03a8     	stur	x8, [x29, #-32]
+     3d0: 90000008     	adrp	x8, 0x0 <DmxSend::Stop(unsigned int)+0x68>
+     3d4: 39400100     	ldrb	w0, [x8]
+     3d8: b85ec3a8     	ldur	w8, [x29, #-20]
+     3dc: 12001d01     	and	w1, w8, #0xff
+     3e0: 94000000     	bl	0x3e0 <DmxSend::Stop(unsigned int)+0x78>
+     3e4: f9401beb     	ldr	x11, [sp, #48]
+     3e8: f85d83aa     	ldur	x10, [x29, #-40]
+     3ec: f85e03a8     	ldur	x8, [x29, #-32]
+     3f0: 910003e9     	mov	x9, sp
+     3f4: f900012b     	str	x11, [x9]
+     3f8: f900052a     	str	x10, [x9, #8]
+     3fc: d28008ca     	mov	x10, #70
+     400: f900092a     	str	x10, [x9, #16]
+     404: f9000d28     	str	x8, [x9, #24]
+     408: aa0003e8     	mov	x8, x0
+     40c: 92400108     	and	x8, x8, #0x1
+     410: f9001128     	str	x8, [x9, #32]
+     414: 90000000     	adrp	x0, 0x0 <DmxSend::Stop(unsigned int)+0xac>
+     418: 91000000     	add	x0, x0, #0
+     41c: 94000000     	bl	0x41c <DmxSend::Stop(unsigned int)+0xb4>
+     420: b85ec3a8     	ldur	w8, [x29, #-20]
+     424: 71002108     	subs	w8, w8, #8
+     428: 1a9f27e8     	cset	w8, lo
+     42c: 37000148     	tbnz	w8, #0, 0x454 <DmxSend::Stop(unsigned int)+0xec>
+     430: 14000001     	b	0x434 <DmxSend::Stop(unsigned int)+0xcc>
+     434: 90000000     	adrp	x0, 0x0 <DmxSend::Stop(unsigned int)+0xcc>
+     438: 91000000     	add	x0, x0, #0
+     43c: 90000001     	adrp	x1, 0x0 <DmxSend::Stop(unsigned int)+0xd4>
+     440: 91000021     	add	x1, x1, #0
+     444: 52800902     	mov	w2, #72
+     448: 90000003     	adrp	x3, 0x0 <DmxSend::Stop(unsigned int)+0xe0>
+     44c: 91000063     	add	x3, x3, #0
+     450: 94000000     	bl	0x450 <DmxSend::Stop(unsigned int)+0xe8>
+     454: 14000001     	b	0x458 <DmxSend::Stop(unsigned int)+0xf0>
+     458: 90000008     	adrp	x8, 0x0 <DmxSend::Stop(unsigned int)+0xf0>
+     45c: 39400100     	ldrb	w0, [x8]
+     460: b85ec3a1     	ldur	w1, [x29, #-20]
+     464: 94000000     	bl	0x464 <DmxSend::Stop(unsigned int)+0xfc>
+     468: 370001e0     	tbnz	w0, #0, 0x4a4 <DmxSend::Stop(unsigned int)+0x13c>
+     46c: 14000001     	b	0x470 <DmxSend::Stop(unsigned int)+0x108>
+     470: 910003e9     	mov	x9, sp
+     474: 90000008     	adrp	x8, 0x0 <DmxSend::Stop(unsigned int)+0x10c>
+     478: 91000108     	add	x8, x8, #0
+     47c: f9000128     	str	x8, [x9]
+     480: 90000008     	adrp	x8, 0x0 <DmxSend::Stop(unsigned int)+0x118>
+     484: 91000108     	add	x8, x8, #0
+     488: f9000528     	str	x8, [x9, #8]
+     48c: d2800968     	mov	x8, #75
+     490: f9000928     	str	x8, [x9, #16]
+     494: 90000000     	adrp	x0, 0x0 <DmxSend::Stop(unsigned int)+0x12c>
+     498: 91000000     	add	x0, x0, #0
+     49c: 94000000     	bl	0x49c <DmxSend::Stop(unsigned int)+0x134>
+     4a0: 14000020     	b	0x520 <DmxSend::Stop(unsigned int)+0x1b8>
+     4a4: 90000009     	adrp	x9, 0x0 <DmxSend::Stop(unsigned int)+0x13c>
+     4a8: 39400128     	ldrb	w8, [x9]
+     4ac: b85ec3ab     	ldur	w11, [x29, #-20]
+     4b0: 5280002a     	mov	w10, #1
+     4b4: 1acb214a     	lsl	w10, w10, w11
+     4b8: 0a2a0108     	bic	w8, w8, w10
+     4bc: 39000128     	strb	w8, [x9]
+     4c0: 94000000     	bl	0x4c0 <DmxSend::Stop(unsigned int)+0x158>
+     4c4: b85ec3a1     	ldur	w1, [x29, #-20]
+     4c8: 52800002     	mov	w2, #0
+     4cc: b9002fe2     	str	w2, [sp, #44]
+     4d0: 52800008     	mov	w8, #0
+     4d4: 12000103     	and	w3, w8, #0x1
+     4d8: 94000000     	bl	0x4d8 <DmxSend::Stop(unsigned int)+0x170>
+     4dc: b9402fe8     	ldr	w8, [sp, #44]
+     4e0: b85ec3a9     	ldur	w9, [x29, #-20]
+     4e4: 1ac92100     	lsl	w0, w8, w9
+     4e8: 94000000     	bl	0x4e8 <DmxSend::Stop(unsigned int)+0x180>
+     4ec: 910003e9     	mov	x9, sp
+     4f0: 90000008     	adrp	x8, 0x0 <DmxSend::Stop(unsigned int)+0x188>
+     4f4: 91000108     	add	x8, x8, #0
+     4f8: f9000128     	str	x8, [x9]
+     4fc: 90000008     	adrp	x8, 0x0 <DmxSend::Stop(unsigned int)+0x194>
+     500: 91000108     	add	x8, x8, #0
+     504: f9000528     	str	x8, [x9, #8]
+     508: d2800aa8     	mov	x8, #85
+     50c: f9000928     	str	x8, [x9, #16]
+     510: 90000000     	adrp	x0, 0x0 <DmxSend::Stop(unsigned int)+0x1a8>
+     514: 91000000     	add	x0, x0, #0
+     518: 94000000     	bl	0x518 <DmxSend::Stop(unsigned int)+0x1b0>
+     51c: 14000001     	b	0x520 <DmxSend::Stop(unsigned int)+0x1b8>
+     520: f85f83a9     	ldur	x9, [x29, #-8]
+     524: 90000008     	adrp	x8, 0x0 <DmxSend::Stop(unsigned int)+0x1bc>
+     528: f9400108     	ldr	x8, [x8]
+     52c: f9400108     	ldr	x8, [x8]
+     530: eb090108     	subs	x8, x8, x9
+     534: 1a9f17e8     	cset	w8, eq
+     538: 37000068     	tbnz	w8, #0, 0x544 <DmxSend::Stop(unsigned int)+0x1dc>
+     53c: 14000001     	b	0x540 <DmxSend::Stop(unsigned int)+0x1d8>
+     540: 94000000     	bl	0x540 <DmxSend::Stop(unsigned int)+0x1d8>
+     544: a9467bfd     	ldp	x29, x30, [sp, #96]
+     548: 9101c3ff     	add	sp, sp, #112
+     54c: d65f03c0     	ret
+
+0000000000000550 <hal::panel_led_off(unsigned int)>:
+     550: d10083ff     	sub	sp, sp, #32
+     554: a9017bfd     	stp	x29, x30, [sp, #16]
+     558: 910043fd     	add	x29, sp, #16
+     55c: 90000008     	adrp	x8, 0x0 <hal::panel_led_off(unsigned int)+0xc>
+     560: f9400108     	ldr	x8, [x8]
+     564: f9400108     	ldr	x8, [x8]
+     568: f90007e8     	str	x8, [sp, #8]
+     56c: b90007e0     	str	w0, [sp, #4]
+     570: f94007e9     	ldr	x9, [sp, #8]
+     574: 90000008     	adrp	x8, 0x0 <hal::panel_led_off(unsigned int)+0x24>
+     578: f9400108     	ldr	x8, [x8]
+     57c: f9400108     	ldr	x8, [x8]
+     580: eb090108     	subs	x8, x8, x9
+     584: 1a9f17e8     	cset	w8, eq
+     588: 37000068     	tbnz	w8, #0, 0x594 <hal::panel_led_off(unsigned int)+0x44>
+     58c: 14000001     	b	0x590 <hal::panel_led_off(unsigned int)+0x40>
+     590: 94000000     	bl	0x590 <hal::panel_led_off(unsigned int)+0x40>
+     594: a9417bfd     	ldp	x29, x30, [sp, #16]
+     598: 910083ff     	add	sp, sp, #32
+     59c: d65f03c0     	ret
+
+00000000000005a0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)>:
+     5a0: d10143ff     	sub	sp, sp, #80
+     5a4: a9047bfd     	stp	x29, x30, [sp, #64]
+     5a8: 910103fd     	add	x29, sp, #64
+     5ac: 90000008     	adrp	x8, 0x0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xc>
+     5b0: f9400108     	ldr	x8, [x8]
+     5b4: f9400108     	ldr	x8, [x8]
+     5b8: f81f83a8     	stur	x8, [x29, #-8]
+     5bc: f81f03a0     	stur	x0, [x29, #-16]
+     5c0: b81ec3a1     	stur	w1, [x29, #-20]
+     5c4: f90013e2     	str	x2, [sp, #32]
+     5c8: b9001fe3     	str	w3, [sp, #28]
+     5cc: 52800028     	mov	w8, #1
+     5d0: 0a080088     	and	w8, w4, w8
+     5d4: 39006fe8     	strb	w8, [sp, #27]
+     5d8: b85ec3a8     	ldur	w8, [x29, #-20]
+     5dc: 71002108     	subs	w8, w8, #8
+     5e0: 1a9f27e8     	cset	w8, lo
+     5e4: 37000148     	tbnz	w8, #0, 0x60c <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x6c>
+     5e8: 14000001     	b	0x5ec <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x4c>
+     5ec: 90000000     	adrp	x0, 0x0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x4c>
+     5f0: 91000000     	add	x0, x0, #0
+     5f4: 90000001     	adrp	x1, 0x0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x54>
+     5f8: 91000021     	add	x1, x1, #0
+     5fc: 52800c02     	mov	w2, #96
+     600: 90000003     	adrp	x3, 0x0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x60>
+     604: 91000063     	add	x3, x3, #0
+     608: 94000000     	bl	0x608 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x68>
+     60c: 14000001     	b	0x610 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x70>
+     610: f94013e8     	ldr	x8, [sp, #32]
+     614: f1000108     	subs	x8, x8, #0
+     618: 1a9f07e8     	cset	w8, ne
+     61c: 37000148     	tbnz	w8, #0, 0x644 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xa4>
+     620: 14000001     	b	0x624 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x84>
+     624: 90000000     	adrp	x0, 0x0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x84>
+     628: 91000000     	add	x0, x0, #0
+     62c: 90000001     	adrp	x1, 0x0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x8c>
+     630: 91000021     	add	x1, x1, #0
+     634: 52800c22     	mov	w2, #97
+     638: 90000003     	adrp	x3, 0x0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x98>
+     63c: 91000063     	add	x3, x3, #0
+     640: 94000000     	bl	0x640 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xa0>
+     644: 14000001     	b	0x648 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xa8>
+     648: b9401fe8     	ldr	w8, [sp, #28]
+     64c: 71000108     	subs	w8, w8, #0
+     650: 1a9f07e8     	cset	w8, ne
+     654: 37000068     	tbnz	w8, #0, 0x660 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xc0>
+     658: 14000001     	b	0x65c <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xbc>
+     65c: 14000025     	b	0x6f0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x150>
+     660: 39406fe8     	ldrb	w8, [sp, #27]
+     664: 360001e8     	tbz	w8, #0, 0x6a0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x100>
+     668: 14000001     	b	0x66c <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xcc>
+     66c: 94000000     	bl	0x66c <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xcc>
+     670: b85ec3a1     	ldur	w1, [x29, #-20]
+     674: f94013e2     	ldr	x2, [sp, #32]
+     678: b9401fe3     	ldr	w3, [sp, #28]
+     67c: 94000000     	bl	0x67c <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xdc>
+     680: 94000000     	bl	0x680 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xe0>
+     684: b85ec3a1     	ldur	w1, [x29, #-20]
+     688: 94000000     	bl	0x688 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xe8>
+     68c: b85ec3a9     	ldur	w9, [x29, #-20]
+     690: 52800008     	mov	w8, #0
+     694: 1ac92100     	lsl	w0, w8, w9
+     698: 94000000     	bl	0x698 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0xf8>
+     69c: 14000015     	b	0x6f0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x150>
+     6a0: b85ec3a8     	ldur	w8, [x29, #-20]
+     6a4: d2804109     	mov	x9, #520
+     6a8: f90007e9     	str	x9, [sp, #8]
+     6ac: 9b097d09     	mul	x9, x8, x9
+     6b0: 90000008     	adrp	x8, 0x0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x110>
+     6b4: 91000108     	add	x8, x8, #0
+     6b8: f9000be8     	str	x8, [sp, #16]
+     6bc: 8b090100     	add	x0, x8, x9
+     6c0: f94013e1     	ldr	x1, [sp, #32]
+     6c4: b9401fe8     	ldr	w8, [sp, #28]
+     6c8: aa0803e2     	mov	x2, x8
+     6cc: 94000000     	bl	0x6cc <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x12c>
+     6d0: f94007eb     	ldr	x11, [sp, #8]
+     6d4: f9400be9     	ldr	x9, [sp, #16]
+     6d8: b9401fe8     	ldr	w8, [sp, #28]
+     6dc: b85ec3aa     	ldur	w10, [x29, #-20]
+     6e0: 9b0b7d4a     	mul	x10, x10, x11
+     6e4: 8b0a0129     	add	x9, x9, x10
+     6e8: b9020528     	str	w8, [x9, #516]
+     6ec: 14000001     	b	0x6f0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x150>
+     6f0: f85f83a9     	ldur	x9, [x29, #-8]
+     6f4: 90000008     	adrp	x8, 0x0 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x154>
+     6f8: f9400108     	ldr	x8, [x8]
+     6fc: f9400108     	ldr	x8, [x8]
+     700: eb090108     	subs	x8, x8, x9
+     704: 1a9f17e8     	cset	w8, eq
+     708: 37000068     	tbnz	w8, #0, 0x714 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x174>
+     70c: 14000001     	b	0x710 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x170>
+     710: 94000000     	bl	0x710 <DmxSend::SetData(unsigned int, unsigned char const*, unsigned int, bool)+0x170>
+     714: a9447bfd     	ldp	x29, x30, [sp, #64]
+     718: 910143ff     	add	sp, sp, #80
+     71c: d65f03c0     	ret
+
+0000000000000720 <DmxSend::Sync(unsigned int)>:
+     720: d100c3ff     	sub	sp, sp, #48
+     724: a9027bfd     	stp	x29, x30, [sp, #32]
+     728: 910083fd     	add	x29, sp, #32
+     72c: 90000008     	adrp	x8, 0x0 <DmxSend::Sync(unsigned int)+0xc>
+     730: f9400108     	ldr	x8, [x8]
+     734: f9400108     	ldr	x8, [x8]
+     738: f81f83a8     	stur	x8, [x29, #-8]
+     73c: f9000be0     	str	x0, [sp, #16]
+     740: b9000fe1     	str	w1, [sp, #12]
+     744: b9400fe8     	ldr	w8, [sp, #12]
+     748: d2804109     	mov	x9, #520
+     74c: 9b097d09     	mul	x9, x8, x9
+     750: 90000008     	adrp	x8, 0x0 <DmxSend::Sync(unsigned int)+0x30>
+     754: 91000108     	add	x8, x8, #0
+     758: 8b090108     	add	x8, x8, x9
+     75c: b9420508     	ldr	w8, [x8, #516]
+     760: 71000108     	subs	w8, w8, #0
+     764: 1a9f07e8     	cset	w8, ne
+     768: 37000148     	tbnz	w8, #0, 0x790 <DmxSend::Sync(unsigned int)+0x70>
+     76c: 14000001     	b	0x770 <DmxSend::Sync(unsigned int)+0x50>
+     770: 90000000     	adrp	x0, 0x0 <DmxSend::Sync(unsigned int)+0x50>
+     774: 91000000     	add	x0, x0, #0
+     778: 90000001     	adrp	x1, 0x0 <DmxSend::Sync(unsigned int)+0x58>
+     77c: 91000021     	add	x1, x1, #0
+     780: 52800ec2     	mov	w2, #118
+     784: 90000003     	adrp	x3, 0x0 <DmxSend::Sync(unsigned int)+0x64>
+     788: 91000063     	add	x3, x3, #0
+     78c: 94000000     	bl	0x78c <DmxSend::Sync(unsigned int)+0x6c>
+     790: 14000001     	b	0x794 <DmxSend::Sync(unsigned int)+0x74>
+     794: 94000000     	bl	0x794 <DmxSend::Sync(unsigned int)+0x74>
+     798: b9400fe1     	ldr	w1, [sp, #12]
+     79c: b9400fe8     	ldr	w8, [sp, #12]
+     7a0: d280410a     	mov	x10, #520
+     7a4: 9b0a7d0b     	mul	x11, x8, x10
+     7a8: 90000008     	adrp	x8, 0x0 <DmxSend::Sync(unsigned int)+0x88>
+     7ac: 91000108     	add	x8, x8, #0
+     7b0: aa0803e9     	mov	x9, x8
+     7b4: 8b0b0122     	add	x2, x9, x11
+     7b8: b9400fe9     	ldr	w9, [sp, #12]
+     7bc: 9b0a7d29     	mul	x9, x9, x10
+     7c0: 8b090108     	add	x8, x8, x9
+     7c4: b9420503     	ldr	w3, [x8, #516]
+     7c8: 94000000     	bl	0x7c8 <DmxSend::Sync(unsigned int)+0xa8>
+     7cc: f85f83a9     	ldur	x9, [x29, #-8]
+     7d0: 90000008     	adrp	x8, 0x0 <DmxSend::Sync(unsigned int)+0xb0>
+     7d4: f9400108     	ldr	x8, [x8]
+     7d8: f9400108     	ldr	x8, [x8]
+     7dc: eb090108     	subs	x8, x8, x9
+     7e0: 1a9f17e8     	cset	w8, eq
+     7e4: 37000068     	tbnz	w8, #0, 0x7f0 <DmxSend::Sync(unsigned int)+0xd0>
+     7e8: 14000001     	b	0x7ec <DmxSend::Sync(unsigned int)+0xcc>
+     7ec: 94000000     	bl	0x7ec <DmxSend::Sync(unsigned int)+0xcc>
+     7f0: a9427bfd     	ldp	x29, x30, [sp, #32]
+     7f4: 9100c3ff     	add	sp, sp, #48
+     7f8: d65f03c0     	ret
+
+00000000000007fc <DmxSend::Sync(bool)>:
+     7fc: d100c3ff     	sub	sp, sp, #48
+     800: a9027bfd     	stp	x29, x30, [sp, #32]
+     804: 910083fd     	add	x29, sp, #32
+     808: 90000008     	adrp	x8, 0x0 <DmxSend::Sync(bool)+0xc>
+     80c: f9400108     	ldr	x8, [x8]
+     810: f9400108     	ldr	x8, [x8]
+     814: f81f83a8     	stur	x8, [x29, #-8]
+     818: f9000be0     	str	x0, [sp, #16]
+     81c: 52800028     	mov	w8, #1
+     820: 0a080028     	and	w8, w1, w8
+     824: 39003fe8     	strb	w8, [sp, #15]
+     828: f9400be8     	ldr	x8, [sp, #16]
+     82c: f90003e8     	str	x8, [sp]
+     830: 94000000     	bl	0x830 <DmxSend::Sync(bool)+0x34>
+     834: 39403fe8     	ldrb	w8, [sp, #15]
+     838: 12000101     	and	w1, w8, #0x1
+     83c: 94000000     	bl	0x83c <DmxSend::Sync(bool)+0x40>
+     840: b9000bff     	str	wzr, [sp, #8]
+     844: 14000001     	b	0x848 <DmxSend::Sync(bool)+0x4c>
+     848: b9400be8     	ldr	w8, [sp, #8]
+     84c: 71001108     	subs	w8, w8, #4
+     850: 1a9f37e8     	cset	w8, hs
+     854: 37000488     	tbnz	w8, #0, 0x8e4 <DmxSend::Sync(bool)+0xe8>
+     858: 14000001     	b	0x85c <DmxSend::Sync(bool)+0x60>
+     85c: b9400be8     	ldr	w8, [sp, #8]
+     860: d2804109     	mov	x9, #520
+     864: 9b097d09     	mul	x9, x8, x9
+     868: 90000008     	adrp	x8, 0x0 <DmxSend::Sync(bool)+0x6c>
+     86c: 91000108     	add	x8, x8, #0
+     870: 8b090108     	add	x8, x8, x9
+     874: b9420508     	ldr	w8, [x8, #516]
+     878: 71000108     	subs	w8, w8, #0
+     87c: 1a9f17e8     	cset	w8, eq
+     880: 37000288     	tbnz	w8, #0, 0x8d0 <DmxSend::Sync(bool)+0xd4>
+     884: 14000001     	b	0x888 <DmxSend::Sync(bool)+0x8c>
+     888: b9400be8     	ldr	w8, [sp, #8]
+     88c: d2804109     	mov	x9, #520
+     890: 9b097d09     	mul	x9, x8, x9
+     894: 90000008     	adrp	x8, 0x0 <DmxSend::Sync(bool)+0x98>
+     898: 91000108     	add	x8, x8, #0
+     89c: 8b090108     	add	x8, x8, x9
+     8a0: b902051f     	str	wzr, [x8, #516]
+     8a4: 90000008     	adrp	x8, 0x0 <DmxSend::Sync(bool)+0xa8>
+     8a8: 39400100     	ldrb	w0, [x8]
+     8ac: b9400be1     	ldr	w1, [sp, #8]
+     8b0: 94000000     	bl	0x8b0 <DmxSend::Sync(bool)+0xb4>
+     8b4: 370000c0     	tbnz	w0, #0, 0x8cc <DmxSend::Sync(bool)+0xd0>
+     8b8: 14000001     	b	0x8bc <DmxSend::Sync(bool)+0xc0>
+     8bc: f94003e0     	ldr	x0, [sp]
+     8c0: b9400be1     	ldr	w1, [sp, #8]
+     8c4: 94000000     	bl	0x8c4 <DmxSend::Sync(bool)+0xc8>
+     8c8: 14000001     	b	0x8cc <DmxSend::Sync(bool)+0xd0>
+     8cc: 14000001     	b	0x8d0 <DmxSend::Sync(bool)+0xd4>
+     8d0: 14000001     	b	0x8d4 <DmxSend::Sync(bool)+0xd8>
+     8d4: b9400be8     	ldr	w8, [sp, #8]
+     8d8: 11000508     	add	w8, w8, #1
+     8dc: b9000be8     	str	w8, [sp, #8]
+     8e0: 17ffffda     	b	0x848 <DmxSend::Sync(bool)+0x4c>
+     8e4: f85f83a9     	ldur	x9, [x29, #-8]
+     8e8: 90000008     	adrp	x8, 0x0 <DmxSend::Sync(bool)+0xec>
+     8ec: f9400108     	ldr	x8, [x8]
+     8f0: f9400108     	ldr	x8, [x8]
+     8f4: eb090108     	subs	x8, x8, x9
+     8f8: 1a9f17e8     	cset	w8, eq
+     8fc: 37000068     	tbnz	w8, #0, 0x908 <DmxSend::Sync(bool)+0x10c>
+     900: 14000001     	b	0x904 <DmxSend::Sync(bool)+0x108>
+     904: 94000000     	bl	0x904 <DmxSend::Sync(bool)+0x108>
+     908: a9427bfd     	ldp	x29, x30, [sp, #32]
+     90c: 9100c3ff     	add	sp, sp, #48
+     910: d65f03c0     	ret
+
+0000000000000914 <DmxSend::Print()>:
+     914: d100c3ff     	sub	sp, sp, #48
+     918: a9027bfd     	stp	x29, x30, [sp, #32]
+     91c: 910083fd     	add	x29, sp, #32
+     920: 90000008     	adrp	x8, 0x0 <DmxSend::Print()+0xc>
+     924: f9400108     	ldr	x8, [x8]
+     928: f9400108     	ldr	x8, [x8]
+     92c: f81f83a8     	stur	x8, [x29, #-8]
+     930: f9000be0     	str	x0, [sp, #16]
+     934: 90000000     	adrp	x0, 0x0 <DmxSend::Print()+0x20>
+     938: 91000000     	add	x0, x0, #0
+     93c: 94000000     	bl	0x93c <DmxSend::Print()+0x28>
+     940: 94000000     	bl	0x940 <DmxSend::Print()+0x2c>
+     944: 94000000     	bl	0x944 <DmxSend::Print()+0x30>
+     948: 910003e9     	mov	x9, sp
+     94c: aa0003e8     	mov	x8, x0
+     950: f9000128     	str	x8, [x9]
+     954: 90000000     	adrp	x0, 0x0 <DmxSend::Print()+0x40>
+     958: 91000000     	add	x0, x0, #0
+     95c: 94000000     	bl	0x95c <DmxSend::Print()+0x48>
+     960: 94000000     	bl	0x960 <DmxSend::Print()+0x4c>
+     964: 94000000     	bl	0x964 <DmxSend::Print()+0x50>
+     968: 910003e9     	mov	x9, sp
+     96c: aa0003e8     	mov	x8, x0
+     970: f9000128     	str	x8, [x9]
+     974: 90000000     	adrp	x0, 0x0 <DmxSend::Print()+0x60>
+     978: 91000000     	add	x0, x0, #0
+     97c: 94000000     	bl	0x97c <DmxSend::Print()+0x68>
+     980: 94000000     	bl	0x980 <DmxSend::Print()+0x6c>
+     984: 94000000     	bl	0x984 <DmxSend::Print()+0x70>
+     988: 52884808     	mov	w8, #16960
+     98c: 72a001e8     	movk	w8, #15, lsl #16
+     990: 1ac0090a     	udiv	w10, w8, w0
+     994: 910003e9     	mov	x9, sp
+     998: aa0a03e8     	mov	x8, x10
+     99c: f9000128     	str	x8, [x9]
+     9a0: 90000000     	adrp	x0, 0x0 <DmxSend::Print()+0x8c>
+     9a4: 91000000     	add	x0, x0, #0
+     9a8: 94000000     	bl	0x9a8 <DmxSend::Print()+0x94>
+     9ac: 94000000     	bl	0x9ac <DmxSend::Print()+0x98>
+     9b0: 94000000     	bl	0x9b0 <DmxSend::Print()+0x9c>
+     9b4: 910003e9     	mov	x9, sp
+     9b8: aa0003e8     	mov	x8, x0
+     9bc: 92403d08     	and	x8, x8, #0xffff
+     9c0: f9000128     	str	x8, [x9]
+     9c4: 90000000     	adrp	x0, 0x0 <DmxSend::Print()+0xb0>
+     9c8: 91000000     	add	x0, x0, #0
+     9cc: 94000000     	bl	0x9cc <DmxSend::Print()+0xb8>
+     9d0: f85f83a9     	ldur	x9, [x29, #-8]
+     9d4: 90000008     	adrp	x8, 0x0 <DmxSend::Print()+0xc0>
+     9d8: f9400108     	ldr	x8, [x8]
+     9dc: f9400108     	ldr	x8, [x8]
+     9e0: eb090108     	subs	x8, x8, x9
+     9e4: 1a9f17e8     	cset	w8, eq
+     9e8: 37000068     	tbnz	w8, #0, 0x9f4 <DmxSend::Print()+0xe0>
+     9ec: 14000001     	b	0x9f0 <DmxSend::Print()+0xdc>
+     9f0: 94000000     	bl	0x9f0 <DmxSend::Print()+0xdc>
+     9f4: a9427bfd     	ldp	x29, x30, [sp, #32]
+     9f8: 9100c3ff     	add	sp, sp, #48
+     9fc: d65f03c0     	ret
+
+0000000000000a00 <Dmx::GetDmxBreakTime() const>:
+     a00: d100c3ff     	sub	sp, sp, #48
+     a04: a9027bfd     	stp	x29, x30, [sp, #32]
+     a08: 910083fd     	add	x29, sp, #32
+     a0c: 90000008     	adrp	x8, 0x0 <Dmx::GetDmxBreakTime() const+0xc>
+     a10: f9400108     	ldr	x8, [x8]
+     a14: f9400108     	ldr	x8, [x8]
+     a18: f81f83a8     	stur	x8, [x29, #-8]
+     a1c: f9000be0     	str	x0, [sp, #16]
+     a20: f9400be8     	ldr	x8, [sp, #16]
+     a24: b9400108     	ldr	w8, [x8]
+     a28: b9000fe8     	str	w8, [sp, #12]
+     a2c: f85f83a9     	ldur	x9, [x29, #-8]
+     a30: 90000008     	adrp	x8, 0x0 <Dmx::GetDmxBreakTime() const+0x30>
+     a34: f9400108     	ldr	x8, [x8]
+     a38: f9400108     	ldr	x8, [x8]
+     a3c: eb090108     	subs	x8, x8, x9
+     a40: 1a9f17e8     	cset	w8, eq
+     a44: 37000068     	tbnz	w8, #0, 0xa50 <Dmx::GetDmxBreakTime() const+0x50>
+     a48: 14000001     	b	0xa4c <Dmx::GetDmxBreakTime() const+0x4c>
+     a4c: 94000000     	bl	0xa4c <Dmx::GetDmxBreakTime() const+0x4c>
+     a50: b9400fe0     	ldr	w0, [sp, #12]
+     a54: a9427bfd     	ldp	x29, x30, [sp, #32]
+     a58: 9100c3ff     	add	sp, sp, #48
+     a5c: d65f03c0     	ret
+
+0000000000000a60 <Dmx::GetDmxMabTime() const>:
+     a60: d100c3ff     	sub	sp, sp, #48
+     a64: a9027bfd     	stp	x29, x30, [sp, #32]
+     a68: 910083fd     	add	x29, sp, #32
+     a6c: 90000008     	adrp	x8, 0x0 <Dmx::GetDmxMabTime() const+0xc>
+     a70: f9400108     	ldr	x8, [x8]
+     a74: f9400108     	ldr	x8, [x8]
+     a78: f81f83a8     	stur	x8, [x29, #-8]
+     a7c: f9000be0     	str	x0, [sp, #16]
+     a80: f9400be8     	ldr	x8, [sp, #16]
+     a84: b9400508     	ldr	w8, [x8, #4]
+     a88: b9000fe8     	str	w8, [sp, #12]
+     a8c: f85f83a9     	ldur	x9, [x29, #-8]
+     a90: 90000008     	adrp	x8, 0x0 <Dmx::GetDmxMabTime() const+0x30>
+     a94: f9400108     	ldr	x8, [x8]
+     a98: f9400108     	ldr	x8, [x8]
+     a9c: eb090108     	subs	x8, x8, x9
+     aa0: 1a9f17e8     	cset	w8, eq
+     aa4: 37000068     	tbnz	w8, #0, 0xab0 <Dmx::GetDmxMabTime() const+0x50>
+     aa8: 14000001     	b	0xaac <Dmx::GetDmxMabTime() const+0x4c>
+     aac: 94000000     	bl	0xaac <Dmx::GetDmxMabTime() const+0x4c>
+     ab0: b9400fe0     	ldr	w0, [sp, #12]
+     ab4: a9427bfd     	ldp	x29, x30, [sp, #32]
+     ab8: 9100c3ff     	add	sp, sp, #48
+     abc: d65f03c0     	ret
+
+0000000000000ac0 <Dmx::GetDmxPeriodTime() const>:
+     ac0: d100c3ff     	sub	sp, sp, #48
+     ac4: a9027bfd     	stp	x29, x30, [sp, #32]
+     ac8: 910083fd     	add	x29, sp, #32
+     acc: 90000008     	adrp	x8, 0x0 <Dmx::GetDmxPeriodTime() const+0xc>
+     ad0: f9400108     	ldr	x8, [x8]
+     ad4: f9400108     	ldr	x8, [x8]
+     ad8: f81f83a8     	stur	x8, [x29, #-8]
+     adc: f9000be0     	str	x0, [sp, #16]
+     ae0: f9400be8     	ldr	x8, [sp, #16]
+     ae4: b9400908     	ldr	w8, [x8, #8]
+     ae8: b9000fe8     	str	w8, [sp, #12]
+     aec: f85f83a9     	ldur	x9, [x29, #-8]
+     af0: 90000008     	adrp	x8, 0x0 <Dmx::GetDmxPeriodTime() const+0x30>
+     af4: f9400108     	ldr	x8, [x8]
+     af8: f9400108     	ldr	x8, [x8]
+     afc: eb090108     	subs	x8, x8, x9
+     b00: 1a9f17e8     	cset	w8, eq
+     b04: 37000068     	tbnz	w8, #0, 0xb10 <Dmx::GetDmxPeriodTime() const+0x50>
+     b08: 14000001     	b	0xb0c <Dmx::GetDmxPeriodTime() const+0x4c>
+     b0c: 94000000     	bl	0xb0c <Dmx::GetDmxPeriodTime() const+0x4c>
+     b10: b9400fe0     	ldr	w0, [sp, #12]
+     b14: a9427bfd     	ldp	x29, x30, [sp, #32]
+     b18: 9100c3ff     	add	sp, sp, #48
+     b1c: d65f03c0     	ret
+
+0000000000000b20 <Dmx::GetDmxSlots() const>:
+     b20: d100c3ff     	sub	sp, sp, #48
+     b24: a9027bfd     	stp	x29, x30, [sp, #32]
+     b28: 910083fd     	add	x29, sp, #32
+     b2c: 90000008     	adrp	x8, 0x0 <Dmx::GetDmxSlots() const+0xc>
+     b30: f9400108     	ldr	x8, [x8]
+     b34: f9400108     	ldr	x8, [x8]
+     b38: f81f83a8     	stur	x8, [x29, #-8]
+     b3c: f9000be0     	str	x0, [sp, #16]
+     b40: f9400be8     	ldr	x8, [sp, #16]
+     b44: 79402108     	ldrh	w8, [x8, #16]
+     b48: b9000fe8     	str	w8, [sp, #12]
+     b4c: f85f83a9     	ldur	x9, [x29, #-8]
+     b50: 90000008     	adrp	x8, 0x0 <Dmx::GetDmxSlots() const+0x30>
+     b54: f9400108     	ldr	x8, [x8]
+     b58: f9400108     	ldr	x8, [x8]
+     b5c: eb090108     	subs	x8, x8, x9
+     b60: 1a9f17e8     	cset	w8, eq
+     b64: 37000068     	tbnz	w8, #0, 0xb70 <Dmx::GetDmxSlots() const+0x50>
+     b68: 14000001     	b	0xb6c <Dmx::GetDmxSlots() const+0x4c>
+     b6c: 94000000     	bl	0xb6c <Dmx::GetDmxSlots() const+0x4c>
+     b70: b9400fe0     	ldr	w0, [sp, #12]
+     b74: a9427bfd     	ldp	x29, x30, [sp, #32]
+     b78: 9100c3ff     	add	sp, sp, #48
+     b7c: d65f03c0     	ret
+
+0000000000000b80 <DmxSend::~DmxSend()>:
+     b80: d100c3ff     	sub	sp, sp, #48
+     b84: a9027bfd     	stp	x29, x30, [sp, #32]
+     b88: 910083fd     	add	x29, sp, #32
+     b8c: 90000008     	adrp	x8, 0x0 <DmxSend::~DmxSend()+0xc>
+     b90: f9400108     	ldr	x8, [x8]
+     b94: f9400108     	ldr	x8, [x8]
+     b98: f81f83a8     	stur	x8, [x29, #-8]
+     b9c: f9000be0     	str	x0, [sp, #16]
+     ba0: f9400be0     	ldr	x0, [sp, #16]
+     ba4: f90007e0     	str	x0, [sp, #8]
+     ba8: 94000000     	bl	0xba8 <DmxSend::~DmxSend()+0x28>
+     bac: f85f83a9     	ldur	x9, [x29, #-8]
+     bb0: 90000008     	adrp	x8, 0x0 <DmxSend::~DmxSend()+0x30>
+     bb4: f9400108     	ldr	x8, [x8]
+     bb8: f9400108     	ldr	x8, [x8]
+     bbc: eb090108     	subs	x8, x8, x9
+     bc0: 1a9f17e8     	cset	w8, eq
+     bc4: 37000068     	tbnz	w8, #0, 0xbd0 <DmxSend::~DmxSend()+0x50>
+     bc8: 14000001     	b	0xbcc <DmxSend::~DmxSend()+0x4c>
+     bcc: 94000000     	bl	0xbcc <DmxSend::~DmxSend()+0x4c>
+     bd0: f94007e0     	ldr	x0, [sp, #8]
+     bd4: a9427bfd     	ldp	x29, x30, [sp, #32]
+     bd8: 9100c3ff     	add	sp, sp, #48
+     bdc: d65f03c0     	ret
+
+0000000000000be0 <DmxSend::~DmxSend()>:
+     be0: d100c3ff     	sub	sp, sp, #48
+     be4: a9027bfd     	stp	x29, x30, [sp, #32]
+     be8: 910083fd     	add	x29, sp, #32
+     bec: 90000008     	adrp	x8, 0x0 <DmxSend::~DmxSend()+0xc>
+     bf0: f9400108     	ldr	x8, [x8]
+     bf4: f9400108     	ldr	x8, [x8]
+     bf8: f81f83a8     	stur	x8, [x29, #-8]
+     bfc: f9000be0     	str	x0, [sp, #16]
+     c00: f9400be0     	ldr	x0, [sp, #16]
+     c04: f90007e0     	str	x0, [sp, #8]
+     c08: 94000000     	bl	0xc08 <DmxSend::~DmxSend()+0x28>
+     c0c: f94007e0     	ldr	x0, [sp, #8]
+     c10: 94000000     	bl	0xc10 <DmxSend::~DmxSend()+0x30>
+     c14: f85f83a9     	ldur	x9, [x29, #-8]
+     c18: 90000008     	adrp	x8, 0x0 <DmxSend::~DmxSend()+0x38>
+     c1c: f9400108     	ldr	x8, [x8]
+     c20: f9400108     	ldr	x8, [x8]
+     c24: eb090108     	subs	x8, x8, x9
+     c28: 1a9f17e8     	cset	w8, eq
+     c2c: 37000068     	tbnz	w8, #0, 0xc38 <DmxSend::~DmxSend()+0x58>
+     c30: 14000001     	b	0xc34 <DmxSend::~DmxSend()+0x54>
+     c34: 94000000     	bl	0xc34 <DmxSend::~DmxSend()+0x54>
+     c38: a9427bfd     	ldp	x29, x30, [sp, #32]
+     c3c: 9100c3ff     	add	sp, sp, #48
+     c40: d65f03c0     	ret
+
+0000000000000c44 <DmxSend::Blackout(bool)>:
+     c44: d100c3ff     	sub	sp, sp, #48
+     c48: a9027bfd     	stp	x29, x30, [sp, #32]
+     c4c: 910083fd     	add	x29, sp, #32
+     c50: 90000008     	adrp	x8, 0x0 <DmxSend::Blackout(bool)+0xc>
+     c54: f9400108     	ldr	x8, [x8]
+     c58: f9400108     	ldr	x8, [x8]
+     c5c: f81f83a8     	stur	x8, [x29, #-8]
+     c60: f9000be0     	str	x0, [sp, #16]
+     c64: 52800028     	mov	w8, #1
+     c68: 0a080028     	and	w8, w1, w8
+     c6c: 39003fe8     	strb	w8, [sp, #15]
+     c70: 94000000     	bl	0xc70 <DmxSend::Blackout(bool)+0x2c>
+     c74: 94000000     	bl	0xc74 <DmxSend::Blackout(bool)+0x30>
+     c78: f85f83a9     	ldur	x9, [x29, #-8]
+     c7c: 90000008     	adrp	x8, 0x0 <DmxSend::Blackout(bool)+0x38>
+     c80: f9400108     	ldr	x8, [x8]
+     c84: f9400108     	ldr	x8, [x8]
+     c88: eb090108     	subs	x8, x8, x9
+     c8c: 1a9f17e8     	cset	w8, eq
+     c90: 37000068     	tbnz	w8, #0, 0xc9c <DmxSend::Blackout(bool)+0x58>
+     c94: 14000001     	b	0xc98 <DmxSend::Blackout(bool)+0x54>
+     c98: 94000000     	bl	0xc98 <DmxSend::Blackout(bool)+0x54>
+     c9c: a9427bfd     	ldp	x29, x30, [sp, #32]
+     ca0: 9100c3ff     	add	sp, sp, #48
+     ca4: d65f03c0     	ret
+
+0000000000000ca8 <DmxSend::FullOn()>:
+     ca8: d10083ff     	sub	sp, sp, #32
+     cac: a9017bfd     	stp	x29, x30, [sp, #16]
+     cb0: 910043fd     	add	x29, sp, #16
+     cb4: 90000008     	adrp	x8, 0x0 <DmxSend::FullOn()+0xc>
+     cb8: f9400108     	ldr	x8, [x8]
+     cbc: f9400108     	ldr	x8, [x8]
+     cc0: f90007e8     	str	x8, [sp, #8]
+     cc4: f90003e0     	str	x0, [sp]
+     cc8: 94000000     	bl	0xcc8 <DmxSend::FullOn()+0x20>
+     ccc: 94000000     	bl	0xccc <DmxSend::FullOn()+0x24>
+     cd0: f94007e9     	ldr	x9, [sp, #8]
+     cd4: 90000008     	adrp	x8, 0x0 <DmxSend::FullOn()+0x2c>
+     cd8: f9400108     	ldr	x8, [x8]
+     cdc: f9400108     	ldr	x8, [x8]
+     ce0: eb090108     	subs	x8, x8, x9
+     ce4: 1a9f17e8     	cset	w8, eq
+     ce8: 37000068     	tbnz	w8, #0, 0xcf4 <DmxSend::FullOn()+0x4c>
+     cec: 14000001     	b	0xcf0 <DmxSend::FullOn()+0x48>
+     cf0: 94000000     	bl	0xcf0 <DmxSend::FullOn()+0x48>
+     cf4: a9417bfd     	ldp	x29, x30, [sp, #16]
+     cf8: 910083ff     	add	sp, sp, #32
+     cfc: d65f03c0     	ret
+
+0000000000000d00 <DmxSend::~DmxSend()>:
+     d00: d100c3ff     	sub	sp, sp, #48
+     d04: a9027bfd     	stp	x29, x30, [sp, #32]
+     d08: 910083fd     	add	x29, sp, #32
+     d0c: 90000008     	adrp	x8, 0x0 <DmxSend::~DmxSend()+0xc>
+     d10: f9400108     	ldr	x8, [x8]
+     d14: f9400108     	ldr	x8, [x8]
+     d18: f81f83a8     	stur	x8, [x29, #-8]
+     d1c: f9000be0     	str	x0, [sp, #16]
+     d20: f9400be0     	ldr	x0, [sp, #16]
+     d24: f90007e0     	str	x0, [sp, #8]
+     d28: 94000000     	bl	0xd28 <DmxSend::~DmxSend()+0x28>
+     d2c: f85f83a9     	ldur	x9, [x29, #-8]
+     d30: 90000008     	adrp	x8, 0x0 <DmxSend::~DmxSend()+0x30>
+     d34: f9400108     	ldr	x8, [x8]
+     d38: f9400108     	ldr	x8, [x8]
+     d3c: eb090108     	subs	x8, x8, x9
+     d40: 1a9f17e8     	cset	w8, eq
+     d44: 37000068     	tbnz	w8, #0, 0xd50 <DmxSend::~DmxSend()+0x50>
+     d48: 14000001     	b	0xd4c <DmxSend::~DmxSend()+0x4c>
+     d4c: 94000000     	bl	0xd4c <DmxSend::~DmxSend()+0x4c>
+     d50: f94007e0     	ldr	x0, [sp, #8]
+     d54: a9427bfd     	ldp	x29, x30, [sp, #32]
+     d58: 9100c3ff     	add	sp, sp, #48
+     d5c: d65f03c0     	ret
+
+0000000000000d60 <LightSet::~LightSet()>:
+     d60: d100c3ff     	sub	sp, sp, #48
+     d64: a9027bfd     	stp	x29, x30, [sp, #32]
+     d68: 910083fd     	add	x29, sp, #32
+     d6c: 90000008     	adrp	x8, 0x0 <LightSet::~LightSet()+0xc>
+     d70: f9400108     	ldr	x8, [x8]
+     d74: f9400108     	ldr	x8, [x8]
+     d78: f81f83a8     	stur	x8, [x29, #-8]
+     d7c: f9000be0     	str	x0, [sp, #16]
+     d80: f9400be8     	ldr	x8, [sp, #16]
+     d84: f90007e8     	str	x8, [sp, #8]
+     d88: f85f83a9     	ldur	x9, [x29, #-8]
+     d8c: 90000008     	adrp	x8, 0x0 <LightSet::~LightSet()+0x2c>
+     d90: f9400108     	ldr	x8, [x8]
+     d94: f9400108     	ldr	x8, [x8]
+     d98: eb090108     	subs	x8, x8, x9
+     d9c: 1a9f17e8     	cset	w8, eq
+     da0: 37000068     	tbnz	w8, #0, 0xdac <LightSet::~LightSet()+0x4c>
+     da4: 14000001     	b	0xda8 <LightSet::~LightSet()+0x48>
+     da8: 94000000     	bl	0xda8 <LightSet::~LightSet()+0x48>
+     dac: f94007e0     	ldr	x0, [sp, #8]
+     db0: a9427bfd     	ldp	x29, x30, [sp, #32]
+     db4: 9100c3ff     	add	sp, sp, #48
+     db8: d65f03c0     	ret
