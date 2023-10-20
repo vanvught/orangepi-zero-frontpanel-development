@@ -1,1 +1,1 @@
-# Development repositoy for lib-localconfig
+# Development repository for lib-localconfig
