@@ -78,6 +78,13 @@
 #include "firmwareversion.h"
 #include "software_version.h"
 
+/**
+ *
+ */
+
+#include "mcpbuttons.h"
+#include "input.h"
+
 static constexpr auto DMXPORT_OFFSET = 4U;
 
 void Hardware::RebootHandler() {
@@ -249,6 +256,12 @@ void main() {
 
 	hw.WatchdogInit();
 
+	/**
+	 *
+	 */
+
+	McpButtons buttons(true);
+
 	for (;;) {
 		hw.WatchdogFeed();
 		nw.Run();
@@ -267,5 +280,40 @@ void main() {
 #endif
 		display.Run();
 		hw.Run();
+
+		/**
+		 *
+		 */
+
+		if (buttons.IsAvailable()) {
+			switch (buttons.GetChar()) {
+			case input::KEY_ENTER:
+				puts("ENTER");
+				display.TextStatus("ENTER");
+				break;
+			case input::KEY_UP:
+				puts("UP");
+				display.TextStatus("UP   ");
+				break;
+			case input::KEY_DOWN:
+				puts("DOWN");
+				display.TextStatus("DOWN ");
+				break;
+			case input::KEY_LEFT:
+				puts("LEFT");
+				display.TextStatus("LEFT ");
+				break;
+			case input::KEY_RIGHT:
+				puts("RIGHT");
+				display.TextStatus("RIGHT");
+				break;
+			case input::KEY_ESC:
+				puts("ESC");
+				display.TextStatus("ESC  ");
+				break;
+			default:
+				break;
+			}
+		}
 	}
 }
