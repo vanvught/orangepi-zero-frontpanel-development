@@ -28,7 +28,6 @@
 
 #include <cstdint>
 
-#include "inputset.h"
 #include "input.h"
 
 #include "rotaryencoder.h"
@@ -44,7 +43,11 @@
 
 namespace mcpbuttons {
 namespace gpio {
-static constexpr auto INTA = GPIO_EXT_12;
+#if defined (GD32)
+///< INT = PA15
+#else
+static constexpr auto INT = GPIO_EXT_12;
+#endif
 }  // namespace gpio
 namespace mcp23008 {
 static constexpr uint8_t I2C_ADDRESS = 0x20;
@@ -62,7 +65,7 @@ static constexpr bool is_button_pressed(const uint32_t nButtonsChanged, const ui
 }
 }  // namespace mcpbuttons
 
-class McpButtons: InputSet {
+class McpButtons {
 public:
 	McpButtons(bool bRotaryHalfStep) :
 		m_I2C(mcpbuttons::mcp23008::I2C_ADDRESS),
@@ -86,14 +89,20 @@ public:
 		m_I2C.WriteRegister(mcp23x08::REG_GPINTEN, static_cast<uint8_t>(0xFF));		// Interrupt on Change
 		m_I2C.ReadRegister(mcp23x08::REG_INTCAP);									// Clear interrupts
 
-		FUNC_PREFIX(gpio_fsel(mcpbuttons::gpio::INTA, GPIO_FSEL_INPUT));
-		FUNC_PREFIX(gpio_pud(mcpbuttons::gpio::INTA, GPIO_PULL_UP));
-
-		DEBUG_EXIT
-	}
-
-	~McpButtons() override {
-		DEBUG_ENTRY
+#if defined (GD32)
+		rcu_periph_clock_enable(RCU_GPIOA);
+# if !defined(GD32F4XX)
+		gpio_init(GPIOD, GPIO_MODE_IN_FLOATING, GPIO_OSPEED_50MHZ, GPIO_PIN_15);
+	    gpio_exti_source_select(GPIO_PORT_SOURCE_GPIOD, GPIO_PIN_SOURCE_15);
+# else
+		gpio_af_set(GPIOD, GPIO_AF_0, GPIO_PIN_15);
+	    gpio_mode_set(GPIOD, GPIO_MODE_INPUT, GPIO_PUPD_NONE, GPIO_PIN_15);
+	    syscfg_exti_line_config(EXTI_SOURCE_GPIOD, EXTI_SOURCE_PIN15);
+# endif
+#else
+		FUNC_PREFIX(gpio_fsel(mcpbuttons::gpio::INT, GPIO_FSEL_INPUT));
+		FUNC_PREFIX(gpio_set_pud(mcpbuttons::gpio::INT, GPIO_PULL_UP));
+#endif
 		DEBUG_EXIT
 	}
 
@@ -101,18 +110,23 @@ public:
 		return m_bIsConnected;
 	}
 
-	bool Start() override {
-		DEBUG_ENTRY
-
+	bool Start() const {
 		return true;
-
-		DEBUG_EXIT
 	}
 
-	bool IsAvailable() override {
-		if (__builtin_expect(h3_gpio_lev(mcpbuttons::gpio::INTA) == HIGH, 1)) {
+	bool IsAvailable() {
+#if defined (GD32)
+		extern volatile bool gv_buttons_irq;
+
+		if (__builtin_expect((gv_buttons_irq), 0)) {
+			gv_buttons_irq = false;
 			return false;
 		}
+#else
+		if ((!m_bIsConnected) && (__builtin_expect(FUNC_PREFIX(gpio_lev(mcpbuttons::gpio::INT)) == HIGH, 1))) {
+			return false;
+		}
+#endif
 
 		const auto nPort = m_I2C.ReadRegister(mcp23x08::REG_GPIO);
 		const auto nButtonsChanged = static_cast<uint8_t>((nPort ^ m_nPortPrevious) & nPort);
@@ -178,7 +192,7 @@ public:
 		return (m_nKey != input::KEY_NOT_DEFINED);
 	}
 
-	int GetChar() override {
+	int GetChar() {
 		const auto nKey = m_nKey;
 		m_nKey = input::KEY_NOT_DEFINED;
 		return nKey;
