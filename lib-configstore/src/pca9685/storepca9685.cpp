@@ -1,8 +1,8 @@
 /**
- * @file rdmddiscovery.h
+ * @file storepca9685.cpp
  *
  */
-/* Copyright (C) 2017-2022 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,39 +23,20 @@
  * THE SOFTWARE.
  */
 
-#ifndef RDMDISCOVERY_H_
-#define RDMDISCOVERY_H_
+#include <cassert>
 
-#include <cstdint>
+#include "storepca9685.h"
 
-#include "rdm.h"
+#include "debug.h"
 
-#include "rdmmessage.h"
-#include "rdmtod.h"
+StorePCA9685 *StorePCA9685::s_pThis = nullptr;
 
-class RDMDiscovery {
-public:
-	RDMDiscovery(const uint8_t *pUid);
+StorePCA9685::StorePCA9685() {
+	DEBUG_ENTRY
 
-	void Full(uint32_t m_nPortIndex, RDMTod *pRDMTod);
+	assert(s_pThis == nullptr);
+	s_pThis = this;
 
-private:
-	bool FindDevices(uint64_t LowerBound, uint64_t UpperBound);
-	bool QuickFind(const uint8_t *pUid);
-
-	bool IsValidDiscoveryResponse(const uint8_t *pDiscResponse, uint8_t *pUid);
-
-	void PrintUid(uint64_t nUid);
-	void PrintUid(const uint8_t *pUid);
-	const uint8_t *ConvertUid(uint64_t nUid);
-	uint64_t ConvertUid(const uint8_t *pUid);
-
-private:
-	RDMMessage m_Message;
-	uint32_t m_nPortIndex;
-	RDMTod *m_pRDMTod;
-	uint8_t m_Uid[RDM_UID_SIZE];
-	uint8_t m_Pdl[2][RDM_UID_SIZE];
-};
-
-#endif /* RDMDISCOVERY_H_ */
+	DEBUG_PRINTF("%p", reinterpret_cast<void *>(s_pThis));
+	DEBUG_EXIT
+}

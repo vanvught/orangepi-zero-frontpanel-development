@@ -2,6 +2,9 @@
  * localconfig.cpp
  */
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
+
 #include <cstdint>
 #include <cstdio>
 #include <cassert>
@@ -13,6 +16,10 @@
 #include "network.h"
 #include "artnetnode.h"
 #include "lightset.h"
+
+#if !defined (KEY_UP)
+ using namespace input;
+#endif
 
 extern bool g_bRun;
 
@@ -174,7 +181,7 @@ static void push() {
 	} else {
 		menuStackTop++;
 		indexStack[menuStackTop] = s_nIndex;
-		menuStack[menuStackTop] = const_cast<void *>(reinterpret_cast<const void *>(currentMenu));
+		menuStack[menuStackTop] = const_cast<void *>(currentMenu);
 	}
 }
 
@@ -195,7 +202,7 @@ void debug_state() {
 	s[1] = '0' + static_cast<char>(s_nIndexItem);
 	s[2] = '0' + static_cast<char>(s_State);
 	s[3] = '0' + static_cast<char>(s_StateEditor);
-	s[4] = menuStackTop == -1 ? ' ' : '0' + menuStackTop;
+	s[4] = menuStackTop == -1 ? ' ' : static_cast<char>('0' + menuStackTop);
 	s[5] = 0;
 
 	Display::Get()->TextStatus(s);
@@ -395,16 +402,16 @@ static void editor(const int c ) {
 	}
 }
 
-LocalConfig::LocalConfig() {
+LocalConfig::LocalConfig(): m_McpButtons(true) {
 	show_menu();
 }
 
 void LocalConfig::Run() {
-	if (!Display::Get()->IsAvailable()) {
+	if (!m_McpButtons.IsAvailable()) {
 		return;
 	}
 
-	const auto c = Display::Get()->GetChar();
+	const auto c = m_McpButtons.GetChar();
 
 	if (c == 'q') {
 		g_bRun = false;

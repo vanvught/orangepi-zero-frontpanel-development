@@ -5,3 +5,5 @@ EXTRA_INCLUDES+=../lib-network/include
 EXTRA_INCLUDES+=../lib-artnet/include
 EXTRA_INCLUDES+=../lib-e131/include
 EXTRA_INCLUDES+=../lib-lightset/include
+EXTRA_INCLUDES+=../lib-input/include
+EXTRA_INCLUDES+=../lib-device/include

@@ -45,7 +45,7 @@ namespace panelled {
 extern uint32_t g_nData;
 }  // namespace panelled
 
-inline static void panel_led_spi(const UNUSED uint32_t nData) {
+inline void panel_led_spi(const UNUSED uint32_t nData) {
 #if defined(LEDPANEL_595_COUNT)
 	GPIO_BC(LEDPANEL_595_CS_GPIOx) = LEDPANEL_595_CS_GPIO_PINx;
 
@@ -98,7 +98,13 @@ inline static void panel_led_spi(const UNUSED uint32_t nData) {
 #endif
 }
 
-inline static void panel_led_on(uint32_t UNUSED on) {
+inline void panel_led_init() {
+#if defined(LEDPANEL_595_COUNT)
+
+#endif
+}
+
+inline void panel_led_on(uint32_t UNUSED on) {
 #if defined(LEDPANEL_595_COUNT)
 	if (panelled::g_nData  == (panelled::g_nData | on)) {
 		return;
@@ -110,7 +116,7 @@ inline static void panel_led_on(uint32_t UNUSED on) {
 #endif
 }
 
-inline static void panel_led_off(uint32_t UNUSED off) {
+inline void panel_led_off(uint32_t UNUSED off) {
 #if defined(LEDPANEL_595_COUNT)
 	if (panelled::g_nData  == (panelled::g_nData & ~off)) {
 		return;
@@ -121,6 +127,13 @@ inline static void panel_led_off(uint32_t UNUSED off) {
 	panel_led_spi(panelled::g_nData);
 #endif
 }
+
+inline void panel_led_run() {
+#if defined(LEDPANEL_595_COUNT)
+
+#endif
+}
+
 }  // namespace hal
 
 #endif /* GD32_PANEL_LED_H_ */

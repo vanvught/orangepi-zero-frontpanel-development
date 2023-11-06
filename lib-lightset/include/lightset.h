@@ -228,9 +228,6 @@ public:
 	virtual uint16_t GetDmxStartAddress();
 	virtual uint16_t GetDmxFootprint();
 	virtual bool GetSlotInfo(uint16_t nSlotOffset, lightset::SlotInfo &tSlotInfo);
-#if defined (LIGHTSET_HAVE_RUN)
-	virtual void Run()= 0;
-#endif
 #if defined (ESP8266)
 	static const char *GetOutputType(lightset::OutputType type);
 	static lightset::OutputType GetOutputType(const char *sType);
