@@ -151,27 +151,15 @@ inline FailSafe get_failsafe(const char *pFailSafe) {
 }
 
 inline const char* get_failsafe(const FailSafe failsafe) {
-	switch (failsafe) {
-	case FailSafe::HOLD:
-		return "hold";
-		break;
-	case FailSafe::OFF:
+	if (failsafe == FailSafe::OFF) {
 		return "off";
-		break;
-	case FailSafe::ON:
+	} else if (failsafe == FailSafe::ON) {
 		return "on";
-		break;
-	case FailSafe::PLAYBACK:
+	} else if (failsafe == FailSafe::PLAYBACK) {
 		return "playback";
-		break;
-	default:
-		assert(0);
-		__builtin_unreachable();
-		break;
 	}
 
-	__builtin_unreachable();
-	return "";
+	return "hold";
 }
 
 inline OutputStyle get_output_style(const char *pOutputStyle) {

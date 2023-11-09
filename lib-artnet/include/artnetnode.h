@@ -65,6 +65,8 @@
 #include "hardware.h"
 #include "network.h"
 
+#include "panel_led.h"
+
 #include "debug.h"
 
 namespace artnetnode {
@@ -178,15 +180,19 @@ struct InputPort {
 };
 
 inline artnetnode::FailSafe convert_failsafe(const lightset::FailSafe failsafe) {
-	const auto fs = static_cast<FailSafe>(static_cast<uint32_t>(failsafe) + static_cast<uint32_t>(FailSafe::LAST));
-	DEBUG_PRINTF("failsafe=%u, fs=%u", static_cast<uint32_t>(failsafe), static_cast<uint32_t>(fs));
-	return fs;
+	if (failsafe > lightset::FailSafe::PLAYBACK) {
+		return artnetnode::FailSafe::LAST;
+	}
+
+	return static_cast<artnetnode::FailSafe>(static_cast<uint32_t>(failsafe) + static_cast<uint32_t>(artnetnode::FailSafe::LAST));
 }
 
 inline lightset::FailSafe convert_failsafe(const artnetnode::FailSafe failsafe) {
-	const auto fs = static_cast<lightset::FailSafe>(static_cast<uint32_t>(failsafe) - static_cast<uint32_t>(FailSafe::LAST));
-	DEBUG_PRINTF("failsafe=%u, fs=%u", static_cast<uint32_t>(failsafe), static_cast<uint32_t>(fs));
-	return fs;
+	if (failsafe > artnetnode::FailSafe::RECORD) {
+		return lightset::FailSafe::HOLD;
+	}
+
+	return  static_cast<lightset::FailSafe>(static_cast<uint32_t>(failsafe) - static_cast<uint32_t>(artnetnode::FailSafe::LAST));
 }
 }  // namespace artnetnode
 
@@ -253,6 +259,11 @@ public:
 				hal::panel_led_off(hal::panelled::PORT_A_TX << nPortIndex);
 #if defined (ARTNET_HAVE_DMXIN)
 				hal::panel_led_off(hal::panelled::PORT_A_RX << nPortIndex);
+#endif
+#if defined(CONFIG_PANELLED_RDM_PORT)
+				hal::panel_led_off(hal::panelled::PORT_A_RDM << nPortIndex);
+#elif defined(CONFIG_PANELLED_RDM_NO_PORT)
+				hal::panel_led_off(hal::panelled::RDM << nPortIndex);
 #endif
 			}
 		}
