@@ -1,5 +1,5 @@
 /**
- * @file json_get_queue.cpp
+ * @file json_get_directory.cpp
  *
  */
 /* Copyright (C) 2023 by Arjan van Vught mailto:info@gd32-dmx.org
@@ -23,19 +23,66 @@
  * THE SOFTWARE.
  */
 
-#include <cstdint>
 #include <cstdio>
+#include <cstdint>
 #include <cassert>
-
-#include "artnetnode.h"
+#include <dirent.h>
+#ifndef NDEBUG
+# include <errno.h>
+#endif
 
 namespace remoteconfig {
-namespace rdm {
-uint32_t json_get_queue(char *pOutBuffer, const uint32_t nOutBufferSize) {
-	const auto nBufferSize = nOutBufferSize - 2U;
-	auto nLength = static_cast<uint32_t>(snprintf(pOutBuffer, nBufferSize, "{\"uid\":[" ));
+namespace storage {
+static bool filter(const char *pName) {
+	return *pName == '.';
+}
 
-	nLength += ArtNetNode::Get()->RdmCopyWorkingQueue(&pOutBuffer[nLength], nBufferSize - nLength);
+uint32_t json_get_directory(char *pOutBuffer, const uint32_t nOutBufferSize) {
+	const auto nBufferSize = nOutBufferSize - 2U;
+#if defined (__linux__) || defined (__APPLE__)
+	auto *dirp = opendir("storage");
+#elif defined (CONFIG_USB_HOST_MSC)
+	auto *dirp = opendir("0:/");
+#else
+	auto *dirp = opendir(".");
+#endif
+#ifndef NDEBUG
+	perror("opendir");
+#endif
+
+	auto nLength = static_cast<uint32_t>(snprintf(pOutBuffer, nBufferSize, "{\"label\":\"%s\",\"files\":[", (dirp != nullptr) ? "storage" : "No storage"));
+
+	if (dirp != nullptr) {
+		struct dirent *dp;
+		do {
+			if ((dp = readdir(dirp)) != nullptr) {
+				if (dp->d_type == DT_DIR) {
+					continue;
+				}
+
+				if (filter(dp->d_name)) {
+					continue;
+				}
+
+				const auto nSize = nBufferSize - nLength;
+				const auto nCharacters = static_cast<uint32_t>(snprintf(&pOutBuffer[nLength], nSize, "\"%s\",", dp->d_name));
+
+				if (nCharacters > nSize) {
+					break;
+				}
+
+				nLength+=nCharacters;
+
+				if (nLength >= nBufferSize) {
+					break;
+				}
+			}
+		} while (dp != nullptr);
+
+		if (pOutBuffer[nLength - 1] == ',') {
+			nLength--;
+		}
+	}
 
 	pOutBuffer[nLength++] = ']';
 	pOutBuffer[nLength++] = '}';
@@ -43,7 +90,5 @@ uint32_t json_get_queue(char *pOutBuffer, const uint32_t nOutBufferSize) {
 	assert(nLength <= nOutBufferSize);
 	return nLength;
 }
-}  // namespace rdm
+}  // namespace storage
 }  // namespace remoteconfig
-
-

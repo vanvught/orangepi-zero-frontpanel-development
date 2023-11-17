@@ -144,6 +144,7 @@ clean: $(LIBDEP)
 	rm -f $(SUFFIX).uImage
 	rm -f $(SUFFIX).uImage.gz
 	rm -f build$(BUILD_TXT).txt
+	rm -f include/sofware_version_id.h
 	
 #
 # Libraries

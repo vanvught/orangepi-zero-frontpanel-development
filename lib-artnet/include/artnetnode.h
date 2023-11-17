@@ -651,6 +651,7 @@ private:
 	void HandleTodData();
 	void HandleTodRequest();
 	void HandleRdm();
+	void HandleRdmSub();
 	void HandleIpProg();
 	void HandleDmxIn();
 	void HandleInput();

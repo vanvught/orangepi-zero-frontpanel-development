@@ -1,8 +1,11 @@
 /**
- * @file board_gd32f207vc_2.h
+ * @file handlerdmsub.cpp
  *
  */
-/* Copyright (C) 2023 by Arjan van Vught mailto:info@gd32-dmx.org
+/**
+ * Art-Net Designed by and Copyright Artistic Licence Holdings Ltd.
+ */
+/* Copyright (C) 2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,28 +26,31 @@
  * THE SOFTWARE.
  */
 
-#ifndef GD32_BOARD_GD32F207VC_2_H
-#define GD32_BOARD_GD32F207VC_2_H
+#ifdef NDEBUG
+# undef NDEBUG	//TODO Remove # undef NDEBUG
+#endif
 
-#include "gd32_board.h"
+#include <cstring>
+#include <cstdio>
+#include <cassert>
 
-namespace max {
-static constexpr auto OUT = 2U;
-static constexpr auto IN = 2U;
-}  // namespace max
+#include "artnetnode.h"
 
-#define DMX_MAX_PORTS  2
+#include "network.h"
 
-#define DMX_USE_USART0
-#define DMX_USE_USART1
+#include "panel_led.h"
 
-static constexpr auto USART0_PORT = 0;
-static constexpr auto USART1_PORT = 1;
+#include "debug.h"
 
-static constexpr auto DIR_PORT_0_GPIO_PORT = GPIOE;
-static constexpr auto DIR_PORT_0_GPIO_PIN  = GPIO_PIN_9;
+void ArtNetNode::HandleRdmSub() {
+	DEBUG_ENTRY
 
-static constexpr auto DIR_PORT_1_GPIO_PORT = GPIOE;
-static constexpr auto DIR_PORT_1_GPIO_PIN  = GPIO_PIN_10;
+	auto *const pArtRdmSub = reinterpret_cast<artnet::ArtRdmSub *>(m_pReceiveBuffer);
 
-#endif /* GD32_BOARD_GD32F207VC_2_H */
+	if (pArtRdmSub->RdmVer != 0x01) {
+		DEBUG_EXIT
+		return;
+	}
+
+	DEBUG_EXIT
+}
