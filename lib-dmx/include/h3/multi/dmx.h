@@ -62,6 +62,7 @@ public:
 	// RDM Send
 
 	void RdmSendRaw(const uint32_t nPortIndex, const uint8_t *pRdmData, uint32_t nLength);
+	void RdmSendDiscoveryRespondMessage(const uint32_t nPortIndex, const uint8_t *pRdmData, uint32_t nLength);
 
 	// RDM Receive
 

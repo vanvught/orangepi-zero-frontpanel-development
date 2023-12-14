@@ -38,9 +38,4 @@
 # endif
 #endif
 
-#if !defined(LINUX_UDELAY)
-# include <cstdint>
-# define LINUX_UDELAY
-  void udelay(uint32_t us, uint32_t offset = 0);
-#endif
 #endif /* LINUX_HAL_API_H_ */

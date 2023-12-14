@@ -803,8 +803,8 @@ extern void h3_dump_memory_mapping(void);
 
 #ifdef __cplusplus
 # include <cstdint>
-# if !defined(H3_UDELAY)
-#  define H3_UDELAY
+# if !defined(UDELAY)
+#  define UDELAY
  void udelay(uint32_t us, uint32_t offset = 0);
 # endif
 #endif

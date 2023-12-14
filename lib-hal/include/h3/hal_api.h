@@ -26,14 +26,7 @@
 #ifndef H3_HAL_API_H_
 #define H3_HAL_API_H_
 
-#include <cstdint>
-
 #define FUNC_PREFIX(x) h3_##x
-
-#if !defined(H3_UDELAY)
-# define H3_UDELAY
- void udelay(uint32_t us, uint32_t offset = 0);
-#endif
 
 #include "h3_board.h"
 

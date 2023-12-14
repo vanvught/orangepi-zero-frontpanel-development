@@ -36,38 +36,42 @@
 
 class Rdm {
 public:
+	static void SendRaw(const uint32_t nPortIndex, const uint8_t *pRdmData, const uint32_t nLength) {
+		assert(pRdmData != nullptr);
+		assert(nLength != 0);
+
+		Dmx::Get()->SetPortDirection(nPortIndex, dmx::PortDirection::OUTP, false);
+
+		Dmx::Get()->RdmSendRaw(nPortIndex, pRdmData, nLength);
+
+		udelay(RDM_RESPONDER_DATA_DIRECTION_DELAY);
+
+		Dmx::Get()->SetPortDirection(nPortIndex, dmx::PortDirection::INP, true);
+	}
+
 	static void Send(const uint32_t nPortIndex, struct TRdmMessage *pRdmCommand) {
 		assert(nPortIndex < dmx::config::max::OUT);
 		assert(pRdmCommand != nullptr);
 
-		auto *rdm_data = reinterpret_cast<uint8_t*>(pRdmCommand);
+		auto *pData = reinterpret_cast<uint8_t*>(pRdmCommand);
 		uint32_t i;
-		uint16_t rdm_checksum = 0;
+		uint16_t nChecksum = 0;
 
 		pRdmCommand->transaction_number = s_TransactionNumber[nPortIndex];
 
 		for (i = 0; i < pRdmCommand->message_length; i++) {
-			rdm_checksum = static_cast<uint16_t>(rdm_checksum + rdm_data[i]);
+			nChecksum = static_cast<uint16_t>(nChecksum + pData[i]);
 		}
 
-		rdm_data[i++] = static_cast<uint8_t>(rdm_checksum >> 8);
-		rdm_data[i] = static_cast<uint8_t>(rdm_checksum & 0XFF);
+		pData[i++] = static_cast<uint8_t>(nChecksum >> 8);
+		pData[i] = static_cast<uint8_t>(nChecksum & 0XFF);
 
 		SendRaw(nPortIndex, reinterpret_cast<const uint8_t*>(pRdmCommand), pRdmCommand->message_length + RDM_MESSAGE_CHECKSUM_SIZE);
 
 		s_TransactionNumber[nPortIndex]++;
 	}
 
-	static void SendRaw(const uint32_t nPortIndex, const uint8_t *pRdmData, const uint32_t nLength) {
-		assert(pRdmData != nullptr);
-		assert(nLength != 0);
-		Dmx::Get()->SetPortDirection(nPortIndex, dmx::PortDirection::OUTP, false);
-		Dmx::Get()->RdmSendRaw(nPortIndex, pRdmData, nLength);
-		udelay(RDM_RESPONDER_DATA_DIRECTION_DELAY);
-		Dmx::Get()->SetPortDirection(nPortIndex, dmx::PortDirection::INP, true);
-	}
-
-	static void SendRawRespondMessage(uint32_t nPortIndex, const uint8_t *pRdmData, const uint32_t nLength) {
+	static void SendRawRespondMessage(const uint32_t nPortIndex, const uint8_t *pRdmData, const uint32_t nLength) {
 		assert(nPortIndex < dmx::config::max::OUT);
 		assert(pRdmData != nullptr);
 		assert(nLength != 0);
@@ -79,7 +83,9 @@ public:
 		SendRaw(nPortIndex, pRdmData, nLength);
 	}
 
-	static void SendDiscoveryRespondMessage(uint32_t nPortIndex, const uint8_t *pRdmData, uint32_t nLength);
+	static void SendDiscoveryRespondMessage(const uint32_t nPortIndex, const uint8_t *pRdmData, const uint32_t nLength) {
+		 Dmx::Get()->RdmSendDiscoveryRespondMessage(nPortIndex, pRdmData, nLength);
+	}
 
 	static const uint8_t *Receive(const uint32_t nPortIndex) {
 		return Dmx::Get()->RdmReceive(nPortIndex);
