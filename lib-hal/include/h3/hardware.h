@@ -43,10 +43,8 @@
  void stack_debug_run();
 #endif
 
-extern "C" {
-uint32_t hardware_uptime_seconds(void);
+uint32_t hardware_uptime_seconds();
 void hardware_led_set(int);
-}
 
 class Hardware {
 public:

@@ -34,64 +34,14 @@
 
 using namespace dmx;
 
-uint8_t m_TransactionNumber = 0;
-uint32_t m_nLastSendMicros = 0;
-
-void Rdm::Send(uint32_t nPortIndex, struct TRdmMessage *pRdmCommand, uint32_t nSpacingMicros) {
-	assert(nPort < max::OUT);
-	assert(pRdmCommand != nullptr);
-
-	if (nSpacingMicros != 0) {
-		const auto nMicros = BCM2835_ST->CLO;
-		const auto nDeltaMicros = nMicros - m_nLastSendMicros;
-		if (nDeltaMicros < nSpacingMicros) {
-			const auto nWait = nSpacingMicros - nDeltaMicros;
-			do {
-			} while ((BCM2835_ST->CLO - nMicros) < nWait);
-		}
-	}
-
-	m_nLastSendMicros = BCM2835_ST->CLO;
-
-	auto *rdm_data = reinterpret_cast<uint8_t*>(pRdmCommand);
-	uint32_t i;
-	uint16_t rdm_checksum = 0;
-
-	pRdmCommand->transaction_number = m_TransactionNumber;
-
-	for (i = 0; i < pRdmCommand->message_length; i++) {
-		rdm_checksum += rdm_data[i];
-	}
-
-	rdm_data[i++] = static_cast<uint8_t>(rdm_checksum >> 8);
-	rdm_data[i] = static_cast<uint8_t>(rdm_checksum & 0XFF);
-
-	SendRaw(0, reinterpret_cast<const uint8_t*>(pRdmCommand), pRdmCommand->message_length + RDM_MESSAGE_CHECKSUM_SIZE);
-
-	m_TransactionNumber++;
-}
-
-void Rdm::SendRawRespondMessage(uint32_t nPortIndex, const uint8_t *pRdmData, uint32_t nLength) {
-	assert(nPort < max::OUT);
-	assert(pRdmData != nullptr);
-	assert(nLength != 0);
-
-	const auto nDelay = BCM2835_ST->CLO - Dmx::Get()->RdmGetDateReceivedEnd();
-
-	// 3.2.2 Responder Packet spacing
-	if (nDelay < RDM_RESPONDER_PACKET_SPACING) {
-		udelay(RDM_RESPONDER_PACKET_SPACING - nDelay);
-	}
-
-	SendRaw(nPortIndex, pRdmData, nLength);
-}
+extern volatile uint32_t gv_RdmDataReceiveEnd;
 
 void Rdm::SendDiscoveryRespondMessage(uint32_t nPortIndex, const uint8_t *pRdmData, uint32_t nLength) {
 	assert(nPort < max::OUT);
 	assert(pRdmData != nullptr);
 	assert(nLength != 0);
 
-	const auto nDelay = BCM2835_ST->CLO - Dmx::Get()->RdmGetDateReceivedEnd();
+	const auto nDelay = BCM2835_ST->CLO - gv_RdmDataReceiveEnd;
 
 	// 3.2.2 Responder Packet spacing
 	if (nDelay < RDM_RESPONDER_PACKET_SPACING) {

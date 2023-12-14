@@ -63,7 +63,6 @@ public:
 
 	const uint8_t *RdmReceive(uint32_t nPortIndex);
 	const uint8_t *RdmReceiveTimeOut(uint32_t nPortIndex, uint32_t nTimeOut);
-	uint32_t RdmGetDateReceivedEnd();
 
 	// DMX Send
 	

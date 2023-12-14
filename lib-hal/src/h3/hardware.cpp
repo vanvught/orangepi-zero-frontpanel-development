@@ -77,9 +77,13 @@ namespace sysname {
 
 Hardware *Hardware::s_pThis = nullptr;
 
+void hardware_init();
+
 Hardware::Hardware() {
 	assert(s_pThis == nullptr);
 	s_pThis = this;
+
+	hardware_init();
 
 #if defined (DEBUG_I2C)
 	I2cDetect i2cdetect;

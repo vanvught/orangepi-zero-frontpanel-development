@@ -43,9 +43,11 @@
 # define SPI_CS0				0
 # define SPI_CS_NONE			0
 # define FUNC_PREFIX(x) x
-# include <cstdint>
 # ifdef __cplusplus
+#  include <cstdint>
   extern "C" {
+# else
+#  include <stdint.h>
 # endif
   inline static void spi_begin() {}
   inline static void spi_chipSelect(__attribute__((unused)) uint8_t _q) {}

@@ -26,20 +26,15 @@
 #ifndef H3_HAL_API_H_
 #define H3_HAL_API_H_
 
+#include <cstdint>
+
 #define FUNC_PREFIX(x) h3_##x
 
-#ifdef __cplusplus
-extern "C" {
+#if !defined(H3_UDELAY)
+# define H3_UDELAY
+ void udelay(uint32_t us, uint32_t offset = 0);
 #endif
-
-#include <stdint.h>
-
-extern void udelay(uint32_t);
 
 #include "h3_board.h"
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* H3_HAL_API_H_ */

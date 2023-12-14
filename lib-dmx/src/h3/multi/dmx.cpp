@@ -142,7 +142,7 @@ static volatile uint32_t s_nDmxPacketsPrevious[config::max::IN];
 
 // RDM
 
-static volatile uint32_t sv_RdmDataReceiveEnd;
+volatile uint32_t gv_RdmDataReceiveEnd;
 
 static struct TRdmMultiData s_aRdmData[config::max::OUT][RDM_DATA_BUFFER_INDEX_ENTRIES] ALIGNED;
 static struct TRdmMultiData *s_pRdmDataCurrent[config::max::OUT] ALIGNED;
@@ -376,7 +376,7 @@ static void fiq_in_handler(const uint32_t nUart, const H3_UART_TypeDef *pUart, c
 			if ((s_aRdmData[nUart][s_nRdmDataWriteIndex[nUart]].nChecksum == 0) && (p->sub_start_code == E120_SC_SUB_MESSAGE)) {
 				s_nRdmDataWriteIndex[nUart] = (s_nRdmDataWriteIndex[nUart] + 1) & RDM_DATA_BUFFER_INDEX_MASK;
 				s_pRdmDataCurrent[nUart] = &s_aRdmData[nUart][s_nRdmDataWriteIndex[nUart]];
-				sv_RdmDataReceiveEnd = h3_hs_timer_lo_us();
+				gv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
 				dmb();
 			}
 
@@ -409,7 +409,7 @@ static void fiq_in_handler(const uint32_t nUart, const H3_UART_TypeDef *pUart, c
 			s_PortReceiveState[nUart] = TxRxState::IDLE;
 			s_nRdmDataWriteIndex[nUart] = (s_nRdmDataWriteIndex[nUart] + 1) & RDM_DATA_BUFFER_INDEX_MASK;
 			s_pRdmDataCurrent[nUart] = &s_aRdmData[nUart][s_nRdmDataWriteIndex[nUart]];
-			sv_RdmDataReceiveEnd = h3_hs_timer_lo_us();
+			gv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
 			dmb();
 			h3_gpio_clr(10);
 		}
@@ -738,7 +738,7 @@ void Dmx::SetPortDirection(const uint32_t nPortIndex, PortDirection portDirectio
 	}
 }
 
-void Dmx::ClearData(uint32_t nPortIndex) {
+void Dmx::ClearData(const uint32_t nPortIndex) {
 	for (uint32_t j = 0; j < DMX_DATA_OUT_INDEX; j++) {
 		auto *p = &s_pCoherentRegion->dmx_data[nPortIndex][j];
 		auto *p32 = reinterpret_cast<uint32_t *>(p->data);
@@ -982,7 +982,7 @@ void Dmx::FullOn() {
 
 // DMX Receive
 
-const uint8_t *Dmx::GetDmxChanged(uint32_t nPortIndex) {
+const uint8_t *Dmx::GetDmxChanged(const uint32_t nPortIndex) {
 	const auto *p = GetDmxAvailable(nPortIndex);
 
 	if (p == nullptr) {
@@ -1027,12 +1027,6 @@ uint32_t Dmx::GetDmxUpdatesPerSecond(const uint32_t nPortIndex) {
 	return s_nDmxUpdatesPerSecond[nPortIndex];
 }
 
-// RDM
-
-uint32_t Dmx::RdmGetDateReceivedEnd() {
-	return sv_RdmDataReceiveEnd;
-}
-
 // RDM Send
 
 void Dmx::RdmSendRaw(const uint32_t nPortIndex, const uint8_t* pRdmData, uint32_t nLength) {
@@ -1065,7 +1059,7 @@ void Dmx::RdmSendRaw(const uint32_t nPortIndex, const uint8_t* pRdmData, uint32_
 
 // RDM Receive
 
-const uint8_t *Dmx::RdmReceive(uint32_t nPortIndex) {
+const uint8_t *Dmx::RdmReceive(const uint32_t nPortIndex) {
 	assert(nPortIndex < config::max::OUT);
 
 	dmb();
