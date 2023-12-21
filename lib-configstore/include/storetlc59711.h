@@ -27,6 +27,7 @@
 #define STORETLC59711_H_
 
 #include <cstdint>
+#include <cstddef>
 
 #include "tlc59711dmxparams.h"
 #include "tlc59711dmxstore.h"
@@ -46,7 +47,7 @@ public:
 	}
 
 	void SaveDmxStartAddress(uint16_t nDmxStartAddress) override {
-		ConfigStore::Get()->Update(configstore::Store::TLC5711DMX, __builtin_offsetof(struct tlc59711dmxparams::Params, nDmxStartAddress), &nDmxStartAddress, sizeof(uint32_t), tlc59711dmxparams::Mask::DMX_START_ADDRESS);
+		ConfigStore::Get()->Update(configstore::Store::TLC5711DMX, offsetof(struct tlc59711dmxparams::Params, nDmxStartAddress), &nDmxStartAddress, sizeof(uint32_t), tlc59711dmxparams::Mask::DMX_START_ADDRESS);
 	}
 
 	static StoreTLC59711 *Get() {

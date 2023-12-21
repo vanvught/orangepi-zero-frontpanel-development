@@ -24,6 +24,7 @@
  */
 
 #include <cstdint>
+#include <cstddef>
 #include <cstring>
 #include <cassert>
 
@@ -113,7 +114,7 @@ void StoreMotors::Update(uint32_t nMotorIndex, const struct TModeParams *ptModeP
 
 	assert(nMotorIndex < STORE_MOTORS_MAX_MOTORS);
 
-	ConfigStore::Get()->Update(Store::MOTORS, STORE_MOTOR_OFFSET(nMotorIndex) + __builtin_offsetof(struct TMotorStore, ModeParams), ptModeParams, sizeof(struct TModeParams));
+	ConfigStore::Get()->Update(Store::MOTORS, STORE_MOTOR_OFFSET(nMotorIndex) + offsetof(struct TMotorStore, ModeParams), ptModeParams, sizeof(struct TModeParams));
 
 	DEBUG_EXIT
 }
@@ -123,7 +124,7 @@ void StoreMotors::Copy(uint32_t nMotorIndex, struct TModeParams *ptModeParams) {
 
 	assert(nMotorIndex < STORE_MOTORS_MAX_MOTORS);
 
-	ConfigStore::Get()->Copy(Store::MOTORS, ptModeParams, sizeof(struct TModeParams), STORE_MOTOR_OFFSET(nMotorIndex) + __builtin_offsetof(struct TMotorStore, ModeParams));
+	ConfigStore::Get()->Copy(Store::MOTORS, ptModeParams, sizeof(struct TModeParams), STORE_MOTOR_OFFSET(nMotorIndex) + offsetof(struct TMotorStore, ModeParams));
 
 	DEBUG_EXIT
 }
@@ -133,7 +134,7 @@ void StoreMotors::Update(uint32_t nMotorIndex, const struct TMotorParams *ptMoto
 
 	assert(nMotorIndex < STORE_MOTORS_MAX_MOTORS);
 
-	ConfigStore::Get()->Update(Store::MOTORS, STORE_MOTOR_OFFSET(nMotorIndex) + __builtin_offsetof(struct TMotorStore, MotorParams), ptMotorParams, sizeof(struct TMotorParams));
+	ConfigStore::Get()->Update(Store::MOTORS, STORE_MOTOR_OFFSET(nMotorIndex) + offsetof(struct TMotorStore, MotorParams), ptMotorParams, sizeof(struct TMotorParams));
 
 	DEBUG_EXIT
 }
@@ -143,7 +144,7 @@ void StoreMotors::Copy(uint32_t nMotorIndex, struct TMotorParams *ptMotorParams)
 
 	assert(nMotorIndex < STORE_MOTORS_MAX_MOTORS);
 
-	ConfigStore::Get()->Copy(Store::MOTORS, ptMotorParams, sizeof(struct TMotorParams), STORE_MOTOR_OFFSET(nMotorIndex) + __builtin_offsetof(struct TMotorStore, MotorParams));
+	ConfigStore::Get()->Copy(Store::MOTORS, ptMotorParams, sizeof(struct TMotorParams), STORE_MOTOR_OFFSET(nMotorIndex) + offsetof(struct TMotorStore, MotorParams));
 
 	DEBUG_EXIT
 }
@@ -153,7 +154,7 @@ void StoreMotors::Update(uint32_t nMotorIndex, const struct TL6470Params *ptL647
 
 	assert(nMotorIndex < STORE_MOTORS_MAX_MOTORS);
 
-	ConfigStore::Get()->Update(Store::MOTORS, STORE_MOTOR_OFFSET(nMotorIndex) + __builtin_offsetof(struct TMotorStore, L6470Params), ptL6470Params, sizeof(struct TL6470Params));
+	ConfigStore::Get()->Update(Store::MOTORS, STORE_MOTOR_OFFSET(nMotorIndex) + offsetof(struct TMotorStore, L6470Params), ptL6470Params, sizeof(struct TL6470Params));
 
 	DEBUG_EXIT
 }
@@ -163,7 +164,7 @@ void StoreMotors::Copy(uint32_t nMotorIndex, struct TL6470Params *ptL6470Params)
 
 	assert(nMotorIndex < STORE_MOTORS_MAX_MOTORS);
 
-	ConfigStore::Get()->Copy(Store::MOTORS, ptL6470Params, sizeof(struct TL6470Params), STORE_MOTOR_OFFSET(nMotorIndex) + __builtin_offsetof(struct TMotorStore, L6470Params));
+	ConfigStore::Get()->Copy(Store::MOTORS, ptL6470Params, sizeof(struct TL6470Params), STORE_MOTOR_OFFSET(nMotorIndex) + offsetof(struct TMotorStore, L6470Params));
 
 	DEBUG_EXIT
 }
@@ -173,11 +174,11 @@ void StoreMotors::SaveDmxStartAddress(uint32_t nMotorIndex, uint16_t nDmxStartAd
 
 	assert(nMotorIndex < STORE_MOTORS_MAX_MOTORS);
 
-	const uint32_t nOffsetModeParms = STORE_MOTOR_OFFSET(nMotorIndex) + __builtin_offsetof(struct TMotorStore, ModeParams);
+	const uint32_t nOffsetModeParms = STORE_MOTOR_OFFSET(nMotorIndex) + offsetof(struct TMotorStore, ModeParams);
 
 	DEBUG_PRINTF("nOffsetModeParms=%d", nOffsetModeParms);
 
-	ConfigStore::Get()->Update(Store::MOTORS, nOffsetModeParms + __builtin_offsetof(struct TModeParams, nDmxStartAddress), &nDmxStartAddress, sizeof(uint16_t), ModeParamsMask::DMX_START_ADDRESS, nOffsetModeParms);
+	ConfigStore::Get()->Update(Store::MOTORS, nOffsetModeParms + offsetof(struct TModeParams, nDmxStartAddress), &nDmxStartAddress, sizeof(uint16_t), ModeParamsMask::DMX_START_ADDRESS, nOffsetModeParms);
 
 	DEBUG_EXIT
 }

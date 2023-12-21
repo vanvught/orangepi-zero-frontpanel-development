@@ -26,7 +26,8 @@
 #ifndef STORELTC_H_
 #define STORELTC_H_
 
-#include <cassert>
+#include <cstdint>
+#include <cstddef>
 
 #include "ltcparams.h"
 
@@ -48,7 +49,7 @@ public:
 	}
 
 	void SaveSource(uint8_t nSource) override {
-		ConfigStore::Get()->Update(configstore::Store::LTC, __builtin_offsetof(struct ltcparams::Params, nSource), &nSource, sizeof(uint8_t), ltcparams::Mask::SOURCE);
+		ConfigStore::Get()->Update(configstore::Store::LTC, offsetof(struct ltcparams::Params, nSource), &nSource, sizeof(uint8_t), ltcparams::Mask::SOURCE);
 	}
 
 	static StoreLtc *Get() {

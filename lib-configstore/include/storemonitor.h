@@ -2,7 +2,7 @@
  * @file storemonitor.h
  *
  */
-/* Copyright (C) 2020 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2020-2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,6 +25,9 @@
 
 #ifndef STOREMONITOR_H_
 #define STOREMONITOR_H_
+
+#include <cstdint>
+#include <cstddef>
 
 #include "dmxmonitorparams.h"
 #include "dmxmonitorstore.h"
@@ -56,7 +59,7 @@ public:
 	void SaveDmxStartAddress(uint16_t nDmxStartAddress) override {
 		DEBUG_ENTRY
 
-		ConfigStore::Get()->Update(configstore::Store::MONITOR, __builtin_offsetof(struct TDMXMonitorParams, nDmxStartAddress), &nDmxStartAddress, sizeof(uint16_t), DMXMonitorParamsMask::START_ADDRESS);
+		ConfigStore::Get()->Update(configstore::Store::MONITOR, offsetof(struct TDMXMonitorParams, nDmxStartAddress), &nDmxStartAddress, sizeof(uint16_t), DMXMonitorParamsMask::START_ADDRESS);
 
 		DEBUG_EXIT
 	}
