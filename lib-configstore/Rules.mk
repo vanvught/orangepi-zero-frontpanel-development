@@ -57,14 +57,6 @@ ifneq ($(MAKE_FLAGS),)
 		EXTRA_INCLUDES+=../lib-e131/include
 	endif
 	
-	ifeq ($(findstring NODE_LTC_SMPTE,$(MAKE_FLAGS)), NODE_LTC_SMPTE)
-		EXTRA_SRCDIR+=src/ltc
-		EXTRA_INCLUDES+=../lib-ltc/include ../lib-tcnet/include
-		EXTRA_INCLUDES+=../lib-gps/include
-		EXTRA_INCLUDES+=../lib-rgbpanel/include
-		EXTRA_INCLUDES+=../lib-ws28xx/include
-	endif
-	
 	ifeq ($(findstring NODE_NODE,$(MAKE_FLAGS)), NODE_NODE)
 		EXTRA_SRCDIR+=src/node
 		EXTRA_INCLUDES+=../lib-node/include ../lib-artnet/include ../lib-e131/include
