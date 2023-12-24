@@ -804,7 +804,7 @@ void RemoteConfig::HandleGetMonTxt(uint32_t& nSize) {
 void RemoteConfig::HandleGetDisplayTxt(uint32_t& nSize) {
 	DEBUG_ENTRY
 
-	DisplayUdfParams displayParams(StoreDisplayUdf::Get());
+	DisplayUdfParams displayParams;
 	displayParams.Save(s_pUdpBuffer, remoteconfig::udp::BUFFER_SIZE, nSize);
 
 	DEBUG_EXIT
@@ -1168,9 +1168,7 @@ void RemoteConfig::HandleSetMonTxt() {
 void RemoteConfig::HandleSetDisplayTxt() {
 	DEBUG_ENTRY
 
-	assert(StoreDisplayUdf::Get() != nullptr);
-	DisplayUdfParams displayParams(StoreDisplayUdf::Get());
-
+	DisplayUdfParams displayParams;
 	displayParams.Load(s_pUdpBuffer, m_nBytesReceived);
 #ifndef NDEBUG
 	displayParams.Dump();

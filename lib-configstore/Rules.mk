@@ -38,11 +38,6 @@ ifneq ($(MAKE_FLAGS),)
 		EXTRA_INCLUDES+=../lib-remoteconfig/include
 	endif
 	
-	ifeq ($(findstring DISPLAY_UDF,$(MAKE_FLAGS)), DISPLAY_UDF)
-		EXTRA_SRCDIR+=src/displayudf
-		EXTRA_INCLUDES+=../lib-displayudf/include
-	endif
-
 	ifeq ($(findstring NODE_ARTNET,$(MAKE_FLAGS)), NODE_ARTNET)
 		EXTRA_SRCDIR+=src/artnet
 		EXTRA_INCLUDES+=../lib-artnet/include
@@ -114,10 +109,6 @@ else
 		EXTRA_INCLUDES+=../lib-e131/include
 		EXTRA_SRCDIR+=src/node 
 		EXTRA_INCLUDES+=../lib-node/include ../lib-rdmdiscovery/include
-		EXTRA_SRCDIR+=src/ltc
-		EXTRA_INCLUDES+=../lib-ltc/include ../lib-tcnet/include
-		EXTRA_INCLUDES+=../lib-gps/include
-		EXTRA_INCLUDES+=../lib-rgbpanel/include
 	endif
 	
 	EXTRA_INCLUDES+=../lib-ws28xx/include
@@ -131,6 +122,5 @@ else
 endif
 
 EXTRA_INCLUDES+=../lib-displayudf/include ../lib-display/include
-EXTRA_INCLUDES+=../lib-dmxsend/include
 EXTRA_INCLUDES+=../lib-dmxreceiver/include ../lib-dmx/include
 EXTRA_INCLUDES+=../lib-device/include
