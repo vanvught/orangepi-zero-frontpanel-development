@@ -172,21 +172,19 @@ bool Network::Start() {
 
 	NetworkParams networkParams(nullptr);
 
-	if (networkParams.Load()) {
-		networkParams.Dump();
+	networkParams.Load();
 
-		Display::Get()->TextStatus(WifiConst::MSG_CHANGING_TO_STATION_MODE);
+	Display::Get()->TextStatus(WifiConst::MSG_CHANGING_TO_STATION_MODE);
 
-		m_pSSID = const_cast<char *>(networkParams.GetSSid());
+	m_pSSID = const_cast<char *>(networkParams.GetSSid());
 
-		if (networkParams.isDhcpUsed()) {
-			StationCreate(m_pSSID, networkParams.GetPassword());
-		} else {
-			ip_config.ip.addr = networkParams.GetIpAddress();
-			ip_config.netmask.addr = networkParams.GetNetMask();
-			ip_config.gw.addr = networkParams.GetDefaultGateway();
-			StationCreate(m_pSSID, networkParams.GetPassword(), &ip_config);
-		}
+	if (networkParams.isDhcpUsed()) {
+		StationCreate(m_pSSID, networkParams.GetPassword());
+	} else {
+		ip_config.ip.addr = networkParams.GetIpAddress();
+		ip_config.netmask.addr = networkParams.GetNetMask();
+		ip_config.gw.addr = networkParams.GetDefaultGateway();
+		StationCreate(m_pSSID, networkParams.GetPassword(), &ip_config);
 	}
 
 	esp8266_write_4bits(CMD_WIFI_MODE);

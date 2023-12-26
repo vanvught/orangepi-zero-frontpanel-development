@@ -89,7 +89,6 @@ Network::Network(int argc, char **argv, NetworkParamsStore *pNetworkParamsStore)
 
 	NetworkParams params(pNetworkParamsStore);
 	params.Load();
-	params.Dump();
 
 	m_nNtpServerIp = params.GetNtpServer();
 /**

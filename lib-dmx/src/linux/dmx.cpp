@@ -223,7 +223,7 @@ void Dmx::RdmSendRaw(uint32_t nPortIndex, const uint8_t* pRdmData, uint32_t nLen
 void Dmx::RdmSendDiscoveryRespondMessage(uint32_t nPortIndex, const uint8_t *pRdmData, uint32_t nLength) {
 	DEBUG_ENTRY
 
-	assert(nPortIndex < max::OUT);
+	assert(nPortIndex < dmx::config::max::OUT);
 	assert(pRdmData != nullptr);
 	assert(nLength != 0);
 

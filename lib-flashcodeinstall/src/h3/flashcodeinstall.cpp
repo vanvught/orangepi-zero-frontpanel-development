@@ -72,8 +72,6 @@ FlashCodeInstall::FlashCodeInstall() {
 		FlashCodeInstallParams params;
 
 		if (params.Load()) {
-			params.Dump();
-
 			if (m_nFlashSize >= FLASH_SIZE_MINIMUM) {
 
 				m_bHaveFlashChip = true;
