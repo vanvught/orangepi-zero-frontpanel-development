@@ -61,9 +61,9 @@ static int snHandles[max::PORTS_ALLOWED];
  * END
  */
 
-Network *Network::s_pThis = nullptr;
+Network *Network::s_pThis;
 
-Network::Network(int argc, char **argv, NetworkParamsStore *pNetworkParamsStore) {
+Network::Network(int argc, char **argv) {
 	if (argc < 2) {
 		printf("Usage: %s ip_address|interface_name\n", argv[0]);
 		exit(EXIT_FAILURE);
@@ -87,7 +87,7 @@ Network::Network(int argc, char **argv, NetworkParamsStore *pNetworkParamsStore)
 		snHandles[i] = -1;
 	}
 
-	NetworkParams params(pNetworkParamsStore);
+	NetworkParams params;
 	params.Load();
 
 	m_nNtpServerIp = params.GetNtpServer();
