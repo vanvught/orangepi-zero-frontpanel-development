@@ -2,7 +2,7 @@
  * @file network.cpp
  *
  */
-/* Copyright (C) 2018-2022 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2018-2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -170,8 +170,7 @@ bool Network::Start() {
 	printf(" SDK      : %s\n", GetSystemSdkVersion());
 	printf(" Firmware : %s\n", GetFirmwareVersion());
 
-	NetworkParams networkParams(nullptr);
-
+	NetworkParams networkParams;
 	networkParams.Load();
 
 	Display::Get()->TextStatus(WifiConst::MSG_CHANGING_TO_STATION_MODE);
