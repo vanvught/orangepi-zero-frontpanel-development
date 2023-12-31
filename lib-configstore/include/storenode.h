@@ -36,25 +36,9 @@
 
 #include "debug.h"
 
-class StoreNode final: public NodeParamsStore, public NodeStore {
+class StoreNode final: public NodeStore {
 public:
 	StoreNode(uint32_t nPortIndexOffset = 0);
-
-	void Update(const struct nodeparams::Params* pArtNetParams) override {
-		DEBUG_ENTRY
-
-		ConfigStore::Get()->Update(configstore::Store::NODE, pArtNetParams, sizeof(struct nodeparams::Params));
-
-		DEBUG_EXIT
-	}
-
-	void Copy(struct nodeparams::Params* pArtNetParams) override {
-		DEBUG_ENTRY
-
-		ConfigStore::Get()->Copy(configstore::Store::NODE, pArtNetParams, sizeof(struct nodeparams::Params));
-
-		DEBUG_EXIT
-	}
 
 	void SaveFailSafe(uint8_t nFailSafe) override {
 		DEBUG_ENTRY
