@@ -37,7 +37,7 @@
 
 class StoreArtNet final: public ArtNetStore {
 public:
-	StoreArtNet(uint32_t nPortIndexOffset);
+	StoreArtNet();
 
 	void SaveLongName(const char* pLongName) override {
 		DEBUG_ENTRY
@@ -93,7 +93,6 @@ private:
 	void SaveUniverse(uint32_t nPortIndex);
 
 private:
-	static uint32_t s_nPortIndexOffset;
 	static StoreArtNet *s_pThis;
 };
 

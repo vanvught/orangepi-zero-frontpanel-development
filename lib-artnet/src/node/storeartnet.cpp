@@ -5,7 +5,7 @@
 /**
  * Art-Net Designed by and Copyright Artistic Licence Holdings Ltd.
  */
-/* Copyright (C) 2018-2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2018-2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,19 +41,20 @@
 
 #include "debug.h"
 
-#define UNUSED __attribute__((unused))
+namespace artnetnode {
+namespace configstore {
+extern uint32_t DMXPORT_OFFSET;
+}  // namespace configstore
+}  // namespace artnetnode
 
-uint32_t StoreArtNet::s_nPortIndexOffset;
 StoreArtNet *StoreArtNet::s_pThis;
 
-StoreArtNet::StoreArtNet(uint32_t nPortIndexOffset) {
+StoreArtNet::StoreArtNet() {
 	DEBUG_ENTRY
-	DEBUG_PRINTF("nPortIndexOffset=%u", nPortIndexOffset);
+	DEBUG_PRINTF("artnetnode::configstore::DMXPORT_OFFSET=%u", artnetnode::configstore::DMXPORT_OFFSET);
 
 	assert(s_pThis == nullptr);
 	s_pThis = this;
-
-	s_nPortIndexOffset = nPortIndexOffset;
 
 	DEBUG_PRINTF("%p", reinterpret_cast<void *>(s_pThis));
 	DEBUG_EXIT
@@ -63,8 +64,8 @@ void StoreArtNet::SaveShortName(uint32_t nPortIndex, const char *pShortName) {
 	DEBUG_ENTRY
 	DEBUG_PRINTF("%u, %s", nPortIndex, pShortName);
 
-	if (nPortIndex >= s_nPortIndexOffset) {
-		nPortIndex -= s_nPortIndexOffset;
+	if (nPortIndex >= artnetnode::configstore::DMXPORT_OFFSET) {
+		nPortIndex -= artnetnode::configstore::DMXPORT_OFFSET;
 	} else {
 		DEBUG_EXIT
 		return;
@@ -84,25 +85,25 @@ void StoreArtNet::SaveShortName(uint32_t nPortIndex, const char *pShortName) {
 
 void StoreArtNet::SaveUniverse(uint32_t nPortIndex) {
 	DEBUG_ENTRY
-	DEBUG_PRINTF("s_nPortIndexOffset=%u, nPortIndex=%u", s_nPortIndexOffset, nPortIndex);
-
-	if (nPortIndex >= s_nPortIndexOffset) {
-		nPortIndex -= s_nPortIndexOffset;
-	} else {
-		DEBUG_EXIT
-		return;
-	}
-
-	DEBUG_PRINTF("nPortIndex=%u", nPortIndex);
-
-	if (nPortIndex >= artnet::PORTS) {
-		DEBUG_EXIT
-		return;
-	}
+	DEBUG_PRINTF("artnetnode::configstore::DMXPORT_OFFSET=%u, nPortIndex=%u", artnetnode::configstore::DMXPORT_OFFSET, nPortIndex);
 
 	uint16_t nUniverse;
 
 	if (ArtNetNode::Get()->GetPortAddress(nPortIndex, nUniverse)) {
+		if (nPortIndex >= artnetnode::configstore::DMXPORT_OFFSET) {
+			nPortIndex -= artnetnode::configstore::DMXPORT_OFFSET;
+		} else {
+			DEBUG_EXIT
+			return;
+		}
+
+		DEBUG_PRINTF("nPortIndex=%u", nPortIndex);
+
+		if (nPortIndex >= artnet::PORTS) {
+			DEBUG_EXIT
+			return;
+		}
+
 		DEBUG_PRINTF("nPortIndex=%u, nUniverse=%u", nPortIndex, nUniverse);
 		ConfigStore::Get()->Update(configstore::Store::NODE, (sizeof(uint16_t) * nPortIndex) + offsetof(struct artnetparams::Params, nUniverse), &nUniverse, sizeof(uint16_t), artnetparams::Mask::UNIVERSE_A << nPortIndex);
 	}
@@ -114,8 +115,8 @@ void StoreArtNet::SaveMergeMode(uint32_t nPortIndex, const lightset::MergeMode m
 	DEBUG_ENTRY
 	DEBUG_PRINTF("%u, %u", nPortIndex, static_cast<uint32_t>(mergeMode));
 
-	if (nPortIndex >= s_nPortIndexOffset) {
-		nPortIndex -= s_nPortIndexOffset;
+	if (nPortIndex >= artnetnode::configstore::DMXPORT_OFFSET) {
+		nPortIndex -= artnetnode::configstore::DMXPORT_OFFSET;
 	} else {
 		DEBUG_EXIT
 		return;
@@ -129,7 +130,7 @@ void StoreArtNet::SaveMergeMode(uint32_t nPortIndex, const lightset::MergeMode m
 	}
 
 	uint16_t nMergeMode;
-	ConfigStore::Get()->Copy(configstore::Store::NODE, &nMergeMode, sizeof(uint16_t), offsetof(struct artnetparams::Params, nMergeMode));
+	ConfigStore::Get()->Copy(configstore::Store::NODE, &nMergeMode, sizeof(uint16_t), offsetof(struct artnetparams::Params, nMergeMode), false);
 
 	nMergeMode &= artnetparams::mergemode_clear(nPortIndex);
 	nMergeMode |= artnetparams::mergemode_set(nPortIndex, mergeMode);
@@ -141,10 +142,10 @@ void StoreArtNet::SaveMergeMode(uint32_t nPortIndex, const lightset::MergeMode m
 
 void StoreArtNet::SavePortProtocol(uint32_t nPortIndex, const artnet::PortProtocol portProtocol) {
 	DEBUG_ENTRY
-	DEBUG_PRINTF("s_nPortIndexOffset=%u, nPortIndex=%u, portProtocol=%u", s_nPortIndexOffset, nPortIndex, static_cast<uint32_t>(portProtocol));
+	DEBUG_PRINTF("artnetnode::configstore::DMXPORT_OFFSET=%u, nPortIndex=%u, portProtocol=%u", artnetnode::configstore::DMXPORT_OFFSET, nPortIndex, static_cast<uint32_t>(portProtocol));
 
-	if (nPortIndex >= s_nPortIndexOffset) {
-		nPortIndex -= s_nPortIndexOffset;
+	if (nPortIndex >= artnetnode::configstore::DMXPORT_OFFSET) {
+		nPortIndex -= artnetnode::configstore::DMXPORT_OFFSET;
 	} else {
 		DEBUG_EXIT
 		return;
@@ -158,7 +159,7 @@ void StoreArtNet::SavePortProtocol(uint32_t nPortIndex, const artnet::PortProtoc
 	}
 
 	uint16_t nPortProtocol;
-	ConfigStore::Get()->Copy(configstore::Store::NODE, &nPortProtocol, sizeof(uint16_t), offsetof(struct artnetparams::Params, nProtocol));
+	ConfigStore::Get()->Copy(configstore::Store::NODE, &nPortProtocol, sizeof(uint16_t), offsetof(struct artnetparams::Params, nProtocol), false);
 
 	nPortProtocol &= artnetparams::protocol_clear(nPortIndex);
 	nPortProtocol |= artnetparams::protocol_set(nPortIndex, portProtocol);
@@ -169,10 +170,10 @@ void StoreArtNet::SavePortProtocol(uint32_t nPortIndex, const artnet::PortProtoc
 
 void  StoreArtNet::SaveOutputStyle(uint32_t nPortIndex, const lightset::OutputStyle outputStyle) {
 	DEBUG_ENTRY
-	DEBUG_PRINTF("s_nPortIndexOffset=%u, nPortIndex=%u, outputStyle=%u", s_nPortIndexOffset, nPortIndex, static_cast<uint32_t>(outputStyle));
+	DEBUG_PRINTF("artnetnode::configstore::DMXPORT_OFFSET=%u, nPortIndex=%u, outputStyle=%u", artnetnode::configstore::DMXPORT_OFFSET, nPortIndex, static_cast<uint32_t>(outputStyle));
 
-	if (nPortIndex >= s_nPortIndexOffset) {
-		nPortIndex -= s_nPortIndexOffset;
+	if (nPortIndex >= artnetnode::configstore::DMXPORT_OFFSET) {
+		nPortIndex -= artnetnode::configstore::DMXPORT_OFFSET;
 	} else {
 		DEBUG_EXIT
 		return;
@@ -186,7 +187,7 @@ void  StoreArtNet::SaveOutputStyle(uint32_t nPortIndex, const lightset::OutputSt
 	}
 
 	uint8_t nOutputStyle;
-	ConfigStore::Get()->Copy(configstore::Store::NODE, &nOutputStyle, sizeof(uint8_t), offsetof(struct artnetparams::Params, nOutputStyle));
+	ConfigStore::Get()->Copy(configstore::Store::NODE, &nOutputStyle, sizeof(uint8_t), offsetof(struct artnetparams::Params, nOutputStyle), false);
 
 	if (outputStyle == lightset::OutputStyle::CONSTANT) {
 		nOutputStyle |= static_cast<uint8_t>(1U << nPortIndex);
@@ -201,10 +202,10 @@ void  StoreArtNet::SaveOutputStyle(uint32_t nPortIndex, const lightset::OutputSt
 
 void StoreArtNet::SaveRdmEnabled(uint32_t nPortIndex, const bool isEnabled) {
 	DEBUG_ENTRY
-	DEBUG_PRINTF("s_nPortIndexOffset=%u, nPortIndex=%u, isEnabled=%d", s_nPortIndexOffset, nPortIndex, isEnabled);
+	DEBUG_PRINTF("artnetnode::configstore::DMXPORT_OFFSET=%u, nPortIndex=%u, isEnabled=%d", artnetnode::configstore::DMXPORT_OFFSET, nPortIndex, isEnabled);
 
-	if (nPortIndex >= s_nPortIndexOffset) {
-		nPortIndex -= s_nPortIndexOffset;
+	if (nPortIndex >= artnetnode::configstore::DMXPORT_OFFSET) {
+		nPortIndex -= artnetnode::configstore::DMXPORT_OFFSET;
 	} else {
 		DEBUG_EXIT
 		return;
@@ -218,7 +219,7 @@ void StoreArtNet::SaveRdmEnabled(uint32_t nPortIndex, const bool isEnabled) {
 	}
 
 	uint16_t nRdm;
-	ConfigStore::Get()->Copy(configstore::Store::NODE, &nRdm, sizeof(uint16_t), offsetof(struct artnetparams::Params, nRdm));
+	ConfigStore::Get()->Copy(configstore::Store::NODE, &nRdm, sizeof(uint16_t), offsetof(struct artnetparams::Params, nRdm), false);
 
 	nRdm &= artnetparams::clear_mask(nPortIndex);
 
