@@ -137,12 +137,10 @@
 #if defined(OUTPUT_DMX_STEPPER)
 /* sparkfun.txt */
 # include "sparkfundmxparams.h"
-# include "storesparkfundmx.h"
 /* motor%.txt */
 # include "modeparams.h"
 # include "motorparams.h"
 # include "l6470params.h"
-# include "storemotors.h"
 #endif
 
 #if defined (OUTPUT_DMX_SERIAL)
@@ -788,7 +786,7 @@ void RemoteConfig::HandleGetDisplayTxt(uint32_t& nSize) {
 void RemoteConfig::HandleGetSparkFunTxt(uint32_t& nSize) {
 	DEBUG_ENTRY
 
-	SparkFunDmxParams sparkFunParams(StoreSparkFunDmx::Get());
+	SparkFunDmxParams sparkFunParams;
 	sparkFunParams.Save(s_pUdpBuffer, remoteconfig::udp::BUFFER_SIZE, nSize);
 
 	DEBUG_EXIT
@@ -800,28 +798,28 @@ void RemoteConfig::HandleGetMotorTxt(uint32_t nMotorIndex, uint32_t& nSize) {
 
 	uint32_t nSizeSparkFun = 0;
 
-	SparkFunDmxParams sparkFunParams(StoreSparkFunDmx::Get());
+	SparkFunDmxParams sparkFunParams;
 	sparkFunParams.Save(s_pUdpBuffer, remoteconfig::udp::BUFFER_SIZE, nSizeSparkFun, nMotorIndex);
 
 	DEBUG_PRINTF("nSizeSparkFun=%d", nSizeSparkFun);
 
 	uint32_t nSizeMode = 0;
 
-	ModeParams modeParams(StoreMotors::Get());
+	ModeParams modeParams;
 	modeParams.Save(nMotorIndex, s_pUdpBuffer + nSizeSparkFun, remoteconfig::udp::BUFFER_SIZE - nSizeSparkFun, nSizeMode);
 
 	DEBUG_PRINTF("nSizeMode=%d", nSizeMode);
 
 	uint32_t nSizeMotor = 0;
 
-	MotorParams motorParams(StoreMotors::Get());
+	MotorParams motorParams;
 	motorParams.Save(nMotorIndex, s_pUdpBuffer + nSizeSparkFun + nSizeMode, remoteconfig::udp::BUFFER_SIZE - nSizeSparkFun - nSizeMode, nSizeMotor);
 
 	DEBUG_PRINTF("nSizeMotor=%d", nSizeMotor);
 
 	uint32_t nSizeL6470 = 0;
 
-	L6470Params l6470Params(StoreMotors::Get());
+	L6470Params l6470Params;
 	l6470Params.Save(nMotorIndex, s_pUdpBuffer + nSizeSparkFun + nSizeMode + nSizeMotor, remoteconfig::udp::BUFFER_SIZE - nSizeSparkFun - nSizeMode - nSizeMotor, nSizeL6470);
 
 	DEBUG_PRINTF("nSizeL6470=%d", nSizeL6470);
@@ -1103,8 +1101,7 @@ void RemoteConfig::HandleSetDisplayTxt() {
 void RemoteConfig::HandleSetSparkFunTxt() {
 	DEBUG_ENTRY
 
-	assert(StoreSparkFunDmx::Get() != nullptr);
-	SparkFunDmxParams sparkFunDmxParams(StoreSparkFunDmx::Get());
+	SparkFunDmxParams sparkFunDmxParams;
 	sparkFunDmxParams.Load(s_pUdpBuffer, m_nBytesReceived);
 
 	DEBUG_EXIT
@@ -1114,18 +1111,16 @@ void RemoteConfig::HandleSetMotorTxt(uint32_t nMotorIndex) {
 	DEBUG_ENTRY
 	DEBUG_PRINTF("nMotorIndex=%d", nMotorIndex);
 
-	assert(StoreSparkFunDmx::Get() != nullptr);
-	SparkFunDmxParams sparkFunDmxParams(StoreSparkFunDmx::Get());
+	SparkFunDmxParams sparkFunDmxParams;
 	sparkFunDmxParams.Load(nMotorIndex, s_pUdpBuffer, m_nBytesReceived);
 
-	assert(StoreMotors::Get() != nullptr);
-	ModeParams modeParams(StoreMotors::Get());
+	ModeParams modeParams;
 	modeParams.Load(nMotorIndex, s_pUdpBuffer, m_nBytesReceived);
 
-	MotorParams motorParams(StoreMotors::Get());
+	MotorParams motorParams;
 	motorParams.Load(nMotorIndex, s_pUdpBuffer, m_nBytesReceived);
 
-	L6470Params l6470Params(StoreMotors::Get());
+	L6470Params l6470Params;
 	l6470Params.Load(nMotorIndex, s_pUdpBuffer, m_nBytesReceived);
 
 	DEBUG_EXIT
