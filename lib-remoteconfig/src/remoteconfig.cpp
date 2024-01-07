@@ -242,7 +242,7 @@ RemoteConfig *RemoteConfig::s_pThis;
 RemoteConfig::ListBin RemoteConfig::s_RemoteConfigListBin;
 char *RemoteConfig::s_pUdpBuffer;
 
-RemoteConfig::RemoteConfig(remoteconfig::Node node, remoteconfig::Output output, uint32_t nActiveOutputs):
+RemoteConfig::RemoteConfig(const remoteconfig::Node node, const remoteconfig::Output output, const uint32_t nActiveOutputs):
 	m_tNode(node),
 	m_tOutput(output),
 	m_nActiveOutputs(nActiveOutputs)
@@ -271,6 +271,11 @@ RemoteConfig::RemoteConfig(remoteconfig::Node node, remoteconfig::Output output,
 # if defined(ENABLE_TFTP_SERVER)
 	MDNS::Get()->ServiceRecordAdd(nullptr, mdns::Services::TFTP);
 # endif
+
+# if defined (ENABLE_HTTPD)
+	m_pHttpDaemon = new HttpDaemon;
+	assert(m_pHttpDaemon != nullptr);
+# endif
 #endif
 
 	DEBUG_EXIT
@@ -280,6 +285,12 @@ RemoteConfig::~RemoteConfig() {
 	DEBUG_ENTRY
 
 #if !defined (CONFIG_REMOTECONFIG_MINIMUM)
+# if defined (ENABLE_HTTPD)
+	if (m_pHttpDaemon != nullptr) {
+		delete m_pHttpDaemon;
+	}
+# endif
+
 	MDNS::Get()->ServiceRecordDelete(mdns::Services::CONFIG);
 #endif
 
