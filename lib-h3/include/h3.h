@@ -815,7 +815,19 @@ extern void h3_dump_memory_mapping(void);
 #  define UDELAY
  void udelay(uint32_t us, uint32_t offset = 0);
 # endif
-#endif
+#endif //
 
 #endif
+
+#define GIC_DISTRIBUTOR_BASE	H3_GIC_DIST_BASE
+#define GIC_INTERFACE_BASE		H3_GIC_CPUIF_BASE
+#define IRQn_Type				H3_IRQn_TypeDef
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+
+#include "core_ca.h"
+#include "irq_ctrl.h"
+
 #endif /* H3_H_ */
