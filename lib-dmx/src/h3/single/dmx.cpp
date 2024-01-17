@@ -2,7 +2,7 @@
  * @file dmx.cpp
  *
  */
-/* Copyright (C) 2018-2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2018-2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -152,7 +152,7 @@ static void irq_timer0_dmx_receive(uint32_t clo) {
 			dmb();
 			sv_nRdmDataBufferIndexHead = (sv_nRdmDataBufferIndexHead + 1) & RDM_DATA_BUFFER_INDEX_MASK;
 			sv_DmxReceiveState = IDLE;
-			gv_RdmDataReceiveEnd = h3_hs_timer_lo_us();
+			gv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
 			h3_gpio_clr(GPIO_ANALYZER_CH3);
 		} else {
 			H3_TIMER->TMR0_INTV = sv_nRdmDiscSlotToSlot[sv_nRdmDataBufferIndexHead] * 12;
@@ -247,7 +247,7 @@ static void irq_timer1_dmx_receive(__attribute__((unused)) uint32_t clo) {
  * Interrupt handler for continues receiving DMX512 data.
  */
 static void fiq_dmx_in_handler(void) {
-	sv_nFiqMicrosCurrent = h3_hs_timer_lo_us();
+	sv_nFiqMicrosCurrent = H3_HS_TIMER->CURNT_LO;
 
 	if (EXT_UART->LSR & UART_LSR_BI) {
 		sv_DmxReceiveState = PRE_BREAK;
@@ -335,7 +335,7 @@ static void fiq_dmx_in_handler(void) {
 
 			if ((sv_nRdmChecksum == 0) && (p->sub_start_code == E120_SC_SUB_MESSAGE)) {
 				sv_nRdmDataBufferIndexHead = (sv_nRdmDataBufferIndexHead + 1) & RDM_DATA_BUFFER_INDEX_MASK;
-				gv_RdmDataReceiveEnd = h3_hs_timer_lo_us();
+				gv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
 				dmb();
 			}
 
@@ -352,7 +352,7 @@ static void fiq_dmx_in_handler(void) {
 			if (sv_nDmxDataIndex == 24) {
 				sv_nRdmDataBufferIndexHead = (sv_nRdmDataBufferIndexHead + 1) & RDM_DATA_BUFFER_INDEX_MASK;
 				sv_DmxReceiveState = IDLE;
-				gv_RdmDataReceiveEnd = h3_hs_timer_lo_us();
+				gv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
 				dmb();
 				h3_gpio_clr(GPIO_ANALYZER_CH3);
 			}
