@@ -49,16 +49,20 @@ class LLRPDevice {
 public:
 	LLRPDevice() {
 		DEBUG_ENTRY
+
 		s_nHandleLLRP = Network::Get()->Begin(llrp::device::LLRP_PORT);
 		assert(s_nHandleLLRP != -1);
 		Network::Get()->JoinGroup(s_nHandleLLRP, llrp::device::IPV4_LLRP_REQUEST);
+
 		DEBUG_EXIT
 	}
 
 	virtual ~LLRPDevice() {
 		DEBUG_ENTRY
+
 		Network::Get()->LeaveGroup(s_nHandleLLRP, llrp::device::IPV4_LLRP_REQUEST);
 		Network::Get()->End(llrp::device::LLRP_PORT);
+
 		DEBUG_EXIT
 	}
 

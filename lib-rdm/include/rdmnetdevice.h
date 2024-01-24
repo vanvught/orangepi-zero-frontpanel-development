@@ -41,7 +41,7 @@
 # error "Cannot be both RDMNet Device and RDM Responder"
 #endif
 
-class RDMNetDevice: public RDMDeviceResponder, public LLRPDevice {
+class RDMNetDevice final: public RDMDeviceResponder, public LLRPDevice {
 public:
 	RDMNetDevice(RDMPersonality **pRDMPersonalities, uint32_t nPersonalityCount) : RDMDeviceResponder(pRDMPersonalities, nPersonalityCount) {
 		Hardware::Get()->GetUuid(s_Cid);

@@ -268,6 +268,15 @@ public:
 		}
 	}
 
+#if defined (NODE_SHOWFILE) && defined (CONFIG_SHOWFILE_PROTOCOL_NODE_ARTNET)
+	void HandleShowFile(const artnet::ArtDmx *pArtDmx) {
+		m_nCurrentPacketMillis = Hardware::Get()->Millis();
+		m_nIpAddressFrom = Network::Get()->GetIp();
+		m_pReceiveBuffer = reinterpret_cast<uint8_t *>(const_cast<artnet::ArtDmx *>(pArtDmx));
+		HandleDmx();
+	}
+#endif
+
 	uint8_t GetVersion() const {
 		return artnet::VERSION;
 	}
