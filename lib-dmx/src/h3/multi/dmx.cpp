@@ -571,9 +571,9 @@ Dmx::Dmx() {
 
 	s_pCoherentRegion = reinterpret_cast<struct TCoherentRegion *>(H3_MEM_COHERENT_REGION + MEGABYTE/2);
 
-	s_nDmxTransmistBreakTimeINTV = transmit::BREAK_TIME_MIN * 12 ;
-	s_nDmxTransmitMabTimeINTV = transmit::MAB_TIME_MIN * 12 ;
-	s_nDmxTransmitPeriodINTV = (transmit::PERIOD_DEFAULT * 12) - (transmit::MAB_TIME_MIN * 12) - (transmit::BREAK_TIME_MIN * 12);
+	s_nDmxTransmistBreakTimeINTV = m_nDmxTransmitBreakTime * 12;
+	s_nDmxTransmitMabTimeINTV = m_nDmxTransmitMabTime * 12 ;
+	s_nDmxTransmitPeriodINTV = (transmit::PERIOD_DEFAULT * 12) - s_nDmxTransmistBreakTimeINTV- s_nDmxTransmitMabTimeINTV;
 
 	s_tDmxSendState = TxRxState::IDLE;
 

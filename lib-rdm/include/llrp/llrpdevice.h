@@ -32,6 +32,8 @@
 
 #include "llrp/llrppacket.h"
 #include "e133.h"
+#include "rdmconst.h"
+#include "rdmhandler.h"
 
 #include "network.h"
 
@@ -57,7 +59,7 @@ public:
 		DEBUG_EXIT
 	}
 
-	virtual ~LLRPDevice() {
+	~LLRPDevice() {
 		DEBUG_ENTRY
 
 		Network::Get()->LeaveGroup(s_nHandleLLRP, llrp::device::IPV4_LLRP_REQUEST);
@@ -112,21 +114,12 @@ public:
 		printf(" Multicast Response : " IPSTR "\n", IP2STR(llrp::device::IPV4_LLRP_RESPONSE));
 	}
 
-protected:
-	virtual void CopyUID(__attribute__((unused)) uint8_t *pUID) {
-		// Override
-	}
-
-	virtual void CopyCID(__attribute__((unused)) uint8_t *pCID) {
-		// Override
-	}
-
-	virtual uint8_t *LLRPHandleRdmCommand(__attribute__((unused)) const uint8_t *pRDMCommand) {
-		// Override
-		return nullptr;
-	}
-
 private:
+	uint8_t *LLRPHandleRdmCommand(const uint8_t *pRdmDataNoSC) {
+		m_RDMHandler.HandleData(pRdmDataNoSC, reinterpret_cast<uint8_t*>(&s_RdmCommand));
+		return reinterpret_cast<uint8_t*>(&s_RdmCommand);
+	}
+
 	void HandleRequestMessage();
 	void HandleRdmCommand();
 	// DEBUG subject for deletions
@@ -135,9 +128,12 @@ private:
 	void DumpRdmMessageInNoSc();
 
 private:
+	RDMHandler m_RDMHandler { false };
+
 	static int32_t s_nHandleLLRP;
 	static uint32_t s_nIpAddressFrom;
 	static uint8_t *s_pLLRP;
+	static TRdmMessage s_RdmCommand;
 };
 
 #endif /* LLRPDEVICE_H_ */

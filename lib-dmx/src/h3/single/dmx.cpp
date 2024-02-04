@@ -103,9 +103,9 @@ static uint8_t s_DmxDataPrevious[buffer::SIZE] ALIGNED;
 static volatile _dmx_state sv_DmxReceiveState = IDLE;
 static volatile uint32_t sv_nDmxDataIndex;
 
-static uint32_t s_DmxTransmitBreakTimeIntv = (transmit::BREAK_TIME_TYPICAL * 12);
-static uint32_t s_DmxTransmitMabTimeIntv = (transmit::MAB_TIME_MIN * 12);
-static uint32_t s_DmxTransmitPeriodIntv = (transmit::PERIOD_DEFAULT * 12) - (transmit::MAB_TIME_MIN * 12) - (transmit::BREAK_TIME_TYPICAL * 12);
+static uint32_t s_DmxTransmitBreakTimeIntv;
+static uint32_t s_DmxTransmitMabTimeIntv;
+static uint32_t s_DmxTransmitPeriodIntv;
 
 static uint32_t s_nDmxSendDataLength = (dmx::max::CHANNELS + 1);		///< SC + UNIVERSE SIZE
 static volatile uint32_t sv_nFiqMicrosCurrent;
@@ -480,6 +480,10 @@ Dmx *Dmx::s_pThis = nullptr;
 Dmx::Dmx() {
 	assert(s_pThis == nullptr);
 	s_pThis = this;
+
+	s_DmxTransmitBreakTimeIntv = m_nDmxTransmitBreakTime * 12;
+	s_DmxTransmitMabTimeIntv = m_nDmxTransmitMabTime * 12;
+	s_DmxTransmitPeriodIntv = (transmit::PERIOD_DEFAULT * 12) - s_DmxTransmitBreakTimeIntv - s_DmxTransmitMabTimeIntv;
 
 	h3_gpio_fsel(GPIO_EXT_12, GPIO_FSEL_OUTPUT);
 	h3_gpio_clr(GPIO_EXT_12);	// 0 = input, 1 = output

@@ -2,7 +2,7 @@
  * @file dummy_device.cpp
  *
  */
-/* Copyright (C) 2019-2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2019-2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -63,12 +63,9 @@ int main(int argc, char **argv) {
 	RDMPersonality *pPersonalities[1] = { new RDMPersonality("LLRP Dummy device", nullptr) };
 	RDMNetDevice device(pPersonalities, 1);
 
-	RDMDeviceParams rdmDeviceParams(nullptr);
-
-	if (rdmDeviceParams.Load()) {
-		rdmDeviceParams.Dump();
-		rdmDeviceParams.Set(&device);
-	}
+	RDMDeviceParams rdmDeviceParams;
+	rdmDeviceParams.Load();
+	rdmDeviceParams.Set(&device);
 
 	device.Init();
 	device.Print();
