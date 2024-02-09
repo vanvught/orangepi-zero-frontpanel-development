@@ -277,7 +277,7 @@ uint32_t Hardware::GetUpTime() {
 #endif
 }
 
-bool Hardware::SetTime(__attribute__((unused)) const struct tm *pTime) {
+bool Hardware::SetTime([[maybe_unused]] const struct tm *pTime) {
 	DEBUG_PRINTF("%s", asctime(pTime));
 	return true;
 }
@@ -390,7 +390,7 @@ float Hardware::GetCoreTemperatureMax() {
  static hardware::LedStatus s_ledStatus;
 #endif
 
-void Hardware::SetLed(__attribute__((unused)) hardware::LedStatus ledStatus) {
+void Hardware::SetLed([[maybe_unused]] hardware::LedStatus ledStatus) {
 #if defined (__linux__)
 	if (m_boardType == Board::TYPE_RASPBIAN) {
 		if (s_ledStatus == ledStatus) {

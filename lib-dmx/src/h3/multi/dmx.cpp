@@ -157,7 +157,7 @@ static volatile PortState sv_PortState[config::max::OUT] ALIGNED;
 static char CONSOLE_ERROR[] ALIGNED = "DMXDATA %\n";
 static constexpr auto CONSOLE_ERROR_LENGTH = (sizeof(CONSOLE_ERROR) / sizeof(CONSOLE_ERROR[0]));
 
-static void irq_timer0_dmx_multi_sender(__attribute__((unused))uint32_t clo) {
+static void irq_timer0_dmx_multi_sender([[maybe_unused]]uint32_t clo) {
 	logic_analyzer::ch0_set();
 
 	switch (s_tDmxSendState) {
@@ -449,7 +449,7 @@ static void __attribute__((interrupt("FIQ"))) fiq_dmx_multi(void) {
 	__DMB();
 }
 
-static void irq_timer1_dmx_receive(__attribute__((unused)) uint32_t clo) {
+static void irq_timer1_dmx_receive([[maybe_unused]] uint32_t clo) {
 	for (uint32_t i = 0; i < config::max::IN; i++) {
 		s_nDmxUpdatesPerSecond[i] = s_nDmxPackets[i] - s_nDmxPacketsPrevious[i];
 		s_nDmxPacketsPrevious[i] = s_nDmxPackets[i];
@@ -736,15 +736,15 @@ void Dmx::ClearData(const uint32_t nPortIndex) {
 	}
 }
 
-void Dmx::StartDmxOutput(__attribute__((unused)) const uint32_t nPortIndex) {
+void Dmx::StartDmxOutput([[maybe_unused]] const uint32_t nPortIndex) {
 	// Nothing to do here
 }
 
-void Dmx::StartOutput(__attribute__((unused)) const uint32_t nPortIndex) {
+void Dmx::StartOutput([[maybe_unused]] const uint32_t nPortIndex) {
 	// Nothing to do here
 }
 
-void Dmx::SetOutput(__attribute__((unused)) const bool doForce) {
+void Dmx::SetOutput([[maybe_unused]] const bool doForce) {
 	// Nothing to do here
 }
 
@@ -881,11 +881,11 @@ void Dmx::SetDmxSlots(uint16_t nSlots) {
 	DEBUG_EXIT
 }
 
-void Dmx::SetOutputStyle(__attribute__((unused)) const uint32_t nPortIndex, __attribute__((unused))  const dmx::OutputStyle outputStyle) {
+void Dmx::SetOutputStyle([[maybe_unused]] const uint32_t nPortIndex, [[maybe_unused]]  const dmx::OutputStyle outputStyle) {
 
 }
 
-dmx::OutputStyle Dmx::GetOutputStyle(__attribute__((unused)) const uint32_t nPortIndex) const {
+dmx::OutputStyle Dmx::GetOutputStyle([[maybe_unused]] const uint32_t nPortIndex) const {
 	return dmx::OutputStyle::CONTINOUS;
 }
 

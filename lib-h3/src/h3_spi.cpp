@@ -373,7 +373,7 @@ void h3_spi_chipSelect(uint8_t chip_select) {
 	EXT_SPI->TC = value;
 }
 
-void h3_spi_setChipSelectPolarity(__attribute__((unused)) uint8_t chip_select, uint8_t polarity) {
+void h3_spi_setChipSelectPolarity([[maybe_unused]] uint8_t chip_select, uint8_t polarity) {
 	uint32_t value = EXT_SPI->TC;
 
 	if (polarity == HIGH) {
