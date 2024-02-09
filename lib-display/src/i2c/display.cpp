@@ -40,6 +40,18 @@
 #include "display7segment.h"
 
 #include "hal_i2c.h"
+#include "hal_gpio.h"
+
+namespace display {
+namespace timeout {
+static void gpio_init() {
+#if defined (DISPLAYTIMEOUT_GPIO)
+	FUNC_PREFIX(gpio_fsel(DISPLAYTIMEOUT_GPIO, GPIO_FSEL_INPUT));
+	FUNC_PREFIX(gpio_set_pud(DISPLAYTIMEOUT_GPIO, GPIO_PULL_UP));
+#endif
+}
+}  // namespace timeout
+}  // namespace display
 
 Display *Display::s_pThis;
 

@@ -45,6 +45,17 @@ static constexpr sFONT *s_pFONT = &Font12x12;
 static constexpr auto COLOR_BACKGROUND = 0x001F;
 static constexpr auto COLOR_FOREGROUND = 0xFFE0;
 
+namespace display {
+namespace timeout {
+static void gpio_init() {
+#if defined (DISPLAYTIMEOUT_GPIO)
+	FUNC_PREFIX(gpio_fsel(DISPLAYTIMEOUT_GPIO, GPIO_FSEL_INPUT));
+	FUNC_PREFIX(gpio_set_pud(DISPLAYTIMEOUT_GPIO, GPIO_PULL_UP));
+#endif
+}
+}  // namespace timeout
+}  // namespace display
+
 Display *Display::s_pThis;
 
 Display::Display() : m_nMillis(Hardware::Get()->Millis()) {
