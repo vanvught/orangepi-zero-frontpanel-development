@@ -2,7 +2,7 @@
  * @file hardware.h
  *
  */
-/* Copyright (C) 2021-2023 by Arjan van Vught mailto:info@gd32-dmx.org
+/* Copyright (C) 2021-2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -67,7 +67,9 @@ public:
 		return 0;	// FIXME GetReleaseId
 	}
 
-	void GetUuid(uuid_t out);
+	void GetUuid(uuid_t out) {
+		memcpy(out, ::hal::globals::uuid, sizeof(uuid_t));
+	}
 
 	uint32_t Millis() {
 		extern volatile uint32_t s_nSysTickMillis;
@@ -83,12 +85,12 @@ public:
 	}
 
 	bool SetTime(__attribute__((unused)) const struct tm *pTime) {
-	#if !defined(DISABLE_RTC)
+#if !defined(DISABLE_RTC)
 		m_HwClock.Set(pTime);
 		return true;
-	#else
+#else
 		return false;
-	#endif
+#endif
 	}
 
 	void GetTime(struct tm *pTime) {
@@ -119,8 +121,8 @@ public:
 	}
 
 	const char *GetSocName(uint8_t &nLength) {
-		nLength = 5;
-		return "GD32F";
+		nLength = 4;
+		return "GD32";
 	}
 
 	const char *GetCpuName(uint8_t &nLength) {

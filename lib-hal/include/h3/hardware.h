@@ -50,16 +50,19 @@ class Hardware {
 public:
 	Hardware();
 
-	void GetUuid(uuid_t out);
+	uint32_t GetReleaseId() const {
+		return 0;	// TODO U-Boot version
+	}
+
+	void GetUuid(uuid_t out) {
+		memcpy(out, ::hal::globals::uuid, sizeof(uuid_t));
+	}
+
 	const char *GetMachine(uint8_t &nLength);
 	const char *GetSysName(uint8_t &nLength);
 	const char *GetBoardName(uint8_t &nLength);
 	const char *GetCpuName(uint8_t &nLength);
 	const char *GetSocName(uint8_t &nLength);
-
-	uint32_t GetReleaseId() const {
-		return 0;	// TODO U-Boot version
-	}
 
 	uint32_t GetBoardId() {
 	#if defined(ORANGE_PI)

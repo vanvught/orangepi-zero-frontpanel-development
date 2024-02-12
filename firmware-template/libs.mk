@@ -24,6 +24,12 @@ ifeq ($(findstring NODE_E131,$(DEFINES)),NODE_E131)
 	endif
 endif
 
+ifeq ($(findstring E131_CONTROLLER,$(DEFINES)),E131_CONTROLLER)
+	ifneq ($(findstring e131,$(LIBS)),e131)
+		LIBS+=e131
+	endif
+endif
+
 ifeq ($(findstring NODE_SHOWFILE,$(DEFINES)),NODE_SHOWFILE)
 	LIBS+=showfile osc
 endif
