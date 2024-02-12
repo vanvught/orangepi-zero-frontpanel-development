@@ -51,7 +51,7 @@ public:
 	uint32_t GetReleaseId();
 
 	void GetUuid(uuid_t out) {
-		memcpy(out, ::hal::globals::uuid, sizeof(uuid_t));
+		memcpy(out, m_uuid, sizeof(uuid_t));
 	}
 
 	void Print();
@@ -138,6 +138,7 @@ private:
 #if !defined(DISABLE_RTC)
 	HwClock m_HwClock;
 #endif
+	uuid_t m_uuid;
 
 	enum class Board {
 		TYPE_LINUX,

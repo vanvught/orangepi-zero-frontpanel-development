@@ -30,16 +30,12 @@
 #include "h3_sid.h"
 
 namespace hal {
-namespace globals {
-extern uuid_t uuid;
-}  // namespace global
-
 typedef union pcast32 {
 	uuid_t uuid;
 	uint8_t u8[16];
 } _pcast32;
 
-void uuid_init() {
+void uuid_init(uuid_t out) {
 	_pcast32 cast;
 
 	h3_sid_get_rootkey(&cast.u8[0]);
@@ -47,6 +43,6 @@ void uuid_init() {
 	cast.uuid[6] = static_cast<char>(0x40 | (cast.uuid[6] & 0xf));
 	cast.uuid[8] = static_cast<char>(0x80 | (cast.uuid[8] & 0x3f));
 
-	memcpy(globals::uuid, cast.uuid, sizeof(uuid_t));
+	memcpy(out, cast.uuid, sizeof(uuid_t));
 }
 }  // namespace hal

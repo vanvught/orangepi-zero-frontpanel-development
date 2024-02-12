@@ -32,10 +32,7 @@
 #include <uuid/uuid.h>
 
 namespace hal {
-namespace globals {
-extern uuid_t uuid;
-}  // namespace global
-void uuid_init();
+void uuid_init(uuid_t);
 uint32_t get_uptime();
 }  // namespace hal
 
@@ -47,7 +44,7 @@ public:
 	}
 
 	void GetUuid(uuid_t out) {
-		memcpy(out, ::hal::globals::uuid, sizeof(uuid_t));
+		memcpy(out, m_uuid, sizeof(uuid_t));
 	}
 
 	uint32_t GetUpTime() {
@@ -79,8 +76,11 @@ public:
 
 private:
 	Hardware() {
-		hal::uuid_init();
+		hal::uuid_init(m_uuid);
 	}
+
+private:
+	uuid_t m_uuid;
  };
 
 #endif /* LINUX_MINIMUM_HARDWARE_H_ */

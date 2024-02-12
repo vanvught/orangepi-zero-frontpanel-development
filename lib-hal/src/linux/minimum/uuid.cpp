@@ -30,13 +30,9 @@
 #include "exec_cmd.h"
 
 namespace hal {
-namespace globals {
-extern uuid_t uuid;
-}  // namespace global
-
 static constexpr auto UUID_STRING_LENGTH = 36;
 
-void uuid_init() {
+void uuid_init(uuid_t out) {
 	char uuid_str[hal::UUID_STRING_LENGTH + 2];
 
 #if defined (__APPLE__)
@@ -70,6 +66,6 @@ void uuid_init() {
 	uuid_str[8] = '-';
 #endif
 
-	uuid_parse(uuid_str, globals::uuid);
+	uuid_parse(uuid_str, out);
 }
 }  // namespace hal

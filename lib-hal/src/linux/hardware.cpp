@@ -102,7 +102,7 @@ static constexpr char RASPBIAN_LED_FLASH[] = "echo timer | sudo tee /sys/class/l
 static constexpr char UNKNOWN[] = "Unknown";
 
 namespace hal {
-void uuid_init();
+void uuid_init(uuid_t);
 uint32_t get_uptime();
 }  // namespace hal
 
@@ -119,7 +119,7 @@ Hardware::Hardware():
 {
 	s_pThis = this;
 
-    hal::uuid_init();
+    hal::uuid_init(m_uuid);
 
 	memset(&m_TOsInfo, 0, sizeof(struct utsname));
 
@@ -263,12 +263,6 @@ uint32_t Hardware::GetUpTime() {
 bool Hardware::SetTime([[maybe_unused]] const struct tm *pTime) {
 	DEBUG_PRINTF("%s", asctime(pTime));
 	return true;
-}
-
-void Hardware::GetTime(struct tm *pTime) {
-	auto ltime = time(nullptr);
-	const auto *pLocalTime = localtime(&ltime);
-	memcpy(pTime, pLocalTime, sizeof(struct tm));
 }
 
 #if !defined(DISABLE_RTC)

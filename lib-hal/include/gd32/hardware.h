@@ -68,7 +68,7 @@ public:
 	}
 
 	void GetUuid(uuid_t out) {
-		memcpy(out, ::hal::globals::uuid, sizeof(uuid_t));
+		memcpy(out, m_uuid, sizeof(uuid_t));
 	}
 
 	uint32_t Millis() {
@@ -110,22 +110,22 @@ public:
 	}
 #endif
 
-	const char *GetBoardName(uint8_t &nLength) {
+	const char *GetBoardName(uint8_t& nLength) {
 		nLength = sizeof(GD32_BOARD_NAME) - 1U;
 		return GD32_BOARD_NAME;
 	}
 
-	const char *GetSysName(uint8_t &nLength) {
+	const char* GetSysName(uint8_t& nLength) {
 		nLength = 8;
 		return "Embedded";
 	}
 
-	const char *GetSocName(uint8_t &nLength) {
+	const char* GetSocName(uint8_t& nLength) {
 		nLength = 4;
 		return "GD32";
 	}
 
-	const char *GetCpuName(uint8_t &nLength) {
+	const char *GetCpuName(uint8_t& nLength) {
 		nLength = sizeof(GD32_MCU_NAME) - 1U;
 		return GD32_MCU_NAME;
 	}
@@ -139,8 +139,8 @@ public:
 	}
 
 	void WatchdogInit() {
-		const auto status = fwdgt_config(0xFFFF, FWDGT_PSC_DIV16);
-		m_bIsWatchdog = (SUCCESS == status);
+		m_bIsWatchdog = (SUCCESS == fwdgt_config(0xFFFF, FWDGT_PSC_DIV16));
+
 		if (m_bIsWatchdog) {
 			fwdgt_enable();
 		}
@@ -264,6 +264,7 @@ private:
 #if !defined(DISABLE_RTC)
 	HwClock m_HwClock;
 #endif
+	uuid_t m_uuid;
 	bool m_bIsWatchdog { false };
 	hardware::ledblink::Mode m_Mode { hardware::ledblink::Mode::UNKNOWN };
 	bool m_doLock { false };

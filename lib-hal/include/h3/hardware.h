@@ -2,7 +2,7 @@
  * @file hardware.h
  *
  */
-/* Copyright (C) 2020-2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2020-2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -55,7 +55,7 @@ public:
 	}
 
 	void GetUuid(uuid_t out) {
-		memcpy(out, ::hal::globals::uuid, sizeof(uuid_t));
+		memcpy(out, m_uuid, sizeof(uuid_t));
 	}
 
 	const char *GetMachine(uint8_t &nLength);
@@ -101,12 +101,6 @@ public:
 #endif
 	}
 	
-	void GetTime(struct tm *pTime) {
-		auto ltime = time(nullptr);
-		const auto *pLocalTime = localtime(&ltime);
-		memcpy(pTime, pLocalTime, sizeof(struct tm));
-	}
-
 #if !defined(DISABLE_RTC)
 	bool SetAlarm(const struct tm *pTime) {
 		const auto b = m_HwClock.AlarmSet(pTime);
@@ -117,10 +111,6 @@ public:
 		m_HwClock.AlarmGet(pTime);
 	}
 #endif
-
-	time_t GetTime() {
-		return time(nullptr);
-	}
 
 	uint32_t GetUpTime() {
 		return hardware_uptime_seconds();
@@ -223,6 +213,7 @@ private:
 #if !defined(DISABLE_RTC)
 	HwClock m_HwClock;
 #endif
+	uuid_t m_uuid;
 	bool m_bIsWatchdog { false };
 
 	hardware::ledblink::Mode m_Mode { hardware::ledblink::Mode::UNKNOWN };

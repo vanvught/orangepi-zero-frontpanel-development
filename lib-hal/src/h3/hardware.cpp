@@ -75,7 +75,7 @@ namespace sysname {
 }
 
 namespace hal {
-void uuid_init();
+void uuid_init(uuid_t);
 }  // namespace hardware
 
 Hardware *Hardware::s_pThis;
@@ -87,7 +87,7 @@ Hardware::Hardware() {
 	s_pThis = this;
 
 	hardware_init();
-	hal::uuid_init();
+	hal::uuid_init(m_uuid);
 
 #if defined (DEBUG_I2C)
 	I2cDetect i2cdetect;

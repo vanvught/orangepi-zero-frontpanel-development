@@ -30,12 +30,6 @@
 #include <cstring>
 #include <uuid/uuid.h>
 
-namespace hal {
-namespace globals {
-extern uuid_t uuid;
-}  // namespace global
-}  // namespace hal
-
 namespace hardware {
 enum class BootDevice {
 	UNKOWN,
