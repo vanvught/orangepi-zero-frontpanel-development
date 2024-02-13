@@ -1,8 +1,9 @@
+#if !defined (CONFIG_NETWORK_USE_MINIMUM)
 /**
  * @file network.cpp
  *
  */
-/* Copyright (C) 2018-2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2018-2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -639,3 +640,4 @@ void Network::Print() {
 	printf(" Mac       : " MACSTR "\n", MAC2STR(m_aNetMacaddr));
 	printf(" Mode      : %c\n", GetAddressingMode());
 }
+#endif

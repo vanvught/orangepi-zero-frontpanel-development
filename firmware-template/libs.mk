@@ -2,7 +2,10 @@ $(info $$DEFINES [${DEFINES}])
 
 ifeq ($(findstring NO_EMAC,$(DEFINES)),NO_EMAC)
 else
-	LIBS+=remoteconfig
+	ifeq ($(findstring CONFIG_NETWORK_USE_MINIMUM,$(DEFINES)),CONFIG_NETWORK_USE_MINIMUM)
+	else
+		LIBS+=remoteconfig
+	endif
 endif
 
 ifeq ($(findstring NODE_NODE,$(DEFINES)),NODE_NODE)
