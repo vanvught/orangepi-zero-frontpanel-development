@@ -2,7 +2,7 @@
  * @file file.c
  *
  */
-/* Copyright (C) 2017-2020 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2017-2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,13 +29,9 @@
 #include <errno.h>
 #include <assert.h>
 
-//#include "../ff12c/ff.h"
 #include "../ff14b/source/ff.h"
 #include <dirent.h>	/* DO NOT MOVE -> DIR is defined in ff.h */
 
-#include "debug.h"
-
-int console_error(const char *);
 static int fatfs_to_errno(FRESULT fresult);
 
 static FIL file_object;
@@ -43,27 +39,49 @@ static FRESULT s_fresult = 0;
 
 // http://elm-chan.org/fsw/ff/doc/open.html
 FILE *fopen(const char *path, const char *mode) {
-	errno = 0;
-	BYTE fa = (BYTE) FA_READ;
-
 	assert(path != NULL);
 	assert(mode != NULL);
 
-	if (strcmp(mode, "r") == 0) {
-		fa = (BYTE) FA_READ;
-	} else if (strcmp(mode, "w+") == 0) {
-		fa = (BYTE) (FA_CREATE_ALWAYS | FA_WRITE | FA_READ);
-	} else {
-		(void) console_error(mode);
-		(void) console_error(" is not implemented\n");
+	errno = 0;
+	BYTE fm, fo;
+
+	switch (mode[0]) {
+	case 'r':
+		fm = (BYTE) FA_READ;
+		fo = 0;
+		break;
+	case 'w':
+		fm = (BYTE) FA_WRITE;
+		fo = (BYTE) FA_CREATE_ALWAYS;
+		break;
+	case 'a':
+		fm = (BYTE) FA_WRITE;
+		fo = (BYTE) FA_OPEN_APPEND;
+		break;
+	default:
 		return NULL;
+		break;
 	}
 
-	s_fresult = f_open(&file_object, (TCHAR *)path, fa);
+	while (*++mode != '\0') {
+		switch (*mode) {
+		case '+':
+			fm = (BYTE) (FA_READ | FA_WRITE);
+			break;
+		case 'x':
+			fo = (BYTE) FA_CREATE_NEW;
+			break;
+		default:
+			return NULL;
+			break;
+		}
+	}
+
+	s_fresult = f_open(&file_object, (TCHAR *) path, (BYTE) (fm | fo));
 	errno = fatfs_to_errno(s_fresult);
 
 	if (s_fresult == FR_OK) {
-		return (FILE *)&file_object;
+		return (FILE *) &file_object;
 	} else {
 		return NULL;
 	}
