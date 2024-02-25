@@ -32,163 +32,11 @@
 #include "../ff14b/source/ff.h"
 #include <dirent.h>	/* DO NOT MOVE -> DIR is defined in ff.h */
 
-static int fatfs_to_errno(FRESULT fresult);
-
 static FIL file_object;
-static FRESULT s_fresult = 0;
+static FRESULT s_fresult;
 
-// http://elm-chan.org/fsw/ff/doc/open.html
-FILE *fopen(const char *path, const char *mode) {
-	assert(path != NULL);
-	assert(mode != NULL);
-
-	errno = 0;
-	BYTE fm, fo;
-
-	switch (mode[0]) {
-	case 'r':
-		fm = (BYTE) FA_READ;
-		fo = 0;
-		break;
-	case 'w':
-		fm = (BYTE) FA_WRITE;
-		fo = (BYTE) FA_CREATE_ALWAYS;
-		break;
-	case 'a':
-		fm = (BYTE) FA_WRITE;
-		fo = (BYTE) FA_OPEN_APPEND;
-		break;
-	default:
-		return NULL;
-		break;
-	}
-
-	while (*++mode != '\0') {
-		switch (*mode) {
-		case '+':
-			fm = (BYTE) (FA_READ | FA_WRITE);
-			break;
-		case 'x':
-			fo = (BYTE) FA_CREATE_NEW;
-			break;
-		default:
-			return NULL;
-			break;
-		}
-	}
-
-	s_fresult = f_open(&file_object, (TCHAR *) path, (BYTE) (fm | fo));
-	errno = fatfs_to_errno(s_fresult);
-
-	if (s_fresult == FR_OK) {
-		return (FILE *) &file_object;
-	} else {
-		return NULL;
-	}
-}
-
-int fclose(FILE *stream) {
-	errno = 0;
-
-	if (stream == NULL) {
-		return 0;
-	}
-
-	s_fresult = f_close(&file_object);
-	errno = fatfs_to_errno(s_fresult);
-
-	if (s_fresult == FR_OK) {
-		return 0;
-	}
-
-	return -1;
-}
-
-int fgetc(FILE *stream) {
-	char c;
-	UINT bytes_read;
-	errno = 0;
-
-	if (stream == NULL) {
-		return EOF;
-	}
-
-	if ((s_fresult = f_read(&file_object, &c, (UINT) 1, &bytes_read)) == FR_OK) {
-		if (bytes_read > 0) {
-			return c;
-		}
-
-		if (bytes_read < 1) {
-			errno = fatfs_to_errno(s_fresult);
-			return (EOF);
-		}
-	}
-
-	errno = fatfs_to_errno(s_fresult);
-	return (EOF);
-}
-
-size_t fread(void *ptr, size_t size, size_t nmemb, __attribute__((unused)) FILE *stream) {
-	UINT bytes_read;
-
-	s_fresult = f_read(&file_object, ptr, (UINT) (size * nmemb), &bytes_read);
-	errno = fatfs_to_errno(s_fresult);
-
-	if (s_fresult == FR_OK) {
-		return (size_t) bytes_read;
-	}
-
-	return 0;
-}
-
-int fseek(__attribute__((unused)) FILE *stream, long offset, int whence) {
-	if (whence == SEEK_SET) {
-		s_fresult = f_lseek(&file_object, (FSIZE_t) offset);
-	} else if (whence == SEEK_END) {
-		s_fresult = f_lseek(&file_object, (FSIZE_t) f_size(&file_object));
-	}
-
-	errno = fatfs_to_errno(s_fresult);
-
-	if (s_fresult == FR_OK) {
-		return 0;
-	}
-
-	return -1;
-}
-
-long ftell(__attribute__((unused)) FILE *stream) {
-	return (long) f_tell(&file_object);
-}
-
-char *fgets(char *s, int size, FILE *stream) {
-	assert(s != NULL);
-	errno = 0;
-
-	if (stream == NULL) {
-		*s = '\0';
-		return NULL;
-	}
-
-	if (f_gets((TCHAR *) s, size, &file_object) != (TCHAR *)s) {
-		*s = '\0';
-		errno = fatfs_to_errno(f_error(&file_object));
-		return NULL;
-	}
-
-	return s;
-}
-
-void clearerr(__attribute__((unused)) FILE *stream) {
-	s_fresult = 0;
-}
-
-int ferror(__attribute__((unused)) FILE *stream) {
-	return s_fresult == FR_OK ? 0 : EOF;
-}
-
-static int fatfs_to_errno(FRESULT fresult) {
-	switch (fresult) {
+static int fatfs_to_errno(const BYTE err) {
+	switch (static_cast<FRESULT>(err)) {
 	case FR_OK: 			/* FatFS (0) Succeeded */
 		return (0); 		/* POSIX OK */
 	case FR_DISK_ERR: 		/* FatFS (1) A hard error occurred in the low level disk I/O layer */
@@ -234,45 +82,196 @@ static int fatfs_to_errno(FRESULT fresult) {
 	return (EBADMSG); 		/* POSIX Bad message (POSIX.1) */
 }
 
+extern "C" {
+// http://elm-chan.org/fsw/ff/doc/open.html
+FILE *fopen(const char *path, const char *mode) {
+	assert(path != nullptr);
+	assert(mode != nullptr);
+
+	errno = 0;
+	BYTE fm, fo;
+
+	switch (mode[0]) {
+	case 'r':
+		fm = (BYTE) FA_READ;
+		fo = 0;
+		break;
+	case 'w':
+		fm = (BYTE) FA_WRITE;
+		fo = (BYTE) FA_CREATE_ALWAYS;
+		break;
+	case 'a':
+		fm = (BYTE) FA_WRITE;
+		fo = (BYTE) FA_OPEN_APPEND;
+		break;
+	default:
+		return nullptr;
+		break;
+	}
+
+	while (*++mode != '\0') {
+		switch (*mode) {
+		case '+':
+			fm = (BYTE) (FA_READ | FA_WRITE);
+			break;
+		case 'x':
+			fo = (BYTE) FA_CREATE_NEW;
+			break;
+		default:
+			return nullptr;
+			break;
+		}
+	}
+
+	s_fresult = f_open(&file_object, (TCHAR *) path, (BYTE) (fm | fo));
+	errno = fatfs_to_errno(s_fresult);
+
+	if (s_fresult == FR_OK) {
+		return (FILE *) &file_object;
+	} else {
+		return nullptr;
+	}
+}
+
+int fclose(FILE *stream) {
+	errno = 0;
+
+	if (stream == nullptr) {
+		return 0;
+	}
+
+	s_fresult = f_close(&file_object);
+	errno = fatfs_to_errno(s_fresult);
+
+	if (s_fresult == FR_OK) {
+		return 0;
+	}
+
+	return -1;
+}
+
+int fgetc(FILE *stream) {
+	char c;
+	UINT bytes_read;
+	errno = 0;
+
+	if (stream == nullptr) {
+		return EOF;
+	}
+
+	if ((s_fresult = f_read(&file_object, &c, (UINT) 1, &bytes_read)) == FR_OK) {
+		if (bytes_read > 0) {
+			return c;
+		}
+
+		if (bytes_read < 1) {
+			errno = fatfs_to_errno(s_fresult);
+			return (EOF);
+		}
+	}
+
+	errno = fatfs_to_errno(s_fresult);
+	return (EOF);
+}
+
+size_t fread(void *ptr, size_t size, size_t nmemb, [[maybe_unused]] FILE *stream) {
+	UINT bytes_read;
+
+	s_fresult = f_read(&file_object, ptr, (size * nmemb), &bytes_read);
+	errno = fatfs_to_errno(s_fresult);
+
+	if (s_fresult == FR_OK) {
+		return bytes_read;
+	}
+
+	return 0;
+}
+
+int fseek([[maybe_unused]] FILE *stream, long offset, int whence) {
+	if (whence == SEEK_SET) {
+		s_fresult = f_lseek(&file_object, (FSIZE_t) offset);
+	} else if (whence == SEEK_END) {
+		s_fresult = f_lseek(&file_object, f_size(&file_object));
+	}
+
+	errno = fatfs_to_errno(s_fresult);
+
+	if (s_fresult == FR_OK) {
+		return 0;
+	}
+
+	return -1;
+}
+
+long ftell([[maybe_unused]] FILE *stream) {
+	return (long) f_tell(&file_object);
+}
+
+char *fgets(char *s, int size, FILE *stream) {
+	assert(s != nullptr);
+	errno = 0;
+
+	if (stream == nullptr) {
+		*s = '\0';
+		return nullptr;
+	}
+
+	if (f_gets(s, size, &file_object) != s) {
+		*s = '\0';
+		errno = fatfs_to_errno(f_error(&file_object));
+		return nullptr;
+	}
+
+	return s;
+}
+
+void clearerr([[maybe_unused]] FILE *stream) {
+	s_fresult = FR_OK;
+}
+
+int ferror([[maybe_unused]] FILE *stream) {
+	return s_fresult == FR_OK ? 0 : EOF;
+}
+
 /*
  *  The following API´s are implemented when CONFIG_FS_ENABLE_WRITE is defined
  */
 
-int fputs(__attribute__((unused)) const char *s, __attribute__((unused)) FILE *stream) {
+int fputs([[maybe_unused]] const char *s, [[maybe_unused]] FILE *stream) {
 #if !defined (CONFIG_FS_ENABLE_WRITE)
 	errno = ENOSYS;
 	return -1;
 #else
-	assert(s != NULL);
+	assert(s != nullptr);
 	errno = 0;
 
-	if (stream == NULL) {
+	if (stream == nullptr) {
 		return 0;
 	}
 
-	return f_puts((const TCHAR *) s, &file_object);
+	return f_puts(s, &file_object);
 #endif
 }
 
-size_t fwrite(__attribute__((unused)) const void *ptr, __attribute__((unused)) size_t size, __attribute__((unused)) size_t nmemb, __attribute__((unused)) FILE *stream) {
+size_t fwrite([[maybe_unused]] const void *ptr, [[maybe_unused]] size_t size, [[maybe_unused]] size_t nmemb, [[maybe_unused]] FILE *stream) {
 #if !defined (CONFIG_FS_ENABLE_WRITE)
 	errno = ENOSYS;
 	return 0;
 #else
 	UINT bytes_write;
 
-	s_fresult = f_write(&file_object, ptr, (UINT) (size * nmemb), &bytes_write);
+	s_fresult = f_write(&file_object, ptr, (size * nmemb), &bytes_write);
 	errno = fatfs_to_errno(s_fresult);
 
 	if (s_fresult == FR_OK) {
-		return (size_t) bytes_write;
+		return bytes_write;
 	}
 
 	return 0;
 #endif
 }
 
-int unlink(__attribute__((unused)) const char *pathname) {
+int unlink([[maybe_unused]] const char *pathname) {
 #if !defined (CONFIG_FS_ENABLE_WRITE)
 	errno = ENOSYS;
 	return -1;
@@ -294,7 +293,7 @@ static DIR s_dir;
 static dirent_t s_dirent;
 #endif
 
-DIR *opendir(__attribute__((unused)) const char *dirname) {
+DIR *opendir([[maybe_unused]] const char *dirname) {
 #if !defined (CONFIG_FS_ENABLE_WRITE)
 	errno = ENOSYS;
 	return 0;
@@ -304,28 +303,28 @@ DIR *opendir(__attribute__((unused)) const char *dirname) {
 	if ((len > 0) && (dirname[len - 1] == '.')) {
 		char *pathdir = (char *) dirname;
 		pathdir[len - 1] = '\0';
-		s_fresult = f_opendir((DIR *) &s_dir, pathdir);
+		s_fresult = f_opendir(&s_dir, pathdir);
 	} else {
-		s_fresult = f_opendir((DIR *) &s_dir, dirname);
+		s_fresult = f_opendir(&s_dir, dirname);
 	}
 
 	errno = fatfs_to_errno(s_fresult);
 
 	if (s_fresult != FR_OK) {
-		return NULL;
+		return nullptr;
 	}
 
-	return ((DIR*) &s_dir);
+	return &s_dir;
 #endif
 }
 
 /**
  * On success, readdir() returns a pointer to a dirent structure.
- * If the end of the directory stream is reached, NULL is returned and errno is not changed.
- * If an error occurs, NULL is returned and errno is set appropriately.
+ * If the end of the directory stream is reached, nullptr is returned and errno is not changed.
+ * If an error occurs, nullptr is returned and errno is set appropriately.
  */
 
-struct dirent *readdir(__attribute__((unused)) DIR *dirp) {
+struct dirent *readdir([[maybe_unused]] DIR *dirp) {
 #if !defined (CONFIG_FS_ENABLE_WRITE)
 	errno = ENOSYS;
 	return 0;
@@ -338,11 +337,11 @@ struct dirent *readdir(__attribute__((unused)) DIR *dirp) {
 
 	if (s_fresult != FR_OK) {
 		errno = fatfs_to_errno(s_fresult);
-		return NULL;
+		return nullptr;
 	}
 
 	if (fno.fname[0] == '\0') {
-		return NULL;
+		return nullptr;
 	}
 
 	errno = 0;
@@ -355,11 +354,11 @@ struct dirent *readdir(__attribute__((unused)) DIR *dirp) {
 		s_dirent.d_type = DT_REG;
 	}
 
-	return ((dirent_t*) &s_dirent);
+	return &s_dirent;
 #endif
 }
 
-int closedir(__attribute__((unused)) DIR *dirp) {
+int closedir([[maybe_unused]] DIR *dirp) {
 #if !defined (CONFIG_FS_ENABLE_WRITE)
 	errno = ENOSYS;
 	return -1;
@@ -374,4 +373,5 @@ int closedir(__attribute__((unused)) DIR *dirp) {
 
 	return -1;
 #endif
+}
 }

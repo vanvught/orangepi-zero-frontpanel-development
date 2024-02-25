@@ -42,7 +42,7 @@
 #include <stdio.h>
 #endif
 
-extern console_error(const char *);
+extern void console_error(const char *);
 
 extern unsigned char heap_low; /* Defined by the linker */
 extern unsigned char heap_top; /* Defined by the linker */

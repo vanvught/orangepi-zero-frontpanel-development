@@ -1,8 +1,8 @@
 /**
- * @file hal_api.h
+ * @file debug_exception.c
  *
  */
-/* Copyright (C) 2020-2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2018-2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,20 +23,40 @@
  * THE SOFTWARE.
  */
 
-#ifndef LINUX_HAL_API_H_
-#define LINUX_HAL_API_H_
+#include <stdio.h>
 
-#if defined (RASPPI)
-# define FUNC_PREFIX(x) bcm2835_##x
-# include "bcm2835.h"
-# if defined(LINUX_HAVE_I2C)
-#  undef bcm2835_i2c_begin
-#  undef bcm2835_i2c_set_baudrate
-#  undef bcm2835_i2c_setSlaveAddress
-#  undef bcm2835_i2c_read
-#  undef bcm2835_i2c_write
-# endif
+#include "console.h"
+
+#if defined (H3)
+# include "h3.h"
 #else
+void bcm2835_watchdog_stop(void);
 #endif
 
-#endif /* LINUX_HAL_API_H_ */
+void debug_exception(unsigned int type, unsigned int address) {
+	__sync_synchronize();
+
+	console_set_fg_color(CONSOLE_RED);
+
+	if (type == 0) {
+		printf("\nUndefined exception at address: %p\n",address);
+	} else if (type == 1) {
+		printf("\nPrefetch abort at address: %p\n",address);
+	} else if (type == 2) {
+		volatile unsigned int datafaultaddr;
+		asm volatile ("mrc p15, 0, %[dfa], c6, c0, 0\n\t" : [dfa] "=r" (datafaultaddr));
+		printf("\nData abort at address: %p -> %p\n", address, datafaultaddr);
+	} else {
+		printf("\nUnknown exception! [%d]\n", type);
+	}
+
+	console_set_fg_color(CONSOLE_WHITE);
+
+#if defined (H3)
+	H3_TIMER->WDOG0_MODE = 0;
+#else
+	bcm2835_watchdog_stop();
+#endif
+
+	for(;;);
+}

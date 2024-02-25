@@ -1,4 +1,3 @@
-#if defined(BARE_METAL)
 /**
  * @file debug_exception.c
  *
@@ -26,13 +25,23 @@
 
 #include <stdio.h>
 
-#include "console.h"
-
 #if defined (H3)
 # include "h3.h"
-#else
-void bcm2835_watchdog_stop(void);
 #endif
+
+void console_set_fg_color(int);
+
+typedef enum {
+	CONSOLE_BLACK = 0,
+	CONSOLE_RED = 1,
+	CONSOLE_GREEN = 2,
+	CONSOLE_YELLOW = 3,
+	CONSOLE_BLUE = 4,
+	CONSOLE_MAGENTA = 5
+,	CONSOLE_CYAN = 6,
+	CONSOLE_WHITE = 7,
+	CONSOLE_DEFAULT = 9
+} _console_colors;
 
 void debug_exception(unsigned int type, unsigned int address) {
 	__sync_synchronize();
@@ -53,14 +62,8 @@ void debug_exception(unsigned int type, unsigned int address) {
 
 	console_set_fg_color(CONSOLE_WHITE);
 
-#if defined (H3)
 	H3_TIMER->WDOG0_MODE = 0;
-#else
-	bcm2835_watchdog_stop();
-#endif
 
 	for(;;);
 }
-#else
-typedef int ISO_C_forbids_an_empty_translation_unit;
-#endif
+
