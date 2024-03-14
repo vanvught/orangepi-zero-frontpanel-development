@@ -1,8 +1,8 @@
 /**
- * @file get_uptime.cpp
+ * @file json_get_ports.cpp
  *
  */
-/* Copyright (C) 2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,38 +26,33 @@
 #include <cstdint>
 #include <cstdio>
 
-#if defined (__APPLE__)
-# include <time.h>
-# include <sys/sysctl.h>
-#else
-# include <sys/sysinfo.h>
-#endif
+#include "dmx.h"
+#include "dmxconst.h"
+#include "lightset.h"
 
-namespace hal {
-uint32_t get_uptime() {
-#if defined (__APPLE__)
-	struct timeval boottime;
-	size_t len = sizeof(boottime);
-	int mib[2] = {CTL_KERN, KERN_BOOTTIME};
+namespace remoteconfig {
+namespace dmx {
+static uint32_t get_portstatus(const uint32_t nPortIndex, char *pOutBuffer, const uint32_t nOutBufferSize) {
+	const auto direction = Dmx::Get()->GetPortDirection(nPortIndex) == ::dmx::PortDirection::INP ? ::lightset::PortDir::INPUT : ::lightset::PortDir::OUTPUT;
+	auto nLength = static_cast<uint32_t>(snprintf(pOutBuffer, nOutBufferSize,
+			"{\"port\":\"%c\",\"direction\":\"%s\"},",
+			'A' + nPortIndex,
+			lightset::get_direction(direction)));
 
-	if (sysctl(mib, 2, &boottime, &len, nullptr, 0) < 0 ) {
-		return 0;
-	}
-
-	time_t bsec = boottime.tv_sec;
-	time_t csec = time(nullptr);
-
-	return difftime(csec, bsec);
-#else
-	struct sysinfo s_info;
-	int error = sysinfo(&s_info);
-
-	if (error != 0) {
-		printf("code error = %d\n", error);
-	}
-
-	return static_cast<uint32_t>(s_info.uptime);
-#endif
+	return nLength;
 }
-}  // namespace hal
 
+uint32_t json_get_ports(char *pOutBuffer, const uint32_t nOutBufferSize) {
+	pOutBuffer[0] = '[';
+	uint32_t nLength = 1;
+
+	for (uint32_t nPortIndex = 0; nPortIndex < ::dmx::config::max::PORTS; nPortIndex++) {
+		nLength += get_portstatus(nPortIndex, &pOutBuffer[nLength], nOutBufferSize - nLength);
+	}
+
+	pOutBuffer[nLength - 1] = ']';
+
+	return nLength;
+}
+}  // namespace dmx
+}  // namespace remoteconfig

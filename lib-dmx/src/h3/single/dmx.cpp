@@ -94,6 +94,8 @@ static PortDirection s_nPortDirection = dmx::PortDirection::INP;
 static volatile PortState sv_PortState;
 static OutputStyle s_OutputStyle;
 
+static volatile dmx::TotalStatistics sv_TotalStatistics[dmx::config::max::PORTS] ALIGNED;
+
 // DMX
 
 static volatile uint32_t sv_nDmxDataBufferIndexHead;
@@ -119,7 +121,6 @@ static volatile uint32_t sv_DmxTransmitCurrentSlot;
 
 static volatile uint32_t sv_nDmxUpdatesPerSecond;
 static volatile uint32_t sv_nDmxPacketsPrevious;
-static volatile struct TotalStatistics sv_TotalStatistics ALIGNED;
 
 // RDM
 
@@ -239,8 +240,8 @@ static void irq_timer0_dmx_sender([[maybe_unused]] uint32_t clo) {
  */
 static void irq_timer1_dmx_receive([[maybe_unused]] uint32_t clo) {
 	dmb();
-	sv_nDmxUpdatesPerSecond = sv_TotalStatistics.nDmxPackets - sv_nDmxPacketsPrevious;
-	sv_nDmxPacketsPrevious = sv_TotalStatistics.nDmxPackets;
+	sv_nDmxUpdatesPerSecond = sv_TotalStatistics[0].Dmx.Received - sv_nDmxPacketsPrevious;
+	sv_nDmxPacketsPrevious = sv_TotalStatistics[0].Dmx.Received;
 }
 
 /**
@@ -271,7 +272,7 @@ static void fiq_dmx_in_handler(void) {
 				sv_DmxReceiveState = DMXDATA;
 				s_DmxData[sv_nDmxDataBufferIndexHead].Data[0] = START_CODE;
 				sv_nDmxDataIndex = 1;
-				sv_TotalStatistics.nDmxPackets = sv_TotalStatistics.nDmxPackets + 1;
+				sv_TotalStatistics[0].Dmx.Received = sv_TotalStatistics[0].Dmx.Received + 1;
 
 				if (sv_isDmxPreviousBreak) {
 					s_DmxData[sv_nDmxDataBufferIndexHead].Statistics.nBreakToBreak = sv_DmxBreakToBreakLatest - sv_DmxBreakToBreakPrevious;
@@ -287,7 +288,6 @@ static void fiq_dmx_in_handler(void) {
 				s_RdmData[sv_nRdmDataBufferIndexHead][0] = E120_SC_RDM;
 				sv_nRdmChecksum = E120_SC_RDM;
 				sv_nDmxDataIndex = 1;
-				sv_TotalStatistics.nRdmPackets = sv_TotalStatistics.nRdmPackets + 1;
 				sv_isDmxPreviousBreak = false;
 				break;
 			default:
@@ -336,7 +336,10 @@ static void fiq_dmx_in_handler(void) {
 			if ((sv_nRdmChecksum == 0) && (p->sub_start_code == E120_SC_SUB_MESSAGE)) {
 				sv_nRdmDataBufferIndexHead = (sv_nRdmDataBufferIndexHead + 1) & RDM_DATA_BUFFER_INDEX_MASK;
 				gv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
+				sv_TotalStatistics[0].Rdm.Received.Good = sv_TotalStatistics[0].Rdm.Received.Good + 1;
 				dmb();
+			} else {
+				sv_TotalStatistics[0].Rdm.Received.Bad = sv_TotalStatistics[0].Rdm.Received.Bad + 1;
 			}
 
 			sv_DmxReceiveState = IDLE;
@@ -856,6 +859,10 @@ void Dmx::ClearData([[maybe_unused]] uint32_t nPortIndex) {
 	}
 }
 
+volatile dmx::TotalStatistics& Dmx::GetTotalStatistics([[maybe_unused]] const uint32_t nPortIndex) {
+	return sv_TotalStatistics[0];
+}
+
 void Dmx::StartDmxOutput([[maybe_unused]] const uint32_t nPortIndex) {
 	assert(nPortIndex == 0);
 
@@ -927,7 +934,7 @@ void Dmx::RdmSendRaw([[maybe_unused]] uint32_t nPortIndex, const uint8_t *pRdmDa
 
 void Dmx::RdmSendDiscoveryRespondMessage([[maybe_unused]] const uint32_t nPortIndex, const uint8_t *pRdmData, uint32_t nLength) {
 	DEBUG_PRINTF("nPort=%u, pRdmData=%p, nLength=%u", nPort, pRdmData, nLength);
-	assert(nPortIndex < dmx::config::max::OUT);
+	assert(nPortIndex < dmx::config::max::PORTS);
 	assert(pRdmData != nullptr);
 	assert(nLength != 0);
 

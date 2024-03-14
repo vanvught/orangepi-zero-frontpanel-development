@@ -2,7 +2,7 @@
  * @file ws28xx.cpp
  *
  */
-/* Copyright (C) 2017-2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2017-2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -71,13 +71,8 @@ WS28xx::WS28xx(PixelConfiguration& pixelConfiguration): m_PixelConfiguration(pix
 
 	SetupBuffers();
 
-#if defined( USE_SPI_DMA )
-	FUNC_PREFIX(spi_dma_begin());
-	FUNC_PREFIX(spi_dma_set_speed_hz(m_PixelConfiguration.GetClockSpeedHz()));
-#else
 	FUNC_PREFIX(spi_begin());
 	FUNC_PREFIX(spi_set_speed_hz(m_PixelConfiguration.GetClockSpeedHz()));
-#endif
 
 	DEBUG_EXIT
 }

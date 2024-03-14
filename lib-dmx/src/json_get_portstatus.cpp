@@ -1,8 +1,8 @@
 /**
- * @file get_uptime.cpp
+ * @file json_get_portstatus.cpp
  *
  */
-/* Copyright (C) 2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,38 +26,29 @@
 #include <cstdint>
 #include <cstdio>
 
-#if defined (__APPLE__)
-# include <time.h>
-# include <sys/sysctl.h>
-#else
-# include <sys/sysinfo.h>
-#endif
+#include "dmx.h"
+#include "dmxconst.h"
 
-namespace hal {
-uint32_t get_uptime() {
-#if defined (__APPLE__)
-	struct timeval boottime;
-	size_t len = sizeof(boottime);
-	int mib[2] = {CTL_KERN, KERN_BOOTTIME};
+namespace remoteconfig {
+namespace dmx {
+uint32_t json_get_portstatus(const char cPort, char *pOutBuffer, const uint32_t nOutBufferSize) {
+	const uint32_t nPortIndex = (cPort | 0x20) - 'a';
 
-	if (sysctl(mib, 2, &boottime, &len, nullptr, 0) < 0 ) {
-		return 0;
+	if (nPortIndex < ::dmx::config::max::PORTS) {
+		auto& statistics = Dmx::Get()->GetTotalStatistics(nPortIndex);
+		auto nLength = static_cast<uint32_t>(snprintf(pOutBuffer, nOutBufferSize,
+				"{\"port\":\"%c\","
+				"\"dmx\":{\"sent\":\"%u\",\"received\":\"%u\"},"
+				"\"rdm\":{\"sent\":{\"class\":\"%u\",\"discovery\":\"%u\"},\"received\":{\"good\":\"%u\",\"bad\":\"%u\",\"discovery\":\"%u\"}}}",
+				'A' + nPortIndex,
+				statistics.Dmx.Sent,statistics.Dmx.Received,
+				statistics.Rdm.Sent.Class, statistics.Rdm.Sent.DiscoveryResponse,
+				statistics.Rdm.Received.Good, statistics.Rdm.Received.Bad, statistics.Rdm.Received.DiscoveryResponse));
+
+		return nLength;
 	}
 
-	time_t bsec = boottime.tv_sec;
-	time_t csec = time(nullptr);
-
-	return difftime(csec, bsec);
-#else
-	struct sysinfo s_info;
-	int error = sysinfo(&s_info);
-
-	if (error != 0) {
-		printf("code error = %d\n", error);
-	}
-
-	return static_cast<uint32_t>(s_info.uptime);
-#endif
+	return 0;
 }
-}  // namespace hal
-
+}  // namespace dmx
+}  // namespace remoteconfig
