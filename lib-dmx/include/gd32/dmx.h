@@ -106,7 +106,6 @@ public:
 	const uint8_t *GetDmxCurrentData(const uint32_t nPortIndex);
 
 	uint32_t GetDmxUpdatesPerSecond(const uint32_t nPortIndex);
-	uint32_t GetDmxReceivedCount(const uint32_t nPortIndex);
 
 	static Dmx* Get() {
 		return s_pThis;
