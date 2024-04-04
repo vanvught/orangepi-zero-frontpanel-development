@@ -2,7 +2,7 @@
  * @file displayudf.h
  *
  */
-/* Copyright (C) 2019-2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2019-2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -60,11 +60,7 @@
 #endif
 
 #if defined (RDM_RESPONDER)
-# if defined (NODE_ARTNET)
-#   include "artnetrdmresponder.h"
-# else
-#   include "rdmresponder.h"
-# endif
+# include "rdmdeviceresponder.h"
 #endif
 
 namespace displayudf {
@@ -219,13 +215,8 @@ public:
 
 #if defined (RDM_RESPONDER)
 	void ShowDmxStartAddress() {
-# if defined (NODE_ARTNET)
-		const auto nDmxStartAddress = ArtNetRdmResponder::Get()->GetDmxStartAddress();
-		const auto nDmxFootprint = ArtNetRdmResponder::Get()->GetDmxFootPrint();
-# else
-		const auto nDmxStartAddress = RDMResponder::Get()->GetDmxStartAddress();
-		const auto nDmxFootprint = RDMResponder::Get()->GetDmxFootPrint();
-# endif
+		const auto nDmxStartAddress = RDMDeviceResponder::Get()->GetDmxStartAddress();
+		const auto nDmxFootprint = RDMDeviceResponder::Get()->GetDmxFootPrint();
 		Printf(m_aLabels[static_cast<uint32_t>(displayudf::Labels::DMX_START_ADDRESS)], "DMX S:%3u F:%3u", nDmxStartAddress, nDmxFootprint);
 	}
 #endif

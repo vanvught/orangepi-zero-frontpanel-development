@@ -144,7 +144,7 @@ static volatile uint32_t sv_nDmxPacketsPrevious[dmx::config::max::PORTS];
 
 // RDM
 
-volatile uint32_t gv_RdmDataReceiveEnd;
+volatile uint32_t gsv_RdmDataReceiveEnd;
 
 static struct TRdmMultiData s_aRdmData[dmx::config::max::PORTS][RDM_DATA_BUFFER_INDEX_ENTRIES] ALIGNED;
 static struct TRdmMultiData *s_pRdmDataCurrent[dmx::config::max::PORTS] ALIGNED;
@@ -368,7 +368,7 @@ static void fiq_in_handler(const uint32_t nPortIndex, const H3_UART_TypeDef *pUa
 
 			s_nRdmDataWriteIndex[nPortIndex] = (s_nRdmDataWriteIndex[nPortIndex] + 1) & RDM_DATA_BUFFER_INDEX_MASK;
 			s_pRdmDataCurrent[nPortIndex] = &s_aRdmData[nPortIndex][s_nRdmDataWriteIndex[nPortIndex]];
-			gv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
+			gsv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
 			__DMB();
 
 			sv_PortReceiveState[nPortIndex] = TxRxState::IDLE;
@@ -400,7 +400,7 @@ static void fiq_in_handler(const uint32_t nPortIndex, const H3_UART_TypeDef *pUa
 			sv_PortReceiveState[nPortIndex] = TxRxState::IDLE;
 			s_nRdmDataWriteIndex[nPortIndex] = (s_nRdmDataWriteIndex[nPortIndex] + 1) & RDM_DATA_BUFFER_INDEX_MASK;
 			s_pRdmDataCurrent[nPortIndex] = &s_aRdmData[nPortIndex][s_nRdmDataWriteIndex[nPortIndex]];
-			gv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
+			gsv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
 			__DMB();
 		}
 	}
@@ -1047,7 +1047,7 @@ void Dmx::RdmSendDiscoveryRespondMessage(const uint32_t nPortIndex, const uint8_
 	assert(nLength != 0);
 
 	// 3.2.2 Responder Packet spacing
-	udelay(RDM_RESPONDER_PACKET_SPACING, gv_RdmDataReceiveEnd);
+	udelay(RDM_RESPONDER_PACKET_SPACING, gsv_RdmDataReceiveEnd);
 
 	SetPortDirection(nPortIndex, dmx::PortDirection::OUTP, false);
 

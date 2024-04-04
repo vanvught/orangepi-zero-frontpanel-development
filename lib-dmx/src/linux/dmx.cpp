@@ -67,7 +67,7 @@ static uint8_t dmxSendBuffer[513];
 
 // RDM
 
-volatile uint32_t gv_RdmDataReceiveEnd;
+volatile uint32_t gsv_RdmDataReceiveEnd;
 
 Dmx *Dmx::s_pThis = nullptr;
 

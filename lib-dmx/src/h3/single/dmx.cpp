@@ -129,7 +129,7 @@ static volatile uint32_t sv_nRdmDataBufferIndexTail;
 static uint8_t s_RdmData[RDM_DATA_BUFFER_INDEX_ENTRIES][RDM_DATA_BUFFER_SIZE] ALIGNED;
 static volatile uint32_t sv_nRdmDiscSlotToSlot[RDM_DATA_BUFFER_INDEX_ENTRIES];
 static volatile uint16_t sv_nRdmChecksum;	///< This must be uint16_t
-volatile uint32_t gv_RdmDataReceiveEnd;
+volatile uint32_t gsv_RdmDataReceiveEnd;
 static volatile uint32_t sv_RdmDiscIndex;
 
 /**
@@ -153,7 +153,7 @@ static void irq_timer0_dmx_receive(uint32_t clo) {
 			dmb();
 			sv_nRdmDataBufferIndexHead = (sv_nRdmDataBufferIndexHead + 1) & RDM_DATA_BUFFER_INDEX_MASK;
 			sv_DmxReceiveState = IDLE;
-			gv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
+			gsv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
 			h3_gpio_clr(GPIO_ANALYZER_CH3);
 		} else {
 			H3_TIMER->TMR0_INTV = sv_nRdmDiscSlotToSlot[sv_nRdmDataBufferIndexHead] * 12;
@@ -335,7 +335,7 @@ static void fiq_dmx_in_handler(void) {
 
 			if ((sv_nRdmChecksum == 0) && (p->sub_start_code == E120_SC_SUB_MESSAGE)) {
 				sv_nRdmDataBufferIndexHead = (sv_nRdmDataBufferIndexHead + 1) & RDM_DATA_BUFFER_INDEX_MASK;
-				gv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
+				gsv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
 				sv_TotalStatistics[0].Rdm.Received.Good = sv_TotalStatistics[0].Rdm.Received.Good + 1;
 				dmb();
 			} else {
@@ -355,7 +355,7 @@ static void fiq_dmx_in_handler(void) {
 			if (sv_nDmxDataIndex == 24) {
 				sv_nRdmDataBufferIndexHead = (sv_nRdmDataBufferIndexHead + 1) & RDM_DATA_BUFFER_INDEX_MASK;
 				sv_DmxReceiveState = IDLE;
-				gv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
+				gsv_RdmDataReceiveEnd = H3_HS_TIMER->CURNT_LO;
 				dmb();
 				h3_gpio_clr(GPIO_ANALYZER_CH3);
 			}
@@ -939,7 +939,7 @@ void Dmx::RdmSendDiscoveryRespondMessage([[maybe_unused]] const uint32_t nPortIn
 	assert(nLength != 0);
 
 	// 3.2.2 Responder Packet spacing
-	udelay(RDM_RESPONDER_PACKET_SPACING, gv_RdmDataReceiveEnd);
+	udelay(RDM_RESPONDER_PACKET_SPACING, gsv_RdmDataReceiveEnd);
 
 	SetPortDirection(nPortIndex, dmx::PortDirection::OUTP, false);
 

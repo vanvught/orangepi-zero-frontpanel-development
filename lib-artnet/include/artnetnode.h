@@ -171,6 +171,7 @@ struct OutputPort {
 	Source SourceB;
 	uint8_t GoodOutput;
 	uint8_t GoodOutputB;
+	uint32_t nIpRdm;
 	uint8_t nPollReplyIndex;
 	bool IsTransmitting;
 	bool IsDataPending;
@@ -425,6 +426,14 @@ public:
 		return 0;
 	}
 
+	uint32_t RdmGetUidCount(const uint32_t nPortIndex) {
+		if (m_pArtNetRdmController != nullptr) {
+			return m_pArtNetRdmController->GetUidCount(nPortIndex);
+		}
+
+		return 0;
+	}
+
 	uint32_t RdmCopyTod(const uint32_t nPortIndex, char *pOutBuffer, const uint32_t nOutBufferSize) {
 		if (m_pArtNetRdmController != nullptr) {
 			return m_pArtNetRdmController->CopyTod(nPortIndex, pOutBuffer, nOutBufferSize);
@@ -433,7 +442,7 @@ public:
 		return 0;
 	}
 
-	bool RdmIsRunning(uint32_t nPortIndex, bool& bIsIncremental) {
+	bool RdmIsRunning(const uint32_t nPortIndex, bool& bIsIncremental) {
 		uint32_t nRdmnPortIndex;
 		if (m_pArtNetRdmController->IsRunning(nRdmnPortIndex, bIsIncremental)) {
 			return (nRdmnPortIndex == nPortIndex);
