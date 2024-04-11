@@ -142,7 +142,7 @@ void PixelConfiguration::Print() {
 		}
 	}
 
-	printf(" Clock: %u Hz\n", m_nClockSpeedHz);
+	printf(" Clock: %u Hz\n", static_cast<unsigned int>(m_nClockSpeedHz));
 
 #if defined (CONFIG_PIXELDMX_ENABLE_GAMMATABLE)
 	printf(" Gamma correction %s\n", m_bEnableGammaCorrection ? "Yes" :  "No");

@@ -109,7 +109,7 @@ private:
 	void Increment(uint32_t nPortIndex);
 	void Reverse(uint32_t nPortIndex);
 
-	void SetPixelColour(__attribute__((unused)) uint32_t nPortIndex, const uint32_t nPixelIndex, const uint32_t nColour) {
+	void SetPixelColour([[maybe_unused]] uint32_t nPortIndex, const uint32_t nPixelIndex, const uint32_t nColour) {
 		const auto nRed = Red(nColour);
 		const auto nGreen = Green(nColour);
 		const auto nBlue = Blue(nColour);

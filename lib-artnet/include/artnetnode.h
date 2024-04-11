@@ -45,6 +45,10 @@
 # endif
 #endif
 
+#if defined (NODE_SHOWFILE) && defined (CONFIG_SHOWFILE_PROTOCOL_NODE_ARTNET)
+# define ARTNET_SHOWFILE
+#endif
+
 #include "artnet.h"
 #include "artnetnode_ports.h"
 #include "artnettimecode.h"
@@ -133,6 +137,7 @@ struct State {
 	bool IsMergeMode;
 	bool IsChanged;
 	bool bDisableMergeTimeout;
+	bool DoRecord;
 	uint8_t nReceivingDmx;
 	uint8_t nEnabledOutputPorts;
 	uint8_t nEnabledInputPorts;
@@ -248,7 +253,7 @@ public:
 				if (m_pArtNetRdmController->IsFinished(nPortIndex, bIsIncremental)) {
 					SendTod(nPortIndex);
 
-					DEBUG_PRINTF("TOD sent -> %u", nPortIndex);
+					DEBUG_PRINTF("TOD sent -> %u", static_cast<unsigned int>(nPortIndex));
 
 					if (m_OutputPort[nPortIndex].IsTransmitting) {
 						DEBUG_PUTS("m_pLightSet->Stop/Start");
@@ -279,7 +284,7 @@ public:
 #endif
 	}
 
-#if defined (NODE_SHOWFILE) && defined (CONFIG_SHOWFILE_PROTOCOL_NODE_ARTNET)
+#if defined (ARTNET_SHOWFILE)
 	void HandleShowFile(const artnet::ArtDmx *pArtDmx) {
 		m_nCurrentPacketMillis = Hardware::Get()->Millis();
 		m_nIpAddressFrom = Network::Get()->GetIp();
@@ -287,6 +292,13 @@ public:
 		HandleDmx();
 	}
 #endif
+
+	void SetRecordShowfile(const bool doRecord) {
+		m_State.DoRecord = doRecord;
+	}
+	bool GetRecordShowfile() const {
+		return m_State.DoRecord;
+	}
 
 	uint8_t GetVersion() const {
 		return artnet::VERSION;
@@ -583,7 +595,7 @@ private:
 #if defined (ARTNET_ENABLE_SENDDIAG)
 # define UNUSED
 #else
-# define UNUSED  __attribute__((unused))
+# define UNUSED  [[maybe_unused]]
 #endif
 
 	void SendDiag(UNUSED const artnet::PriorityCodes priorityCode, UNUSED const char *format, ...) {
@@ -675,7 +687,7 @@ private:
 			}
 
 			if (!m_pArtNetRdmController->IsRunning(nPortIndex, bIsIncremental)) {
-				DEBUG_PRINTF("RDM Discovery Incremental -> %u", m_State.rdm.nDiscoveryPortIndex);
+				DEBUG_PRINTF("RDM Discovery Incremental -> %u", static_cast<unsigned int>(m_State.rdm.nDiscoveryPortIndex));
 				m_pArtNetRdmController->Incremental(m_State.rdm.nDiscoveryPortIndex);
 			}
 

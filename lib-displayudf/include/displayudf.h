@@ -161,32 +161,11 @@ public:
 	void Show();
 
 	/**
-	 * Node
-	 */
-
-#if defined (NODE_NODE)
-	void Show(Node *pNode);
-	void ShowNodeName();
-	void ShowUniverse();
-	void ShowDestinationIp();
-#endif
-
-	/**
 	 * Art-Net
 	 */
 
 #if defined (NODE_ARTNET)
-	void Show(ArtNetNode *pArtNetNode);
-	void ShowUniverse(ArtNetNode *pArtNetNode);
-	void ShowDestinationIp(ArtNetNode *pArtNetNode);
-#endif
-
-	/**
-	 * sACN E1.31
-	 */
-
-#if defined (NODE_E131)
-	void Show(E131Bridge *pE131Bridge);
+	void ShowUniverseArtNetNode();
 #endif
 
 	/**
@@ -295,6 +274,35 @@ public:
 	static DisplayUdf *Get() {
 		return s_pThis;
 	}
+
+private:
+	/**
+	 * Art-Net
+	 */
+
+#if defined (NODE_ARTNET)
+	void ShowArtNetNode();
+	void ShowDestinationIpArtNetNode();
+#endif
+
+	/**
+	 * sACN E1.31
+	 */
+
+#if defined (NODE_E131)
+	void ShowE131Bridge();
+#endif
+
+	/**
+	 * Node
+	 */
+
+#if defined (NODE_NODE)
+	void ShowNode();
+	void ShowNodeNameNode();
+	void ShowUniverseNode();
+	void ShowDestinationIpNode();
+#endif
 
 private:
 	char m_aTitle[32];

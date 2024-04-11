@@ -58,7 +58,7 @@ static uint32_t get_portstatus(const uint32_t nPortIndex, char *pOutBuffer, cons
 
 	auto nLength = static_cast<uint32_t>(snprintf(pOutBuffer, nOutBufferSize,
 			"{\"port\":\"%c\",\"direction\":\"%s\",\"status\":\"%s\"},",
-			'A' + nPortIndex,
+			static_cast<char>('A' + nPortIndex),
 			lightset::get_direction(direction),
 			status));
 

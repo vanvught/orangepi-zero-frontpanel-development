@@ -297,7 +297,7 @@ void NtpClient::Print() {
 	}
 	printf(" Server : " IPSTR ":%d\n", IP2STR(m_nServerIp), ntp::UDP_PORT);
 	auto rawtime = time(nullptr);
-	printf(" %s UTC offset : %d (seconds)\n", asctime(localtime(&rawtime)), m_nUtcOffset);
+	printf(" %s UTC offset : %d (seconds)\n", asctime(localtime(&rawtime)), static_cast<int>(m_nUtcOffset));
 #ifndef NDEBUG
 	PrintNtpTime("Originate", &T1);
 	PrintNtpTime("Receive", &T2);
