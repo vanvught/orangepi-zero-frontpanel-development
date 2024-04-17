@@ -1,8 +1,8 @@
 /**
- * net.c
+ * @file chip.h
  *
  */
-/* Copyright (C) 2022 by Arjan van Vught mailto:info@gd32-dmx.org
+/* Copyright (C) 2023 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,28 +22,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+/**
+ * https://github.com/torvalds/linux/blob/master/drivers/net/dsa/mv88e6xxx/chip.h
+ */
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+/*
+ * Marvell 88E6xxx Ethernet switch single-chip definition
+ *
+ * Copyright (c) 2008 Marvell Semiconductor
+ */
 
-#include <stdint.h>
+#ifndef CHIP_H_
+#define CHIP_H_
 
-#include "gd32.h"
+#include <cstdint>
 
-extern enet_descriptors_struct  *dma_current_rxdesc;
+static constexpr uint32_t MV88E6XXX_PHY_ADDRESS       = 0x04;
+static constexpr uint32_t MV88E6XXX_PORT_PHY_ADDRESS  = 0x00;
+static constexpr uint32_t MV88E6XXX_PORT_BASE_ADDRESS = 0x10;
+static constexpr uint32_t MV88E6XXX_GLOBAL1_ADDRESS   = 0x1b;
+static constexpr uint32_t MV88E6XXX_GLOBAL2_ADDRESS   = 0x1c;
 
-int emac_eth_recv(uint8_t **packet) {
-	const uint32_t size = enet_rxframe_size_get();
+int mv88e6xxx_probe();
+int mv88e6xxx_read(const uint32_t nDeviceAddress, const uint32_t nDeviceRegister, uint16_t& nValue);
+int mv88e6xxx_write(const uint32_t nDeviceAddress, const uint32_t nDeviceRegister, uint16_t nValue);
+int mv88e6xxx_wait_bit(const uint32_t nDeviceAddress, const uint32_t nDeviceRegister, uint32_t nBit, uint16_t nValue);
 
-	if (size > 0) {
-		*packet = (uint8_t *) (enet_desc_information_get(dma_current_rxdesc, RXDESC_BUFFER_1_ADDR));
-		return size;
-	}
-
-	return -1;
-}
-
-void emac_free_pkt(void) {
-	ENET_NOCOPY_FRAME_RECEIVE();
-}
-
-void emac_eth_send(void *packet, int len) {
-	enet_frame_transmit((uint8_t *) packet, len);
-}
+#endif /* CHIP_H_ */
