@@ -1,5 +1,5 @@
 /**
- * @file artnetcontroller.h
+ * @file artnetcontroller.cpp
  *
  */
 /**
@@ -36,6 +36,10 @@
 #include "artnet.h"
 #include "artnetconst.h"
 
+#if (ARTNET_VERSION >= 4)
+# include "e131.h"
+#endif
+
 #include "hardware.h"
 #include "network.h"
 
@@ -63,6 +67,22 @@ ArtNetController::ArtNetController() {
 	m_ArtNetPoll.ProtVerLo = artnet::PROTOCOL_REVISION;
 	m_ArtNetPoll.Flags = Flags::SEND_ARTP_ON_CHANGE;
 
+	memset(&m_ArtPollReply, 0, sizeof(struct ArtPollReply));
+	memcpy(&m_ArtPollReply, artnet::NODE_ID, 8);
+	m_ArtPollReply.OpCode = static_cast<uint16_t>(artnet::OpCodes::OP_POLLREPLY);
+	m_ArtPollReply.Port = artnet::UDP_PORT;
+	m_ArtPollReply.VersInfoH = ArtNetConst::VERSION[0];
+	m_ArtPollReply.VersInfoL = ArtNetConst::VERSION[1];
+	m_ArtPollReply.OemHi = ArtNetConst::OEM_ID[0];
+	m_ArtPollReply.Oem = ArtNetConst::OEM_ID[1];
+	m_ArtPollReply.EstaMan[0] = ArtNetConst::ESTA_ID[1];
+	m_ArtPollReply.EstaMan[1] = ArtNetConst::ESTA_ID[0];
+	m_ArtPollReply.Style = static_cast<uint8_t>(StyleCode::SERVER);
+	Network::Get()->MacAddressCopyTo(m_ArtPollReply.MAC);
+#if (ARTNET_VERSION >= 4)
+	m_ArtPollReply.AcnPriority = e131::priority::DEFAULT;
+#endif
+
 	m_pArtDmx = new struct ArtDmx;
 	assert(m_pArtDmx != nullptr);
 
@@ -84,6 +104,8 @@ ArtNetController::ArtNetController() {
 
 	ActiveUniversesClear();
 
+	SetLongName(nullptr);
+
 	DEBUG_EXIT
 }
 
@@ -96,12 +118,49 @@ ArtNetController::~ArtNetController() {
 	DEBUG_EXIT
 }
 
+void ArtNetController::GetLongNameDefault(char *pLongName) {
+#if !defined (ARTNET_LONG_NAME)
+	uint8_t nBoardNameLength;
+	const auto *const pBoardName = Hardware::Get()->GetBoardName(nBoardNameLength);
+	const auto *const pWebsiteUrl = Hardware::Get()->GetWebsiteUrl();
+	snprintf(pLongName, artnet::LONG_NAME_LENGTH - 1, "%s %s %u %s", pBoardName, artnet::NODE_ID, static_cast<unsigned int>(artnet::VERSION), pWebsiteUrl);
+#else
+	uint32_t i;
+
+	for (i = 0; i < (sizeof(ARTNET_LONG_NAME) - 1) && i < (artnet::LONG_NAME_LENGTH - 1) ; i++ ) {
+		if (ARTNET_LONG_NAME[i] == '_') {
+			pLongName[i] = ' ';
+		} else {
+			pLongName[i] = ARTNET_LONG_NAME[i];
+		}
+	}
+
+	pLongName[i] = '\0';
+#endif
+}
+
+void ArtNetController::SetLongName(const char *pLongName) {
+	DEBUG_ENTRY
+
+	if (pLongName == nullptr) {
+		GetLongNameDefault(reinterpret_cast<char *>(m_ArtPollReply.LongName));
+	} else {
+		strncpy(reinterpret_cast<char *>(m_ArtPollReply.LongName), pLongName, artnet::LONG_NAME_LENGTH - 1);
+	}
+
+	m_ArtPollReply.LongName[artnet::LONG_NAME_LENGTH - 1] = '\0';
+
+	DEBUG_PUTS(reinterpret_cast<char *>(m_ArtPollReply.LongName));
+	DEBUG_EXIT
+}
+
 void ArtNetController::Start() {
 	DEBUG_ENTRY
 
 	m_tArtNetController.nIPAddressLocal = Network::Get()->GetIp();
 	m_tArtNetController.nIPAddressBroadcast = Network::Get()->GetBroadcastIp();
 
+	assert(m_nHandle == -1);
 	m_nHandle = Network::Get()->Begin(artnet::UDP_PORT);
 	assert(m_nHandle != -1);
 
@@ -114,6 +173,8 @@ void ArtNetController::Stop() {
 	DEBUG_ENTRY
 
 	//FIXME ArtNetController::Stop
+//	Network::Get()->End(artnet::UDP_PORT);
+//	m_nHandle = -1;
 
 	DEBUG_EXIT
 }
@@ -136,8 +197,11 @@ void ArtNetController::HandleDmxOut(uint16_t nUniverse, const uint8_t *pDmxData,
 		m_pArtDmx->Sequence = 1;
 	}
 
+#if defined(CONFIG_ARTNET_CONTROLLER_ENABLE_MASTER)
 	if (__builtin_expect((m_nMaster == DMX_MAX_VALUE), 1)) {
+#endif
 		memcpy(m_pArtDmx->Data, pDmxData, nLength);
+#if defined(CONFIG_ARTNET_CONTROLLER_ENABLE_MASTER)
 	} else if (m_nMaster == 0) {
 		memset(m_pArtDmx->Data, 0, nLength);
 	} else {
@@ -145,11 +209,12 @@ void ArtNetController::HandleDmxOut(uint16_t nUniverse, const uint8_t *pDmxData,
 			m_pArtDmx->Data[i] = ((m_nMaster * static_cast<uint32_t>(pDmxData[i])) / DMX_MAX_VALUE) & 0xFF;
 		}
 	}
+#endif
 
 	uint32_t nCount = 0;
 	auto IpAddresses = const_cast<struct TArtNetPollTableUniverses*>(GetIpAddress(nUniverse));
 
-	if (m_bUnicast) {
+	if (m_bUnicast && !m_bForceBroadcast) {
 		if (IpAddresses != nullptr) {
 			nCount = IpAddresses->nCount;
 		} else {
@@ -160,7 +225,7 @@ void ArtNetController::HandleDmxOut(uint16_t nUniverse, const uint8_t *pDmxData,
 
 	// If the number of universe subscribers exceeds 40 for a given universe, the transmitting device may broadcast.
 
-	if (m_bUnicast && (nCount <= 40)) {
+	if (m_bUnicast && (nCount <= 40) && !m_bForceBroadcast) {
 		for (uint32_t nIndex = 0; nIndex < nCount; nIndex++) {
 			Network::Get()->SendTo(m_nHandle, m_pArtDmx, sizeof(struct ArtDmx), IpAddresses->pIpAddresses[nIndex], artnet::UDP_PORT);
 		}
@@ -171,7 +236,7 @@ void ArtNetController::HandleDmxOut(uint16_t nUniverse, const uint8_t *pDmxData,
 		return;
 	}
 
-	if (!m_bUnicast || (nCount > 40)) {
+	if (!m_bUnicast || (nCount > 40) || !m_bForceBroadcast) {
 		Network::Get()->SendTo(m_nHandle, m_pArtDmx, sizeof(struct ArtDmx), m_tArtNetController.nIPAddressBroadcast, artnet::UDP_PORT);
 
 		m_bDmxHandled = true;
@@ -199,7 +264,7 @@ void ArtNetController::HandleBlackout() {
 		uint32_t nCount = 0;
 		const auto *IpAddresses = GetIpAddress(s_ActiveUniverses[nIndex]);
 
-		if (m_bUnicast) {
+		if (m_bUnicast && !m_bForceBroadcast) {
 			if (IpAddresses != nullptr) {
 				nCount = IpAddresses->nCount;
 			} else {
@@ -207,7 +272,7 @@ void ArtNetController::HandleBlackout() {
 			}
 		}
 
-		if (m_bUnicast && (nCount <= 40)) {
+		if (m_bUnicast && (nCount <= 40) && !m_bForceBroadcast) {
 			// The sequence number is used to ensure that ArtDmx packets are used in the correct order.
 			// This field is incremented in the range 0x01 to 0xff to allow the receiving node to resequence packets.
 			m_pArtDmx->Sequence++;
@@ -223,7 +288,7 @@ void ArtNetController::HandleBlackout() {
 			continue;
 		}
 
-		if (!m_bUnicast || (nCount > 40)) {
+		if (!m_bUnicast || (nCount > 40) || !m_bForceBroadcast) {
 			// The sequence number is used to ensure that ArtDmx packets are used in the correct order.
 			// This field is incremented in the range 0x01 to 0xff to allow the receiving node to resequence packets.
 			m_pArtDmx->Sequence++;
@@ -254,7 +319,7 @@ void ArtNetController::HandleTrigger() {
 	DEBUG_EXIT
 }
 
-void ArtNetController::HandlePoll() {
+void ArtNetController::ProcessPoll() {
 	const auto nCurrentMillis = Hardware::Get()->Millis();
 
 	if (__builtin_expect((nCurrentMillis - m_nLastPollMillis > POLL_INTERVAL_MILLIS), 0)) {
@@ -272,8 +337,20 @@ void ArtNetController::HandlePoll() {
 	}
 }
 
+void ArtNetController::HandlePoll() {
+	DEBUG_ENTRY
+
+	snprintf(reinterpret_cast<char*>(m_ArtPollReply.NodeReport), artnet::REPORT_LENGTH, "#%04x [%04d]", static_cast<int>(m_State.reportCode), static_cast<int>(m_State.ArtPollReplyCount));
+
+	Network::Get()->SendTo(m_nHandle, &m_ArtPollReply, sizeof(artnet::ArtPollReply), m_pArtNetPacket->IPAddressFrom, artnet::UDP_PORT);
+
+	DEBUG_PRINTF(IPSTR, IP2STR(m_pArtNetPacket->IPAddressFrom));
+	DEBUG_EXIT
+}
+
 void ArtNetController::HandlePollReply() {
 	DEBUG_ENTRY
+	DEBUG_PRINTF(IPSTR, IP2STR(m_pArtNetPacket->IPAddressFrom));
 
 	Add(&m_pArtNetPacket->ArtPacket.ArtPollReply);
 
@@ -281,11 +358,11 @@ void ArtNetController::HandlePollReply() {
 }
 
 void ArtNetController::Run() {
-	char *pArtPacket = reinterpret_cast<char*>(&m_pArtNetPacket->ArtPacket);
+	auto *pArtPacket = reinterpret_cast<char *>(&m_pArtNetPacket->ArtPacket);
 	uint16_t nForeignPort;
 
 	if (m_bUnicast) {
-		HandlePoll();
+		ProcessPoll();
 	}
 
 	const auto nBytesReceived = Network::Get()->RecvFrom(m_nHandle, pArtPacket, sizeof(struct TArtNetPacket), &m_pArtNetPacket->IPAddressFrom, &nForeignPort) ;
@@ -303,6 +380,9 @@ void ArtNetController::Run() {
 	switch (OpCode) {
 	case artnet::OpCodes::OP_POLLREPLY:
 		HandlePollReply();
+		break;
+	case artnet::OpCodes::OP_POLL:
+		HandlePoll();
 		break;
 	case artnet::OpCodes::OP_TRIGGER:
 		if (m_pArtNetTrigger != nullptr) {
@@ -380,6 +460,9 @@ void ArtNetController::Print() {
 	printf(" Max Universes : %u\n", POLL_TABLE_SIZE_UNIVERSES);
 	if (!m_bUnicast) {
 		puts(" Unicast is disabled");
+	}
+	if (!m_bForceBroadcast) {
+		puts(" Force broadcast is enabled");
 	}
 	if (!m_bSynchronization) {
 		puts(" Synchronization is disabled");

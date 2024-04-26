@@ -1,8 +1,8 @@
 /**
- * @file setrdm.cpp
+ * @file net_ptp.cpp
  *
  */
-/* Copyright (C) 2023-2024 by Arjan van Vught mailto:info@gd32-dmx.org
+/* Copyright (C) 2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,32 +25,7 @@
 
 #include <cstdint>
 
-#include "artnetnode.h"
-#include "artnetstore.h"
-
-#include "debug.h"
-
-void ArtNetNode::SetRdm(const uint32_t nPortIndex, const bool bEnable) {
-	DEBUG_ENTRY
-	assert(nPortIndex < artnetnode::MAX_PORTS);
-
-	const auto isEnabled = !((m_OutputPort[nPortIndex].GoodOutputB & artnet::GoodOutputB::RDM_DISABLED) == artnet::GoodOutputB::RDM_DISABLED);
-
-	if (isEnabled == bEnable) {
-		DEBUG_EXIT
-		return;
-	}
-
-	if (!bEnable) {
-		m_OutputPort[nPortIndex].GoodOutputB |= artnet::GoodOutputB::RDM_DISABLED;
-	} else {
-		m_OutputPort[nPortIndex].GoodOutputB &= static_cast<uint8_t>(~artnet::GoodOutputB::RDM_DISABLED);
-	}
-
-	if (m_State.status == artnet::Status::ON) {
-		ArtNetStore::SaveRdmEnabled(nPortIndex, bEnable);
-		artnet::display_rdm_enabled(nPortIndex, bEnable);
-	}
-
-	DEBUG_EXIT
-}
+namespace net {
+void __attribute__((weak))ptp_handle([[maybe_unused]] const uint8_t *p) {}
+void __attribute__((weak)) ptp_run() {}
+}  // namespace net

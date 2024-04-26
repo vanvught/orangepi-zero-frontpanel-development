@@ -70,7 +70,7 @@ static constexpr struct FilesContent HttpContent[] = {
 	{ "dsa.js", dsa_js, 613, static_cast<http::contentTypes>(2) },
 #endif /* (ENABLE_PHY_SWITCH) */
 #if defined (NODE_SHOWFILE)
-	{ "showfile.html", showfile_html, 752, static_cast<http::contentTypes>(0) },
+	{ "showfile.html", showfile_html, 800, static_cast<http::contentTypes>(0) },
 #endif /* (NODE_SHOWFILE) */
 	{ "default.js", default_js, 254, static_cast<http::contentTypes>(2) },
 #if !defined (CONFIG_HTTP_HTML_NO_RTC) && !defined (DISABLE_RTC)
@@ -87,7 +87,7 @@ static constexpr struct FilesContent HttpContent[] = {
 #endif /* !defined (CONFIG_HTTP_HTML_NO_RDM) && defined (RDM_CONTROLLER) */
 	{ "index.html", index_html, 669, static_cast<http::contentTypes>(0) },
 #if defined (NODE_SHOWFILE)
-	{ "showfile.js", showfile_js, 1281, static_cast<http::contentTypes>(2) },
+	{ "showfile.js", showfile_js, 1340, static_cast<http::contentTypes>(2) },
 #endif /* (NODE_SHOWFILE) */
 #if !defined (CONFIG_HTTP_HTML_NO_TIME)
 	{ "time.html", time_html, 599, static_cast<http::contentTypes>(0) },

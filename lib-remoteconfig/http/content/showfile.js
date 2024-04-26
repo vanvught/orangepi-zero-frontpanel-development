@@ -17,8 +17,8 @@ async function send(status) {
   refresh();
 }
 
-function start() {
-  send("start");
+function play() {
+  send("play");
 }
 
 function stop() {
@@ -27,6 +27,10 @@ function stop() {
 
 function resume() {
   send("resume");
+}
+
+function record() {
+  send("record");
 }
 
 async function select() {
@@ -48,7 +52,7 @@ async function directory() {
   let f=Object.keys(d["shows"])
   f.forEach(function(key) {
     var v = d["shows"][key]
-    h += "<option value="+v+">"+v+"</option>"
+    h += "<option value="+v.show+">"+v.show+" | "+v.size+"</option>"
   });
   document.getElementById("idDirectory").innerHTML = h
   } catch (error){}
