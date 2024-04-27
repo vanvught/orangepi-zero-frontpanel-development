@@ -61,6 +61,9 @@ public:
 	ArtNetController();
 	~ArtNetController();
 
+	void GetShortNameDefault(char *pShortName);
+	void SetShortName(const char *pShortName);
+
 	void GetLongNameDefault(char *pLongName);
 	void SetLongName(const char *pLongName);
 
@@ -135,7 +138,7 @@ private:
 	void ActiveUniversesClear();
 
 private:
-	TArtNetController m_tArtNetController;
+	TArtNetController m_ArtNetController;
 	State m_State;
 
 	struct TArtNetPacket {

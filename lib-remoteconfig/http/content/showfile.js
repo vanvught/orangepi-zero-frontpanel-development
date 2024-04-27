@@ -3,7 +3,8 @@ async function refresh() {
     let data=await getJSON('showfile/status')
     let show=(parseInt(data.show) >= 0 && parseInt(data.show) <= 99) ? data.show : 'None'
     let loop=data.loop === "1" ? "Yes" : "No"
-    h=`<tr><td>Show</td><td>${show}</td> </tr>`
+    h=`<tr><td>Mode</td><td>${data.mode}</td> </tr>`
+    h+=`<tr><td>Show</td><td>${show}</td> </tr>`
     h+=`<tr><td>Status</td><td>${data.status}</td></tr>`
     h+=`<tr><td>Looping</td><td>${loop}</td></tr>`
     document.getElementById("idStatus").innerHTML='<table>'+h+'</table>'

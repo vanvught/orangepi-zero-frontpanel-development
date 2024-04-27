@@ -175,7 +175,7 @@ void ArtNetNode::Start() {
 	m_ArtPollReply.Status2 &= static_cast<uint8_t>(~artnet::Status2::DHCP_CAPABLE);
 	m_ArtPollReply.Status2 |= Network::Get()->IsDhcpCapable() ? artnet::Status2::DHCP_CAPABLE : static_cast<uint8_t>(0);
 
-	#if defined (ENABLE_HTTPD) && defined (ENABLE_CONTENT)
+#if defined (ENABLE_HTTPD) && defined (ENABLE_CONTENT)
 	m_ArtPollReply.Status2 |= artnet::Status2::WEB_BROWSER_SUPPORT;
 #endif
 #if defined (OUTPUT_HAVE_STYLESWITCH)

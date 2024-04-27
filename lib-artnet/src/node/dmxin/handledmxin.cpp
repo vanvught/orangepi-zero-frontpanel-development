@@ -26,8 +26,10 @@
  * THE SOFTWARE.
  */
 
-#pragma GCC push_options
-#pragma GCC optimize ("O2")
+#if !defined(__clang__)
+# pragma GCC push_options
+# pragma GCC optimize ("O2")
+#endif
 
 #include <cstdint>
 #include <cstring>

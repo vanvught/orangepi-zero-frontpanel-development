@@ -55,6 +55,11 @@ static uint16_t s_ActiveUniverses[POLL_TABLE_SIZE_UNIVERSES] __attribute__ ((ali
 ArtNetController::ArtNetController() {
 	DEBUG_ENTRY
 
+	union uip {
+		uint32_t u32;
+		uint8_t u8[4];
+	}  ip;
+
 	assert(s_pThis == nullptr);
 	s_pThis = this;
 
@@ -79,9 +84,36 @@ ArtNetController::ArtNetController() {
 	m_ArtPollReply.EstaMan[1] = ArtNetConst::ESTA_ID[0];
 	m_ArtPollReply.Style = static_cast<uint8_t>(StyleCode::SERVER);
 	Network::Get()->MacAddressCopyTo(m_ArtPollReply.MAC);
+	m_ArtPollReply.BindIndex = 1;
+	ip.u32 = Network::Get()->GetIp();
+	memcpy(m_ArtPollReply.IPAddress, ip.u8, sizeof(m_ArtPollReply.IPAddress));
 #if (ARTNET_VERSION >= 4)
+	memcpy(m_ArtPollReply.BindIp, ip.u8, sizeof(m_ArtPollReply.BindIp));
 	m_ArtPollReply.AcnPriority = e131::priority::DEFAULT;
 #endif
+	/*
+	 * Status 1
+	 */
+	m_ArtPollReply.Status1 |= artnet::Status1::INDICATOR_NORMAL_MODE | artnet::Status1::PAP_NETWORK;
+	/*
+	 * Status 2
+	 */
+	m_ArtPollReply.Status2 &= static_cast<uint8_t>(~artnet::Status2::SACN_ABLE_TO_SWITCH);
+	m_ArtPollReply.Status2 |= artnet::Status2::PORT_ADDRESS_15BIT | (artnet::VERSION >= 4 ? artnet::Status2::SACN_ABLE_TO_SWITCH : artnet::Status2::SACN_NO_SWITCH);
+	m_ArtPollReply.Status2 &= static_cast<uint8_t>(~artnet::Status2::IP_DHCP);
+	m_ArtPollReply.Status2 |= Network::Get()->IsDhcpUsed() ? artnet::Status2::IP_DHCP : artnet::Status2::IP_MANUALY;
+	m_ArtPollReply.Status2 &= static_cast<uint8_t>(~artnet::Status2::DHCP_CAPABLE);
+	m_ArtPollReply.Status2 |= Network::Get()->IsDhcpCapable() ? artnet::Status2::DHCP_CAPABLE : static_cast<uint8_t>(0);
+
+#if defined (ENABLE_HTTPD) && defined (ENABLE_CONTENT)
+	m_ArtPollReply.Status2 |= artnet::Status2::WEB_BROWSER_SUPPORT;
+#endif
+
+	m_ArtPollReply.PortTypes[0] = artnet::PortType::OUTPUT_ARTNET;
+	m_ArtPollReply.PortTypes[1] = artnet::PortType::INPUT_ARTNET;
+	m_ArtPollReply.GoodOutput[0] = artnet::GoodOutput::DATA_IS_BEING_TRANSMITTED;
+	m_ArtPollReply.GoodInput[0] = artnet::GoodInput::DATA_RECIEVED;
+	m_ArtPollReply.NumPortsLo = 2;
 
 	m_pArtDmx = new struct ArtDmx;
 	assert(m_pArtDmx != nullptr);
@@ -99,11 +131,12 @@ ArtNetController::ArtNetController() {
 	m_pArtSync->OpCode = static_cast<uint16_t>(artnet::OpCodes::OP_SYNC);
 	m_pArtSync->ProtVerLo = artnet::PROTOCOL_REVISION;
 
-	m_tArtNetController.Oem[0] = ArtNetConst::OEM_ID[0];
-	m_tArtNetController.Oem[1] = ArtNetConst::OEM_ID[1];
+	m_ArtNetController.Oem[0] = ArtNetConst::OEM_ID[0];
+	m_ArtNetController.Oem[1] = ArtNetConst::OEM_ID[1];
 
 	ActiveUniversesClear();
 
+	SetShortName(nullptr);
 	SetLongName(nullptr);
 
 	DEBUG_EXIT
@@ -115,6 +148,42 @@ ArtNetController::~ArtNetController() {
 	delete m_pArtNetPacket;
 	m_pArtNetPacket = nullptr;
 
+	DEBUG_EXIT
+}
+
+void ArtNetController::GetShortNameDefault(char *ShortName) {
+#if !defined (ARTNET_SHORT_NAME)
+	uint8_t nBoardNameLength;
+	const auto *const pBoardName = Hardware::Get()->GetBoardName(nBoardNameLength);
+	const auto *const pWebsiteUrl = Hardware::Get()->GetWebsiteUrl();
+	snprintf(ShortName, artnet::LONG_NAME_LENGTH - 1, "%s %s %u %s", pBoardName, artnet::NODE_ID, static_cast<unsigned int>(artnet::VERSION), pWebsiteUrl);
+#else
+	uint32_t i;
+
+	for (i = 0; i < (sizeof(ARTNET_SHORT_NAME) - 1) && i < (artnet::SHORT_NAME_LENGTH - 1) ; i++ ) {
+		if (ARTNET_SHORT_NAME[i] == '_') {
+			ShortName[i] = ' ';
+		} else {
+			ShortName[i] = ARTNET_SHORT_NAME[i];
+		}
+	}
+
+	ShortName[i] = '\0';
+#endif
+}
+
+void ArtNetController::SetShortName(const char *ShortName) {
+	DEBUG_ENTRY
+
+	if (ShortName == nullptr) {
+		GetShortNameDefault(reinterpret_cast<char *>(m_ArtPollReply.ShortName));
+	} else {
+		strncpy(reinterpret_cast<char *>(m_ArtPollReply.ShortName), ShortName, artnet::SHORT_NAME_LENGTH - 1);
+	}
+
+	m_ArtPollReply.LongName[artnet::SHORT_NAME_LENGTH - 1] = '\0';
+
+	DEBUG_PUTS(reinterpret_cast<char *>(m_ArtPollReply.ShortName));
 	DEBUG_EXIT
 }
 
@@ -157,14 +226,14 @@ void ArtNetController::SetLongName(const char *pLongName) {
 void ArtNetController::Start() {
 	DEBUG_ENTRY
 
-	m_tArtNetController.nIPAddressLocal = Network::Get()->GetIp();
-	m_tArtNetController.nIPAddressBroadcast = Network::Get()->GetBroadcastIp();
+	m_ArtNetController.nIPAddressLocal = Network::Get()->GetIp();
+	m_ArtNetController.nIPAddressBroadcast = Network::Get()->GetBroadcastIp();
 
 	assert(m_nHandle == -1);
 	m_nHandle = Network::Get()->Begin(artnet::UDP_PORT);
 	assert(m_nHandle != -1);
 
-	Network::Get()->SendTo(m_nHandle, &m_ArtNetPoll, sizeof(struct ArtPoll), m_tArtNetController.nIPAddressBroadcast, artnet::UDP_PORT);
+	Network::Get()->SendTo(m_nHandle, &m_ArtNetPoll, sizeof(struct ArtPoll), m_ArtNetController.nIPAddressBroadcast, artnet::UDP_PORT);
 
 	DEBUG_EXIT
 }
@@ -237,7 +306,7 @@ void ArtNetController::HandleDmxOut(uint16_t nUniverse, const uint8_t *pDmxData,
 	}
 
 	if (!m_bUnicast || (nCount > 40) || !m_bForceBroadcast) {
-		Network::Get()->SendTo(m_nHandle, m_pArtDmx, sizeof(struct ArtDmx), m_tArtNetController.nIPAddressBroadcast, artnet::UDP_PORT);
+		Network::Get()->SendTo(m_nHandle, m_pArtDmx, sizeof(struct ArtDmx), m_ArtNetController.nIPAddressBroadcast, artnet::UDP_PORT);
 
 		m_bDmxHandled = true;
 	}
@@ -248,7 +317,7 @@ void ArtNetController::HandleDmxOut(uint16_t nUniverse, const uint8_t *pDmxData,
 void ArtNetController::HandleSync() {
 	if (m_bSynchronization && m_bDmxHandled) {
 		m_bDmxHandled = false;
-		Network::Get()->SendTo(m_nHandle, m_pArtSync, sizeof(struct ArtSync), m_tArtNetController.nIPAddressBroadcast, artnet::UDP_PORT);
+		Network::Get()->SendTo(m_nHandle, m_pArtSync, sizeof(struct ArtSync), m_ArtNetController.nIPAddressBroadcast, artnet::UDP_PORT);
 	}
 }
 
@@ -297,7 +366,7 @@ void ArtNetController::HandleBlackout() {
 				m_pArtDmx->Sequence = 1;
 			}
 
-			Network::Get()->SendTo(m_nHandle, m_pArtDmx, sizeof(struct ArtDmx), m_tArtNetController.nIPAddressBroadcast, artnet::UDP_PORT);
+			Network::Get()->SendTo(m_nHandle, m_pArtDmx, sizeof(struct ArtDmx), m_ArtNetController.nIPAddressBroadcast, artnet::UDP_PORT);
 		}
 
 	}
@@ -310,7 +379,7 @@ void ArtNetController::HandleTrigger() {
 	DEBUG_ENTRY
 	const ArtTrigger *pArtTrigger = &m_pArtNetPacket->ArtPacket.ArtTrigger;
 
-	if ((pArtTrigger->OemCodeHi == 0xFF && pArtTrigger->OemCodeLo == 0xFF) || (pArtTrigger->OemCodeHi == m_tArtNetController.Oem[0] && pArtTrigger->OemCodeLo == m_tArtNetController.Oem[1])) {
+	if ((pArtTrigger->OemCodeHi == 0xFF && pArtTrigger->OemCodeLo == 0xFF) || (pArtTrigger->OemCodeHi == m_ArtNetController.Oem[0] && pArtTrigger->OemCodeLo == m_ArtNetController.Oem[1])) {
 		DEBUG_PRINTF("Key=%d, SubKey=%d, Data[0]=%d", pArtTrigger->Key, pArtTrigger->SubKey, pArtTrigger->Data[0]);
 
 		m_pArtNetTrigger->Handler(reinterpret_cast<const struct TArtNetTrigger*>(&pArtTrigger->Key));
@@ -323,7 +392,7 @@ void ArtNetController::ProcessPoll() {
 	const auto nCurrentMillis = Hardware::Get()->Millis();
 
 	if (__builtin_expect((nCurrentMillis - m_nLastPollMillis > POLL_INTERVAL_MILLIS), 0)) {
-		Network::Get()->SendTo(m_nHandle, &m_ArtNetPoll, sizeof(struct ArtPoll), m_tArtNetController.nIPAddressBroadcast, artnet::UDP_PORT);
+		Network::Get()->SendTo(m_nHandle, &m_ArtNetPoll, sizeof(struct ArtPoll), m_ArtNetController.nIPAddressBroadcast, artnet::UDP_PORT);
 		m_nLastPollMillis= nCurrentMillis;
 
 #ifndef NDEBUG
@@ -352,7 +421,12 @@ void ArtNetController::HandlePollReply() {
 	DEBUG_ENTRY
 	DEBUG_PRINTF(IPSTR, IP2STR(m_pArtNetPacket->IPAddressFrom));
 
-	Add(&m_pArtNetPacket->ArtPacket.ArtPollReply);
+	if (m_pArtNetPacket->IPAddressFrom != Network::Get()->GetIp()) {
+		Add(&m_pArtNetPacket->ArtPacket.ArtPollReply);
+
+		DEBUG_EXIT
+		return;
+	}
 
 	DEBUG_EXIT
 }

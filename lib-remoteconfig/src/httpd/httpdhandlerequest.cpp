@@ -320,6 +320,11 @@ http::Status HttpDeamonHandleRequest::HandleGet() {
 			nLength = remoteconfig::rdm::json_get_rdm(m_Content, sizeof(m_Content));
 			break;
 #endif
+#if defined (ARTNET_CONTROLLER)
+		case http::json::get::POLLTABLE:
+			nLength = remoteconfig::artnet::controller::json_get_polltable(m_Content, sizeof(m_Content));
+			break;
+#endif
 #if defined (ENABLE_NET_PHYSTATUS)
 		case http::json::get::PHYSTATUS:
 			nLength = remoteconfig::net::json_get_phystatus(m_Content, sizeof(m_Content));
