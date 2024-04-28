@@ -58,6 +58,7 @@ namespace showfile {
 uint32_t json_get_status(char *pOutBuffer, const uint32_t nOutBufferSize);
 uint32_t json_get_directory(char *pOutBuffer, const uint32_t nOutBufferSize);
 void json_set_status(const char *pBuffer, const uint32_t nBufferSize);
+void json_delete(const char *pBuffer, const uint32_t nBufferSize);
 }  // namespace showfile
 namespace timedate {
 uint32_t json_get_timeofday(char *pOutBuffer, const uint32_t nOutBufferSize);
