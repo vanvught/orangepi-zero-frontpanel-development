@@ -34,7 +34,6 @@
 # pragma GCC diagnostic ignored "-Wconversion"
 # pragma GCC diagnostic ignored "-Wsign-conversion"
 #endif
-#pragma GCC optimize ("O2")
 
 #include <cstdint>
 #include <cstring>

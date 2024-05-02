@@ -23,9 +23,6 @@
  * THE SOFTWARE.
  */
 
-#pragma GCC push_options
-#pragma GCC optimize ("O2")
-
 #include <cstdint>
 #include <cstring>
 #include <cstdio>

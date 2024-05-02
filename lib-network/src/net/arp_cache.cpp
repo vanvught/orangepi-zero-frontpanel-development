@@ -57,7 +57,7 @@ static uint16_t s_Entries SECTION_NETWORK ALIGNED;
 
 #ifndef NDEBUG
 # define TICKER_COUNT 100	///< 10 seconds
-  static volatile uint32_t s_ticker ;
+  static uint32_t s_ticker ;
 #endif
 
 void __attribute__((cold)) arp_cache_init() {
