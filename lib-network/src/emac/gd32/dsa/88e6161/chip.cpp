@@ -2,7 +2,7 @@
  * @file chip.cpp
  *
  */
-/* Copyright (C) 2023 by Arjan van Vught mailto:info@gd32-dmx.org
+/* Copyright (C) 2023-2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -43,16 +43,16 @@
 #include "smi.h"
 #include "port.h"
 
-#include "debug.h"
+#include "hardware.h"
 
-extern volatile uint32_t s_nSysTickMillis;
+#include "debug.h"
 
 static int mv88e6xxx_wait_mask(const uint32_t nDeviceAddress, const uint32_t nDeviceRegister, uint16_t mask, uint16_t val) {
 	DEBUG_ENTRY
 
-	const auto nSysTickMillis = s_nSysTickMillis;
+	const auto nSysTickMillis = Hardware::Get()->Millis();
 
-	while ((s_nSysTickMillis - nSysTickMillis) < 50) {
+	while ((Hardware::Get()->Millis() - nSysTickMillis) < 50) {
 		uint16_t data;
 		const auto err = mv88e6xxx_read(nDeviceAddress, nDeviceRegister, data);
 
@@ -62,7 +62,7 @@ static int mv88e6xxx_wait_mask(const uint32_t nDeviceAddress, const uint32_t nDe
 		}
 
 		if ((data & mask) == val) {
-			DEBUG_PRINTF("delta millis %u", s_nSysTickMillis - nSysTickMillis);
+			DEBUG_PRINTF("delta millis %u", Hardware::Get()->Millis() - nSysTickMillis);
 			DEBUG_EXIT
 			return 0;
 		}
