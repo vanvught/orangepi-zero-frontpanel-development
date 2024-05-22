@@ -23,8 +23,6 @@
  * THE SOFTWARE.
  */
 
-#undef NDEBUG
-
 #include <cstdint>
 #include <cstdio>
 #include <cstring>
@@ -296,10 +294,8 @@ void NtpClient::PrintNtpTime([[maybe_unused]] const char *pText, [[maybe_unused]
 void NtpClient::Print() {
 	printf("NTP v%d Client [%s]\n", (ntp::VERSION >> 3), ntp::STATUS[static_cast<int>(m_Status)]);
 	if (m_Status == ntp::Status::STOPPED) {
-		printf(" Not enabled\n");
+		puts(" Not enabled");
 		return;
 	}
 	printf(" Server : " IPSTR ":%d\n", IP2STR(m_nServerIp), ntp::UDP_PORT);
-	auto rawtime = time(nullptr);
-	printf(" %s UTC offset : %d (seconds)\n", asctime(localtime(&rawtime)), static_cast<int>(m_nUtcOffset));
 }
