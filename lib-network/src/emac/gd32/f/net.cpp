@@ -49,8 +49,7 @@ extern uint32_t ptpTimestamp[2];
 extern enet_descriptors_struct *dma_current_rxdesc;
 extern enet_descriptors_struct *dma_current_txdesc;
 
-extern "C" {
-int console_error(const char *);
+extern "C" int console_error(const char *);
 
 int emac_eth_recv(uint8_t **ppPacket) {
 	const auto nLength = enet_desc_information_get(dma_current_rxdesc, RXDESC_FRAME_LENGTH);
@@ -243,4 +242,4 @@ void emac_eth_send(void *pBuffer, int nLength) {
 	dma_current_txdesc = reinterpret_cast<enet_descriptors_struct *>(dma_current_txdesc->buffer2_next_desc_addr);
 }
 #endif
-}
+
