@@ -124,7 +124,7 @@ void emac_free_pkt() {
 }
 
 #if defined (CONFIG_ENET_ENABLE_PTP)
-static void ptpframe_transmit(const uint8_t *pBuffer, const uint32_t nLength, uint32_t timestamp[]) {
+inline static void ptpframe_transmit(const uint8_t *pBuffer, const uint32_t nLength, const bool bCaptureTimestamp) {
 	assert (nullptr != pBuffer);
 	assert(nLength <= ENET_MAX_FRAME_SIZE);
 
@@ -151,7 +151,7 @@ static void ptpframe_transmit(const uint8_t *pBuffer, const uint32_t nLength, ui
     uint32_t timeout = 0;
     uint32_t tdes0_ttmss_flag;
 
-    if (nullptr != timestamp) {
+    if (bCaptureTimestamp) {
          do {
            tdes0_ttmss_flag = (dma_current_txdesc->status & ENET_TDES0_TTMSS);
            __DMB();
@@ -162,16 +162,16 @@ static void ptpframe_transmit(const uint8_t *pBuffer, const uint32_t nLength, ui
 
         dma_current_txdesc->status &= ~ENET_TDES0_TTMSS;
 
-        timestamp[0] = dma_current_txdesc->buffer1_addr;
-        timestamp[1] = dma_current_txdesc->buffer2_next_desc_addr;
+        net::globals::ptpTimestamp[0] = dma_current_txdesc->buffer1_addr;
+        net::globals::ptpTimestamp[1] = dma_current_txdesc->buffer2_next_desc_addr;
     }
 
 	dma_current_txdesc->buffer1_addr = dma_current_ptp_txdesc->buffer1_addr;
 	dma_current_txdesc->buffer2_next_desc_addr = dma_current_ptp_txdesc->buffer2_next_desc_addr;
 
-    /* update the current TxDMA descriptor pointer to the next descriptor in TxDMA descriptor table */
     assert(0 != (dma_current_txdesc->status & ENET_TDES0_TCHM)); /* chained mode */
 
+    /* update the current TxDMA descriptor pointer to the next descriptor in TxDMA descriptor table */
     dma_current_txdesc = reinterpret_cast<enet_descriptors_struct *>(dma_current_ptp_txdesc->buffer2_next_desc_addr);
     /* if it is the last ptp descriptor */
     if(0 != dma_current_ptp_txdesc->status) {
@@ -192,7 +192,7 @@ void emac_eth_send(void *pBuffer, int nLength) {
 	nStatus &= ~ENET_TDES0_TTSEN;
 	dma_current_txdesc->status = nStatus;
 
-	ptpframe_transmit(reinterpret_cast<uint8_t *>(pBuffer), nLength, nullptr);
+	ptpframe_transmit(reinterpret_cast<uint8_t *>(pBuffer), nLength, false);
 }
 
 void emac_eth_send_timestamp(void *pBuffer, int nLength) {
@@ -204,7 +204,7 @@ void emac_eth_send_timestamp(void *pBuffer, int nLength) {
 	nStatus |= ENET_TDES0_TTSEN;
 	dma_current_txdesc->status = nStatus;
 
-	ptpframe_transmit(reinterpret_cast<uint8_t *>(pBuffer), nLength, net::globals::ptpTimestamp);
+	ptpframe_transmit(reinterpret_cast<uint8_t *>(pBuffer), nLength, true);
 }
 #else
 void emac_eth_send(void *pBuffer, int nLength) {
@@ -242,4 +242,3 @@ void emac_eth_send(void *pBuffer, int nLength) {
 	dma_current_txdesc = reinterpret_cast<enet_descriptors_struct *>(dma_current_txdesc->buffer2_next_desc_addr);
 }
 #endif
-

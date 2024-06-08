@@ -341,7 +341,7 @@ void ArtNetNode::SetLongName(const char *pLongName) {
 void ArtNetNode::SetOutputStyle(const uint32_t nPortIndex, lightset::OutputStyle outputStyle) {
 	assert(nPortIndex < artnetnode::MAX_PORTS);
 
-	if (outputStyle == GetOutputStyle(nPortIndex)) {
+	if ((outputStyle == GetOutputStyle(nPortIndex)) && (m_State.status == artnet::Status::ON)) {
 		return;
 	}
 
