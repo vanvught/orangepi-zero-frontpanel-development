@@ -1,8 +1,8 @@
 /**
- * @file networkparamsconst.h
+ * @file malloc.h
  *
  */
-/* Copyright (C) 2021-2024 by Arjan van Vught mailto:info@gd32-dmx.org
+/* Copyright (C) 2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,28 +23,9 @@
  * THE SOFTWARE.
  */
 
-#ifndef NETWORKPARAMSCONST_H_
-#define NETWORKPARAMSCONST_H_
+#ifndef H3_MALLOC_H_
+#define H3_MALLOC_H_
 
-struct NetworkParamsConst {
-	static const char FILE_NAME[];
+static struct block_bucket s_block_bucket[] __attribute__((aligned(4))) = {{0x40, 0}, {0x400,0}, {0x1000,0}, {0x4000,0}, {0x40000,0}, {0x80000,0}, {0,0}};
 
-	static const char USE_DHCP[];
-	static const char DHCP_RETRY_TIME[];
-
-	static const char IP_ADDRESS[];
-	static const char NET_MASK[];
-	static const char DEFAULT_GATEWAY[];
-	static const char HOSTNAME[];
-
-	static const char NTP_SERVER[];
-
-#if defined (ESP8266)
-	static const char NAME_SERVER[];
-
-	static const char SSID[];
-	static const char PASSWORD[];
-#endif
-};
-
-#endif /* NETWORKPARAMSCONST_H_ */
+#endif /* H3_MALLOC_H_ */

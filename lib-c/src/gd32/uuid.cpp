@@ -1,14 +1,14 @@
 /**
- * @file networkparamsconst.h
+ * @file uuid.cpp
  *
  */
-/* Copyright (C) 2021-2024 by Arjan van Vught mailto:info@gd32-dmx.org
+/* Copyright (C) 2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
+ * copies of thnDmxDataDirecte Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
 
  * The above copyright notice and this permission notice shall be included in
@@ -23,28 +23,36 @@
  * THE SOFTWARE.
  */
 
-#ifndef NETWORKPARAMSCONST_H_
-#define NETWORKPARAMSCONST_H_
+#include <cstdint>
+#include <cstring>
+#include <uuid/uuid.h>
 
-struct NetworkParamsConst {
-	static const char FILE_NAME[];
+#include "gd32.h"
 
-	static const char USE_DHCP[];
-	static const char DHCP_RETRY_TIME[];
+namespace hal {
+typedef union pcast32 {
+	uuid_t uuid;
+	uint32_t u32[4];
+} _pcast32;
 
-	static const char IP_ADDRESS[];
-	static const char NET_MASK[];
-	static const char DEFAULT_GATEWAY[];
-	static const char HOSTNAME[];
+void uuid_init(uuid_t out) {
+	_pcast32 cast;
 
-	static const char NTP_SERVER[];
-
-#if defined (ESP8266)
-	static const char NAME_SERVER[];
-
-	static const char SSID[];
-	static const char PASSWORD[];
+#if defined (GD32H7XX)
+	cast.u32[0] = REG32(0x1FF0F7E8);
+	cast.u32[1] = REG32(0x1FF0F7EC);
+	cast.u32[2] = REG32(0x1FF0F7F0);
+#elif defined (GD32F4XX)
+	cast.u32[0] = REG32(0x1FFF7A10);
+	cast.u32[1] = REG32(0x1FFF7A14);
+	cast.u32[2] = REG32(0x1FFF7A18);
+#else
+	cast.u32[0] = REG32(0x1FFFF7E8);
+	cast.u32[1] = REG32(0x1FFFF7EC);
+	cast.u32[2] = REG32(0x1FFFF7F0);
 #endif
-};
+	cast.u32[3] = cast.u32[0] + cast.u32[1] + cast.u32[2];
 
-#endif /* NETWORKPARAMSCONST_H_ */
+	memcpy(out, cast.uuid, sizeof(uuid_t));
+}
+}  // namespace hal

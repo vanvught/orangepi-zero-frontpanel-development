@@ -1,8 +1,8 @@
 /**
- * @file networkparamsconst.cpp
+ * @file envparamsconst.cpp
  *
  */
-/* Copyright (C) 2021 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,25 +23,8 @@
  * THE SOFTWARE.
  */
 
-#include "networkparamsconst.h"
+#include "envparamsconst.h"
 
-const char NetworkParamsConst::FILE_NAME[] = "network.txt";
+const char EnvParamsConst::FILE_NAME[] = "env.txt";
 
-const char NetworkParamsConst::USE_DHCP[] = "use_dhcp";
-const char NetworkParamsConst::DHCP_RETRY_TIME[] = "dhcp_retry_time";
-
-const char NetworkParamsConst::IP_ADDRESS[] = "ip_address";
-const char NetworkParamsConst::NET_MASK[] = "net_mask";
-const char NetworkParamsConst::DEFAULT_GATEWAY[] = "default_gateway";
-const char NetworkParamsConst::HOSTNAME[] = "hostname";
-
-const char NetworkParamsConst::NTP_SERVER[] = "ntp_server";
-const char NetworkParamsConst::NTP_UTC_OFFSET[] = "ntp_utc_offset";
-
-#if defined (ESP8266)
- const char NetworkParamsConst::NAME_SERVER[] = "name_server";
-
- const char NetworkParamsConst::SSID[] = "ssid";
- const char NetworkParamsConst::PASSWORD[] = "password";
-#endif
-
+const char EnvParamsConst::UTC_OFFSET[] = "utc_offset";

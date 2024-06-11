@@ -26,14 +26,14 @@
 #pragma GCC push_options
 #pragma GCC optimize ("O2")
 
-#include <stddef.h>
+#include <cstddef>
 #include <sys/time.h>
-#include <stdint.h>
-#include <assert.h>
+#include <cstdint>
+#include <cassert>
 
 extern volatile uint32_t s_nSysTickMillis;
 
-static uint32_t set_timer;
+static uint32_t nPreviousSysTickMillis;
 static struct timeval s_tv;
 
 /*
@@ -41,30 +41,31 @@ static struct timeval s_tv;
  *     1970-01-01 00:00:00 +0000 (UTC).
  */
 
-int gettimeofday(struct timeval *tv, __attribute__((unused))   struct timezone *tz) {
+extern "C" {
+int gettimeofday(struct timeval *tv, __attribute__((unused))    struct timezone *tz) {
 	assert(tv != 0);
 
-	const uint32_t timer = s_nSysTickMillis; // Millis timer
+	const auto nCurrentSysTickMillis = s_nSysTickMillis;
 
-	uint32_t millis_elapsed;
+	uint32_t nMillisElapsed;
 
-	if (set_timer >= timer) {
-		millis_elapsed = set_timer - timer;
+	if (nCurrentSysTickMillis >= nPreviousSysTickMillis) {
+		nMillisElapsed = nCurrentSysTickMillis - nPreviousSysTickMillis;
 	} else {
-		millis_elapsed = timer - set_timer;
+		nMillisElapsed = (UINT32_MAX - nPreviousSysTickMillis) + nCurrentSysTickMillis + 1;
 	}
 
-	set_timer = timer;
+	nPreviousSysTickMillis = nCurrentSysTickMillis;
 
-	uint32_t sec = millis_elapsed / 1000U;
-	const uint32_t usec = (millis_elapsed - (sec * 1000U)) * 1000U;
+	const auto nSeconds = nMillisElapsed / 1000U;
+	const auto nMicroSeconds = (nMillisElapsed % 1000U) * 1000U;
 
-	s_tv.tv_sec += (time_t)sec;
-	s_tv.tv_usec += (suseconds_t)usec;
+	s_tv.tv_sec += static_cast<time_t>(nSeconds);
+	s_tv.tv_usec += static_cast<suseconds_t>(nMicroSeconds);
 
 	if (s_tv.tv_usec >= 1000000) {
 		s_tv.tv_sec++;
-		s_tv.tv_usec = 1000000 - s_tv.tv_usec;
+		s_tv.tv_usec -= 1000000;
 	}
 
 	tv->tv_sec = s_tv.tv_sec;
@@ -76,7 +77,7 @@ int gettimeofday(struct timeval *tv, __attribute__((unused))   struct timezone *
 int settimeofday(const struct timeval *tv, __attribute__((unused))  const struct timezone *tz) {
 	assert(tv != 0);
 
-	set_timer = s_nSysTickMillis;
+	nPreviousSysTickMillis = s_nSysTickMillis;
 
 	s_tv.tv_sec = tv->tv_sec;
 	s_tv.tv_usec = tv->tv_usec;
@@ -97,4 +98,5 @@ time_t time(time_t *__timer) {
 	}
 
 	return tv.tv_sec;
+}
 }

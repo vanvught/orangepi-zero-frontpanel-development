@@ -1,5 +1,5 @@
 /**
- * @file networkparamsconst.h
+ * @file networkparamsconst.cpp
  *
  */
 /* Copyright (C) 2021-2024 by Arjan van Vught mailto:info@gd32-dmx.org
@@ -23,28 +23,24 @@
  * THE SOFTWARE.
  */
 
-#ifndef NETWORKPARAMSCONST_H_
-#define NETWORKPARAMSCONST_H_
+#include "networkparamsconst.h"
 
-struct NetworkParamsConst {
-	static const char FILE_NAME[];
+const char NetworkParamsConst::FILE_NAME[] = "network.txt";
 
-	static const char USE_DHCP[];
-	static const char DHCP_RETRY_TIME[];
+const char NetworkParamsConst::USE_DHCP[] = "use_dhcp";
+const char NetworkParamsConst::DHCP_RETRY_TIME[] = "dhcp_retry_time";
 
-	static const char IP_ADDRESS[];
-	static const char NET_MASK[];
-	static const char DEFAULT_GATEWAY[];
-	static const char HOSTNAME[];
+const char NetworkParamsConst::IP_ADDRESS[] = "ip_address";
+const char NetworkParamsConst::NET_MASK[] = "net_mask";
+const char NetworkParamsConst::DEFAULT_GATEWAY[] = "default_gateway";
+const char NetworkParamsConst::HOSTNAME[] = "hostname";
 
-	static const char NTP_SERVER[];
+const char NetworkParamsConst::NTP_SERVER[] = "ntp_server";
 
 #if defined (ESP8266)
-	static const char NAME_SERVER[];
+ const char NetworkParamsConst::NAME_SERVER[] = "name_server";
 
-	static const char SSID[];
-	static const char PASSWORD[];
+ const char NetworkParamsConst::SSID[] = "ssid";
+ const char NetworkParamsConst::PASSWORD[] = "password";
 #endif
-};
 
-#endif /* NETWORKPARAMSCONST_H_ */

@@ -1,5 +1,5 @@
 /**
- * @file debug.h
+ * @file debug_dump.cpp
  *
  */
 /* Copyright (C) 2018-2024 by Arjan van Vught mailto:info@gd32-dmx.org
@@ -23,35 +23,72 @@
  * THE SOFTWARE.
  */
 
-#ifndef DEBUG_H_
-#define DEBUG_H_
+#include <cstdio>
+#include <cstdint>
+#include <ctype.h>
 
-#ifndef NDEBUG
- #include <stdio.h>
- #define DEBUG_ENTRY	printf("--> %s:%s:%d\n", __FILE__, __func__, __LINE__);
- #define DEBUG_EXIT		printf("<-- %s:%s:%d\n", __FILE__, __func__, __LINE__);
-#else
- #define DEBUG_ENTRY	((void)0);
- #define DEBUG_EXIT		((void)0);
+#if defined (H3)
+extern "C" int uart0_printf(const char* fmt, ...);
+# define printf uart0_printf
 #endif
 
-#ifdef NDEBUG
- #define DEBUG_PRINTF(FORMAT, ...)	((void)0)
- #define DEBUG_PUTS(MSG)			((void)0)
- #define debug_dump(x,y)			((void)0)
- #define debug_print_bits(x)		((void)0)
-#else
- #include <stdint.h>
- void debug_dump(const void *, uint32_t);
- void debug_print_bits(uint32_t);
- #if defined (__linux__) || defined (__CYGWIN__)
-  #define DEBUG_PRINTF(FORMAT, ...) \
-    fprintf(stderr, "%s() %s, line %i: " FORMAT "\n", __func__, __FILE__, __LINE__, __VA_ARGS__)
- #else
-  #define DEBUG_PRINTF(FORMAT, ...) \
-    printf("%s() %s, line %i: " FORMAT "\n", __func__, __FILE__, __LINE__, __VA_ARGS__)
- #endif
- #define DEBUG_PUTS(MSG) DEBUG_PRINTF("%s", MSG)
-#endif
+static constexpr uint32_t CHARS_PER_LINE = 16;
 
-#endif /* DEBUG_H_ */
+void debug_dump(const void *pData, uint32_t nSize) {
+	uint32_t chars = 0;
+	const auto *p = reinterpret_cast<const uint8_t *>(pData);
+
+	printf("%p:%d\n", pData, nSize);
+
+	do {
+		uint32_t chars_this_line = 0;
+
+		printf("%04x ", chars);
+
+		const auto *q = p;
+
+		while ((chars_this_line < CHARS_PER_LINE) && (chars < nSize)) {
+			if (chars_this_line % 8 == 0) {
+				printf(" ");
+			}
+
+			printf("%02x ", *p);
+
+			chars_this_line++;
+			chars++;
+			p++;
+		}
+
+		auto chars_dot_line = chars_this_line;
+
+		for (; chars_this_line < CHARS_PER_LINE; chars_this_line++) {
+			if (chars_this_line % 8 == 0) {
+				printf(" ");
+			}
+			printf("   ");
+
+		}
+
+		chars_this_line = 0;
+
+		while (chars_this_line < chars_dot_line) {
+			if (chars_this_line % 8 == 0) {
+				printf(" ");
+			}
+
+			int ch = *q;
+			if (isprint(ch)) {
+				printf("%c", ch);
+			} else {
+				printf(".");
+			}
+
+			chars_this_line++;
+			q++;
+		}
+
+		puts("");
+
+	} while (chars < nSize);
+
+}

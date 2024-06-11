@@ -163,7 +163,7 @@ void FlashCodeInstall::Close() {
 }
 
 bool FlashCodeInstall::BuffersCompare(uint32_t nSize) {
-	DEBUG1_ENTRY
+	DEBUG_ENTRY
 
 	assert(nSize <= m_nEraseSize);
 
@@ -175,7 +175,7 @@ bool FlashCodeInstall::BuffersCompare(uint32_t nSize) {
 
 	while (nSize >= 4) {
 		if (*pSrc32++ != *pDst32++) {
-			DEBUG1_EXIT
+			DEBUG_EXIT
 			return false;
 		}
 		nSize -= 4;
@@ -186,12 +186,12 @@ bool FlashCodeInstall::BuffersCompare(uint32_t nSize) {
 
 	while (nSize--) {
 		if (*pSrc8++ != *pDst8++) {
-			DEBUG1_EXIT
+			DEBUG_EXIT
 			return false;
 		}
 	}
 
-	DEBUG1_EXIT
+	DEBUG_EXIT
 	return true;
 }
 

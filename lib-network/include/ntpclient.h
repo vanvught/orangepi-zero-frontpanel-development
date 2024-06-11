@@ -2,7 +2,7 @@
  * @file ntpclient.h
  *
  */
-/* Copyright (C) 2019-2024 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2019-2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -45,11 +45,15 @@ void display_status(const ::ntp::Status status);
 
 class NtpClient {
 public:
-	NtpClient(const uint32_t nServerIp = 0);
+	NtpClient();
 
 	void Start();
 	void Stop();
 	void Print();
+
+	void SetServerIp(const uint32_t nServerIp) {
+		m_nServerIp = nServerIp;
+	}
 
 	ntp::Status GetStatus() const {
 		return m_Status;
@@ -120,7 +124,6 @@ private:
 
 private:
 	uint32_t m_nServerIp;
-	int32_t m_nUtcOffset;
 	int32_t m_nHandle { -1 };
 	uint32_t m_MillisRequest { 0 };
 	uint32_t m_MillisLastPoll { 0 };

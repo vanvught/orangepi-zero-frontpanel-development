@@ -113,10 +113,6 @@ ifdef DMX
 	LIBS+=dmx
 endif
 
-ifeq ($(findstring e131,$(LIBS)),e131)
-	LIBS+=uuid
-endif
-
 ifeq ($(findstring OUTPUT_DDP_PIXEL_MULTI,$(DEFINES)),OUTPUT_DDP_PIXEL_MULTI)
 	LIBS+=ws28xxdmx ws28xx jamstapl
 else

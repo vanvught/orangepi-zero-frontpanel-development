@@ -1,8 +1,8 @@
 /**
- * @file debug_print_bits.c
+ * @file malloc.h
  *
  */
-/* Copyright (C) 2018-2021 by Arjan van Vught mailto:info@gd32-dmx.org
+/* Copyright (C) 2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,26 +23,9 @@
  * THE SOFTWARE.
  */
 
-#include <stdio.h>
-#include <stdint.h>
+#ifndef GD32_MALLOC_H_
+#define GD32_MALLOC_H_
 
-#if defined (H3)
-extern int uart0_printf(const char* fmt, ...);
-# define printf uart0_printf
-#endif
+static struct block_bucket s_block_bucket[] __attribute__((aligned(4))) = {{0x10, 0}, {0x20, 0}, {0x40, 0}, {0x60, 0}, {0x80,0}, {0x100,0}, {0x140,0}, {0x180,0}, {0x200,0}, {0x300,0}, {0x400,0}, {0x500,0}, {0,0}};
 
-void debug_print_bits(uint32_t u) {
-	uint32_t i;
-
-	uint32_t b = 1U << 31;
-
-	for (i = 0; i < 32; i++) {
-		if ((b & u) == b) {
-			uint32_t bit_number = 31 - i;
-			printf("%-2d ", bit_number);
-		}
-		b = b >> 1;
-	}
-
-	printf("\n");
-}
+#endif /* GD32_MALLOC_H_ */

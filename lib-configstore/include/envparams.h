@@ -1,8 +1,8 @@
 /**
- * @file debug_print_bits.c
+ * @file envparams.h
  *
  */
-/* Copyright (C) 2018-2021 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,26 +23,26 @@
  * THE SOFTWARE.
  */
 
-#include <stdio.h>
-#include <stdint.h>
+#ifndef ENVPARAMS_H_
+#define ENVPARAMS_H_
 
-#if defined (H3)
-extern int uart0_printf(const char* fmt, ...);
-# define printf uart0_printf
-#endif
+#include <cstdint>
 
-void debug_print_bits(uint32_t u) {
-	uint32_t i;
+class EnvParams {
+public:
+	EnvParams();
 
-	uint32_t b = 1U << 31;
+	void LoadAndSet();
+	void LoadAndSet(const char *pBuffer, uint32_t nLength);
 
-	for (i = 0; i < 32; i++) {
-		if ((b & u) == b) {
-			uint32_t bit_number = 31 - i;
-			printf("%-2d ", bit_number);
-		}
-		b = b >> 1;
-	}
+	void Builder(char *pBuffer, uint32_t nLength, uint32_t& nSize);
 
-	puts("");
-}
+public:
+    static void staticCallbackFunction(void *p, const char *s);
+
+private:
+	void Dump();
+    void callbackFunction(const char *s);
+};
+
+#endif /* ENVPARAMS_H_ */

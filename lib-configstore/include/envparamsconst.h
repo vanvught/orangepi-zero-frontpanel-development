@@ -1,8 +1,8 @@
 /**
- * @file networkparamsconst.h
+ * @file envparamsconst.h
  *
  */
-/* Copyright (C) 2021-2024 by Arjan van Vught mailto:info@gd32-dmx.org
+/* Copyright (C) 2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,28 +23,13 @@
  * THE SOFTWARE.
  */
 
-#ifndef NETWORKPARAMSCONST_H_
-#define NETWORKPARAMSCONST_H_
+#ifndef ENVPARAMSCONST_H_
+#define ENVPARAMSCONST_H_
 
-struct NetworkParamsConst {
+struct EnvParamsConst {
 	static const char FILE_NAME[];
 
-	static const char USE_DHCP[];
-	static const char DHCP_RETRY_TIME[];
-
-	static const char IP_ADDRESS[];
-	static const char NET_MASK[];
-	static const char DEFAULT_GATEWAY[];
-	static const char HOSTNAME[];
-
-	static const char NTP_SERVER[];
-
-#if defined (ESP8266)
-	static const char NAME_SERVER[];
-
-	static const char SSID[];
-	static const char PASSWORD[];
-#endif
+	static const char UTC_OFFSET[];
 };
 
-#endif /* NETWORKPARAMSCONST_H_ */
+#endif /* ENVPARAMSCONST_H_ */
