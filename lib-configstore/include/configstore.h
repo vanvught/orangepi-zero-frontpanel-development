@@ -107,6 +107,8 @@ public:
 	bool SetEnvUtcOffset(const int8_t nHours, const uint8_t nMinutes) {
 		int32_t nUtcOffset;
 
+		DEBUG_PRINTF("nHours=%d, nMinutes =%u", nHours, nMinutes);
+
 		if (hal::utc_validate(nHours, nMinutes, nUtcOffset)) {
 			auto *p = reinterpret_cast<struct Env *>(&s_SpiFlashData[FlashStore::SIGNATURE_SIZE]);
 
@@ -115,9 +117,11 @@ public:
 				s_State = configstore::State::CHANGED;
 			}
 
+			DEBUG_EXIT
 			return true;
 		}
 
+		DEBUG_EXIT
 		return false;
 	}
 

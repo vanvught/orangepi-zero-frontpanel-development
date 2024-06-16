@@ -23,8 +23,6 @@
  * THE SOFTWARE.
  */
 
-#undef NDEBUG
-
 #include <cstdint>
 #include <cstdio>
 #include <cstring>
@@ -41,8 +39,6 @@
 #include "hardware.h"
 
 #include "debug.h"
-
-static constexpr auto RETRIES = 3;
 
 /* How to multiply by 4294.967296 quickly (and not quite exactly)
  * without using floating point or greater than 32-bit integers.

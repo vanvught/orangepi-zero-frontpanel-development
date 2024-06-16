@@ -115,6 +115,13 @@ ConfigStore::ConfigStore() {
 
 	assert(s_nSpiFlashStoreSize <= FlashStore::SIZE);
 
+	for (uint32_t nStore = 0; nStore < static_cast<uint32_t>(Store::LAST); nStore++) {
+		auto *pSet = reinterpret_cast<uint32_t *>((&s_SpiFlashData[GetStoreOffset(static_cast<Store>(nStore))]));
+		if (*pSet == UINT32_MAX) {
+			*pSet = 0;
+		}
+	}
+
 	auto *p = reinterpret_cast<struct Env *>(&s_SpiFlashData[FlashStore::SIGNATURE_SIZE]);
 	if (p->nUtcOffset == -1) {
 		p->nUtcOffset = 0;
@@ -184,7 +191,7 @@ void ConfigStore::Update(Store store, uint32_t nOffset, const void *pData, uint3
 	}
 
 	if (bIsChanged){
-		auto *pSet = reinterpret_cast<uint32_t*>((&s_SpiFlashData[GetStoreOffset(store)] + nOffsetSetList));
+		auto *pSet = reinterpret_cast<uint32_t *>((&s_SpiFlashData[GetStoreOffset(store)] + nOffsetSetList));
 		*pSet |= nSetList;
 	}
 

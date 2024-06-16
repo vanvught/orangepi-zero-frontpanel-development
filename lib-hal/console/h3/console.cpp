@@ -2,7 +2,7 @@
  * @file console.c
  *
  */
-/* Copyright (C) 2019-2023 by Arjan van Vught mailto:info@orangepi-dmx.nl
+/* Copyright (C) 2019-2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -71,6 +71,7 @@ void __attribute__((cold)) console_init(void) {
 	}
 }
 
+extern "C" {
 uint32_t console_get_line_width(void) {
 	return FB_WIDTH / FB_CHAR_W;
 }
@@ -377,5 +378,6 @@ void console_clear_top_row(void) {
 
 void console_putpixel(uint32_t x, uint32_t y, uint32_t color) {
 	draw_pixel(x, y, color);
+}
 }
 

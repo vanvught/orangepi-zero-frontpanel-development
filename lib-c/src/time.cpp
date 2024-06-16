@@ -54,15 +54,22 @@ static int getdaysofmonth(const int month, const int year) {
 static struct tm Tm;
 
 extern "C" {
-struct tm *localtime(const time_t *pTime) {
-	int nYear;
-	int nMonth;
 
+struct tm *localtime(const time_t *pTime) {
 	if (pTime == 0) {
-		return NULL;
+		return nullptr;
 	}
 
 	auto nTime = *pTime + *global::gp_nUtcOffset;
+	return gmtime(&nTime);
+}
+
+struct tm *gmtime(const time_t *pTime) {
+	if (pTime == 0) {
+		return nullptr;
+	}
+
+	auto nTime = *pTime;
 
 	Tm.tm_sec = nTime % 60;
 	nTime /= 60;
@@ -73,7 +80,7 @@ struct tm *localtime(const time_t *pTime) {
 
 	Tm.tm_wday = (nTime + 4) % 7;
 
-	nYear = 1970;
+	int nYear = 1970;
 
 	while (1) {
 		const time_t nDaysOfYear = isleapyear(nYear) ? 366 : 365;
@@ -88,7 +95,7 @@ struct tm *localtime(const time_t *pTime) {
 	Tm.tm_year = nYear - 1900;
 	Tm.tm_yday = nTime;
 
-	nMonth = 0;
+	int nMonth = 0;
 
 	while (1) {
 		const time_t nDaysOfMonth = getdaysofmonth(nMonth, nYear);

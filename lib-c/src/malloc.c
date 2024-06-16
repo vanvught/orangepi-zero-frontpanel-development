@@ -262,7 +262,7 @@ void *realloc(void *ptr, size_t size) {
 	return newblk;
 }
 
-void mem_info(void) {
+void debug_heap(void) {
 #ifdef DEBUG_HEAP
 	struct block_bucket *pBucket;
 	struct block_header *pBlockHeader;

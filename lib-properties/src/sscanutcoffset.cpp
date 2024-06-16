@@ -86,7 +86,7 @@ Sscan::ReturnCode Sscan::UtcOffset(const char *pBuffer, const char *pName, int8_
 		return Sscan::VALUE_ERROR;
 	}
 
-	if ((p[3] == ' ') || (p[3] == 0)) {
+	if ((p[2] == ' ') || (p[2] == 0)) {
 		nMinutes = static_cast<uint8_t>((p[0] - '0') * 10);
 		nMinutes = static_cast<uint8_t>(nMinutes + (p[1] - '0'));
 

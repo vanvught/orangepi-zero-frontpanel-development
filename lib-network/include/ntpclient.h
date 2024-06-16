@@ -36,9 +36,9 @@
 #include "debug.h"
 
 namespace ntpclient {
-static constexpr uint32_t TIMEOUT_MILLIS = 3000; 	// 3 seconds
-static constexpr uint8_t POLL_POWER = 3;
-static constexpr uint32_t POLL_SECONDS = (1 << POLL_POWER);
+static constexpr uint32_t TIMEOUT_MILLIS = 3000;
+static constexpr uint8_t POLL_POWER = 10;
+static constexpr uint32_t POLL_SECONDS = (1U << POLL_POWER);
 
 void display_status(const ::ntp::Status status);
 }  // namespace ntpclient
