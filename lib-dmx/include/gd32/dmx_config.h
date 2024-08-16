@@ -52,6 +52,8 @@ namespace config {
 # include "board_gd32f470z_eval.h"
 #elif defined (BOARD_GD32F207C_EVAL)
 # include "board_gd32f207c_eval.h"
+#elif defined (BOARD_GD32H759I_EVAL)
+# include "board_gd32h759i_eval.h"
 #elif defined (BOARD_BW_OPIDMX4)
 # include "board_bw_opidmx4.h"
 #elif defined (BOARD_DMX3)
@@ -66,12 +68,15 @@ namespace config {
 
 namespace dmx {
 namespace buffer {
-static constexpr auto SIZE = 514;	// multiple of uint16_t
+static constexpr auto SIZE = 516;	// multiple of uint32_t
 }  // namespace buffer
 }  // namespace dmx
 
 #if defined(GD32F10X_HD) || defined (GD32F10X_CL)
  static_assert(DMX_MAX_PORTS <= 4, "Too many ports defined");
+#endif
+#if defined (GD32F20X_CL)
+ static_assert(DMX_MAX_PORTS <= 6, "Too many ports defined");
 #endif
 
 /**

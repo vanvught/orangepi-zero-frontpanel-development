@@ -98,6 +98,7 @@ void json_set_timeofday(const char *pBuffer, const uint32_t nBufferSize) {
 
 		struct timeval tv;
 		tv.tv_sec = mktime(&tm);
+		tv.tv_usec = 0;
 
 		if (nBufferSize == 26) {
 			assert(pBuffer[23] == 'Z');
