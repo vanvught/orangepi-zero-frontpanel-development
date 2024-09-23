@@ -1,8 +1,8 @@
 /**
- * @file http.h
+ * @file rtl8201f.h
  *
  */
-/* Copyright (C) 2021-2024 by Arjan van Vught mailto:info@gd32-dmx.org
+/* Copyright (C) 2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,30 +23,15 @@
  * THE SOFTWARE.
  */
 
-#ifndef HTTPD_HTTP_H_
-#define HTTPD_HTTP_H_
+#ifndef EMAC_PHY_RTL8201F_H_
+#define EMAC_PHY_RTL8201F_H_
 
-namespace http {
-static constexpr uint32_t BUFSIZE = 1440; //TODO We need the TCP max segment size here
-enum class Status {
-	OK = 200,
-	BAD_REQUEST = 400,
-	NOT_FOUND = 404,
-	REQUEST_TIMEOUT = 408,
-	REQUEST_ENTITY_TOO_LARGE = 413,
-	REQUEST_URI_TOO_LONG = 414,
-	INTERNAL_SERVER_ERROR = 500,
-	METHOD_NOT_IMPLEMENTED = 501,
-	VERSION_NOT_SUPPORTED = 505,
-	UNKNOWN_ERROR = 520
-};
-enum class RequestMethod {
-	GET, POST, DELETE, UNKNOWN
-};
+#include <cstdint>
 
-enum class contentTypes {
-	TEXT_HTML, TEXT_CSS, TEXT_JS, APPLICATION_JSON, APPLICATION_OCTET_STREAM, NOT_DEFINED
-};
-}  // namespace http
+namespace net::phy {
+void rtl8201f_set_rxtiming(const uint32_t nRxTiming);
+void rtl8201f_set_txtiming(const uint32_t nTxTiming);
+void rtl8201f_get_timings(uint32_t& nRxTiming, uint32_t& nTxTiming);
+}  // namespace net::phy
 
-#endif /* HTTPD_HTTP_H_ */
+#endif /* EMAC_PHY_RTL8201F_H_ */

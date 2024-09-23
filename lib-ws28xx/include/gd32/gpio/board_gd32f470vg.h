@@ -1,8 +1,8 @@
 /**
- * @file http.h
+ * @file board_gd32f470vg.h
  *
  */
-/* Copyright (C) 2021-2024 by Arjan van Vught mailto:info@gd32-dmx.org
+/* Copyright (C) 2024 by Arjan van Vught mailto:info@gd32-dmx.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,30 +23,24 @@
  * THE SOFTWARE.
  */
 
-#ifndef HTTPD_HTTP_H_
-#define HTTPD_HTTP_H_
+#ifndef GPIO_BOARD_GD32F470VG_H_
+#define GPIO_BOARD_GD32F470VG_H_
 
-namespace http {
-static constexpr uint32_t BUFSIZE = 1440; //TODO We need the TCP max segment size here
-enum class Status {
-	OK = 200,
-	BAD_REQUEST = 400,
-	NOT_FOUND = 404,
-	REQUEST_TIMEOUT = 408,
-	REQUEST_ENTITY_TOO_LARGE = 413,
-	REQUEST_URI_TOO_LONG = 414,
-	INTERNAL_SERVER_ERROR = 500,
-	METHOD_NOT_IMPLEMENTED = 501,
-	VERSION_NOT_SUPPORTED = 505,
-	UNKNOWN_ERROR = 520
-};
-enum class RequestMethod {
-	GET, POST, DELETE, UNKNOWN
-};
+#include "gd32.h"
 
-enum class contentTypes {
-	TEXT_HTML, TEXT_CSS, TEXT_JS, APPLICATION_JSON, APPLICATION_OCTET_STREAM, NOT_DEFINED
-};
-}  // namespace http
+#define RCU_GPIOx				RCU_GPIOE
+#define GPIOx					GPIOE
+#define GPIO_PINx				GPIO_PIN_ALL
+#define GPIO_PIN_OFFSET			0U
 
-#endif /* HTTPD_HTTP_H_ */
+#define MASTER_TIMER_CLOCK		(APB2_CLOCK_FREQ * 2)
+
+/**
+ * Implementation note: CLOCK is Timer 2 Channel 0 is GPIOA6
+ */
+
+#define DEBUG_CS_RCU_GPIOx		RCU_GPIOA
+#define DEBUG_CS_GPIOx			GPIOA
+#define DEBUG_CS_GPIO_PINx		GPIO_PIN_14
+
+#endif /* GPIO_BOARD_GD32F470VG_H_ */
